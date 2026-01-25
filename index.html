@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exclusive</title>
+    <meta name="description" content="A full-stack E-Commerce web application inspired by a modern Figma design">
+    <meta name="keywords" content="E-Commerce,poducts,exclusive">
+    <meta name="author" content="react group 2">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <!-- fontawesome -->
+    <link href="./assets/css/all.min.css" rel="stylesheet">
+    <!-- tailwind -->
+    <link href="./assets/css/output.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- start Top Banner -->
+    <div class="bg-black text-white py-2 text-sm relative z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <!-- sales -->
+            <div class="sm:ms-24 text-center flex-1 sm:text-sm text-xs">
+                Summer Sale For All Swim Suits And Free Express Delivery – OFF 50%!
+                <a href="#" class="underline ml-1 font-semibold">ShopNow</a>
+            </div>
+            <!-- selected language -->
+            <div class="relative group w-24 flex justify-end">
+                <div class="flex items-center gap-2 cursor-pointer hover:text-gray-300 transition-colors">
+                    <span>English</span>
+                    <i
+                        class="fa-solid fa-angle-down text-xs mt-0.5 transition-transform duration-300 group-hover:rotate-180"></i>
+                </div>
+                <!-- language menu -->
+                <div
+                    class="absolute top-full right-0 mt-2 w-32 bg-black text-white border border-white/20 rounded shadow-xl opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 flex flex-col py-1 z-50 [&_a]:px-4 [&_a]:py-2 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:text-left">
+                    <a href="#" class=" flex justify-between items-center">
+                        English
+                        <i class="fa-solid fa-check text-xs text-green-500"></i>
+                    </a>
+                    <a href="#">
+                        Arabic
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end Top Banner -->
+
+    <!-- start Navbar -->
+    <nav class="navbar border-b border-gray-200 dark:border-gray-700 dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- logo -->
+                <div class="shrink-0 font-bold text-xl">
+                    Exclusive
+                </div>
+                <!-- links -->
+                <div class="hidden md:flex gap-x-6 [&_a]:hover:text-primary font-medium">
+                    <a href="#" class="link-active">Home</a>
+                    <a href="#">Contact</a>
+                    <a href="#">About</a>
+                    <a href="#">Sign Up</a>
+                </div>
+                <!-- search & moblie menu & icons -->
+                <div
+                    class="flex items-center space-x-4 [&_i]:cursor-pointer [&_i]:transition-colors [&_i]:duration-300 [&_i]:hover:text-gray-700">
+                    <!-- search -->
+                    <div class="relative hidden sm:block">
+                        <input id="search" name="search" type="search" placeholder="What are you looking for?"
+                            class="border border-gray-300 rounded-md py-1.5 px-4 pr-10 bg-gray-100 focus:outline-none focus:bg-white focus:ring-1 focus:ring-black text-sm w-52 transition-all placeholder:text-xs placeholder:text-secondary">
+                        <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                    </div>
+                    <!-- moblie menu links -->
+                    <div class="md:hidden relative group">
+                        <div class="cursor-pointer hover:text-primary transition-colors">
+                            <i class="fa-solid fa-bars text-xl"></i>
+                        </div>
+                        <div
+                            class="absolute mt-2 top-full left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 group-hover:translate-y-0 translate-y-2">
+                            <ul
+                                class="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl flex flex-col mt-2 [&_a]:px-5 [&_a]:py-3 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:border-none!">
+                                <a href="#" class="border-b border-white/10 first:rounded-t-lg link-active">
+                                    Home
+                                </a>
+                                <a href="#" class="border-b border-white/10">
+                                    Contact
+                                </a>
+                                <a href="#" class="border-b border-white/10">
+                                    About
+                                </a>
+                                <a href="#" class="last:rounded-b-lg">
+                                    Sign Up
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- wishlist -->
+                    <div class="relative">
+                        <a href="#">
+                            <i class="fa-regular fa-heart text-xl"></i>
+                            <span
+                                class="absolute -top-1 -right-2 bg-primary text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center border border-white">
+                                2
+                            </span>
+                        </a>
+                    </div>
+                    <!-- cart -->
+                    <div class="  relative">
+                        <a href="#">
+                            <i class="fa-solid fa-cart-shopping text-xl"></i>
+                            <span
+                                class="absolute -top-1 -right-2 bg-primary text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center border border-white">
+                                2
+                            </span>
+                        </a>
+                    </div>
+                    <!-- user -->
+                    <div class="relative group">
+                        <div
+                            class="size-9 bg-primary rounded-full flex justify-center items-center cursor-pointer hover:bg-red-600 transition-colors">
+                            <i class="fa-regular fa-user text-lg text-white"></i>
+                        </div>
+                        <!-- user menu -->
+                        <div
+                            class="absolute right-0 top-full mt-2 w-56 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-20 transform group-hover:translate-y-0 translate-y-2">
+                            <ul
+                                class="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl [&_li]:px-4 [&_li]:py-3 [&_li]:hover:bg-white/10 [&_li]:cursor-pointer [&_li]:flex [&_li]:items-center [&_li]:gap-3 [&_li]:transition-colors [&_li]:hover:text-primary [&_i]:hover:text-primary">
+                                <li>
+                                    <i class="fa-regular fa-user text-lg"></i>
+                                    <span>Manage My Account</span>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-box-open text-lg"></i>
+                                    <span>My Order</span>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-circle-xmark text-lg"></i>
+                                    <span>My Cancellations</span>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-star text-lg"></i>
+                                    <span>My Reviews</span>
+                                </li>
+                                <li class="text-white mt-1 border-t border-white/10">
+                                    <i class="fa-solid fa-arrow-right-from-bracket text-lg"></i>
+                                    <span>Logout</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- theme toggle -->
+                    <div class="relative">
+                        <button id="theme-toggle" class="cursor-pointer hover:text-primary transition-colors mt-1">
+                            <i class="fa-regular fa-moon text-xl dark:hidden!"></i>
+                            <i class="fa-regular fa-sun text-xl hidden! dark:block! text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- end Navbar -->
+
+    <!-- JS -->
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>
