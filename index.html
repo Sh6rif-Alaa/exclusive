@@ -74,7 +74,7 @@
                     <!-- search -->
                     <div class="relative hidden sm:block">
                         <input id="search" name="search" type="search" placeholder="What are you looking for?"
-                            class="border border-gray-300 rounded-md py-1.5 px-4 pr-10 bg-gray-100 focus:outline-none focus:bg-white focus:ring-1 focus:ring-black text-sm w-52 transition-all placeholder:text-xs placeholder:text-secondary">
+                            class="border border-gray-300 rounded-md py-1.5 px-4 pr-10 bg-gray-100 focus:outline-none focus:bg-white focus:ring-1 focus:ring-black text-sm w-52 transition-all text-slate-800 placeholder:text-xs placeholder:text-secondary">
                         <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
@@ -169,6 +169,68 @@
         </div>
     </nav>
     <!-- end Navbar -->
+
+    <main>
+        <!-- hero -->
+        <section>
+            <div class="max-w-7xl flex gap-6 mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- categories -->
+                <div class="border-r border-gray-200 dark:border-gray-700 pe-4">
+                    <ul class="space-y-4 mt-8 [&_a]:hover:text-primary [&_a]:transition-colors [&_a]:duration-300">
+                        <li>
+                            <a href="#" class="flex items-center justify-between gap-x-12">
+                                Woman’s Fashion
+                                <i class="fa-solid fa-angle-right text-xs"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center justify-between gap-x-12">
+                                Men’s Fashion
+                                <i class="fa-solid fa-angle-right text-xs"></i>
+                            </a>
+                        </li>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Home & Lifestyle</a></li>
+                        <li><a href="#">Medicine</a></li>
+                        <li><a href="#">Sports & Outdoor</a></li>
+                        <li><a href="#">Baby’s & Toys</a></li>
+                        <li><a href="#">Groceries & Pets</a></li>
+                        <li><a href="#">Health & Beauty</a></li>
+                    </ul>
+                </div>
+                <!-- slider -->
+                <div class="mt-8 relative bg-black flex-1 flex justify-between p-12">
+                    <!-- slider content -->
+                    <div class="text-white space-y-6">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-brands fa-apple text-5xl"></i>
+                            <p>iPhone 14 Series</p>
+                        </div>
+                        <p class="text-5xl font-semibold leading-15 font-inter">Up to 10% </br> off Voucher</p>
+                        <div class="flex items-center gap-x-4">
+                            <a href="#"
+                                class="underline underline-offset-8 hover:text-primary transition-colors duration-300">
+                                Shop Now
+                            </a>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                    <!-- slider image -->
+                    <div class="-mt-8">
+                        <img src="./assets/images/hero-slide1.webp" class="w-full block" alt="iPhone 14">
+                    </div>
+                    <!-- Slider indicators -->
+                    <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 [&_button]:w-3 [&_button]:h-3 [&_button]:rounded-full [&_button]:bg-gray-500 [&_button]:hover:bg-primary [&_button]:transition-colors [&_button]:duration-300">
+                        <button type="button" class=""></button>
+                        <button type="button" class=""></button>
+                        <button type="button" class="bg-primary!"></button>
+                        <button type="button" class=""></button>
+                        <button type="button" class=""></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- JS -->
     <script src="./assets/js/index.js"></script>
