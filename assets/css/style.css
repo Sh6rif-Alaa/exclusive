@@ -17,5 +17,5 @@ body {
 
 /* navbar active page link */
 .link-active {
-    @apply border-b-2 border-secondary text-primary;
+    @apply border-b-2 border-secondary text-primary font-bold;
 }
