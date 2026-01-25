@@ -12,7 +12,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 body {
-    @apply transition-colors duration-200 dark:bg-gray-900 dark:text-white;
+    @apply transition-colors duration-200 dark:bg-slate-900 dark:text-white;
 }
 
 /* navbar active page link */

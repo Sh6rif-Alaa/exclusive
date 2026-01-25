@@ -6,9 +6,9 @@ if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.match
     document.documentElement.classList.remove('dark');
 }
 
-const toggleBtn = document.getElementById('theme-toggle');
+const toggleThemeBtn = document.getElementById('theme-toggle');
 
-toggleBtn.addEventListener('click', () => {
+toggleThemeBtn.addEventListener('click', () => {
     if (document.documentElement.classList.contains('dark')) {
         document.documentElement.classList.remove('dark');
         localStorage.theme = 'light';
