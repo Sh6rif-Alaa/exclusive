@@ -41,6 +41,7 @@
     --color-secondary: #7D8184;
     --color-menu: #4d3b5b;
     --color-menu2: #2a2631;
+    --font-poppins: 'Poppins', sans-serif;
   }
 }
 @layer base {
@@ -818,6 +819,7 @@
   }
 }
 body {
+  font-family: var(--font-poppins);
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
