@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* custom color & fonts for our project */
+@theme {
+    /* colors */
+    --color-primary: #DB4444;
+    --color-secondary: #7D8184;
+    --color-menu: #4d3b5b;
+    --color-menu2: #2a2631;
+    /* fonts */
+    --font-poppins: 'Poppins', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+}
+
+/* dark mode by tailwind */
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+    @apply transition-colors duration-200 dark:bg-slate-900 dark:text-white font-poppins;
+}
+
+/* navbar active page link */
+.link-active {
+    @apply border-b-2 border-secondary text-primary font-bold;
+}
