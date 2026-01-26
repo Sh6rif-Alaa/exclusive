@@ -15,6 +15,21 @@
 /* dark mode by tailwind */
 @custom-variant dark (&:where(.dark, .dark *));
 
+@utility scrollbar-hide {
+    /* Firefox */
+    scrollbar-width: none;
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    /* Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+html {
+    @apply [scrollbar-width:thin] [scrollbar-color:theme(color-primary)_transparent];
+}
+
 body {
     @apply transition-colors duration-200 dark:bg-slate-900 dark:text-white font-poppins;
 }

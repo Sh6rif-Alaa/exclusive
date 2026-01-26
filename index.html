@@ -172,61 +172,335 @@
 
     <main>
         <!-- hero -->
-        <section>
-            <div class="max-w-7xl flex gap-6 mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- categories -->
-                <div class="border-r border-gray-200 dark:border-gray-700 pe-4">
-                    <ul class="space-y-4 mt-8 [&_a]:hover:text-primary [&_a]:transition-colors [&_a]:duration-300">
-                        <li>
-                            <a href="#" class="flex items-center justify-between gap-x-12">
-                                Woman’s Fashion
-                                <i class="fa-solid fa-angle-right text-xs"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-between gap-x-12">
-                                Men’s Fashion
-                                <i class="fa-solid fa-angle-right text-xs"></i>
-                            </a>
-                        </li>
-                        <li><a href="#">Electronics</a></li>
-                        <li><a href="#">Home & Lifestyle</a></li>
-                        <li><a href="#">Medicine</a></li>
-                        <li><a href="#">Sports & Outdoor</a></li>
-                        <li><a href="#">Baby’s & Toys</a></li>
-                        <li><a href="#">Groceries & Pets</a></li>
-                        <li><a href="#">Health & Beauty</a></li>
-                    </ul>
+        <section class="pb-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- categories -->
+                    <div class="hidden lg:block w-64 shrink-0 border-r border-gray-200 dark:border-gray-700 pt-10 pe-6">
+                        <ul
+                            class="space-y-6 [&_a]:hover:text-primary [&_a]:transition-colors [&_a]:duration-300 dark:text-gray-300">
+                            <li>
+                                <a href="#" class="flex items-center justify-between">
+                                    Woman’s Fashion
+                                    <i class="fa-solid fa-angle-right text-xs"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-between">
+                                    Men’s Fashion
+                                    <i class="fa-solid fa-angle-right text-xs"></i>
+                                </a>
+                            </li>
+                            <li><a href="#">Electronics</a></li>
+                            <li><a href="#">Home & Lifestyle</a></li>
+                            <li><a href="#">Medicine</a></li>
+                            <li><a href="#">Sports & Outdoor</a></li>
+                            <li><a href="#">Baby’s & Toys</a></li>
+                            <li><a href="#">Groceries & Pets</a></li>
+                            <li><a href="#">Health & Beauty</a></li>
+                        </ul>
+                    </div>
+                    <!-- slider -->
+                    <div class="mt-4 lg:mt-10 bg-black text-white flex-1 relative overflow-hidden w-full">
+                        <div
+                            class="flex flex-col-reverse md:flex-row items-center justify-between px-6 py-10 md:p-12 gap-8">
+                            <!-- slider content -->
+                            <div class="space-y-4 md:space-y-6 text-center md:text-left z-10">
+                                <div class="flex items-center justify-center md:justify-start gap-4 mb-2 md:mb-4">
+                                    <i class="fa-brands fa-apple text-3xl md:text-5xl"></i>
+                                    <p class="text-sm md:text-base mb-2">iPhone 14 Series</p>
+                                </div>
+                                <h1
+                                    class="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight font-inter mb-2 md:mb-4">
+                                    Up to 10% <br class="hidden md:block" /> off Voucher
+                                </h1>
+                                <div
+                                    class="flex items-center justify-center md:justify-start gap-x-4 group cursor-pointer w-fit mx-auto md:mx-0">
+                                    <a href="#"
+                                        class="underline underline-offset-8 group-hover:text-primary transition-colors duration-300 font-medium">
+                                        Shop Now
+                                    </a>
+                                    <i
+                                        class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+                                </div>
+                            </div>
+                            <!-- slider image -->
+                            <div class="relative w-full max-w-75 md:max-w-100 md:-mt-8">
+                                <img src="./assets/images/hero-slide1.webp" class="w-full" alt="iPhone 14">
+                            </div>
+                        </div>
+                        <!-- Slider indicators -->
+                        <div
+                            class="absolute z-30 flex -translate-x-1/2 bottom-4 left-1/2 space-x-3 [&_button]:w-3 [&_button]:h-3 [&_button]:rounded-full [&_button]:bg-gray-500 [&_button]:hover:bg-primary [&_button]:transition-colors [&_button]:duration-300 [&_button]:cursor-pointer">
+                            <button type="button" aria-label="Slide 1"></button>
+                            <button type="button" aria-label="Slide 2"></button>
+                            <button type="button" class="bg-primary!" aria-label="Slide 3"></button>
+                            <button type="button" aria-label="Slide 4"></button>
+                            <button type="button" aria-label="Slide 5"></button>
+                        </div>
+                    </div>
                 </div>
-                <!-- slider -->
-                <div class="mt-8 relative bg-black flex-1 flex justify-between p-12">
-                    <!-- slider content -->
-                    <div class="text-white space-y-6">
-                        <div class="flex items-center gap-4">
-                            <i class="fa-brands fa-apple text-5xl"></i>
-                            <p>iPhone 14 Series</p>
+            </div>
+        </section>
+        <!-- sales -->
+        <section class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- heading -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-y-4 mb-10">
+                    <div class="flex flex-col md:flex-row md:items-end gap-x-20 gap-y-4">
+                        <!-- header -->
+                        <div class="space-y-6">
+                            <div
+                                class="flex items-center gap-4 before:w-5 before:h-10 before:bg-primary before:rounded-sm before:block">
+                                <p class="text-primary font-semibold">Today’s</p>
+                            </div>
+                            <h2 class="text-3xl md:text-4xl font-semibold font-inter tracking-wider">Flash Sales</h2>
                         </div>
-                        <p class="text-5xl font-semibold leading-15 font-inter">Up to 10% </br> off Voucher</p>
-                        <div class="flex items-center gap-x-4">
-                            <a href="#"
-                                class="underline underline-offset-8 hover:text-primary transition-colors duration-300">
-                                Shop Now
-                            </a>
+                        <!-- timer -->
+                        <div
+                            class="flex items-center gap-4 md:gap-6 pb-1 [&_div]:flex [&_div]:flex-col [&_p]:text-xs [&_p]:font-medium [&_span]:text-3xl [&_span]:font-bold [&_span]:font-inter [&_span]:leading-none">
+                            <div>
+                                <p>Days</p>
+                                <span>03</span>
+                            </div>
+                            <span class="text-primary">:</span>
+                            <div>
+                                <p>Hours</p>
+                                <span>23</span>
+                            </div>
+                            <span class="text-primary">:</span>
+                            <div>
+                                <p>Minutes</p>
+                                <span>19</span>
+                            </div>
+                            <span class="text-primary">:</span>
+                            <div>
+                                <p>Seconds</p>
+                                <span>56</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- scroll buttons -->
+                    <div
+                        class="flex gap-2 self-end md:self-auto [&_button]:w-11 [&_button]:h-11 [&_button]:rounded-full [&_button]:bg-gray-100 [&_button]:dark:bg-gray-700 [&_button]:flex [&_button]:items-center [&_button]:justify-center [&_button]:cursor-pointer [&_button]:hover:bg-gray-200 [&_button]:dark:hover:bg-gray-600 [&_button]:transition-colors">
+                        <button>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <button>
                             <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- products cards -->
+                <div class="flex gap-8 overflow-x-auto pb-8 snap-x scroll-smooth scrollbar-hide">
+                    <!-- card -->
+                    <div class="min-w-65 snap-start relative group">
+                        <div
+                            class="w-full h-62.5 bg-gray-100 dark:bg-gray-800 rounded-md relative flex items-center justify-center overflow-hidden">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs px-3 py-1 rounded-sm z-10">-40%</span>
+                            <!-- icons  -->
+                            <div
+                                class="absolute top-3 right-3 z-20 flex flex-col gap-2 [&_button]:w-8 [&_button]:h-8 [&_button]:rounded-full [&_button]:bg-white [&_button]:dark:bg-gray-900 [&_button]:flex [&_button]:items-center [&_button]:justify-center [&_button]:cursor-pointer [&_button]:hover:bg-primary [&_button]:hover:text-white [&_button]:transition-colors [&_button]:shadow-sm">
+                                <button>
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                                <button>
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
+                            <!-- product img -->
+                            <a href="#"><img src="./assets/images/sales-1.png" alt="Gamepad"
+                                    class="w-full hover:scale-110 transition-transform duration-300">
+                            </a>
+                            <button
+                                class="absolute bottom-0 w-full bg-black text-white py-2 font-medium text-sm translate-y-full group-hover:translate-y-0 transition-transform duration-300 cursor-pointer hover:text-primary">
+                                Add To Cart
+                            </button>
+                        </div>
+
+                        <div class="mt-4 space-y-2">
+                            <h3 class="font-medium truncate hover:text-primary"><a href="#">HAVIT HV-G92 Gamepad</a>
+                            </h3>
+                            <div class="flex items-center gap-3">
+                                <span class="text-primary font-medium">$120</span>
+                                <span class="text-gray-400 line-through text-sm">$160</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-sm">
+                                <div class="text-yellow-400 text-xs">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="text-gray-400 text-xs font-semibold">(88)</span>
+                            </div>
                         </div>
                     </div>
-                    <!-- slider image -->
-                    <div class="-mt-8">
-                        <img src="./assets/images/hero-slide1.webp" class="w-full block" alt="iPhone 14">
+                    <!-- card -->
+                    <div class="min-w-65 snap-start relative group">
+                        <div
+                            class="w-full h-62.5 bg-gray-100 dark:bg-gray-800 rounded-md relative flex items-center justify-center overflow-hidden">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs px-3 py-1 rounded-sm z-10">-35%</span>
+                            <!-- icons -->
+                            <div
+                                class="absolute top-3 right-3 z-20 flex flex-col gap-2 [&_button]:w-8 [&_button]:h-8 [&_button]:rounded-full [&_button]:bg-white [&_button]:dark:bg-gray-900 [&_button]:flex [&_button]:items-center [&_button]:justify-center [&_button]:cursor-pointer [&_button]:hover:bg-primary [&_button]:hover:text-white [&_button]:transition-colors [&_button]:shadow-sm">
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                            <!-- product img -->
+                            <a href="#"><img src="./assets/images/sales-2.png" alt="Keyboard"
+                                    class="w-full hover:scale-110 transition-transform duration-300">
+                            </a>
+                            <button
+                                class="absolute bottom-0 w-full bg-black text-white py-2 font-medium text-sm translate-y-full group-hover:translate-y-0 transition-transform duration-300 cursor-pointer hover:text-primary">Add
+                                To Cart</button>
+                        </div>
+                        <div class="mt-4 space-y-2">
+                            <h3 class="font-medium truncate hover:text-primary"><a href="#">AK-900 Wired Keyboard</a>
+                            </h3>
+                            <div class="flex items-center gap-3">
+                                <span class="text-primary font-medium">$960</span>
+                                <span class="text-gray-400 line-through text-sm">$1160</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-sm">
+                                <div class="text-yellow-400 text-xs">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star text-gray-300"></i>
+                                </div>
+                                <span class="text-gray-400 text-xs font-semibold">(75)</span>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Slider indicators -->
-                    <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 [&_button]:w-3 [&_button]:h-3 [&_button]:rounded-full [&_button]:bg-gray-500 [&_button]:hover:bg-primary [&_button]:transition-colors [&_button]:duration-300">
-                        <button type="button" class=""></button>
-                        <button type="button" class=""></button>
-                        <button type="button" class="bg-primary!"></button>
-                        <button type="button" class=""></button>
-                        <button type="button" class=""></button>
+                    <!-- card -->
+                    <div class="min-w-65 snap-start relative group">
+                        <div
+                            class="w-full h-62.5 bg-gray-100 dark:bg-gray-800 rounded-md relative flex items-center justify-center overflow-hidden">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs px-3 py-1 rounded-sm z-10">-30%</span>
+                            <!-- icons -->
+                            <div
+                                class="absolute top-3 right-3 z-20 flex flex-col gap-2 [&_button]:w-8 [&_button]:h-8 [&_button]:rounded-full [&_button]:bg-white [&_button]:dark:bg-gray-900 [&_button]:flex [&_button]:items-center [&_button]:justify-center [&_button]:cursor-pointer [&_button]:hover:bg-primary [&_button]:hover:text-white [&_button]:transition-colors [&_button]:shadow-sm">
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                            <!-- product img -->
+                            <a href="#"><img src="./assets/images/sales-3.png" alt="Monitor"
+                                    class="w-full hover:scale-110 transition-transform duration-300">
+                            </a>
+                            <button
+                                class="absolute bottom-0 w-full bg-black text-white py-2 font-medium text-sm translate-y-full group-hover:translate-y-0 transition-transform duration-300 cursor-pointer hover:text-primary">Add
+                                To Cart</button>
+                        </div>
+                        <div class="mt-4 space-y-2">
+                            <h3 class="font-medium truncate hover:text-primary"><a href="#">IPS LCD Gaming Monitor</a>
+                            </h3>
+                            <div class="flex items-center gap-3">
+                                <span class="text-primary font-medium">$370</span>
+                                <span class="text-gray-400 line-through text-sm">$400</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-sm">
+                                <div class="text-yellow-400 text-xs">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="text-gray-400 text-xs font-semibold">(99)</span>
+                            </div>
+                        </div>
                     </div>
+                    <!-- card -->
+                    <div class="min-w-65 snap-start relative group">
+                        <div
+                            class="w-full h-62.5 bg-gray-100 dark:bg-gray-800 rounded-md relative flex items-center justify-center overflow-hidden">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs px-3 py-1 rounded-sm z-10">-25%</span>
+                            <!-- icons -->
+                            <div
+                                class="absolute top-3 right-3 z-20 flex flex-col gap-2 [&_button]:w-8 [&_button]:h-8 [&_button]:rounded-full [&_button]:bg-white [&_button]:dark:bg-gray-900 [&_button]:flex [&_button]:items-center [&_button]:justify-center [&_button]:cursor-pointer [&_button]:hover:bg-primary [&_button]:hover:text-white [&_button]:transition-colors [&_button]:shadow-sm">
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                            <!-- product img -->
+                            <a href="#"><img src="./assets/images/sales-4.png" alt="Chair"
+                                    class="w-full hover:scale-110 transition-transform duration-300">
+                            </a>
+                            <button
+                                class="absolute bottom-0 w-full bg-black text-white py-2 font-medium text-sm translate-y-full group-hover:translate-y-0 transition-transform duration-300 cursor-pointer hover:text-primary">Add
+                                To Cart</button>
+                        </div>
+                        <div class="mt-4 space-y-2">
+                            <h3 class="font-medium truncate hover:text-primary"><a href="#">S-Series Comfort Chair</a>
+                            </h3>
+                            <div class="flex items-center gap-3">
+                                <span class="text-primary font-medium">$375</span>
+                                <span class="text-gray-400 line-through text-sm">$400</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-sm">
+                                <div class="text-yellow-400 text-xs">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                    <i class="fa-regular fa-star text-gray-300"></i>
+                                </div>
+                                <span class="text-gray-400 text-xs font-semibold">(70)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card -->
+                    <div class="min-w-65 snap-start relative group">
+                        <div
+                            class="w-full h-62.5 bg-gray-100 dark:bg-gray-800 rounded-md relative flex items-center justify-center overflow-hidden">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs px-3 py-1 rounded-sm z-10">-25%</span>
+                            <!-- icons -->
+                            <div
+                                class="absolute top-3 right-3 z-20 flex flex-col gap-2 [&_button]:w-8 [&_button]:h-8 [&_button]:rounded-full [&_button]:bg-white [&_button]:dark:bg-gray-900 [&_button]:flex [&_button]:items-center [&_button]:justify-center [&_button]:cursor-pointer [&_button]:hover:bg-primary [&_button]:hover:text-white [&_button]:transition-colors [&_button]:shadow-sm">
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                            <!-- product img -->
+                            <a href="#"><img src="./assets/images/sales-4.png" alt="Chair"
+                                    class="w-full hover:scale-110 transition-transform duration-300">
+                            </a>
+                            <button
+                                class="absolute bottom-0 w-full bg-black text-white py-2 font-medium text-sm translate-y-full group-hover:translate-y-0 transition-transform duration-300 cursor-pointer hover:text-primary">Add
+                                To Cart</button>
+                        </div>
+                        <div class="mt-4 space-y-2">
+                            <h3 class="font-medium truncate hover:text-primary"><a href="#">S-Series Comfort Chair</a>
+                            </h3>
+                            <div class="flex items-center gap-3">
+                                <span class="text-primary font-medium">$375</span>
+                                <span class="text-gray-400 line-through text-sm">$400</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-sm">
+                                <div class="text-yellow-400 text-xs">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                    <i class="fa-regular fa-star text-gray-300"></i>
+                                </div>
+                                <span class="text-gray-400 text-xs font-semibold">(70)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- all products -->
+                <div class="text-center mt-10 border-b border-gray-200 dark:border-gray-700 pb-10">
+                    <a href="#"
+                        class="inline-block bg-primary text-white px-12 py-4 rounded-sm hover:bg-red-600 transition-colors duration-300 font-medium">
+                        View All Products
+                    </a>
                 </div>
             </div>
         </section>

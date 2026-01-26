@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A full-stack E-Commerce web application inspired by a modern Figma design",
   "main": "",
-  "devDependencies": {},
   "scripts": {
     "start:tail": "npx @tailwindcss/cli -i ./assets/css/style.css -o ./assets/css/output.css --watch"
   },
