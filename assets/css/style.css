@@ -1,12 +1,17 @@
 @import "tailwindcss";
 
-/* custom color & fonts for our project */
+/* custom colors & fonts for our project */
 @theme {
     /* colors */
     --color-primary: #DB4444;
     --color-secondary: #7D8184;
     --color-menu: #4d3b5b;
     --color-menu2: #2a2631;
+    --color-start: #FFAD33;
+    --color-ads: #00FF66;
+    --color-prod-1: #FB1314;
+    --color-prod-2: #EEFF61;
+    --color-prod-3: #184A48;
     /* fonts */
     --font-poppins: 'Poppins', sans-serif;
     --font-inter: 'Inter', sans-serif;
@@ -20,6 +25,7 @@
     scrollbar-width: none;
     /* IE and Edge */
     -ms-overflow-style: none;
+
     /* Chrome, Safari and Opera */
     &::-webkit-scrollbar {
         display: none;
@@ -27,7 +33,7 @@
 }
 
 html {
-    @apply [scrollbar-width:thin] [scrollbar-color:theme(color-primary)_transparent];
+    @apply [scrollbar-width:thin] [scrollbar-color:var(--color-primary)_transparent];
 }
 
 body {
