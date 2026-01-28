@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,8 +20,9 @@
     <!-- tailwind -->
     <link href="./assets/css/output.css" rel="stylesheet">
 </head>
+
 <body>
-       <!-- start Top Banner -->
+    <!-- start Top Banner -->
     <div class="bg-black text-white py-2 text-sm relative z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <!-- sales -->
@@ -61,7 +63,7 @@
                 </div>
                 <!-- links -->
                 <div class="hidden md:flex gap-x-6 [&_a]:hover:text-primary font-medium">
-                    <a href="./index.html" >Home</a>
+                    <a href="./index.html">Home</a>
                     <a href="#" class="link-active">Contact</a>
                     <a href="#">About</a>
                     <a href="#">Sign Up</a>
@@ -86,7 +88,7 @@
                             class="absolute mt-2 top-full left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 group-hover:translate-y-0 translate-y-2">
                             <ul
                                 class="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl flex flex-col mt-2 [&_a]:px-5 [&_a]:py-3 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:border-none! [&_a]:hover:text-primary">
-                                <a href="#" class="border-b border-white/10 first:rounded-t-lg link-active">
+                                <a href="./index.html" class="border-b border-white/10 first:rounded-t-lg link-active">
                                     Home
                                 </a>
                                 <a href="#" class="border-b border-white/10">
@@ -168,74 +170,82 @@
     </nav>
     <!-- end Navbar -->
 
-    <!-- content -->
-     <div class="bg-white min-h-screen p-4 md:p-20 font-sans">
-    <nav class="mb-10 text-sm">
-        <span class="text-gray-400">Home</span>
-        <span class="mx-2 text-gray-400">/</span>
-        <span class="text-black font-medium">Contact</span>
-    </nav>
+    <!-- contact -->
+    <main class="bg-white  dark:bg-slate-900 transition-colors duration-300 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <nav class="mb-10 text-sm">
+                <span class="text-gray-500">Home</span>
+                <span class="mx-2 text-gray-500">/</span>
+                <span class="text-black dark:text-white font-medium">Contact</span>
+            </nav>
 
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <div class="md:col-span-1 bg-white shadow-lg rounded-sm p-8 flex flex-col gap-8">
-            <div class="space-y-4">
-                <div class="flex items-center gap-4">
-                    <div class="bg-[#DB4444] p-3 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <div
+                    class="md:col-span-1 bg-white dark:bg-slate-800 shadow-lg rounded-md p-8 flex flex-col gap-8 border border-gray-100 dark:border-none">
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-primary p-3 rounded-full w-10 h-10 flex items-center justify-center">
+                                <i class="fa-solid fa-phone text-white"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-black dark:text-white">Call To Us</h3>
+                        </div>
+                        <div class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                            <p>We are available 24/7, 7 days a week.</p>
+                            <p>Phone: +8801611112222</p>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-lg">Call To Us</h3>
-                </div>
-                <p class="text-sm">We are available 24/7, 7 days a week.</p>
-                <p class="text-sm">Phone: +8801611112222</p>
-            </div>
 
-            <hr class="border-gray-300">
+                    <hr class="border-gray-200 dark:border-[#3A3B45]">
 
-            <div class="space-y-4">
-                <div class="flex items-center gap-4">
-                    <div class="bg-[#DB4444] p-3 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-primary p-3 rounded-full w-10 h-10 flex items-center justify-center">
+                                <i class="fa-regular fa-envelope text-white text-lg"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-black dark:text-white">Write To Us</h3>
+                        </div>
+                        <div class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                            <p>Fill out our form and we will contact you within 24 hours.</p>
+                            <p>Emails: customer@exclusive.com</p>
+                            <p>Emails: support@exclusive.com</p>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-lg">Write To Us</h3>
                 </div>
-                <p class="text-sm">Fill out our form and we will contact you within 24 hours.</p>
-                <p class="text-sm text-gray-700">Emails: customer@exclusive.com</p>
-                <p class="text-sm text-gray-700">Emails: support@exclusive.com</p>
+                <!-- inputs -->
+                <div
+                    class="md:col-span-2 bg-white  dark:bg-slate-800 shadow-lg rounded-md p-8 border border-gray-100 dark:border-none">
+                    <form action="#" class="space-y-6">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                            <input type="text" placeholder="Your Name *" required
+                                class="w-full bg-gray-100 dark:bg-[#2A2B37] text-black dark:text-white placeholder-gray-500 border border-transparent focus:border-[#DB4444] rounded-md p-4 text-sm outline-none transition-all">
+
+                            <input type="email" placeholder="Your Email *" required
+                                class="w-full bg-gray-100 dark:bg-[#2A2B37] text-black dark:text-white placeholder-gray-500 border border-transparent focus:border-[#DB4444] rounded-md p-4 text-sm outline-none transition-all">
+
+                            <input type="tel" placeholder="Your Phone *" required
+                                class="w-full bg-gray-100 dark:bg-[#2A2B37] text-black dark:text-white placeholder-gray-500 border border-transparent focus:border-[#DB4444] rounded-md p-4 text-sm outline-none transition-all">
+                        </div>
+
+                        <textarea placeholder="Your Message" rows="8"
+                            class="w-full bg-gray-100 dark:bg-[#2A2B37] text-black dark:text-white placeholder-gray-500 border border-transparent focus:border-[#DB4444] rounded-md p-4 text-sm outline-none resize-none transition-all"></textarea>
+
+                        <div class="flex justify-end">
+                            <button type="submit"
+                                class="bg-primary hover:bg-[#E07575] text-white px-10 py-4 rounded-md font-medium transition-all active:scale-95 text-sm shadow-md">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+    </main>
+    <!-- end contact -->
 
-        <div class="md:col-span-2 bg-white shadow-lg rounded-sm p-8">
-            <form action="#" class="space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <input type="text" placeholder="Your Name *" required 
-                        class="w-full bg-gray-100 border-none rounded-sm p-4 text-sm focus:ring-1 focus:ring-gray-300 outline-none">
-                    
-                    <input type="email" placeholder="Your Email *" required 
-                        class="w-full bg-gray-100 border-none rounded-sm p-4 text-sm focus:ring-1 focus:ring-gray-300 outline-none">
-                    
-                    <input type="tel" placeholder="Your Phone *" required 
-                        class="w-full bg-gray-100 border-none rounded-sm p-4 text-sm focus:ring-1 focus:ring-gray-300 outline-none">
-                </div>
-
-                <textarea placeholder="Your Message" rows="8" 
-                    class="w-full bg-gray-100 border-none rounded-sm p-4 text-sm focus:ring-1 focus:ring-gray-300 outline-none resize-none"></textarea>
-
-                <div class="flex justify-end">
-                    <button type="submit" 
-                        class="bg-[#DB4444] hover:bg-[#c03939] text-white px-10 py-4 rounded-sm font-medium transition-colors">
-                        Send Message
-                    </button>
-                </div>
-            </form>
-        </div>
-
-    </div>
-</div>
-    <!-- end content -->
+    <!-- JS -->
+    <script src="./assets/js/index.js"></script>
 </body>
+
 </html>
