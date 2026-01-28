@@ -12,7 +12,8 @@
     --color-prod-1: #FB1314;
     --color-prod-2: #EEFF61;
     --color-prod-3: #184A48;
-    --color-dark-input: #2A2B37;
+    --color-dark-input: #2A2B37; 
+    --color-hover-button: #E07575;
     /* fonts */
     --font-poppins: 'Poppins', sans-serif;
     --font-inter: 'Inter', sans-serif;
