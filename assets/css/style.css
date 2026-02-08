@@ -45,7 +45,3 @@ body {
   @apply border-b-2 border-secondary text-primary font-bold;
 }
 
-.accountDetails {
-  margin-top: 5vh !important;
-  margin-bottom: 5vh !important;
-}
