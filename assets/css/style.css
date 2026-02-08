@@ -2,48 +2,46 @@
 
 /* custom colors & fonts for our project */
 @theme {
-    /* colors */
-    --color-primary: #DB4444;
-    --color-secondary: #7D8184;
-    --color-menu: #4d3b5b;
-    --color-menu2: #2a2631;
-    --color-start: #FFAD33;
-    --color-ads: #00FF66;
-    --color-prod-1: #FB1314;
-    --color-prod-2: #EEFF61;
-    --color-prod-3: #184A48;
-    --color-dark-input: #2A2B37; 
-    --color-hover-button: #E07575;
-    --color-dark-black: #1E1F2B;
-    /* fonts */
-    --font-poppins: 'Poppins', sans-serif;
-    --font-inter: 'Inter', sans-serif;
+  /* colors */
+  --color-primary: #db4444;
+  --color-secondary: #7d8184;
+  --color-menu: #4d3b5b;
+  --color-menu2: #2a2631;
+  --color-start: #ffad33;
+  --color-ads: #00ff66;
+  --color-prod-1: #fb1314;
+  --color-prod-2: #eeff61;
+  --color-prod-3: #184a48;
+  /* fonts */
+  --font-poppins: "Poppins", sans-serif;
+  --font-inter: "Inter", sans-serif;
 }
 
 /* dark mode by tailwind */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @utility scrollbar-hide {
-    /* Firefox */
-    scrollbar-width: none;
-    /* IE and Edge */
-    -ms-overflow-style: none;
+  /* Firefox */
+  scrollbar-width: none;
+  /* IE and Edge */
+  -ms-overflow-style: none;
 
-    /* Chrome, Safari and Opera */
-    &::-webkit-scrollbar {
-        display: none;
-    }
+  /* Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 html {
-    @apply [scrollbar-width:thin] [scrollbar-color:var(--color-primary)_transparent];
+  @apply [scrollbar-width:thin] [scrollbar-color:var(--color-primary)_transparent];
 }
 
 body {
-    @apply transition-colors duration-200 dark:bg-slate-900 dark:text-white font-poppins;
+  @apply transition-colors duration-200 dark:bg-slate-900 dark:text-white font-poppins;
 }
 
 /* navbar active page link */
 .link-active {
-    @apply border-b-2 border-secondary text-primary font-bold;
+  @apply border-b-2 border-secondary text-primary font-bold;
 }
+
