@@ -45,13 +45,5 @@ body {
     @apply border-b-2 border-secondary text-primary font-bold;
 }
 
-.signUp .phone{
-    height: 80vh;
-}
-.container-text{
-    width: 60%;
-}
-.signUp .logo{
-    width: 30px;
-    height: 30px;
-}
+
+
