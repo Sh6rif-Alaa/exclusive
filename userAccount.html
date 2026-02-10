@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>exclusive</title>
+        <meta name="description" content="A full-stack E-Commerce web application inspired by a modern Figma design">
+        <meta name="keywords" content="E-Commerce,poducts,exclusive">
+        <meta name="author" content="react group 2">
+        <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+        <!-- google fonts Inter & Poppin -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <!-- fontawesome -->
+        <link href="./assets/css/all.min.css" rel="stylesheet">
+        <!-- tailwind -->
+        <link href="./assets/css/output.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- start userAccount -->
+        <section class="userAccount my-10">
+            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- links info -->
+            <div class="flex justify-between mb-6">
+                <div>
+                <p><span href="#" class="text-gray-400">Home /</span> My Account</p>
+                </div>
+                <div>
+                <p>Welcome! <span class="text-primary">Md Rimel</span></p>
+                </div>
+            </div>
+            <!-- account details grid md:gap-8 gap-4 pt-8 grid-cols-12 -->
+            <div class="accountDetails mt-6 grid lg:grid-cols-4 sm:grid-cols-3">
+                <aside class="rounded-md p-6 col-span-1">
+                <!-- Manage My Account -->
+                <div class="mb-6">
+                    <h3 class="font-semibold text-gray-900 font-medium mb-6">
+                    Manage My Account
+                    </h3>
+                    <ul class="space-y-2 pl-6">
+                    <li><a href="#" class="text-primary">My Profile</a></li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary"
+                        >Address Book</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary"
+                        >My Payment Options</a
+                        >
+                    </li>
+                    </ul>
+                </div>
+                <div class="mb-6">
+                    <h3 class="font-semibold text-gray-900 font-medium mb-6">
+                    My Order
+                    </h3>
+                    <ul class="space-y-2 pl-6">
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary"
+                        >My Returns
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary"
+                        >My Cancellations</a
+                        >
+                    </li>
+                    </ul>
+                </div>
+                <div class="mb-6">
+                    <h3 class="font-semibold text-gray-900 font-medium mb-6">
+                    My wishlist
+                    </h3>
+                </div>
+                </aside>
+                <div
+                class="profile mb-6 shadow-md rounded-md lg:col-span-3 col-span-2 p-10"
+                >
+                <h2 class="font-semibold text-lg text-primary mb-6">
+                    Edit Your Profile
+                </h2>
+                <form action="">
+                    <div class="row mb-6 grid sm:grid-cols-2 gap-8">
+                    <div class="left">
+                        <label for="firstName">First Name</label>
+                        <input
+                        type="text"
+                        id="firstName"
+                        placeholder="Md"
+                        class="w-full mt-4 p-3 rounded-md bg-gray-100"
+                        />
+                    </div>
+                    <div class="right">
+                        <label for="lastName">Last Name</label>
+                        <input
+                        type="text"
+                        id="lastName"
+                        placeholder="Rimel"
+                        class="w-full mt-4 p-3 rounded-md bg-gray-100"
+                        />
+                    </div>
+                    </div>
+                    <div class="row mb-6 grid sm:grid-cols-2 gap-8">
+                    <div class="left">
+                        <label for="email">Email Name</label>
+                        <input
+                        type="text"
+                        id="email"
+                        placeholder="Wagdy@gmail.com"
+                        class="w-full mt-4 p-3 rounded-md bg-gray-100"
+                        />
+                    </div>
+                    <div class="right">
+                        <label for="address">Address</label>
+                        <input
+                        type="text"
+                        id="address"
+                        placeholder="1234 Mansoura , Egypt"
+                        class="w-full mt-4 p-3 rounded-md bg-gray-100"
+                        />
+                    </div>
+                    </div>
+                    <div class="row mb-6">
+                    <label for="password">Password Changes</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Current Password"
+                        class="w-full mt-4 p-3 rounded-md bg-gray-100"
+                    />
+                    <input
+                        type="password"
+                        placeholder="New Password"
+                        class="w-full mt-4 p-3 rounded-md bg-gray-100"
+                    />
+                    <input
+                        type="password"
+                        placeholder="Confirm New Password"
+                        class="w-full mt-4 p-3 rounded-md bg-gray-100"
+                    />
+                    </div>
+                    <div class="row flex gap-3 justify-end">
+                    <button
+                        class="shadow-md text-gray-700 px-8 py-3 rounded-sm hover:bg-primary transition-colors duration-300 font-medium ml-4"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="submit"
+                        class="bg-primary text-white px-10 py-3 rounded-sm hover:bg-red-600 transition-colors duration-300 font-medium"
+                    >
+                        Save Changes
+                    </button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+        </section>
+        <!-- end userAccount -->
+         
+        <!-- JS -->
+        <script src="./assets/js/index.js"></script>
+    </body>
+
+</html>
