@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contact us</title>
+    <title>exclusive - contact us</title>
     <meta name="description" content="A full-stack E-Commerce web application inspired by a modern Figma design">
-    <meta name="keywords" content="E-Commerce,poducts,exclusive">
+    <meta name="keywords" content="E-Commerce,products,exclusive">
     <meta name="author" content="react group 2">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
-    <!-- google fonts Inter & Poppin -->
+    <!-- google fonts Inter & Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -28,7 +28,7 @@
             <!-- sales -->
             <div class="sm:ms-24 text-center flex-1 sm:text-sm text-xs">
                 Summer Sale For All Swim Suits And Free Express Delivery – OFF 50%!
-                <a href="#" class="underline ml-1 font-semibold">ShopNow</a>
+                <a href="./checkout.html" class="underline ml-1 font-semibold">ShopNow</a>
             </div>
             <!-- selected language -->
             <div class="relative group w-24 flex justify-end">
@@ -66,9 +66,9 @@
                     <a href="./index.html">Home</a>
                     <a href="#" class="link-active">Contact</a>
                     <a href="./aboutUs.html">About</a>
-                    <a href="#">Sign Up</a>
+                    <a href="./signUp.html">Sign Up</a>
                 </div>
-                <!-- search & moblie menu & icons -->
+                <!-- search & mobile menu & icons -->
                 <div
                     class="flex items-center space-x-4 [&_i]:cursor-pointer [&_i]:transition-colors [&_i]:duration-300 [&_i]:hover:text-gray-700">
                     <!-- search -->
@@ -79,7 +79,7 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
                     </div>
-                    <!-- moblie menu links -->
+                    <!-- mobile menu links -->
                     <div class="md:hidden relative group">
                         <div class="cursor-pointer hover:text-primary transition-colors">
                             <i class="fa-solid fa-bars text-xl"></i>
@@ -97,7 +97,7 @@
                                 <a href="./aboutUs.html" class="border-b border-white/10">
                                     About
                                 </a>
-                                <a href="#" class="last:rounded-b-lg">
+                                <a href="./signUp.html" class="last:rounded-b-lg">
                                     Sign Up
                                 </a>
                             </ul>
@@ -105,7 +105,7 @@
                     </div>
                     <!-- wishlist -->
                     <div class="relative">
-                        <a href="#">
+                        <a href="./wishlist.html">
                             <i class="fa-regular fa-heart text-xl"></i>
                             <span
                                 class="absolute -top-1 -right-2 bg-primary text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center border border-white">
@@ -115,7 +115,7 @@
                     </div>
                     <!-- cart -->
                     <div class="relative">
-                        <a href="#">
+                        <a href="./cart.html">
                             <i class="fa-solid fa-cart-shopping text-xl"></i>
                             <span
                                 class="absolute -top-1 -right-2 bg-primary text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center border border-white">
@@ -136,7 +136,7 @@
                                 class="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl [&_li]:px-4 [&_li]:py-3 [&_li]:hover:bg-white/10 [&_li]:cursor-pointer [&_li]:flex [&_li]:items-center [&_li]:gap-3 [&_li]:transition-colors [&_li]:hover:text-primary [&_i]:hover:text-primary">
                                 <li>
                                     <i class="fa-regular fa-user text-lg"></i>
-                                    <span>Manage My Account</span>
+                                    <a href="./userAccount.html">Manage My Account</a>
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-box-open text-lg"></i>
@@ -243,6 +243,91 @@
         </div>
     </main>
     <!-- end contact -->
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-8 pb-4">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 text-sm text-gray-300">
+            <!-- 1. Exclusive + Newsletter -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-white">Exclusive</h3>
+                <p class="font-bold text-white">Subscribe</p>
+                <p>Get 10% off your first order</p>
+                <form class="relative flex">
+                    <input type="email" placeholder="Enter your email"
+                        class="w-full rounded-md bg-transparent border border-white px-4 py-2 pr-12 text-white placeholder:text-gray-400" />
+                    <button type="submit"
+                        class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white rounded-md p-2 hover:bg-red-600"
+                        aria-label="Subscribe to newsletter">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+            <!-- Support -->
+            <div class="space-y-4">
+                <h4 class="text-lg font-bold text-white">Support</h4>
+                <p>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
+                <p>exclusive@gmail.com</p>
+                <p>+88015-88888-9999</p>
+            </div>
+            <!-- Account -->
+            <div class="space-y-4">
+                <h4 class="text-lg font-bold text-white">Account</h4>
+                <ul class="space-y-2">
+                    <li><a href="./userAccount.html" class="hover:text-white">My Account</a></li>
+                    <li><a href="./login.html" class="hover:text-white">Login / Register</a></li>
+                    <li><a href="./cart.html" class="hover:text-white">Cart</a></li>
+                    <li><a href="./wishlist.html" class="hover:text-white">Wishlist</a></li>
+                    <li><a href="./checkout.html" class="hover:text-white">Shop</a></li>
+                </ul>
+            </div>
+            <!-- Quick Link -->
+            <div class="space-y-4">
+                <h4 class="text-lg font-bold text-white">Quick Link</h4>
+                <ul class="space-y-2">
+                    <li><a href="/privacy" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms" class="hover:text-white">Terms Of Use</a></li>
+                    <li><a href="/faq" class="hover:text-white">FAQ</a></li>
+                    <li><a href="./contactUs.html" class="hover:text-white">Contact</a></li>
+                </ul>
+            </div>
+            <!-- Download App & Social Links -->
+            <div class="space-y-5">
+                <h4 class="text-lg font-bold text-white">Download App</h4>
+                <p class="text-xs text-gray-400">Save $3 with App New User Only</p>
+
+                <div class="flex flex-col">
+                    <a href="#" class="block ">
+                        <img src="./assets/images/GooglePlay.svg" alt="Download on the Google Play"
+                            class="h-12 w-44 " />
+                    </a>
+
+                    <a href="#" class="block">
+                        <img src="./assets/images/AppStore.svg" alt="Download on the App Store" class="h-12 w-44" />
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-6 text-2xl pt-3 text-gray-400">
+                    <a href="#" class="hover:text-white hover:scale-110" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="hover:text-white hover:scale-110" aria-label="Twitter">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="#" class="hover:text-white hover:scale-110" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="hover:text-white hover:scale-110" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="border-t border-gray-900 mt-6 pt-6 text-center text-gray-600 text-xs uppercase tracking-widest">
+            © Copyright Rimel 2026. All right reserved
+        </div>
+    </footer>
+    <!-- end Footer -->
 
     <!-- JS -->
     <script src="./assets/js/index.js"></script>
