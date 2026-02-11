@@ -1,24 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>exclusive - checkout</title>
-    <meta name="description" content="A full-stack E-Commerce web application inspired by a modern Figma design" />
-    <meta name="keywords" content="E-Commerce,products,exclusive" />
-    <meta name="author" content="react group 2" />
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exclusive - cart</title>
     <!-- google fonts Inter & Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
+        rel="stylesheet">
     <!-- fontawesome -->
-    <link href="./assets/css/all.min.css" rel="stylesheet" />
-    <!-- tailwind -->
-    <link href="./assets/css/output.css" rel="stylesheet" />
+    <link href="./assets/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/output.css">
 </head>
 
 <body>
@@ -40,11 +35,13 @@
                 <!-- language menu -->
                 <div
                     class="absolute top-full right-0 mt-2 w-32 bg-black text-white border border-white/20 rounded shadow-xl opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 flex flex-col py-1 z-50 [&_a]:px-4 [&_a]:py-2 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:text-left">
-                    <a href="#" class="flex justify-between items-center">
+                    <a href="#" class=" flex justify-between items-center">
                         English
                         <i class="fa-solid fa-check text-xs text-green-500"></i>
                     </a>
-                    <a href="#">Arabic</a>
+                    <a href="#">
+                        Arabic
+                    </a>
                 </div>
             </div>
         </div>
@@ -72,7 +69,7 @@
                     <!-- search -->
                     <div class="relative hidden sm:block">
                         <input id="search" name="search" type="search" placeholder="What are you looking for?"
-                            class="border border-gray-300 rounded-md py-1.5 px-4 pr-10 bg-gray-100 focus:focus-visible:ring-2 focus:bg-white focus:ring-1 focus:ring-black text-sm w-52 transition-all text-slate-800 placeholder:text-xs placeholder:text-secondary" />
+                            class="border border-gray-300 rounded-md py-1.5 px-4 pr-10 bg-gray-100 focus:outline-none focus:bg-white focus:ring-1 focus:ring-black text-sm w-52 transition-all text-slate-800 placeholder:text-xs placeholder:text-secondary">
                         <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
@@ -86,10 +83,18 @@
                             class="absolute mt-2 top-full left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 group-hover:translate-y-0 translate-y-2">
                             <ul
                                 class="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl flex flex-col mt-2 [&_a]:px-5 [&_a]:py-3 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:border-none! [&_a]:hover:text-primary">
-                                <a href="./index.html" class="border-b border-white/10 first:rounded-t-lg">Home</a>
-                                <a href="./contactUs.html" class="border-b border-white/10">Contact</a>
-                                <a href="./aboutUs.html" class="border-b border-white/10">About</a>
-                                <a href="./signUp.html" class="last:rounded-b-lg">Sign Up</a>
+                                <a href="./index.html" class="border-b border-white/10 first:rounded-t-lg">
+                                    Home
+                                </a>
+                                <a href="./contactUs.html" class="border-b border-white/10">
+                                    Contact
+                                </a>
+                                <a href="./aboutUs.html" class="border-b border-white/10">
+                                    About
+                                </a>
+                                <a href="./signUp.html" class="last:rounded-b-lg">
+                                    Sign Up
+                                </a>
                             </ul>
                         </div>
                     </div>
@@ -105,7 +110,7 @@
                     </div>
                     <!-- cart -->
                     <div class="relative">
-                        <a href="./cart.html">
+                        <a href="#">
                             <i class="fa-solid fa-cart-shopping text-xl"></i>
                             <span
                                 class="absolute -top-1 -right-2 bg-primary text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center border border-white">
@@ -160,178 +165,83 @@
     </nav>
     <!-- end Navbar -->
 
-    <!-- Breadcrumb -->
-    <nav class="my-2 py-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm flex flex-wrap items-center text-gray-500">
-        <div class="flex items-center">
-            <a href="/" class="hover:text-black">Home</a>
-            <span class="mx-2 text-gray-400">/</span>
-            <a href="/account" class="hover:text-black">My Account</a>
-            <span class="mx-2 text-gray-400">/</span>
-            <a href="/product" class="hover:text-black">Product</a>
-            <span class="mx-2 text-gray-400">/</span>
-            <a href="/view-cart" class="hover:text-black">View Cart</a>
-            <span class="mx-2 text-gray-400">/</span>
-            <span class="text-black font-medium">Checkout</span>
+    <div class="mt-20 w-[80%] m-auto">
+        <div>
+            <span class="text-gray-500">home</span>
+            <span class="text-gray-500">/</span>
+            <span>cart</span>
         </div>
-    </nav>
-    <!-- end Breadcrumb -->
+        <!-- card title  -->
+        <div class="grid grid-cols-4 text-center  w-full mt-20 capitalize shadow-md shadow-black-50 p-4">
+            <h3 class="mr-30">product</h3>
+            <h3>price</h3>
+            <h3>quantity</h3>
+            <h3>subtotal</h3>
+        </div>
+        <!-- card body -->
+        <div class="grid grid-cols-4 text-center  w-full mt-10 shadow-md shadow-black-50 items-center">
+            <div class=" flex justify-evenly items-center w-full h-[50%] ">
+                <img src="/assets/images/product-1.png" alt="" class="w-30% h-full ml-15 ">
+                <h3 class="uppercase  ">lcd <span class="capitalize">monitor</span></h3>
+            </div>
+            <h3 class=" pt-9 h-[50%]">$650</h3>
+            <input type="number" name="" id=""
+                class="text-center w-[35%] h-[25%] mt-6 ml-35 shadow-md shadow-black-50 ">
+            <h3 class="pt-9   h-[50%]">$650</h3>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-        <!-- Page Title + Layout -->
-        <section aria-labelledby="billing-heading" class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-            <!-- Billing Form -->
-            <div class="lg:col-span-5" aria-labelledby="billing-heading">
-                <h2 id="billing-heading" class="text-2xl font-medium mb-8">Billing Details</h2>
+        </div>
+        <div class="grid grid-cols-4 text-center  w-full mt-10 shadow-md shadow-black-50 items-center">
+            <div class=" flex justify-evenly items-center w-full h-[50%] ">
+                <img src="/assets/images/product-2.png" alt="" class="w-30% h-full ml-15 ">
+                <h3 class="uppercase  ">lcd <span class="capitalize">monitor</span></h3>
+            </div>
+            <h3 class=" pt-9 h-[50%]">$650</h3>
+            <input type="number" name="" id=""
+                class="text-center w-[35%] h-[25%] mt-6 ml-35 shadow-md shadow-black-50 ">
+            <h3 class="pt-9   h-[50%]">$650</h3>
 
-                <form id="billingForm" class="space-y-6">
-                    <div class="space-y-2">
-                        <label for="firstName" class="block text-sm text-gray-500">
-                            First Name
-                            <span class="text-red-500">*</span>
-                        </label>
-                        <input id="firstName" name="firstName" type="text" required
-                            class="w-full rounded-md bg-gray-100 px-4 py-3 text-gray-900 placeholder:text-gray-400" />
-                    </div>
+        </div>
 
-                    <div class="space-y-2">
-                        <label for="company" class="block text-sm text-gray-500">Company Name</label>
-                        <input id="company" name="company" type="text"
-                            class="w-full rounded-md bg-gray-100 px-4 py-3 text-gray-900 placeholder:text-gray-400" />
-                    </div>
+        <!-- btn -->
+        <div class="flex items-center justify-between mt-10">
+            <button class=" border border-black-900 py-2 px-6 capitalize">return to shop</button>
+            <button class=" border border-black-900 py-2 px-6 capitalize">update cart</button>
 
-                    <div class="space-y-2">
-                        <label for="street" class="block text-sm text-gray-500">
-                            Street Address
-                            <span class="text-red-500">*</span>
-                        </label>
-                        <input id="street" name="street" type="text" required
-                            class="w-full rounded-md bg-gray-100 px-4 py-3 text-gray-900 placeholder:text-gray-400" />
-                    </div>
+        </div>
+        <div class="flex justify-between  w-full mt-10  mb-20 ">
+            <div class="w-[70%]">
+                <form action="">
 
-                    <div class="space-y-2">
-                        <label for="apartment" class="block text-sm text-gray-500">Apartment, floor, etc.
-                            (optional)</label>
-                        <input id="apartment" name="apartment" type="text"
-                            class="w-full rounded-md bg-gray-100 px-4 py-3 text-gray-900 placeholder:text-gray-400" />
-                    </div>
-
-                    <div class="space-y-2">
-                        <label for="city" class="block text-sm text-gray-500">
-                            Town/City
-                            <span class="text-red-500">*</span>
-                        </label>
-                        <input id="city" name="city" type="text" required
-                            class="w-full rounded-md bg-gray-100 px-4 py-3 text-gray-900 placeholder:text-gray-400" />
-                    </div>
-
-                    <div class="space-y-2">
-                        <label for="phone" class="block text-sm text-gray-500">
-                            Phone Number
-                            <span class="text-red-500">*</span>
-                        </label>
-                        <input id="phone" name="phone" type="tel" required
-                            class="w-full rounded-md bg-gray-100 px-4 py-3 text-gray-900 placeholder:text-gray-400" />
-                    </div>
-
-                    <div class="space-y-2">
-                        <label for="email" class="block text-sm text-gray-500">
-                            Email Address
-                            <span class="text-red-500">*</span>
-                        </label>
-                        <input id="email" name="email" type="email" required
-                            class="w-full rounded-md bg-gray-100 px-4 py-3 text-gray-900 placeholder:text-gray-400" />
-                    </div>
-
-                    <div class="flex items-center gap-3">
-                        <input type="checkbox" id="save" name="save" class="h-5 w-5 accent-primary" />
-                        <label for="save" class="text-sm text-gray-700">Save this information for faster check-out next
-                            time</label>
-                    </div>
+                    <input type="text" name="" id="" placeholder="    Coupon Code"
+                        class="border border-black-100 mr-5 py-2 w-[35%] ">
+                    <button class="border bg-red-600 text-amber-50 py-2 px-6 capitalize">apply coupon</button>
                 </form>
             </div>
+            <div class="border border-block-50 w-[30%]">
+                <h3 class="ml-4 mt-5 capitalize">cart total</h3>
+                <div class=" w-[90%] m-auto mt-3 flex justify-between items-center">
+                    <h4>subtotal</h4>
+                    <h4>$1750</h4>
+                </div>
+                <hr class="w-[90%] m-auto my-4 ">
+                <div class="w-[90%] m-auto flex justify-between items-center">
+                    <h4>shipping</h4>
+                    <h4>free</h4>
+                </div>
+                <hr class="w-[90%] m-auto my-4">
+                <div class="w-[90%] m-auto flex justify-between items-center">
+                    <h4>total:</h4>
+                    <h4>$1750</h4>
+                </div>
+                <div class="w-[62%] m-auto my-5">
 
-            <!-- Order Summary -->
-            <aside class="lg:col-span-5 lg:col-start-8 flex flex-col gap-8">
-                <ul class="space-y-6 divide-y divide-gray-200">
-                    <li class="flex items-center justify-between gap-4 py-4 first:pt-0">
-                        <div class="flex items-center gap-4">
-                            <div class="size-14 rounded flex items-center justify-center">
-                                <img src="./assets/images/product-10.png" alt="CANON EOS DSLR Camera"
-                                    class="h-10 w-auto" />
-                            </div>
-                            <span class="font-medium">CANON EOS DSLR Camera</span>
-                        </div>
-                        <span class="font-medium">$650</span>
-                    </li>
-
-                    <li class="flex items-center justify-between gap-4 py-4">
-                        <div class="flex items-center gap-4">
-                            <div class="size-14 shrink-0 rounded flex items-center justify-center">
-                                <img src="./assets/images/product-11.png" alt="ASUS FHD Gaming Laptop"
-                                    class="h-10 w-auto" />
-                            </div>
-                            <span class="font-medium">ASUS FHD Gaming Laptop</span>
-                        </div>
-                        <span class="font-medium">$1100</span>
-                    </li>
-                </ul>
-
-                <section class="border-t border-gray-200 pt-6 space-y-4" aria-label="Order totals">
-                    <div class="flex justify-between text-gray-700">
-                        <span>Subtotal:</span>
-                        <span>$1750</span>
-                    </div>
-                    <div class="flex justify-between text-gray-700">
-                        <span>Shipping:</span>
-                        <span>Free</span>
-                    </div>
-                    <div class="flex justify-between border-t border-gray-200 pt-4 text-lg font-bold">
-                        <span>Total:</span>
-                        <span>$1750</span>
-                    </div>
-                </section>
-
-                <!-- Payment Methods -->
-                <fieldset class="space-y-5">
-                    <legend class="text-lg font-medium">Payment Method</legend>
-
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <input type="radio" name="payment" id="bank" class="h-5 w-5 accent-black" />
-                            <label for="bank" class="font-medium">Bank</label>
-                        </div>
-                        <div class="flex gap-2">
-                            <img src="https://img.icons8.com/color/48/visa.png" class="h-8 w-auto" alt="Visa" />
-                            <img src="https://img.icons8.com/color/48/mastercard.png" class="h-8 w-auto"
-                                alt="Mastercard" />
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-3">
-                        <input type="radio" name="payment" id="cod" checked class="h-5 w-5 accent-black" />
-                        <label for="cod" class="font-medium">Cash on delivery</label>
-                    </div>
-                </fieldset>
-
-                <!-- Coupon -->
-                <div class="flex gap-4 h-14">
-                    <input type="text" id="couponCode" placeholder="Coupon Code"
-                        class="flex-1 rounded-md bg-gray-100 px-5 text-sm placeholder:text-gray-400" />
-                    <button type="button" onclick="applyCoupon()"
-                        class="bg-red-600 px-8 text-white font-medium rounded-md hover:bg-red-700">
-                        Apply Coupon
-                    </button>
+                    <button class="border bg-red-600 text-amber-50 py-2 px-6 capitalize  ">process to checkout</button>
                 </div>
 
-                <!-- Place Order -->
-                <button type="button" onclick="handlePlaceOrder()"
-                    class="bg-red-600 text-white py-4 px-12 rounded-md font-medium hover:bg-red-700 w-fit">
-                    Place Order
-                </button>
-            </aside>
-        </section>
-    </main>
+            </div>
+
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-black text-white pt-8 pb-4">

@@ -1,230 +1,275 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>exclusive</title>
-    <meta
-      name="description"
-      content="A full-stack E-Commerce web application inspired by a modern Figma design"
-    />
-    <meta name="keywords" content="E-Commerce,poducts,exclusive" />
-    <meta name="author" content="react group 2" />
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
-    <!-- google fonts Inter & Poppin -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- fontawesome -->
-    <link href="./assets/css/all.min.css" rel="stylesheet" />
-    <!-- tailwind -->
-    <link href="./assets/css/output.css" rel="stylesheet" />
-  </head>
 
-  <body>
-    <!-- start Top Banner -->
-    <div class="bg-black text-white py-2 text-sm relative z-50">
-      <div
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center"
-      >
-        <!-- sales -->
-        <div class="sm:ms-24 text-center flex-1 sm:text-sm text-xs">
-          Summer Sale For All Swim Suits And Free Express Delivery – OFF 50%!
-          <a href="#" class="underline ml-1 font-semibold">ShopNow</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>exclusive - not found</title>
+  <meta name="description" content="A full-stack E-Commerce web application inspired by a modern Figma design" />
+  <meta name="keywords" content="E-Commerce,products,exclusive" />
+  <meta name="author" content="react group 2" />
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
+  <!-- google fonts Inter & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <!-- fontawesome -->
+  <link href="./assets/css/all.min.css" rel="stylesheet" />
+  <!-- tailwind -->
+  <link href="./assets/css/output.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- start Top Banner -->
+  <div class="bg-black text-white py-2 text-sm relative z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+      <!-- sales -->
+      <div class="sm:ms-24 text-center flex-1 sm:text-sm text-xs">
+        Summer Sale For All Swim Suits And Free Express Delivery – OFF 50%!
+        <a href="./checkout.html" class="underline ml-1 font-semibold">ShopNow</a>
+      </div>
+      <!-- selected language -->
+      <div class="relative group w-24 flex justify-end">
+        <div class="flex items-center cursor-pointer hover:text-gray-300 transition-colors">
+          <span>English</span>
+          <i class="fa-solid fa-angle-down text-xs mt-0.5 transition-transform duration-300 group-hover:rotate-180"></i>
         </div>
-        <!-- selected language -->
-        <div class="relative group w-24 flex justify-end">
-          <div
-            class="flex items-center cursor-pointer hover:text-gray-300 transition-colors"
-          >
-            <span>English</span>
-            <i
-              class="fa-solid fa-angle-down text-xs mt-0.5 transition-transform duration-300 group-hover:rotate-180"
-            ></i>
+        <!-- language menu -->
+        <div
+          class="absolute top-full right-0 mt-2 w-32 bg-black text-white border border-white/20 rounded shadow-xl opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 flex flex-col py-1 z-50 [&_a]:px-4 [&_a]:py-2 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:text-left">
+          <a href="#" class="flex justify-between items-center">
+            English
+            <i class="fa-solid fa-check text-xs text-green-500"></i>
+          </a>
+          <a href="#"> Arabic </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end Top Banner -->
+
+  <!-- start Navbar -->
+  <nav class="navbar border-b border-gray-200 dark:border-gray-700 dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- logo -->
+        <div class="shrink-0">
+          <a href="./index.html" class="block font-bold text-xl">Exclusive</a>
+        </div>
+        <!-- links -->
+        <div class="hidden md:flex gap-x-6 [&_a]:hover:text-primary font-medium">
+          <a href="./index.html">Home</a>
+          <a href="./contactUs.html">Contact</a>
+          <a href="./aboutUs.html">About</a>
+          <a href="./signUp.html">Sign Up</a>
+        </div>
+        <!-- search & mobile menu & icons -->
+        <div
+          class="flex items-center space-x-4 [&_i]:cursor-pointer [&_i]:transition-colors [&_i]:duration-300 [&_i]:hover:text-gray-700">
+          <!-- search -->
+          <div class="relative hidden sm:block">
+            <input id="search" name="search" type="search" placeholder="What are you looking for?"
+              class="border border-gray-300 rounded-md py-1.5 px-4 pr-10 bg-gray-100 focus:outline-none focus:bg-white focus:ring-1 focus:ring-black text-sm w-52 transition-all text-slate-800 placeholder:text-xs placeholder:text-secondary" />
+            <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
           </div>
-          <!-- language menu -->
-          <div
-            class="absolute top-full right-0 mt-2 w-32 bg-black text-white border border-white/20 rounded shadow-xl opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 flex flex-col py-1 z-50 [&_a]:px-4 [&_a]:py-2 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:text-left"
-          >
-            <a href="#" class="flex justify-between items-center">
-              English
-              <i class="fa-solid fa-check text-xs text-green-500"></i>
+          <!-- mobile menu links -->
+          <div class="md:hidden relative group">
+            <div class="cursor-pointer hover:text-primary transition-colors">
+              <i class="fa-solid fa-bars text-xl"></i>
+            </div>
+            <div
+              class="absolute mt-2 top-full left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 group-hover:translate-y-0 translate-y-2">
+              <ul
+                class="py-2 text-sm text-white rounded-md shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl flex flex-col mt-2 [&_a]:px-5 [&_a]:py-3 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:border-none! [&_a]:hover:text-primary">
+                <a href="./index.html" class="border-b border-white/10 first:rounded-t-lg link-active">
+                  Home
+                </a>
+                <a href="./contactUs.html" class="border-b border-white/10"> Contact </a>
+                <a href="./aboutUs.html" class="border-b border-white/10"> About </a>
+                <a href="./signUp.html" class="last:rounded-b-lg"> Sign Up </a>
+              </ul>
+            </div>
+          </div>
+          <!-- wishlist -->
+          <div class="relative">
+            <a href="./wishlist.html">
+              <i class="fa-regular fa-heart text-xl"></i>
+              <span
+                class="absolute -top-1 -right-2 bg-primary text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center border border-white">
+                2
+              </span>
             </a>
-            <a href="#"> Arabic </a>
+          </div>
+          <!-- cart -->
+          <div class="relative">
+            <a href="./cart.html">
+              <i class="fa-solid fa-cart-shopping text-xl"></i>
+              <span
+                class="absolute -top-1 -right-2 bg-primary text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center border border-white">
+                2
+              </span>
+            </a>
+          </div>
+          <!-- user -->
+          <div class="relative group">
+            <div
+              class="size-9 bg-primary rounded-full flex justify-center items-center cursor-pointer hover:bg-red-600 transition-colors">
+              <i class="fa-regular fa-user text-lg text-white"></i>
+            </div>
+            <!-- user menu -->
+            <div
+              class="absolute right-0 top-full mt-2 w-56 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-20 transform group-hover:translate-y-0 translate-y-2">
+              <ul
+                class="py-2 text-sm text-white rounded-md shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl [&_li]:px-4 [&_li]:py-3 [&_li]:hover:bg-white/10 [&_li]:cursor-pointer [&_li]:flex [&_li]:items-center [&_li]:gap-3 [&_li]:transition-colors [&_li]:hover:text-primary [&_i]:hover:text-primary">
+                <li>
+                  <i class="fa-regular fa-user text-lg"></i>
+                  <a href="./userAccount.html">Manage My Account</a>
+                </li>
+                <li>
+                  <i class="fa-solid fa-box-open text-lg"></i>
+                  <span>My Order</span>
+                </li>
+                <li>
+                  <i class="fa-regular fa-circle-xmark text-lg"></i>
+                  <span>My Cancellations</span>
+                </li>
+                <li>
+                  <i class="fa-regular fa-star text-lg"></i>
+                  <span>My Reviews</span>
+                </li>
+                <li class="text-white mt-1 border-t border-white/10">
+                  <i class="fa-solid fa-arrow-right-from-bracket text-lg"></i>
+                  <span>Logout</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- theme toggle -->
+          <div class="relative">
+            <button id="theme-toggle" class="cursor-pointer hover:text-primary transition-colors mt-1">
+              <i class="fa-regular fa-moon text-xl dark:hidden!"></i>
+              <i class="fa-regular fa-sun text-xl hidden! dark:block! text-white"></i>
+            </button>
           </div>
         </div>
       </div>
     </div>
-    <!-- end Top Banner -->
+  </nav>
+  <!-- end Navbar -->
 
-    <!-- start Navbar -->
-    <nav
-      class="navbar border-b border-gray-200 dark:border-gray-700 dark:bg-slate-900"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16 items-center">
-          <!-- logo -->
-          <div class="shrink-0">
-            <a href="./index.html" class="block font-bold text-xl">Exclusive</a>
-          </div>
-          <!-- links -->
-          <div
-            class="hidden md:flex gap-x-6 [&_a]:hover:text-primary font-medium"
-          >
-            <a href="#" class="link-active">Home</a>
-            <a href="#">Contact</a>
-            <a href="#">About</a>
-            <a href="#">Sign Up</a>
-          </div>
-          <!-- search & moblie menu & icons -->
-          <div
-            class="flex items-center space-x-4 [&_i]:cursor-pointer [&_i]:transition-colors [&_i]:duration-300 [&_i]:hover:text-gray-700"
-          >
-            <!-- search -->
-            <div class="relative hidden sm:block">
-              <input
-                id="search"
-                name="search"
-                type="search"
-                placeholder="What are you looking for?"
-                class="border border-gray-300 rounded-md py-1.5 px-4 pr-10 bg-gray-100 focus:outline-none focus:bg-white focus:ring-1 focus:ring-black text-sm w-52 transition-all text-slate-800 placeholder:text-xs placeholder:text-secondary"
-              />
-              <span
-                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-              >
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </span>
-            </div>
-            <!-- moblie menu links -->
-            <div class="md:hidden relative group">
-              <div class="cursor-pointer hover:text-primary transition-colors">
-                <i class="fa-solid fa-bars text-xl"></i>
-              </div>
-              <div
-                class="absolute mt-2 top-full left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 group-hover:translate-y-0 translate-y-2"
-              >
-                <ul
-                  class="py-2 text-sm text-white rounded-md shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl flex flex-col mt-2 [&_a]:px-5 [&_a]:py-3 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:border-none! [&_a]:hover:text-primary"
-                >
-                  <a
-                    href="#"
-                    class="border-b border-white/10 first:rounded-t-lg link-active"
-                  >
-                    Home
-                  </a>
-                  <a href="#" class="border-b border-white/10"> Contact </a>
-                  <a href="#" class="border-b border-white/10"> About </a>
-                  <a href="#" class="last:rounded-b-lg"> Sign Up </a>
-                </ul>
-              </div>
-            </div>
-            <!-- wishlist -->
-            <div class="relative">
-              <a href="#">
-                <i class="fa-regular fa-heart text-xl"></i>
-                <span
-                  class="absolute -top-1 -right-2 bg-primary text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center border border-white"
-                >
-                  2
-                </span>
-              </a>
-            </div>
-            <!-- cart -->
-            <div class="relative">
-              <a href="#">
-                <i class="fa-solid fa-cart-shopping text-xl"></i>
-                <span
-                  class="absolute -top-1 -right-2 bg-primary text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center border border-white"
-                >
-                  2
-                </span>
-              </a>
-            </div>
-            <!-- user -->
-            <div class="relative group">
-              <div
-                class="size-9 bg-primary rounded-full flex justify-center items-center cursor-pointer hover:bg-red-600 transition-colors"
-              >
-                <i class="fa-regular fa-user text-lg text-white"></i>
-              </div>
-              <!-- user menu -->
-              <div
-                class="absolute right-0 top-full mt-2 w-56 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-20 transform group-hover:translate-y-0 translate-y-2"
-              >
-                <ul
-                  class="py-2 text-sm text-white rounded-md shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl [&_li]:px-4 [&_li]:py-3 [&_li]:hover:bg-white/10 [&_li]:cursor-pointer [&_li]:flex [&_li]:items-center [&_li]:gap-3 [&_li]:transition-colors [&_li]:hover:text-primary [&_i]:hover:text-primary"
-                >
-                  <li>
-                    <i class="fa-regular fa-user text-lg"></i>
-                    <span>Manage My Account</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-box-open text-lg"></i>
-                    <span>My Order</span>
-                  </li>
-                  <li>
-                    <i class="fa-regular fa-circle-xmark text-lg"></i>
-                    <span>My Cancellations</span>
-                  </li>
-                  <li>
-                    <i class="fa-regular fa-star text-lg"></i>
-                    <span>My Reviews</span>
-                  </li>
-                  <li class="text-white mt-1 border-t border-white/10">
-                    <i class="fa-solid fa-arrow-right-from-bracket text-lg"></i>
-                    <span>Logout</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- theme toggle -->
-            <div class="relative">
-              <button
-                id="theme-toggle"
-                class="cursor-pointer hover:text-primary transition-colors mt-1"
-              >
-                <i class="fa-regular fa-moon text-xl dark:hidden!"></i>
-                <i
-                  class="fa-regular fa-sun text-xl hidden! dark:block! text-white"
-                ></i>
-              </button>
-            </div>
-          </div>
+  <main>
+    <section>
+      <!-- breadcrumb -->
+      <div class="py-2 text-sm relative z-50 mt-17.5 mb-17.5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2">
+          <a href="#" class="hover:underline">Home</a>
+          <span>/</span>
+
+          <span class="text-gray-400">404 error</span>
         </div>
       </div>
-    </nav>
-    <!-- end Navbar -->
 
-    <main>
-    
-      <section>
-        <!-- breadcrumb -->
-        <div class="py-2 text-sm relative z-50 mt-17.5 mb-17.5">
-          <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2"
-          >
-            <a href="#" class="hover:underline">Home</a>
-            <span>/</span>
-  
-            <span class="text-gray-400">404 error</span>
-          </div>
-        </div>
+      <!-- error message -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-6 py-16">
+        <h1 class="text-[110px] font-bold text-center">404 Not Found</h1>
+        <p class="text-lg text-center">Your visited page not found. You may go home page.</p>
+        <a href="./index.html"
+          class="bg-primary hover:bg-red-600 text-white px-6 py-2 rounded-md transition-colors duration-300">
+          Back to home page
+        </a>
+      </div>
+  </main>
 
-        <!-- error message -->
-        <div
-          class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-6 py-16">
-          <h1 class="text-[110px] font-bold text-center">404 Not Found</h1>
-          <p class="text-lg text-center">Your visited page not found. You may go home page.</p>
-          <a href="./index.html" class="bg-primary hover:bg-red-600 text-white px-6 py-2 rounded-md transition-colors duration-300">
-            Back to home page
+  <!-- Footer -->
+  <footer class="bg-black text-white pt-8 pb-4">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 text-sm text-gray-300">
+      <!-- 1. Exclusive + Newsletter -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-white">Exclusive</h3>
+        <p class="font-bold text-white">Subscribe</p>
+        <p>Get 10% off your first order</p>
+        <form class="relative flex">
+          <input type="email" placeholder="Enter your email"
+            class="w-full rounded-md bg-transparent border border-white px-4 py-2 pr-12 text-white placeholder:text-gray-400" />
+          <button type="submit"
+            class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white rounded-md p-2 hover:bg-red-600"
+            aria-label="Subscribe to newsletter">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+      <!-- Support -->
+      <div class="space-y-4">
+        <h4 class="text-lg font-bold text-white">Support</h4>
+        <p>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
+        <p>exclusive@gmail.com</p>
+        <p>+88015-88888-9999</p>
+      </div>
+      <!-- Account -->
+      <div class="space-y-4">
+        <h4 class="text-lg font-bold text-white">Account</h4>
+        <ul class="space-y-2">
+          <li><a href="./userAccount.html" class="hover:text-white">My Account</a></li>
+          <li><a href="./login.html" class="hover:text-white">Login / Register</a></li>
+          <li><a href="./cart.html" class="hover:text-white">Cart</a></li>
+          <li><a href="./wishlist.html" class="hover:text-white">Wishlist</a></li>
+          <li><a href="./checkout.html" class="hover:text-white">Shop</a></li>
+        </ul>
+      </div>
+      <!-- Quick Link -->
+      <div class="space-y-4">
+        <h4 class="text-lg font-bold text-white">Quick Link</h4>
+        <ul class="space-y-2">
+          <li><a href="/privacy" class="hover:text-white">Privacy Policy</a></li>
+          <li><a href="/terms" class="hover:text-white">Terms Of Use</a></li>
+          <li><a href="/faq" class="hover:text-white">FAQ</a></li>
+          <li><a href="./contactUs.html" class="hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+      <!-- Download App & Social Links -->
+      <div class="space-y-5">
+        <h4 class="text-lg font-bold text-white">Download App</h4>
+        <p class="text-xs text-gray-400">Save $3 with App New User Only</p>
+
+        <div class="flex flex-col">
+          <a href="#" class="block ">
+            <img src="./assets/images/GooglePlay.svg" alt="Download on the Google Play" class="h-12 w-44 " />
+          </a>
+
+          <a href="#" class="block">
+            <img src="./assets/images/AppStore.svg" alt="Download on the App Store" class="h-12 w-44" />
           </a>
         </div>
-    </main>
 
-    <!-- JS -->
-    <script src="./assets/js/index.js"></script>
-  </body>
+        <div class="flex items-center gap-6 text-2xl pt-3 text-gray-400">
+          <a href="#" class="hover:text-white hover:scale-110" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" class="hover:text-white hover:scale-110" aria-label="Twitter">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="#" class="hover:text-white hover:scale-110" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="hover:text-white hover:scale-110" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright -->
+    <div class="border-t border-gray-900 mt-6 pt-6 text-center text-gray-600 text-xs uppercase tracking-widest">
+      © Copyright Rimel 2026. All right reserved
+    </div>
+  </footer>
+  <!-- end Footer -->
+
+  <!-- JS -->
+  <script src="./assets/js/index.js"></script>
+</body>
+
 </html>
