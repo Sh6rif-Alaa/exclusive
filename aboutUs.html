@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about us</title>
+    <meta name="description" content="A full-stack E-Commerce web application inspired by a modern Figma design">
+    <meta name="keywords" content="E-Commerce,poducts,exclusive">
+    <meta name="author" content="react group 2">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <!-- google fonts Inter & Poppin -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- fontawesome -->
+    <link href="./assets/css/all.min.css" rel="stylesheet">
+    <!-- tailwind -->
+    <link href="./assets/css/output.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- start Top Banner -->
+    <div class="bg-black text-white py-2 text-sm relative z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <!-- sales -->
+            <div class="sm:ms-24 text-center flex-1 sm:text-sm text-xs">
+                Summer Sale For All Swim Suits And Free Express Delivery – OFF 50%!
+                <a href="#" class="underline ml-1 font-semibold">ShopNow</a>
+            </div>
+            <!-- selected language -->
+            <div class="relative group w-24 flex justify-end">
+                <div class="flex items-center gap-2 cursor-pointer hover:text-gray-300 transition-colors">
+                    <span>English</span>
+                    <i
+                        class="fa-solid fa-angle-down text-xs mt-0.5 transition-transform duration-300 group-hover:rotate-180"></i>
+                </div>
+                <!-- language menu -->
+                <div
+                    class="absolute top-full right-0 mt-2 w-32 bg-black text-white border border-white/20 rounded shadow-xl opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 flex flex-col py-1 z-50 [&_a]:px-4 [&_a]:py-2 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:text-left">
+                    <a href="#" class=" flex justify-between items-center">
+                        English
+                        <i class="fa-solid fa-check text-xs text-green-500"></i>
+                    </a>
+                    <a href="#">
+                        Arabic
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end Top Banner -->
+
+    <!-- start Navbar -->
+    <nav class="navbar border-b border-gray-200 dark:border-gray-700 dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- logo -->
+                <div class="shrink-0">
+                    <a href="./index.html" class="block font-bold text-xl">Exclusive</a>
+                </div>
+                <!-- links -->
+                <div class="hidden md:flex gap-x-6 [&_a]:hover:text-primary font-medium">
+                    <a href="./index.html">Home</a>
+                    <a href="./contactUs.html">Contact</a>
+                    <a href="#" class="link-active">About</a>
+                    <a href="#">Sign Up</a>
+                </div>
+                <!-- search & moblie menu & icons -->
+                <div
+                    class="flex items-center space-x-4 [&_i]:cursor-pointer [&_i]:transition-colors [&_i]:duration-300 [&_i]:hover:text-gray-700">
+                    <!-- search -->
+                    <div class="relative hidden sm:block">
+                        <input id="search" name="search" type="search" placeholder="What are you looking for?"
+                            class="border border-gray-300 rounded-md py-1.5 px-4 pr-10 bg-gray-100 focus:outline-none focus:bg-white focus:ring-1 focus:ring-black text-sm w-52 transition-all text-slate-800 placeholder:text-xs placeholder:text-secondary">
+                        <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                    </div>
+                    <!-- moblie menu links -->
+                    <div class="md:hidden relative group">
+                        <div class="cursor-pointer hover:text-primary transition-colors">
+                            <i class="fa-solid fa-bars text-xl"></i>
+                        </div>
+                        <div
+                            class="absolute mt-2 top-full left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 group-hover:translate-y-0 translate-y-2">
+                            <ul
+                                class="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl flex flex-col mt-2 [&_a]:px-5 [&_a]:py-3 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:border-none! [&_a]:hover:text-primary">
+                                <a href="./index.html" class="border-b border-white/10 first:rounded-t-lg">
+                                    Home
+                                </a>
+                                <a href="./contactUs.html" class="border-b border-white/10">
+                                    Contact
+                                </a>
+                                <a href="#" class="border-b border-white/10 link-active">
+                                    About
+                                </a>
+                                <a href="#" class="last:rounded-b-lg">
+                                    Sign Up
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- wishlist -->
+                    <div class="relative">
+                        <a href="#">
+                            <i class="fa-regular fa-heart text-xl"></i>
+                            <span
+                                class="absolute -top-1 -right-2 bg-primary text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center border border-white">
+                                2
+                            </span>
+                        </a>
+                    </div>
+                    <!-- cart -->
+                    <div class="relative">
+                        <a href="#">
+                            <i class="fa-solid fa-cart-shopping text-xl"></i>
+                            <span
+                                class="absolute -top-1 -right-2 bg-primary text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center border border-white">
+                                2
+                            </span>
+                        </a>
+                    </div>
+                    <!-- user -->
+                    <div class="relative group">
+                        <div
+                            class="size-9 bg-primary rounded-full flex justify-center items-center cursor-pointer hover:bg-red-600 transition-colors">
+                            <i class="fa-regular fa-user text-lg text-white"></i>
+                        </div>
+                        <!-- user menu -->
+                        <div
+                            class="absolute right-0 top-full mt-2 w-56 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-20 transform group-hover:translate-y-0 translate-y-2">
+                            <ul
+                                class="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl [&_li]:px-4 [&_li]:py-3 [&_li]:hover:bg-white/10 [&_li]:cursor-pointer [&_li]:flex [&_li]:items-center [&_li]:gap-3 [&_li]:transition-colors [&_li]:hover:text-primary [&_i]:hover:text-primary">
+                                <li>
+                                    <i class="fa-regular fa-user text-lg"></i>
+                                    <span>Manage My Account</span>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-box-open text-lg"></i>
+                                    <span>My Order</span>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-circle-xmark text-lg"></i>
+                                    <span>My Cancellations</span>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-star text-lg"></i>
+                                    <span>My Reviews</span>
+                                </li>
+                                <li class="text-white mt-1 border-t border-white/10">
+                                    <i class="fa-solid fa-arrow-right-from-bracket text-lg"></i>
+                                    <span>Logout</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- theme toggle -->
+                    <div class="relative">
+                        <button id="theme-toggle" class="cursor-pointer hover:text-primary transition-colors mt-1">
+                            <i class="fa-regular fa-moon text-xl dark:hidden!"></i>
+                            <i class="fa-regular fa-sun text-xl hidden! dark:block! text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- end Navbar -->
+    <!-- story -->
+    <main class="bg-white dark:bg-slate-900 transition-colors duration-300 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+            <nav class="mb-16 text-sm">
+                <span class="text-gray-500">Home</span>
+                <span class="mx-2 text-gray-500">/</span>
+                <span class="text-black dark:text-white font-medium">About</span>
+            </nav>
+
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-24">
+                <div class="space-y-6">
+                    <h1 class="text-5xl font-bold tracking-wider text-black dark:text-white">Our Story</h1>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4 leading-relaxed">
+                        <p>Launced in 2015, Exclusive is South Asia's premier online shopping marketplace with an active
+                            presence in Bangladesh. Supported by wide range of tailored marketing, data and service
+                            solutions, Exclusive has 10,500 sellers and 300 brands and serves 3 millions customers
+                            across the region.</p>
+                        <p>Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers
+                            a diverse assortment in categories ranging from consumer.</p>
+                    </div>
+                </div>
+                <div class="rounded-sm overflow-hidden shadow-xl">
+                    <img src="./assets/images/Side Image.png" alt="Our Story" class="w-full h-auto object-cover">
+                </div>
+            </section>
+            <!-- story-end -->
+            <!-- reports -->
+            <section class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+
+                <div
+                    class="group border border-gray-200 dark:bg-slate-800 dark:border-dark-black p-8 rounded-sm text-center hover:bg-primary transition-all duration-300 cursor-pointer shadow-sm">
+                    <div
+                        class="bg-black dark:bg-dark-input group-hover:bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-8 border-gray-300 dark:border-dark-black group-hover:border-white/30 transition-all duration-300">
+                        <i
+                            class="fa-solid fa-store text-2xl text-white group-hover:text-black transition-all duration-300"></i>
+                    </div>
+                    <h2
+                        class="text-3xl font-bold text-black dark:text-white group-hover:text-white transition-all duration-300">
+                        10.5k</h2>
+                    <p
+                        class="text-sm text-gray-600 dark:text-gray-400 group-hover:text-white transition-all duration-300">
+                        Sellers active our site</p>
+                </div>
+
+                <div
+                    class="group border border-gray-200 dark:bg-slate-800 dark:border-dark-black p-8 rounded-sm text-center hover:bg-primary transition-all duration-300 cursor-pointer shadow-sm">
+                    <div
+                        class="bg-black dark:bg-dark-input group-hover:bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-8 border-gray-300 dark:border-dark-black group-hover:border-white/30 transition-all duration-300">
+                        <i
+                            class="fa-solid fa-dollar-sign text-2xl text-white group-hover:text-black transition-all duration-300"></i>
+                    </div>
+                    <h2
+                        class="text-3xl font-bold text-black dark:text-white group-hover:text-white transition-all duration-300">
+                        33k</h2>
+                    <p
+                        class="text-sm text-gray-600 dark:text-gray-400 group-hover:text-white transition-all duration-300">
+                        Monthly Product Sale</p>
+                </div>
+
+                <div
+                    class="group border border-gray-200 dark:bg-slate-800 dark:border-dark-black p-8 rounded-sm text-center hover:bg-primary transition-all duration-300 cursor-pointer shadow-sm">
+                    <div
+                        class="bg-black dark:bg-dark-input group-hover:bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-8 border-gray-300 dark:border-dark-black group-hover:border-white/30 transition-all duration-300">
+                        <i
+                            class="fa-solid fa-bag-shopping text-2xl text-white group-hover:text-black transition-all duration-300"></i>
+                    </div>
+                    <h2
+                        class="text-3xl font-bold text-black dark:text-white group-hover:text-white transition-all duration-300">
+                        45.5k</h2>
+                    <p
+                        class="text-sm text-gray-600 dark:text-gray-400 group-hover:text-white transition-all duration-300">
+                        Customer active in our site</p>
+                </div>
+
+                <div
+                    class="group border border-gray-200 dark:bg-slate-800 dark:border-dark-black p-8 rounded-sm text-center hover:bg-primary transition-all duration-300 cursor-pointer shadow-sm">
+                    <div
+                        class="bg-black dark:bg-dark-input group-hover:bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-8 border-gray-300 dark:border-dark-black group-hover:border-white/30 transition-all duration-300">
+                        <i
+                            class="fa-solid fa-money-bill-trend-up text-2xl text-white group-hover:text-black transition-all duration-300"></i>
+                    </div>
+                    <h2
+                        class="text-3xl font-bold text-black dark:text-white group-hover:text-white transition-all duration-300">
+                        25k</h2>
+                    <p
+                        class="text-sm text-gray-600 dark:text-gray-400 group-hover:text-white transition-all duration-300">
+                        Annual gross sale in our site</p>
+                </div>
+
+            </section>
+            <!-- end-reports -->
+
+             <!-- about-us -->
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+                <div class="space-y-4">
+                    <div
+                        class="bg-gray-100 dark:bg-dark-black rounded-sm p-10 pb-0 h-[400px] flex items-end justify-center overflow-hidden border border-gray-50 dark:border-none">
+                        <img src="./assets/images/image 46.png" alt="Tom Cruise"
+                            class="h-[90%] transition-all duration-500">
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="text-2xl font-bold text-black dark:text-white">Tom Cruise</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Founder & Chairman</p>
+                        <div class="flex gap-4 pt-2">
+                            <i class="fa-brands fa-twitter cursor-pointer hover:text-primary"></i>
+                            <i class="fa-brands fa-instagram cursor-pointer hover:text-primary"></i>
+                            <i class="fa-brands fa-linkedin-in cursor-pointer hover:text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div
+                        class="bg-gray-100 dark:bg-dark-black rounded-sm p-10 pb-0 h-[400px] flex items-end justify-center overflow-hidden border border-gray-50 dark:border-none">
+                        <img src="./assets/images/image 51.png" alt="Tom Cruise"
+                            class="h-[90%]  transition-all duration-500">
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="text-2xl font-bold text-black dark:text-white">Emma Watson</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Managing Director</p>
+                        <div class="flex gap-4 pt-2">
+                            <i class="fa-brands fa-twitter cursor-pointer hover:text-primary"></i>
+                            <i class="fa-brands fa-instagram cursor-pointer hover:text-primary"></i>
+                            <i class="fa-brands fa-linkedin-in cursor-pointer hover:text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div
+                        class="bg-gray-100 dark:bg-dark-black rounded-sm p-10 pb-0 h-[400px] flex items-end justify-center overflow-hidden border border-gray-50 dark:border-none">
+                        <img src="./assets/images/image 47.png" alt="Tom Cruise"
+                            class="h-[90%] transition-all duration-500">
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="text-2xl font-bold text-black dark:text-white">Will Smith</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Product Designer</p>
+                        <div class="flex gap-4 pt-2">
+                            <i class="fa-brands fa-twitter cursor-pointer hover:text-primary"></i>
+                            <i class="fa-brands fa-instagram cursor-pointer hover:text-primary"></i>
+                            <i class="fa-brands fa-linkedin-in cursor-pointer hover:text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider indicators -->
+                <div
+                    class="col-span-full flex justify-center space-x-3 mt-10 [&_button]:w-3 [&_button]:h-3 [&_button]:rounded-full [&_button]:bg-gray-400 [&_button]:hover:bg-primary [&_button]:transition-colors [&_button]:duration-300 [&_button]:cursor-pointer">
+                    <button type="button" aria-label="Slide 1"></button>
+                    <button type="button" aria-label="Slide 2"></button>
+                    <button type="button" class="!bg-primary" aria-label="Slide 3"></button>
+                    <button type="button" aria-label="Slide 4"></button>
+                    <button type="button" aria-label="Slide 5"></button>
+                </div>
+            </section>
+            <!-- services -->
+            <section class="py-20 mb-10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div
+                        class="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-24 text-center [&_h3]:font-bold [&_h3]:uppercase t[&_h3]:ext-lg [&_h3]:font-inter [&_p]:text-sm [&_p]:text-gray-600 [&_p]:dark:text-gray-400">
+                        <!-- service 1 -->
+                        <div class="flex flex-col items-center gap-4 group">
+                            <!-- service icon -->
+                            <div
+                                class="size-20 bg-gray-300 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-2">
+                                <div
+                                    class="size-14 bg-black text-white rounded-full flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-truck-fast"></i>
+                                </div>
+                            </div>
+                            <!-- service content -->
+                            <div class="space-y-1">
+                                <h3>Free and Fast Delivery</h3>
+                                <p>Free delivery for all orders over $140
+                                </p>
+                            </div>
+                        </div>
+                        <!-- service 2 -->
+                        <div class="flex flex-col items-center gap-4 group">
+                            <!-- service icon -->
+                            <div
+                                class="size-20 bg-gray-300 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-2">
+                                <div
+                                    class="size-14 bg-black text-white rounded-full flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-headset"></i>
+                                </div>
+                            </div>
+                            <!-- service content -->
+                            <div class="space-y-1">
+                                <h3>24/7 Customer Service</h3>
+                                <p>Friendly 24/7 customer support</p>
+                            </div>
+                        </div>
+                        <!-- service 3 -->
+                        <div class="flex flex-col items-center gap-4 group">
+                            <!-- service icon -->
+                            <div
+                                class="size-20 bg-gray-300 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-2">
+                                <div
+                                    class="size-14 bg-black text-white rounded-full flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                            </div>
+                            <!-- service content -->
+                            <div class="space-y-1">
+                                <h3>Money Back Guarantee</h3>
+                                <p>We return money within 30 days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    <!-- JS -->
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>
