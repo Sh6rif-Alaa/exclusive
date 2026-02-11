@@ -76,10 +76,10 @@
                     </div>
                     <!-- mobile menu links -->
                     <div class="md:hidden relative group">
-                        <div class="cursor-pointer hover:text-primary transition-colors">
+                        <button id="mobile-menu-btn" class="cursor-pointer hover:text-primary transition-colors">
                             <i class="fa-solid fa-bars text-xl"></i>
-                        </div>
-                        <div
+                        </button>
+                        <div id="mobile-menu"
                             class="absolute mt-2 top-full left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 group-hover:translate-y-0 translate-y-2">
                             <ul
                                 class="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl flex flex-col mt-2 [&_a]:px-5 [&_a]:py-3 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:border-none! [&_a]:hover:text-primary">
@@ -120,12 +120,13 @@
                     </div>
                     <!-- user -->
                     <div class="relative group">
-                        <div
+                        <button id="user-menu-btn"
                             class="size-9 bg-primary rounded-full flex justify-center items-center cursor-pointer hover:bg-red-600 transition-colors">
                             <i class="fa-regular fa-user text-lg text-white"></i>
-                        </div>
+                        </button>
+
                         <!-- user menu -->
-                        <div
+                        <div id="user-menu"
                             class="absolute right-0 top-full mt-2 w-56 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-20 transform group-hover:translate-y-0 translate-y-2">
                             <ul
                                 class="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl [&_li]:px-4 [&_li]:py-3 [&_li]:hover:bg-white/10 [&_li]:cursor-pointer [&_li]:flex [&_li]:items-center [&_li]:gap-3 [&_li]:transition-colors [&_li]:hover:text-primary [&_i]:hover:text-primary">
