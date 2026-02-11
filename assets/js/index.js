@@ -21,3 +21,41 @@ toggleThemeBtn.addEventListener('click', () => {
     localStorage.theme = 'dark';
   }
 });
+
+/* ------------------ get menus ------------------ */
+
+const mobileBtn = document.getElementById("mobile-menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+const userBtn = document.getElementById("user-menu-btn");
+const userMenu = document.getElementById("user-menu");
+
+/* ------------------ mobile menu ------------------ */
+
+dropDownMenu({ btn: mobileBtn, menu: mobileMenu, closeMenu: userMenu });
+
+/* ------------------ user menu ------------------ */
+
+dropDownMenu({ btn: userBtn, menu: userMenu, closeMenu: mobileMenu });
+
+/* ------------------ close when clicking outside ------------------ */
+
+document.addEventListener("click", () => {
+  mobileMenu?.classList.add("opacity-0", "invisible", "translate-y-2");
+  userMenu?.classList.add("opacity-0", "invisible", "translate-y-2");
+});
+
+/* ------------------ dropDownMenu Function ------------------ */
+
+function dropDownMenu({ btn, menu, closeMenu } = {}) {
+  if (btn && menu) {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      menu.classList.toggle("opacity-0");
+      menu.classList.toggle("invisible");
+      menu.classList.toggle("translate-y-2");
+
+      closeMenu?.classList.add("opacity-0", "invisible", "translate-y-2");
+    });
+  }
+}
