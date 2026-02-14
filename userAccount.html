@@ -28,7 +28,7 @@
             <!-- sales -->
             <div class="sm:ms-24 text-center flex-1 sm:text-sm text-xs">
                 Summer Sale For All Swim Suits And Free Express Delivery – OFF 50%!
-                <a href="./checkout.html" class="underline ml-1 font-semibold">ShopNow</a>
+                <a href="./shop.html" class="underline ml-1 font-semibold">ShopNow</a>
             </div>
             <!-- selected language -->
             <div class="relative group w-24 flex justify-end">
@@ -133,12 +133,9 @@
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-box-open text-lg"></i>
-                                    <a href="./checkout.html">My Order</a>
+                                    <a href="./orders.html">My Order</a>
                                 </li>
-                                <li>
-                                    <i class="fa-regular fa-circle-xmark text-lg"></i>
-                                    <span>My Cancellations</span>
-                                </li>
+
                                 <li>
                                     <i class="fa-regular fa-star text-lg"></i>
                                     <span>My Reviews</span>
@@ -163,106 +160,115 @@
     </nav>
     <!-- end Navbar -->
 
+    <!-- start Breadcrumb -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+            <a href="./index.html" class="hover:text-primary transition-colors">Home</a>
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+            <a href="./userAccount.html" class="text-primary transition-colors">My Account</a>
+        </div>
+    </div>
+    <!-- end Breadcrumb -->
+
     <!-- start userAccount -->
-    <section class="userAccount my-10">
-        <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- links info -->
-            <div class="flex justify-between mb-6">
-                <div>
-                    <p><span href="#" class="text-gray-400">Home /</span> My Account</p>
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <!-- account details grid md:gap-8 gap-4 pt-8 grid-cols-12 -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Sidebar -->
+            <aside class="lg:col-span-1">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <div class="p-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                        <h3 class="font-semibold text-lg">Manage My Account</h3>
+                    </div>
+                    <ul
+                        class="[&_li]:px-4 [&_li]:py-3 [&_li]:cursor-pointer [&_li]:transition-colors [&_li]:border-b [&_li]:border-gray-100 dark:[&_li]:border-gray-700 last:[&_li]:border-0">
+                        <li class="bg-primary/10 hover:bg-primary/10">
+                                <a href=" ./userAccount.html"
+                            class="group-hover:text-primary flex items-center gap-3 text-primary font-medium">
+                            <i class="fa-regular fa-user"></i>
+                            <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="./orders.html"
+                                class="group-hover:text-primary flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                                <i class="fa-solid fa-box-open"></i>
+                                <span>My Orders</span>
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="./reviews.html"
+                                class="group-hover:text-primary flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                                <i class="fa-regular fa-star"></i>
+                                <span>My Reviews</span>
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="./payment-methods.html"
+                                class="group-hover:text-primary flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                                <i class="fa-regular fa-credit-card"></i>
+                                <span>My Payment Options</span>
+                            </a>
+                        </li>
+                        <li class="group">
+                            <a href="./address-book.html"
+                                class="group-hover:text-primary flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Address Book</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div>
-                    <p>Welcome! <span class="text-primary">Md Rimel</span></p>
-                </div>
-            </div>
-            <!-- account details grid md:gap-8 gap-4 pt-8 grid-cols-12 -->
-            <div class="accountDetails mt-6 grid lg:grid-cols-4 sm:grid-cols-3">
-                <aside class="rounded-md p-6 col-span-1">
-                    <!-- Manage My Account -->
-                    <div class="mb-6">
-                        <h3 class="text-gray-900 font-medium mb-6">
-                            Manage My Account
-                        </h3>
-                        <ul class="space-y-2 pl-6">
-                            <li><a href="#" class="text-primary">My Profile</a></li>
-                            <li>
-                                <a href="#" class="text-gray-400 hover:text-primary">Address Book</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-400 hover:text-primary">My Payment Options</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mb-6">
-                        <h3 class=" text-gray-900 font-medium mb-6">
-                            My Order
-                        </h3>
-                        <ul class="space-y-2 pl-6">
-                            <li>
-                                <a href="#" class="text-gray-400 hover:text-primary">My Returns
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-400 hover:text-primary">My Cancellations</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mb-6">
-                        <h3 class="text-gray-900 font-medium mb-6">
-                            My wishlist
-                        </h3>
-                    </div>
-                </aside>
-                <div class="profile mb-6 shadow-md rounded-md lg:col-span-3 col-span-2 p-10">
-                    <h2 class="font-semibold text-lg text-primary mb-6">
-                        Edit Your Profile
-                    </h2>
-                    <form action="">
-                        <div class="row mb-6 grid sm:grid-cols-2 gap-8">
-                            <div class="left">
-                                <label for="firstName">First Name</label>
-                                <input type="text" id="firstName" placeholder="Md"
-                                    class="w-full mt-4 p-3 rounded-md bg-gray-100" />
-                            </div>
-                            <div class="right">
-                                <label for="lastName">Last Name</label>
-                                <input type="text" id="lastName" placeholder="Rimel"
-                                    class="w-full mt-4 p-3 rounded-md bg-gray-100" />
-                            </div>
-                        </div>
-                        <div class="row mb-6 grid sm:grid-cols-2 gap-8">
-                            <div class="left">
-                                <label for="email">Email Name</label>
-                                <input type="text" id="email" placeholder="Wagdy@gmail.com"
-                                    class="w-full mt-4 p-3 rounded-md bg-gray-100" />
-                            </div>
-                            <div class="right">
-                                <label for="address">Address</label>
-                                <input type="text" id="address" placeholder="1234 Mansoura , Egypt"
-                                    class="w-full mt-4 p-3 rounded-md bg-gray-100" />
-                            </div>
-                        </div>
-                        <div class="row mb-6">
-                            <label for="password">Password Changes</label>
-                            <input type="password" id="password" placeholder="Current Password"
-                                class="w-full mt-4 p-3 rounded-md bg-gray-100" />
-                            <input type="password" placeholder="New Password"
-                                class="w-full mt-4 p-3 rounded-md bg-gray-100" />
-                            <input type="password" placeholder="Confirm New Password"
+            </aside>
+            <div class="mb-6 shadow-md rounded-md lg:col-span-3">
+                <h2 class="font-semibold text-lg text-primary mb-6">
+                    Edit Your Profile
+                </h2>
+                <form action="">
+                    <div class="row mb-6 grid sm:grid-cols-2 gap-8">
+                        <div class="left">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" placeholder="Md"
                                 class="w-full mt-4 p-3 rounded-md bg-gray-100" />
                         </div>
-                        <div class="row flex gap-3 justify-end">
-                            <button
-                                class="shadow-md text-gray-700 px-8 py-3 rounded-sm hover:bg-primary transition-colors duration-300 font-medium ml-4">
-                                Cancel
-                            </button>
-                            <button type="submit"
-                                class="bg-primary text-white px-10 py-3 rounded-sm hover:bg-red-600 transition-colors duration-300 font-medium">
-                                Save Changes
-                            </button>
+                        <div class="right">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" placeholder="Rimel"
+                                class="w-full mt-4 p-3 rounded-md bg-gray-100" />
                         </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="row mb-6 grid sm:grid-cols-2 gap-8">
+                        <div class="left">
+                            <label for="email">Email Name</label>
+                            <input type="text" id="email" placeholder="Wagdy@gmail.com"
+                                class="w-full mt-4 p-3 rounded-md bg-gray-100" />
+                        </div>
+                        <div class="right">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" placeholder="1234 Mansoura , Egypt"
+                                class="w-full mt-4 p-3 rounded-md bg-gray-100" />
+                        </div>
+                    </div>
+                    <div class="row mb-6">
+                        <label for="password">Password Changes</label>
+                        <input type="password" id="password" placeholder="Current Password"
+                            class="w-full mt-4 p-3 rounded-md bg-gray-100" />
+                        <input type="password" placeholder="New Password"
+                            class="w-full mt-4 p-3 rounded-md bg-gray-100" />
+                        <input type="password" placeholder="Confirm New Password"
+                            class="w-full mt-4 p-3 rounded-md bg-gray-100" />
+                    </div>
+                    <div class="row flex gap-3 justify-end">
+                        <button
+                            class="shadow-md text-gray-700 px-8 py-3 rounded-sm hover:bg-primary transition-colors duration-300 font-medium ml-4">
+                            Cancel
+                        </button>
+                        <button type="submit"
+                            class="bg-primary text-white px-10 py-3 rounded-sm hover:bg-red-600 transition-colors duration-300 font-medium">
+                            Save Changes
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -301,16 +307,16 @@
                     <li><a href="./login.html" class="hover:text-white">Login / Register</a></li>
                     <li><a href="./cart.html" class="hover:text-white">Cart</a></li>
                     <li><a href="./wishlist.html" class="hover:text-white">Wishlist</a></li>
-                    <li><a href="./checkout.html" class="hover:text-white">Shop</a></li>
+                    <li><a href="./shop.html" class="hover:text-white">Shop</a></li>
                 </ul>
             </div>
             <!-- Quick Link -->
             <div class="space-y-4">
                 <h4 class="text-lg font-bold text-white">Quick Link</h4>
                 <ul class="space-y-2">
-                    <li><a href="/privacy" class="hover:text-white">Privacy Policy</a></li>
-                    <li><a href="/terms" class="hover:text-white">Terms Of Use</a></li>
-                    <li><a href="/faq" class="hover:text-white">FAQ</a></li>
+                    <li><a href="./privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="./terms.html" class="hover:text-white">Terms Of Use</a></li>
+                    <li><a href="./faq.html" class="hover:text-white">FAQ</a></li>
                     <li><a href="./contactUs.html" class="hover:text-white">Contact</a></li>
                 </ul>
             </div>
