@@ -4,20 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>exclusive - contact us</title>
-    <meta name="description" content="A full-stack E-Commerce web application inspired by a modern Figma design">
-    <meta name="keywords" content="E-Commerce,products,exclusive">
-    <meta name="author" content="react group 2">
+    <title>exclusive - Address Book</title>
+    <meta name="description" content="Manage your shipping addresses">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
-    <!-- google fonts Inter & Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <!-- fontawesome -->
     <link href="./assets/css/all.min.css" rel="stylesheet">
-    <!-- tailwind -->
     <link href="./assets/css/output.css" rel="stylesheet">
 </head>
 
@@ -63,14 +58,14 @@
                 </div>
                 <!-- links -->
                 <div class="hidden md:flex gap-x-6 [&_a]:hover:text-primary font-medium">
-                    <a href="./index.html">Home</a>
-                    <a href="#" class="link-active">Contact</a>
+                    <a href="#">Home</a>
+                    <a href="./contactUs.html">Contact</a>
                     <a href="./aboutUs.html">About</a>
                     <a href="./signUp.html">Sign Up</a>
                 </div>
                 <!-- search & mobile menu & icons -->
                 <div
-                    class="flex items-center space-x-4 [&_i]:cursor-pointer [&_i]:transition-colors [&_i]:duration-300 [&_i]:hover:text-gray-700">
+                    class="flex items-center space-x-4 [&_i]:cursor-pointer [&_i]:transition-colors [&_i]:duration-300 [&_i]:hover:text-gray-700 dark:text-gray-300">
                     <!-- search -->
                     <div class="relative hidden sm:block">
                         <input id="search" name="search" type="search" placeholder="What are you looking for?"
@@ -88,10 +83,10 @@
                             class="absolute mt-2 top-full left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 group-hover:translate-y-0 translate-y-2">
                             <ul
                                 class="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl flex flex-col mt-2 [&_a]:px-5 [&_a]:py-3 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:border-none! [&_a]:hover:text-primary">
-                                <a href="./index.html" class="border-b border-white/10 first:rounded-t-lg">
+                                <a href="#" class="border-b border-white/10 first:rounded-t-lg link-active">
                                     Home
                                 </a>
-                                <a href="#" class="border-b border-white/10 link-active">
+                                <a href="./contactUs.html" class="border-b border-white/10">
                                     Contact
                                 </a>
                                 <a href="./aboutUs.html" class="border-b border-white/10">
@@ -168,79 +163,218 @@
     </nav>
     <!-- end Navbar -->
 
-    <!-- contact -->
-    <main class="bg-white  dark:bg-slate-900 transition-colors duration-300 min-h-screen">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <nav class="mb-10 text-sm">
-                <span class="text-gray-500">Home</span>
-                <span class="mx-2 text-gray-500">/</span>
-                <span class="text-black dark:text-white font-medium">Contact</span>
-            </nav>
+    <!-- start Breadcrumb -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+            <a href="./index.html" class="hover:text-primary transition-colors">Home</a>
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+            <a href="./userAccount.html" class="hover:text-primary transition-colors">My Account</a>
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+            <span class="text-primary font-medium">Address Book</span>
+        </div>
+    </div>
+    <!-- end Breadcrumb -->
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
+    <!-- Address Book Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
                 <div
-                    class="md:col-span-1 bg-white dark:bg-slate-800 shadow-lg rounded-md p-8 flex flex-col gap-8 border border-gray-100 dark:border-none">
-
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4">
-                            <div class="bg-primary p-3 rounded-full w-10 h-10 flex items-center justify-center">
-                                <i class="fa-solid fa-phone text-white"></i>
-                            </div>
-                            <h3 class="font-bold text-lg text-black dark:text-white">Call To Us</h3>
-                        </div>
-                        <div class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                            <p>We are available 24/7, 7 days a week.</p>
-                            <p>Phone: +8801611112222</p>
-                        </div>
+                    class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <div class="p-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                        <h3 class="font-semibold text-lg">Manage My Account</h3>
                     </div>
-
-                    <hr class="border-gray-200 dark:border-dark-input">
-
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4">
-                            <div class="bg-primary p-3 rounded-full w-10 h-10 flex items-center justify-center">
-                                <i class="fa-regular fa-envelope text-white text-lg"></i>
-                            </div>
-                            <h3 class="font-bold text-lg text-black dark:text-white">Write To Us</h3>
-                        </div>
-                        <div class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                            <p>Fill out our form and we will contact you within 24 hours.</p>
-                            <p>Emails: customer@exclusive.com</p>
-                            <p>Emails: support@exclusive.com</p>
-                        </div>
-                    </div>
+                    <ul
+                        class="[&_li]:px-4 [&_li]:py-3 [&_li]:cursor-pointer [&_li]:transition-colors [&_li]:border-b [&_li]:border-gray-100 dark:[&_li]:border-gray-700 last:[&_li]:border-0">
+                        <li class="group"><a href="./userAccount.html"
+                                class="group-hover:text-primary flex items-center gap-3 text-gray-700 dark:text-gray-300"><i
+                                    class="fa-regular fa-user"></i><span>My Profile</span></a></li>
+                        <li class="group"><a href="./orders.html"
+                                class="group-hover:text-primary flex items-center gap-3 text-gray-700 dark:text-gray-300"><i
+                                    class="fa-solid fa-box-open"></i><span>My Orders</span></a></li>
+                        <li class="group"><a href="./reviews.html"
+                                class="group-hover:text-primary flex items-center gap-3 text-gray-700 dark:text-gray-300"><i
+                                    class="fa-regular fa-star"></i><span>My Reviews</span></a></li>
+                        <li class="group"><a href="./payment-methods.html"
+                                class="group-hover:text-primary flex items-center gap-3 text-gray-700 dark:text-gray-300"><i
+                                    class="fa-regular fa-credit-card"></i><span>My Payment Options</span></a></li>
+                        <li class="bg-primary/10 hover:bg-primary/10"><a href="./address-book.html"
+                                class="flex items-center gap-3 text-primary font-medium"><i
+                                    class="fa-solid fa-location-dot"></i><span>Address Book</span></a></li>
+                    </ul>
                 </div>
-                <!-- inputs -->
-                <div
-                    class="md:col-span-2 bg-white  dark:bg-slate-800 shadow-lg rounded-md p-8 border border-gray-100 dark:border-none">
-                    <form action="#" class="space-y-6">
-                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                            <input type="text" placeholder="Your Name *" required
-                                class="w-full bg-gray-100 dark:bg-dark-input text-black dark:text-white placeholder-gray-500 border border-transparent focus:border-primary rounded-md p-4 text-sm outline-none transition-all">
+            </div>
 
-                            <input type="email" placeholder="Your Email *" required
-                                class="w-full bg-gray-100 dark:bg-dark-input text-black dark:text-white placeholder-gray-500 border border-transparent focus:border-primary rounded-md p-4 text-sm outline-none transition-all">
+            <!-- Address Content -->
+            <div class="lg:col-span-3">
+                <div class="mb-6 flex justify-between items-center">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-2">Address Book</h2>
+                        <p class="text-gray-600 dark:text-gray-400">Manage your shipping and billing addresses</p>
+                    </div>
+                    <button
+                        class="px-6 py-3 bg-primary text-white rounded-md hover:bg-red-600 transition-colors font-medium flex items-center gap-2 cursor-pointer">
+                        <i class="fa-solid fa-plus"></i>Add New Address
+                    </button>
+                </div>
 
-                            <input type="tel" placeholder="Your Phone *" required
-                                class="w-full bg-gray-100 dark:bg-dark-input text-black dark:text-white placeholder-gray-500 border border-transparent focus:border-primary rounded-md p-4 text-sm outline-none transition-all">
+                <!-- Addresses Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Address 1 - Default -->
+                    <div
+                        class="bg-white dark:bg-gray-800 border-2 border-primary rounded-lg p-6 relative hover:shadow-lg transition-shadow">
+                        <div class="absolute top-4 right-4">
+                            <span class="text-xs bg-primary text-white px-3 py-1 rounded-full">Default</span>
                         </div>
 
-                        <textarea placeholder="Your Message" rows="8"
-                            class="w-full bg-gray-100 dark:bg-dark-input text-black dark:text-white placeholder-gray-500 border border-transparent focus:border-primary rounded-md p-4 text-sm outline-none resize-none transition-all"></textarea>
+                        <div class="mb-4">
+                            <div class="flex items-start gap-3 mb-3">
+                                <i class="fa-solid fa-location-dot text-primary text-xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Home</h4>
+                                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                        John Doe<br>
+                                        123 Main Street, Apt 4B<br>
+                                        New York, NY 10001<br>
+                                        United States
+                                    </p>
+                                </div>
+                            </div>
 
-                        <div class="flex justify-end">
-                            <button type="submit"
-                                class="bg-primary hover:bg-hover-button text-white px-10 py-4 rounded-md font-medium transition-all active:scale-95 text-sm shadow-md cursor-pointer">
-                                Send Message
+                            <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-1">
+                                <i class="fa-solid fa-phone w-4"></i>
+                                <span>+1 (555) 123-4567</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2 pt-4 border-t border-gray-200 dark:border-gray-700 [&_button]:cursor-pointer">
+                            <button
+                                class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors font-medium text-sm">
+                                <i class="fa-solid fa-pen mr-2"></i>Edit
+                            </button>
+                            <button
+                                class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors font-medium text-sm">
+                                <i class="fa-solid fa-trash mr-2"></i>Delete
                             </button>
                         </div>
-                    </form>
+                    </div>
+
+                    <!-- Address 2 -->
+                    <div
+                        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 relative hover:shadow-lg transition-shadow">
+                        <div class="absolute top-4 right-4">
+                            <button
+                                class="text-xs border cursor-pointer border-gray-300 dark:border-gray-600 px-3 py-1 rounded-full hover:border-primary hover:text-primary transition-colors">
+                                Set as Default
+                            </button>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="flex items-start gap-3 mb-3">
+                                <i class="fa-solid fa-briefcase text-gray-600 dark:text-gray-400 text-xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Office</h4>
+                                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                        John Doe<br>
+                                        456 Business Plaza, Floor 12<br>
+                                        Los Angeles, CA 90001<br>
+                                        United States
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-1">
+                                <i class="fa-solid fa-phone w-4"></i>
+                                <span>+1 (555) 987-6543</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2 pt-4 border-t border-gray-200 dark:border-gray-700 [&_button]:cursor-pointer">
+                            <button
+                                class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors font-medium text-sm">
+                                <i class="fa-solid fa-pen mr-2"></i>Edit
+                            </button>
+                            <button
+                                class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors font-medium text-sm">
+                                <i class="fa-solid fa-trash mr-2"></i>Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Address 3 -->
+                    <div
+                        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 relative hover:shadow-lg transition-shadow">
+                        <div class="absolute top-4 right-4">
+                            <button
+                                class="text-xs cursor-pointer border border-gray-300 dark:border-gray-600 px-3 py-1 rounded-full hover:border-primary hover:text-primary transition-colors">
+                                Set as Default
+                            </button>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="flex items-start gap-3 mb-3">
+                                <i class="fa-solid fa-heart text-gray-600 dark:text-gray-400 text-xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Dad's House</h4>
+                                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                        Jane Doe<br>
+                                        789 Oak Avenue<br>
+                                        Chicago, IL 60601<br>
+                                        United States
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-1">
+                                <i class="fa-solid fa-phone w-4"></i>
+                                <span>+1 (555) 246-8135</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2 pt-4 border-t border-gray-200 dark:border-gray-700 [&_button]:cursor-pointer">
+                            <button
+                                class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors font-medium text-sm">
+                                <i class="fa-solid fa-pen mr-2"></i>Edit
+                            </button>
+                            <button
+                                class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors font-medium text-sm">
+                                <i class="fa-solid fa-trash mr-2"></i>Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Add New Address Card -->
+                    <div
+                        class="bg-gray-50 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 flex flex-col items-center justify-center hover:border-primary hover:bg-primary/5 transition-colors cursor-pointer group min-h-75">
+                        <i class="fa-solid fa-plus text-5xl text-gray-400 group-hover:text-primary mb-4"></i>
+                        <h4
+                            class="font-semibold text-lg text-gray-600 dark:text-gray-400 group-hover:text-primary mb-2">
+                            Add New Address</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-500 text-center">Click here to add a
+                            new<br>shipping or billing address</p>
+                    </div>
+                </div>
+
+                <!-- Tips -->
+                <div
+                    class="mt-8 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4">
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-lightbulb text-blue-600 text-xl shrink-0"></i>
+                        <div>
+                            <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">Quick Tips</h4>
+                            <ul class="text-sm text-blue-800 dark:text-blue-200 space-y-1 list-disc list-inside">
+                                <li>Set your most frequently used address as default for faster checkout</li>
+                                <li>Add multiple addresses for gifts to friends and family</li>
+                                <li>Include phone numbers for better delivery coordination</li>
+                                <li>Label your addresses (Home, Office, etc.) for easy identification</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
-    <!-- end contact -->
+    </section>
 
     <!-- Footer -->
     <footer class="bg-black text-white pt-8 pb-4">
@@ -254,7 +388,7 @@
                     <input type="email" placeholder="Enter your email"
                         class="w-full rounded-md bg-transparent border border-white px-4 py-2 pr-12 text-white placeholder:text-gray-400" />
                     <button type="submit"
-                        class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white rounded-md p-2 hover:bg-red-600"
+                        class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white rounded-md p-2 hover:bg-red-600 cursor-pointer"
                         aria-label="Subscribe to newsletter">
                         <i class="fa-solid fa-paper-plane"></i>
                     </button>
@@ -327,7 +461,6 @@
     </footer>
     <!-- end Footer -->
 
-    <!-- JS -->
     <script src="./assets/js/index.js"></script>
 </body>
 
