@@ -6,7 +6,7 @@
 
 - [About The Project](#-about-the-project)
 - [Pages Overview](#-pages-overview)
-- [Tech Stack](#-tech-stack)
+- [Tech Stack](#%EF%B8%8F-tech-stack)
 - [Getting Started](#-getting-started)
 - [Installation](#-installation)
 - [Contributing](#-contributing)
@@ -184,4 +184,4 @@ If you found this project helpful, please consider:
 
 **Made with ❤️ by React Group 2**
 
-[⬆ Back to Top](#-exclusive---modern-e-commerce-platform)
+[⬆ Back to Top](#%EF%B8%8F-exclusive---modern-e-commerce-platform)
