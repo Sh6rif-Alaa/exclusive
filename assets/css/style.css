@@ -5,6 +5,7 @@
   /* colors */
   --color-primary: #db4444;
   --color-secondary: #7d8184;
+  --color-icon: #6b7280;
   --color-menu: #4d3b5b;
   --color-menu2: #2a2631;
   --color-start: #ffad33;
@@ -12,6 +13,8 @@
   --color-prod-1: #fb1314;
   --color-prod-2: #eeff61;
   --color-prod-3: #184a48;
+  /* shadow */
+  --text-shadow-focus: 0 0 0 3px rgba(219, 68, 68, 0.1);
   /* fonts */
   --font-poppins: "Poppins", sans-serif;
   --font-inter: "Inter", sans-serif;
@@ -32,6 +35,19 @@
   }
 }
 
+/* for hide scroll/spinner on input number */
+@utility number-spinner-hide {
+  -moz-appearance: textfield;
+  appearance: none;
+  
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+
 html {
   @apply [scrollbar-width:thin] [scrollbar-color:var(--color-primary)_transparent];
 }
@@ -42,6 +58,5 @@ body {
 
 /* navbar active page link */
 .link-active {
-    @apply border-b-2 border-secondary text-primary font-bold;
+  @apply border-b-2 border-secondary text-primary font-bold;
 }
-

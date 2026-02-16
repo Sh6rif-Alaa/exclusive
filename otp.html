@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>exclusive - login</title>
+    <title>exclusive - verify otp</title>
     <meta name="description" content="A full-stack E-Commerce web application inspired by a modern Figma design">
     <meta name="keywords" content="E-Commerce,products,exclusive">
     <meta name="author" content="react group 2">
@@ -32,7 +32,7 @@
             </div>
             <!-- selected language -->
             <div class="relative group w-24 flex justify-end">
-                <div class="flex items-center cursor-pointer hover:text-gray-300 transition-colors">
+                <div class="flex items-center gap-2 cursor-pointer hover:text-gray-300 transition-colors">
                     <span>English</span>
                     <i
                         class="fa-solid fa-angle-down text-xs mt-0.5 transition-transform duration-300 group-hover:rotate-180"></i>
@@ -40,11 +40,13 @@
                 <!-- language menu -->
                 <div
                     class="absolute top-full right-0 mt-2 w-32 bg-black text-white border border-white/20 rounded shadow-xl opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 flex flex-col py-1 z-50 [&_a]:px-4 [&_a]:py-2 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:text-left">
-                    <a href="#" class="flex justify-between items-center">
+                    <a href="#" class=" flex justify-between items-center">
                         English
                         <i class="fa-solid fa-check text-xs text-green-500"></i>
                     </a>
-                    <a href="#"> Arabic </a>
+                    <a href="#">
+                        Arabic
+                    </a>
                 </div>
             </div>
         </div>
@@ -61,10 +63,10 @@
                 </div>
                 <!-- links -->
                 <div class="hidden md:flex gap-x-6 [&_a]:hover:text-primary font-medium">
-                    <a href="./index.html">Home</a>
+                    <a href="./index.html" class="link-active">Home</a>
                     <a href="./contactUs.html">Contact</a>
                     <a href="./aboutUs.html">About</a>
-                    <a href="./signUp.html" class="link-active">Sign Up</a>
+                    <a href="./signUp.html">Sign Up</a>
                 </div>
                 <!-- search & mobile menu & icons -->
                 <div
@@ -72,7 +74,7 @@
                     <!-- search -->
                     <div class="relative hidden sm:block">
                         <input id="search" name="search" type="search" placeholder="What are you looking for?"
-                            class="border border-gray-300 rounded-md py-1.5 px-4 pr-10 bg-gray-100 focus:outline-none focus:bg-white focus:ring-1 focus:ring-black text-sm w-52 transition-all text-slate-800 placeholder:text-xs placeholder:text-secondary" />
+                            class="border border-gray-300 rounded-md py-1.5 px-4 pr-10 bg-gray-100 focus:outline-none focus:bg-white focus:ring-1 focus:ring-black text-sm w-52 transition-all text-slate-800 placeholder:text-xs placeholder:text-secondary">
                         <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
@@ -85,13 +87,19 @@
                         <div id="mobile-menu"
                             class="absolute mt-2 top-full left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 group-hover:translate-y-0 translate-y-2">
                             <ul
-                                class="py-2 text-sm text-white rounded-md shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl flex flex-col mt-2 [&_a]:px-5 [&_a]:py-3 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:border-none! [&_a]:hover:text-primary">
+                                class="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl flex flex-col mt-2 [&_a]:px-5 [&_a]:py-3 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:border-none! [&_a]:hover:text-primary">
                                 <a href="./index.html" class="border-b border-white/10 first:rounded-t-lg link-active">
                                     Home
                                 </a>
-                                <a href="./contactUs.html" class="border-b border-white/10"> Contact </a>
-                                <a href="./aboutUs.html" class="border-b border-white/10"> About </a>
-                                <a href="./signUp.html" class="last:rounded-b-lg link-active"> Sign Up </a>
+                                <a href="./contactUs.html" class="border-b border-white/10">
+                                    Contact
+                                </a>
+                                <a href="./aboutUs.html" class="border-b border-white/10">
+                                    About
+                                </a>
+                                <a href="./signUp.html" class="last:rounded-b-lg">
+                                    Sign Up
+                                </a>
                             </ul>
                         </div>
                     </div>
@@ -126,7 +134,7 @@
                         <div id="user-menu"
                             class="absolute right-0 top-full mt-2 w-56 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-20 transform group-hover:translate-y-0 translate-y-2">
                             <ul
-                                class="py-2 text-sm text-white rounded-md shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl [&_li]:px-4 [&_li]:py-3 [&_li]:hover:bg-white/10 [&_li]:cursor-pointer [&_li]:flex [&_li]:items-center [&_li]:gap-3 [&_li]:transition-colors [&_li]:hover:text-primary [&_i]:hover:text-primary">
+                                class="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl [&_li]:px-4 [&_li]:py-3 [&_li]:hover:bg-white/10 [&_li]:cursor-pointer [&_li]:flex [&_li]:items-center [&_li]:gap-3 [&_li]:transition-colors [&_li]:hover:text-primary [&_i]:hover:text-primary">
                                 <li>
                                     <i class="fa-regular fa-user text-lg"></i>
                                     <a href="./userAccount.html">Manage My Account</a>
@@ -160,37 +168,57 @@
     </nav>
     <!-- end Navbar -->
 
-    <!-- start log in -->
-    <section class="signUp my-14 ">
+    <!-- start OTP Verification -->
+    <section class="signUp my-14">
         <div class="container-signUp">
-            <div class=" grid pt-8 grid-cols-1 md:grid-cols-2  gap-4">
-                <div class="left col-span-1 ">
+            <div class="grid pt-8 grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="left col-span-1">
                     <img class="w-full sm:h-[80vh]" src="./assets/images/capture_20260202183654141.bmp" alt="">
                 </div>
-                <div class="right col-span-1 flex justify-center items-center flex-col ">
+                <div class="right col-span-1 flex justify-center items-center flex-col">
 
                     <div class="w-[90%] sm:w-[60%]">
-                        <h2 class="text-3xl md:text-4xl font-semibold font-inter">Log in to Exclusive </h2>
-                        <p class="mt-4">Enter your details below </p>
-                        <form class="mt-8">
-                            <input class="w-full border-b p-3 placeholder:text-secondary" type="text" placeholder="Email or Phone Number">
-                            <input class="w-full my-4 border-b p-3 px-5 placeholder:text-secondary" type="text" placeholder="Password">
-                            <div class="link my-8 flex justify-between">
-                                <button class="bg-primary text-white px-8 p-3 ">Log In </button>
-                                <a class="px-8 p-3  text-primary " href="./forget-password.html"> Forget Password?</a>
+                        <h2 class="text-3xl md:text-4xl font-semibold font-inter">Verify Your Email</h2>
+                        <p class="mt-4">We've sent a 6-digit code to your email. Please enter it below to verify your
+                            account.</p>
+
+                        <form class="mt-8" id="otp-form">
+                            <!-- OTP Input Fields -->
+                            <div
+                                class="flex justify-between gap-2 mb-8 [&_input]:w-12 [&_input]:h-14 [&_input]:text-center [&_input]:text-2xl [&_input]:font-semibold [&_input]:border-2 [&_input]:border-gray-300 [&_input]:rounded-md [&_input]:transition-all [&_input]:duration-300 focus:outline-none [&_input]:focus:border-primary [&_input]:focus:shadow-input-focus [&_input]:placeholder:text-secondary [&_input]:number-spinner-hide">
+                                <input type="number" min="0" max="9" maxlength="1" id="otp1" required>
+                                <input type="number" min="0" max="9" maxlength="1" id="otp2" required>
+                                <input type="number" min="0" max="9" maxlength="1" id="otp3" required>
+                                <input type="number" min="0" max="9" maxlength="1" id="otp4" required>
+                                <input type="number" min="0" max="9" maxlength="1" id="otp5" required>
+                                <input type="number" min="0" max="9" maxlength="1" id="otp6" required>
                             </div>
-
+                            <div class="link flex flex-col gap-4">
+                                <a href="./new-password.html"
+                                    class="bg-primary text-white px-8 py-3 w-full hover:bg-red-600 transition-colors text-center block">
+                                    Verify Code
+                                </a>
+                                <div class="text-center text-sm">
+                                    <span class="text-gray-600">Didn't receive the code? </span>
+                                    <button type="button" class="text-primary hover:underline font-semibold"
+                                        id="resend-btn">
+                                        Resend Code
+                                    </button>
+                                </div>
+                                <a class="text-center text-gray-600 hover:text-primary transition-colors"
+                                    href="./forget-password.html">
+                                    <i class="fa-solid fa-arrow-left mr-2"></i>Back to Previous Step
+                                </a>
+                            </div>
                         </form>
-
                     </div>
-
 
                 </div>
             </div>
 
         </div>
     </section>
-    <!-- end  Log In -->
+    <!-- end OTP Verification -->
 
     <!-- Footer -->
     <footer class="bg-black text-white pt-8 pb-4">
@@ -278,7 +306,7 @@
     <!-- end Footer -->
 
     <script src="./assets/js/index.js"></script>
-
+    <script src="./assets/js/otp.js"></script>
 </body>
 
 </html>
