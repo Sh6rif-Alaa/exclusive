@@ -86,7 +86,7 @@
                             class="absolute mt-2 top-full left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 group-hover:translate-y-0 translate-y-2">
                             <ul
                                 class="py-2 text-sm text-white rounded-md shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl flex flex-col mt-2 [&_a]:px-5 [&_a]:py-3 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:border-none! [&_a]:hover:text-primary">
-                                <a href="./index.html" class="border-b border-white/10 first:rounded-t-lg link-active">
+                                <a href="./index.html" class="border-b border-white/10 first:rounded-t-lg">
                                     Home
                                 </a>
                                 <a href="./contactUs.html" class="border-b border-white/10"> Contact </a>
@@ -172,21 +172,21 @@
 
     <!-- start userAccount -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <!-- account details grid md:gap-8 gap-4 pt-8 grid-cols-12 -->
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
             <!-- Sidebar -->
             <aside class="lg:col-span-1">
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
                     <div class="p-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
                         <h3 class="font-semibold text-lg">Manage My Account</h3>
                     </div>
                     <ul
                         class="[&_li]:px-4 [&_li]:py-3 [&_li]:cursor-pointer [&_li]:transition-colors [&_li]:border-b [&_li]:border-gray-100 dark:[&_li]:border-gray-700 last:[&_li]:border-0">
                         <li class="bg-primary/10 hover:bg-primary/10">
-                                <a href=" ./userAccount.html"
-                            class="group-hover:text-primary flex items-center gap-3 text-primary font-medium">
-                            <i class="fa-regular fa-user"></i>
-                            <span>My Profile</span>
+                            <a href=" ./userAccount.html"
+                                class="group-hover:text-primary flex items-center gap-3 text-primary font-medium">
+                                <i class="fa-regular fa-user"></i>
+                                <span>My Profile</span>
                             </a>
                         </li>
                         <li class="group">
@@ -220,6 +220,7 @@
                     </ul>
                 </div>
             </aside>
+            <!-- account Content -->
             <div class="mb-6 shadow-md rounded-md lg:col-span-3">
                 <h2 class="font-semibold text-lg text-primary mb-6">
                     Edit Your Profile
