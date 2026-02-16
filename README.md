@@ -6,7 +6,7 @@
 
 - [About The Project](#-about-the-project)
 - [Pages Overview](#-pages-overview)
-- [Tech Stack](#-tech-stack)
+- [Tech Stack](#%EF%B8%8F-tech-stack)
 - [Getting Started](#-getting-started)
 - [Installation](#-installation)
 - [Contributing](#-contributing)
@@ -39,11 +39,14 @@
 | 💳 Checkout | `checkout.html` | Complete purchase and payment |
 | ❤️ Wishlist | `wishlist.html` | Saved favorite products |
 
-### Account Pages (9)
+### Account Pages (12)
 | Page | File | Description |
 |------|------|-------------|
 | 🔐 Login | `login.html` | User login page |
 | ✍️ Sign Up | `signUp.html` | New user registration |
+| 🔑 Forget Password | `forget-password.html` | Password recovery - email entry |
+| 🔢 OTP Verification | `otp.html` | Enter 6-digit verification code |
+| 🔒 New Password | `new-password.html` | Create new password with confirmation |
 | 👤 My Account | `userAccount.html` | User profile management |
 | 📋 My Orders | `orders.html` | Order history and status |
 | 📊 Order Details | `order-details.html` | Detailed order information |
@@ -62,7 +65,7 @@
 | ❓ FAQ | `faq.html` | Frequently asked questions |
 | ⚠️ Error 404 | `error.html` | Custom error page |
 
-**Total: 21 Pages** - Complete e-commerce experience
+**Total: 24 Pages** - Complete e-commerce experience
 
 ---
 
@@ -184,4 +187,4 @@ If you found this project helpful, please consider:
 
 **Made with ❤️ by React Group 2**
 
-[⬆ Back to Top](#-exclusive---modern-e-commerce-platform)
+[⬆ Back to Top](#%EF%B8%8F-exclusive---modern-e-commerce-platform)
