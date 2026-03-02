@@ -34,7 +34,7 @@
 |------|------|-------------|
 | 🏠 Home | `index.html` | Homepage with featured products, categories, and deals |
 | 🛍️ Shop | `shop.html` | Product listing with filters and sorting |
-| 📦 Product Details | `product_details.html` | Individual product page with reviews |
+| 📦 Product Details | `product-details.html` | Individual product page with reviews |
 | 🛒 Shopping Cart | `cart.html` | View and manage cart items |
 | 💳 Checkout | `checkout.html` | Complete purchase and payment |
 | ❤️ Wishlist | `wishlist.html` | Saved favorite products |
@@ -43,7 +43,7 @@
 | Page | File | Description |
 |------|------|-------------|
 | 🔐 Login | `login.html` | User login page |
-| ✍️ Sign Up | `signUp.html` | New user registration |
+| ✍️ Sign Up | `sign-up.html` | New user registration |
 | 🔑 Forget Password | `forget-password.html` | Password recovery - email entry |
 | 🔢 OTP Verification | `otp.html` | Enter 6-digit verification code |
 | 🔒 New Password | `new-password.html` | Create new password with confirmation |
@@ -58,8 +58,8 @@
 ### Information Pages (6)
 | Page | File | Description |
 |------|------|-------------|
-| ℹ️ About Us | `aboutUs.html` | Company information |
-| 📧 Contact Us | `contactUs.html` | Contact form and information |
+| ℹ️ About Us | `about-us.html` | Company information |
+| 📧 Contact Us | `contact-us.html` | Contact form and information |
 | 🔒 Privacy Policy | `privacy.html` | Privacy and data protection |
 | 📜 Terms of Service | `terms.html` | Terms and conditions |
 | ❓ FAQ | `faq.html` | Frequently asked questions |
