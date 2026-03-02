@@ -4,23 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>exclusive - My Reviews</title>
-    <meta name="description" content="Manage your product reviews">
-    <meta name="keywords" content="E-Commerce,reviews,exclusive">
+    <title>exclusive - Payment Methods</title>
+    <meta name="description" content="Manage your payment methods">
+    <meta name="keywords" content="E-Commerce,products,exclusive">
     <meta name="author" content="react group 2">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <!-- google fonts Inter & Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <!-- fontawesome -->
     <link href="./assets/css/all.min.css" rel="stylesheet">
+    <!-- tailwind -->
     <link href="./assets/css/output.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- start Top Banner -->
-    <div class="bg-black text-white py-2 text-sm relative z-50">
+    <div id="banner" class="bg-black text-white py-2 text-sm relative z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <!-- sales -->
             <div class="sm:ms-24 text-center flex-1 sm:text-sm text-xs">
@@ -61,9 +64,9 @@
                 <!-- links -->
                 <div class="hidden md:flex gap-x-6 [&_a]:hover:text-primary font-medium">
                     <a href="#">Home</a>
-                    <a href="./contactUs.html">Contact</a>
-                    <a href="./aboutUs.html">About</a>
-                    <a href="./signUp.html">Sign Up</a>
+                    <a href="./contact-us.html">Contact</a>
+                    <a href="./about-us.html">About</a>
+                    <a href="./sign-up.html">Sign Up</a>
                 </div>
                 <!-- search & mobile menu & icons -->
                 <div
@@ -88,13 +91,13 @@
                                 <a href="./index.html" class="border-b border-white/10 first:rounded-t-lg">
                                     Home
                                 </a>
-                                <a href="./contactUs.html" class="border-b border-white/10">
+                                <a href="./contact-us.html" class="border-b border-white/10">
                                     Contact
                                 </a>
-                                <a href="./aboutUs.html" class="border-b border-white/10">
+                                <a href="./about-us.html" class="border-b border-white/10">
                                     About
                                 </a>
-                                <a href="./signUp.html" class="last:rounded-b-lg">
+                                <a href="./sign-up.html" class="last:rounded-b-lg">
                                     Sign Up
                                 </a>
                             </ul>
@@ -165,304 +168,320 @@
     </nav>
     <!-- end Navbar -->
 
+
     <!-- start Breadcrumb -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-            <a href="./index.html" class="hover:text-primary transition-colors">Home</a>
+    <nav id="breadCrumb" aria-label="Breadcrumb" class="my-8">
+        <ol
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+            <li>
+                <a href="./index.html" class="hover:text-primary transition-colors">Home</a>
+            </li>
             <i class="fa-solid fa-chevron-right text-xs"></i>
-            <a href="./userAccount.html" class="hover:text-primary transition-colors">My Account</a>
+            <li>
+                <a href="./userAccount.html" class="hover:text-primary transition-colors">My Account</a>
+            </li>
             <i class="fa-solid fa-chevron-right text-xs"></i>
-            <span class="text-primary font-medium">My Reviews</span>
-        </div>
-    </div>
+            <li class="text-primary font-medium" aria-current="page">
+                My Reviews
+            </li>
+        </ol>
+    </nav>
     <!-- end Breadcrumb -->
 
-    <!-- Reviews Section -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <!-- Sidebar -->
-            <div class="lg:col-span-1">
-                <div
-                    class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-                    <div class="p-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
-                        <h3 class="font-semibold text-lg">Manage My Account</h3>
-                    </div>
-                    <ul
-                        class="[&_li]:px-4 [&_li]:py-3 [&_li]:cursor-pointer [&_li]:transition-colors [&_li]:border-b [&_li]:border-gray-100 dark:[&_li]:border-gray-700 last:[&_li]:border-0">
-                        <li class="group">
-                            <a href="./userAccount.html"
-                                class="group-hover:text-primary flex items-center gap-3 text-gray-700 dark:text-gray-300">
-                                <i class="fa-regular fa-user"></i>
-                                <span>My Profile</span>
-                            </a>
-                        </li>
-                        <li class="group">
-                            <a href="./orders.html"
-                                class="group-hover:text-primary flex items-center gap-3 text-gray-700 dark:text-gray-300">
-                                <i class="fa-solid fa-box-open"></i>
-                                <span>My Orders</span>
-                            </a>
-                        </li>
-                        <li class="bg-primary/10 hover:bg-primary/10">
-                            <a href="./reviews.html"
-                                class="group-hover:text-primary flex items-center gap-3 text-primary font-medium">
-                                <i class="fa-regular fa-star"></i>
-                                <span>My Reviews</span>
-                            </a>
-                        </li>
-                        <li class="group">
-                            <a href="./payment-methods.html"
-                                class="group-hover:text-primary flex items-center gap-3 text-gray-700 dark:text-gray-300">
-                                <i class="fa-regular fa-credit-card"></i>
-                                <span>My Payment Options</span>
-                            </a>
-                        </li>
-                        <li class="group">
-                            <a href="./address-book.html"
-                                class="group-hover:text-primary flex items-center gap-3 text-gray-700 dark:text-gray-300">
-                                <i class="fa-solid fa-location-dot"></i>
-                                <span>Address Book</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Reviews Content -->
-            <div class="lg:col-span-3">
-                <div class="mb-6">
-                    <h2 class="text-2xl font-bold mb-2">My Reviews</h2>
-                    <p class="text-gray-600 dark:text-gray-400">Manage your product reviews and ratings</p>
-                </div>
-
-                <!-- Filter Tabs -->
-                <div class="flex gap-4 mb-6 border-b border-gray-200 dark:border-gray-700 overflow-x-auto [scrollbar-width:thin] [&_button]:cursor-pointer">
-                    <button class="px-4 py-3 font-medium text-primary border-b-2 border-primary whitespace-nowrap">
-                        All Reviews (5)
-                    </button>
-                    <button
-                        class="px-4 py-3 font-medium text-gray-600 dark:text-gray-400 hover:text-primary whitespace-nowrap">
-                        Published (4)
-                    </button>
-                    <button
-                        class="px-4 py-3 font-medium text-gray-600 dark:text-gray-400 hover:text-primary whitespace-nowrap">
-                        Pending (1)
-                    </button>
-                </div>
-
-                <!-- Reviews List -->
-                <div class="space-y-6">
-                    <!-- Review 1 -->
+    <!-- Reviews -->
+    <section id="reviews" class="pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
                     <div
-                        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
-                        <div class="p-6">
-                            <div class="flex gap-4 mb-4">
-                                <div
-                                    class="w-20 h-20 bg-gray-100 dark:bg-gray-700 rounded-md flex items-center justify-center shrink-0">
-                                    <img src="./assets/images/product-1.png" alt="Product"
-                                        class="w-full h-full object-contain">
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-2">
-                                        <div>
-                                            <h4 class="font-semibold mb-1">HAVIT HV-G92 Gamepad</h4>
-                                            <p class="text-sm text-gray-600 dark:text-gray-400">Reviewed on Feb 1, 2026
-                                            </p>
-                                        </div>
-                                        <span
-                                            class="px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
-                                            Published
-                                        </span>
-                                    </div>
-                                    <div class="flex items-center gap-1 text-sm mb-3">
-                                        <div class="text-yellow-400">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <span class="text-gray-600 dark:text-gray-400 ml-2">5.0</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mb-4">
-                                <h5 class="font-semibold mb-2">Excellent Gaming Controller!</h5>
-                                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                                    This gamepad exceeded my expectations. The build quality is outstanding, buttons are
-                                    very responsive, and the ergonomic design makes it comfortable for long gaming
-                                    sessions. Battery life is impressive too. Highly recommended for serious gamers!
-                                </p>
-                            </div>
-
-                            <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                                <span><i class="fa-regular fa-thumbs-up mr-1"></i> 24 helpful</span>
-                                <span><i class="fa-regular fa-comment mr-1"></i> 3 comments</span>
-                            </div>
+                        class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+                        <div class="p-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                            <h3 class="font-semibold text-lg">Manage My Account</h3>
                         </div>
+                        <ul
+                            class="[&_li]:px-4 [&_li]:py-3 [&_li]:cursor-pointer [&_li]:transition-colors [&_li]:border-b [&_li]:border-gray-100 dark:[&_li]:border-gray-700 last:[&_li]:border-0">
+                            <li class="group">
+                                <a href="./userAccount.html"
+                                    class="group-hover:text-primary flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <i class="fa-regular fa-user"></i>
+                                    <span>My Profile</span>
+                                </a>
+                            </li>
+                            <li class="group">
+                                <a href="./orders.html"
+                                    class="group-hover:text-primary flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <i class="fa-solid fa-box-open"></i>
+                                    <span>My Orders</span>
+                                </a>
+                            </li>
+                            <li class="bg-primary/10 hover:bg-primary/10">
+                                <a href="./reviews.html"
+                                    class="group-hover:text-primary flex items-center gap-3 text-primary font-medium">
+                                    <i class="fa-regular fa-star"></i>
+                                    <span>My Reviews</span>
+                                </a>
+                            </li>
+                            <li class="group">
+                                <a href="./payment-methods.html"
+                                    class="group-hover:text-primary flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <i class="fa-regular fa-credit-card"></i>
+                                    <span>My Payment Options</span>
+                                </a>
+                            </li>
+                            <li class="group">
+                                <a href="./address-book.html"
+                                    class="group-hover:text-primary flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Address Book</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
+                <!-- Reviews Content -->
+                <div class="lg:col-span-3">
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold mb-2">My Reviews</h2>
+                        <p class="text-gray-600 dark:text-gray-400">Manage your product reviews and ratings</p>
+                    </div>
+
+                    <!-- Filter Tabs -->
+                    <div
+                        class="flex gap-4 mb-6 border-b border-gray-200 dark:border-gray-700 overflow-x-auto [scrollbar-width:thin] [&_button]:cursor-pointer">
+                        <button class="px-4 py-3 font-medium text-primary border-b-2 border-primary whitespace-nowrap">
+                            All Reviews (5)
+                        </button>
+                        <button
+                            class="px-4 py-3 font-medium text-gray-600 dark:text-gray-400 hover:text-primary whitespace-nowrap">
+                            Published (4)
+                        </button>
+                        <button
+                            class="px-4 py-3 font-medium text-gray-600 dark:text-gray-400 hover:text-primary whitespace-nowrap">
+                            Pending (1)
+                        </button>
+                    </div>
+
+                    <!-- Reviews List -->
+                    <div class="space-y-6">
+                        <!-- Review 1 -->
                         <div
-                            class="bg-gray-50 dark:bg-gray-700 p-4 border-t border-gray-200 dark:border-gray-600 flex gap-3 [&_button]:cursor-pointer">
-                            <button
-                                class="px-6 py-2 bg-primary text-white rounded-md hover:bg-red-600 transition-colors font-medium">
-                                Edit Review
-                            </button>
-                            <button
-                                class="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors font-medium">
-                                Delete
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Review 2 -->
-                    <div
-                        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
-                        <div class="p-6">
-                            <div class="flex gap-4 mb-4">
-                                <div
-                                    class="w-20 h-20 bg-gray-100 dark:bg-gray-700 rounded-md flex items-center justify-center shrink-0">
-                                    <img src="./assets/images/product-3.png" alt="Product"
-                                        class="w-full h-full object-contain">
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-2">
-                                        <div>
-                                            <h4 class="font-semibold mb-1">IPS LCD Gaming Monitor</h4>
-                                            <p class="text-sm text-gray-600 dark:text-gray-400">Reviewed on Jan 28, 2026
-                                            </p>
-                                        </div>
-                                        <span
-                                            class="px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
-                                            Published
-                                        </span>
+                            class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                            <div class="p-6">
+                                <div class="flex gap-4 mb-4">
+                                    <div
+                                        class="w-20 h-20 bg-gray-100 dark:bg-gray-700 rounded-md flex items-center justify-center shrink-0">
+                                        <img src="./assets/images/product-1.png" alt="Product"
+                                            class="w-full h-full object-contain">
                                     </div>
-                                    <div class="flex items-center gap-1 text-sm mb-3">
-                                        <div class="text-yellow-400">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-regular fa-star text-gray-300"></i>
+                                    <div class="flex-1">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <div>
+                                                <h4 class="font-semibold mb-1">HAVIT HV-G92 Gamepad</h4>
+                                                <p class="text-sm text-gray-600 dark:text-gray-400">Reviewed on Feb 1,
+                                                    2026
+                                                </p>
+                                            </div>
+                                            <span
+                                                class="px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
+                                                Published
+                                            </span>
                                         </div>
-                                        <span class="text-gray-600 dark:text-gray-400 ml-2">4.0</span>
+                                        <div class="flex items-center gap-1 text-sm mb-3">
+                                            <div class="text-yellow-400">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <span class="text-gray-600 dark:text-gray-400 ml-2">5.0</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="mb-4">
-                                <h5 class="font-semibold mb-2">Great Monitor, Minor Issues</h5>
-                                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                                    The display quality is excellent with vibrant colors and good viewing angles.
-                                    Response time is perfect for gaming. Only downside is the stand could be more
-                                    adjustable. Overall, great value for money.
-                                </p>
-                            </div>
-
-                            <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                                <span><i class="fa-regular fa-thumbs-up mr-1"></i> 18 helpful</span>
-                                <span><i class="fa-regular fa-comment mr-1"></i> 2 comments</span>
-                            </div>
-                        </div>
-
-                        <div
-                            class="bg-gray-50 dark:bg-gray-700 p-4 border-t border-gray-200 dark:border-gray-600 flex gap-3 [&_button]:cursor-pointer">
-                            <button
-                                class="px-6 py-2 bg-primary text-white rounded-md hover:bg-red-600 transition-colors font-medium">
-                                Edit Review
-                            </button>
-                            <button
-                                class="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors font-medium">
-                                Delete
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Review 3 - Pending -->
-                    <div
-                        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
-                        <div class="p-6">
-                            <div class="flex gap-4 mb-4">
-                                <div
-                                    class="w-20 h-20 bg-gray-100 dark:bg-gray-700 rounded-md flex items-center justify-center shrink-0">
-                                    <img src="./assets/images/product-2.png" alt="Product"
-                                        class="w-full h-full object-contain">
+                                <div class="mb-4">
+                                    <h5 class="font-semibold mb-2">Excellent Gaming Controller!</h5>
+                                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                        This gamepad exceeded my expectations. The build quality is outstanding, buttons
+                                        are
+                                        very responsive, and the ergonomic design makes it comfortable for long gaming
+                                        sessions. Battery life is impressive too. Highly recommended for serious gamers!
+                                    </p>
                                 </div>
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-2">
-                                        <div>
-                                            <h4 class="font-semibold mb-1">AK-900 Wired Keyboard</h4>
-                                            <p class="text-sm text-gray-600 dark:text-gray-400">Reviewed on Feb 12, 2026
-                                            </p>
-                                        </div>
-                                        <span
-                                            class="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-medium rounded-full">
-                                            Pending Review
-                                        </span>
-                                    </div>
-                                    <div class="flex items-center gap-1 text-sm mb-3">
-                                        <div class="text-yellow-400">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <span class="text-gray-600 dark:text-gray-400 ml-2">5.0</span>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="mb-4">
-                                <h5 class="font-semibold mb-2">Perfect for Typing and Gaming</h5>
-                                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                                    Excellent mechanical keyboard with satisfying keystrokes. The RGB lighting is
-                                    beautiful and customizable. Keys are well-spaced and typing feels very comfortable.
-                                </p>
+                                <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
+                                    <span><i class="fa-regular fa-thumbs-up mr-1"></i> 24 helpful</span>
+                                    <span><i class="fa-regular fa-comment mr-1"></i> 3 comments</span>
+                                </div>
                             </div>
 
                             <div
-                                class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700 rounded-md p-3 mt-3">
-                                <p class="text-sm text-yellow-800 dark:text-yellow-200">
-                                    <i class="fa-solid fa-clock mr-2"></i>
-                                    Your review is pending moderation and will be published soon.
-                                </p>
+                                class="bg-gray-50 dark:bg-gray-700 p-4 border-t border-gray-200 dark:border-gray-600 flex gap-3 [&_button]:cursor-pointer">
+                                <button
+                                    class="px-6 py-2 bg-primary text-white rounded-md hover:bg-red-600 transition-colors font-medium">
+                                    Edit Review
+                                </button>
+                                <button
+                                    class="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors font-medium">
+                                    Delete
+                                </button>
                             </div>
                         </div>
 
+                        <!-- Review 2 -->
                         <div
-                            class="bg-gray-50 dark:bg-gray-700 p-4 border-t border-gray-200 dark:border-gray-600 flex gap-3 [&_button]:cursor-pointer">
-                            <button
-                                class="px-6 py-2 bg-primary text-white rounded-md hover:bg-red-600 transition-colors font-medium">
-                                Edit Review
-                            </button>
-                            <button
-                                class="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors font-medium">
-                                Delete
-                            </button>
+                            class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                            <div class="p-6">
+                                <div class="flex gap-4 mb-4">
+                                    <div
+                                        class="w-20 h-20 bg-gray-100 dark:bg-gray-700 rounded-md flex items-center justify-center shrink-0">
+                                        <img src="./assets/images/product-3.png" alt="Product"
+                                            class="w-full h-full object-contain">
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <div>
+                                                <h4 class="font-semibold mb-1">IPS LCD Gaming Monitor</h4>
+                                                <p class="text-sm text-gray-600 dark:text-gray-400">Reviewed on Jan 28,
+                                                    2026
+                                                </p>
+                                            </div>
+                                            <span
+                                                class="px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
+                                                Published
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center gap-1 text-sm mb-3">
+                                            <div class="text-yellow-400">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star text-gray-300"></i>
+                                            </div>
+                                            <span class="text-gray-600 dark:text-gray-400 ml-2">4.0</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h5 class="font-semibold mb-2">Great Monitor, Minor Issues</h5>
+                                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                        The display quality is excellent with vibrant colors and good viewing angles.
+                                        Response time is perfect for gaming. Only downside is the stand could be more
+                                        adjustable. Overall, great value for money.
+                                    </p>
+                                </div>
+
+                                <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
+                                    <span><i class="fa-regular fa-thumbs-up mr-1"></i> 18 helpful</span>
+                                    <span><i class="fa-regular fa-comment mr-1"></i> 2 comments</span>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-gray-50 dark:bg-gray-700 p-4 border-t border-gray-200 dark:border-gray-600 flex gap-3 [&_button]:cursor-pointer">
+                                <button
+                                    class="px-6 py-2 bg-primary text-white rounded-md hover:bg-red-600 transition-colors font-medium">
+                                    Edit Review
+                                </button>
+                                <button
+                                    class="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors font-medium">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Review 3 - Pending -->
+                        <div
+                            class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                            <div class="p-6">
+                                <div class="flex gap-4 mb-4">
+                                    <div
+                                        class="w-20 h-20 bg-gray-100 dark:bg-gray-700 rounded-md flex items-center justify-center shrink-0">
+                                        <img src="./assets/images/product-2.png" alt="Product"
+                                            class="w-full h-full object-contain">
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <div>
+                                                <h4 class="font-semibold mb-1">AK-900 Wired Keyboard</h4>
+                                                <p class="text-sm text-gray-600 dark:text-gray-400">Reviewed on Feb 12,
+                                                    2026
+                                                </p>
+                                            </div>
+                                            <span
+                                                class="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-medium rounded-full">
+                                                Pending Review
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center gap-1 text-sm mb-3">
+                                            <div class="text-yellow-400">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <span class="text-gray-600 dark:text-gray-400 ml-2">5.0</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h5 class="font-semibold mb-2">Perfect for Typing and Gaming</h5>
+                                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                        Excellent mechanical keyboard with satisfying keystrokes. The RGB lighting is
+                                        beautiful and customizable. Keys are well-spaced and typing feels very
+                                        comfortable.
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700 rounded-md p-3 mt-3">
+                                    <p class="text-sm text-yellow-800 dark:text-yellow-200">
+                                        <i class="fa-solid fa-clock mr-2"></i>
+                                        Your review is pending moderation and will be published soon.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-gray-50 dark:bg-gray-700 p-4 border-t border-gray-200 dark:border-gray-600 flex gap-3 [&_button]:cursor-pointer">
+                                <button
+                                    class="px-6 py-2 bg-primary text-white rounded-md hover:bg-red-600 transition-colors font-medium">
+                                    Edit Review
+                                </button>
+                                <button
+                                    class="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors font-medium">
+                                    Delete
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Products to Review -->
-                <div class="mt-12">
-                    <h3 class="text-xl font-bold mb-6">Products Waiting for Your Review</h3>
-                    <div class="space-y-4">
-                        <div
-                            class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 flex flex-wrap gap-4 items-center hover:shadow-md transition-shadow">
+                    <!-- Products to Review -->
+                    <div class="mt-12">
+                        <h3 class="text-xl font-bold mb-6">Products Waiting for Your Review</h3>
+                        <div class="space-y-4">
                             <div
-                                class="w-20 h-20 bg-gray-100 dark:bg-gray-700 rounded-md flex items-center justify-center shrink-0">
-                                <img src="./assets/images/product-4.png" alt="Product"
-                                    class="w-full h-full object-contain">
+                                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 flex flex-wrap gap-4 items-center hover:shadow-md transition-shadow">
+                                <div
+                                    class="w-20 h-20 bg-gray-100 dark:bg-gray-700 rounded-md flex items-center justify-center shrink-0">
+                                    <img src="./assets/images/product-4.png" alt="Product"
+                                        class="w-full h-full object-contain">
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-semibold mb-1">S-Series Comfort Chair</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Delivered on Feb 1, 2026</p>
+                                </div>
+                                <button
+                                    class="px-6 py-2 bg-primary text-white rounded-md hover:bg-red-600 transition-colors font-medium whitespace-nowrap">
+                                    Write Review
+                                </button>
                             </div>
-                            <div class="flex-1">
-                                <h4 class="font-semibold mb-1">S-Series Comfort Chair</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Delivered on Feb 1, 2026</p>
-                            </div>
-                            <button
-                                class="px-6 py-2 bg-primary text-white rounded-md hover:bg-red-600 transition-colors font-medium whitespace-nowrap">
-                                Write Review
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -513,7 +532,7 @@
                     <li><a href="./privacy.html" class="hover:text-white">Privacy Policy</a></li>
                     <li><a href="./terms.html" class="hover:text-white">Terms Of Use</a></li>
                     <li><a href="./faq.html" class="hover:text-white">FAQ</a></li>
-                    <li><a href="./contactUs.html" class="hover:text-white">Contact</a></li>
+                    <li><a href="./contact-us.html" class="hover:text-white">Contact</a></li>
                 </ul>
             </div>
             <!-- Download App & Social Links -->

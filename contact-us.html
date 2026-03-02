@@ -23,7 +23,7 @@
 
 <body>
     <!-- start Top Banner -->
-    <div class="bg-black text-white py-2 text-sm relative z-50">
+    <div id="banner" class="bg-black text-white py-2 text-sm relative z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <!-- sales -->
             <div class="sm:ms-24 text-center flex-1 sm:text-sm text-xs">
@@ -65,8 +65,8 @@
                 <div class="hidden md:flex gap-x-6 [&_a]:hover:text-primary font-medium">
                     <a href="./index.html">Home</a>
                     <a href="#" class="link-active">Contact</a>
-                    <a href="./aboutUs.html">About</a>
-                    <a href="./signUp.html">Sign Up</a>
+                    <a href="./about-us.html">About</a>
+                    <a href="./sign-up.html">Sign Up</a>
                 </div>
                 <!-- search & mobile menu & icons -->
                 <div
@@ -94,10 +94,10 @@
                                 <a href="#" class="border-b border-white/10 link-active">
                                     Contact
                                 </a>
-                                <a href="./aboutUs.html" class="border-b border-white/10">
+                                <a href="./about-us.html" class="border-b border-white/10">
                                     About
                                 </a>
-                                <a href="./signUp.html" class="last:rounded-b-lg">
+                                <a href="./sign-up.html" class="last:rounded-b-lg">
                                     Sign Up
                                 </a>
                             </ul>
@@ -168,20 +168,26 @@
     </nav>
     <!-- end Navbar -->
 
-    <!-- contact -->
-    <main class="bg-white  dark:bg-slate-900 transition-colors duration-300 min-h-screen">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <nav class="mb-10 text-sm">
-                <span class="text-gray-500">Home</span>
-                <span class="mx-2 text-gray-500">/</span>
-                <span class="text-black dark:text-white font-medium">Contact</span>
-            </nav>
+    <!-- start Breadcrumb -->
+    <nav id="breadCrumb" aria-label="Breadcrumb" class="my-8">
+        <ol class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+            <li>
+                <a href="./index.html" class="hover:text-primary transition-colors">Home</a>
+            </li>
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+            <li class="text-primary font-medium" aria-current="page">
+                Contact
+            </li>
+        </ol>
+    </nav>
+    <!-- end Breadcrumb -->
 
+    <!-- start contact-us -->
+    <section id="contact-us" class="pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
                 <div
                     class="md:col-span-1 bg-white dark:bg-slate-800 shadow-lg rounded-md p-8 flex flex-col gap-8 border border-gray-100 dark:border-none">
-
                     <div class="space-y-4">
                         <div class="flex items-center gap-4">
                             <div class="bg-primary p-3 rounded-full w-10 h-10 flex items-center justify-center">
@@ -239,7 +245,7 @@
                 </div>
             </div>
         </div>
-    </main>
+    </section>
     <!-- end contact -->
 
     <!-- Footer -->
@@ -285,7 +291,7 @@
                     <li><a href="./privacy.html" class="hover:text-white">Privacy Policy</a></li>
                     <li><a href="./terms.html" class="hover:text-white">Terms Of Use</a></li>
                     <li><a href="./faq.html" class="hover:text-white">FAQ</a></li>
-                    <li><a href="./contactUs.html" class="hover:text-white">Contact</a></li>
+                    <li><a href="./contact-us.html" class="hover:text-white">Contact</a></li>
                 </ul>
             </div>
             <!-- Download App & Social Links -->

@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>exclusive - cart</title>
+    <meta name="description" content="cart exclusive">
+    <meta name="keywords" content="E-Commerce,products,exclusive,cart">
+    <meta name="author" content="react group 2">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
     <!-- google fonts Inter & Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,12 +17,13 @@
         rel="stylesheet">
     <!-- fontawesome -->
     <link href="./assets/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/output.css">
+    <!-- tailwind -->
+    <link href="./assets/css/output.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- start Top Banner -->
-    <div class="bg-black text-white py-2 text-sm relative z-50">
+    <div id="banner" class="bg-black text-white py-2 text-sm relative z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <!-- sales -->
             <div class="sm:ms-24 text-center flex-1 sm:text-sm text-xs">
@@ -59,9 +64,9 @@
                 <!-- links -->
                 <div class="hidden md:flex gap-x-6 [&_a]:hover:text-primary font-medium">
                     <a href="./index.html">Home</a>
-                    <a href="./contactUs.html">Contact</a>
-                    <a href="./aboutUs.html">About</a>
-                    <a href="./signUp.html">Sign Up</a>
+                    <a href="./contact-us.html">Contact</a>
+                    <a href="./about-us.html">About</a>
+                    <a href="./sign-up.html">Sign Up</a>
                 </div>
                 <!-- search & mobile menu & icons -->
                 <div
@@ -86,13 +91,13 @@
                                 <a href="./index.html" class="border-b border-white/10 first:rounded-t-lg">
                                     Home
                                 </a>
-                                <a href="./contactUs.html" class="border-b border-white/10">
+                                <a href="./contact-us.html" class="border-b border-white/10">
                                     Contact
                                 </a>
-                                <a href="./aboutUs.html" class="border-b border-white/10">
+                                <a href="./about-us.html" class="border-b border-white/10">
                                     About
                                 </a>
-                                <a href="./signUp.html" class="last:rounded-b-lg">
+                                <a href="./sign-up.html" class="last:rounded-b-lg">
                                     Sign Up
                                 </a>
                             </ul>
@@ -163,80 +168,98 @@
     </nav>
     <!-- end Navbar -->
 
-    <div class="mt-20 w-[80%] m-auto">
-        <div>
-            <span class="text-gray-500">home</span>
-            <span class="text-gray-500">/</span>
-            <span>cart</span>
-        </div>
-        <!-- card title  -->
-        <div class="grid grid-cols-4 text-center  w-full mt-20 capitalize shadow-md shadow-black-50 p-4">
-            <h3 class="mr-30">product</h3>
-            <h3>price</h3>
-            <h3>quantity</h3>
-            <h3>subtotal</h3>
-        </div>
-        <!-- card body -->
-        <div class="grid grid-cols-4 text-center  w-full mt-10 shadow-md shadow-black-50 items-center">
-            <div class=" flex justify-evenly items-center w-full h-[50%] ">
-                <img src="/assets/images/product-1.png" alt="" class="w-30% h-full ml-15 ">
-                <h3 class="uppercase  ">lcd <span class="capitalize">monitor</span></h3>
+    <!-- start Breadcrumb -->
+    <nav id="breadCrumb" aria-label="Breadcrumb" class="my-8">
+        <ol
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+            <li>
+                <a href="./index.html" class="hover:text-primary transition-colors">Home</a>
+            </li>
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+            <li class="text-primary font-medium" aria-current="page">
+                Cart
+            </li>
+        </ol>
+    </nav>
+    <!-- end Breadcrumb -->
+
+    <!-- start cart -->
+    <section id="cart" class="pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- card title  -->
+            <div class="grid grid-cols-4 text-center  w-full mt-20 capitalize shadow-md shadow-black-50 p-4">
+                <h3 class="mr-30">product</h3>
+                <h3>price</h3>
+                <h3>quantity</h3>
+                <h3>subtotal</h3>
             </div>
-            <h3 class=" pt-9 h-[50%]">$650</h3>
-            <input type="number" name="" id=""
-                class="text-center w-[35%] h-[25%] mt-6 ml-35 shadow-md shadow-black-50 ">
-            <h3 class="pt-9   h-[50%]">$650</h3>
+            <!-- card body -->
+            <div class="grid grid-cols-4 text-center  w-full mt-10 shadow-md shadow-black-50 items-center">
+                <div class=" flex justify-evenly items-center w-full h-[50%] ">
+                    <img src="/assets/images/product-1.png" alt="" class="w-30% h-full ml-15 ">
+                    <h3 class="uppercase  ">lcd <span class="capitalize">monitor</span></h3>
+                </div>
+                <h3 class=" pt-9 h-[50%]">$650</h3>
+                <input type="number" name="" id=""
+                    class="text-center w-[35%] h-[25%] mt-6 ml-35 shadow-md shadow-black-50 ">
+                <h3 class="pt-9   h-[50%]">$650</h3>
 
-        </div>
-        <div class="grid grid-cols-4 text-center  w-full mt-10 shadow-md shadow-black-50 items-center">
-            <div class=" flex justify-evenly items-center w-full h-[50%] ">
-                <img src="/assets/images/product-2.png" alt="" class="w-30% h-full ml-15 ">
-                <h3 class="uppercase  ">lcd <span class="capitalize">monitor</span></h3>
             </div>
-            <h3 class=" pt-9 h-[50%]">$650</h3>
-            <input type="number" name="" id=""
-                class="text-center w-[35%] h-[25%] mt-6 ml-35 shadow-md shadow-black-50 ">
-            <h3 class="pt-9   h-[50%]">$650</h3>
 
-        </div>
+            <div class="grid grid-cols-4 text-center  w-full mt-10 shadow-md shadow-black-50 items-center">
+                <div class=" flex justify-evenly items-center w-full h-[50%] ">
+                    <img src="/assets/images/product-2.png" alt="" class="w-30% h-full ml-15 ">
+                    <h3 class="uppercase  ">lcd <span class="capitalize">monitor</span></h3>
+                </div>
+                <h3 class=" pt-9 h-[50%]">$650</h3>
+                <input type="number" name="" id=""
+                    class="text-center w-[35%] h-[25%] mt-6 ml-35 shadow-md shadow-black-50 ">
+                <h3 class="pt-9   h-[50%]">$650</h3>
 
-        <!-- btn -->
-        <div class="flex items-center justify-between mt-10">
-            <button class=" border border-black-900 py-2 px-6 capitalize">return to shop</button>
-            <button class=" border border-black-900 py-2 px-6 capitalize">update cart</button>
-
-        </div>
-        <div class="flex flex-wrap justify-between w-full mt-10 mb-20 gap-y-4">
-            <div class="w-full sm:w-[70%]">
-                <form action="">
-
-                    <input type="text" name="" id="" placeholder="    Coupon Code"
-                        class="border border-black-100 mr-5 py-2 w-[35%] ">
-                    <button class="border bg-red-600 text-amber-50 py-2 px-6 capitalize">apply coupon</button>
-                </form>
             </div>
-            <div class="border border-block-50 w-full sm:w-[30%]">
-                <h3 class="ml-4 mt-5 capitalize">cart total</h3>
-                <div class=" w-[90%] m-auto mt-3 flex justify-between items-center">
-                    <h4>subtotal</h4>
-                    <h4>$1750</h4>
+
+            <!-- btn -->
+            <div class="flex items-center justify-between mt-10">
+                <button class=" border border-black-900 py-2 px-6 capitalize">return to shop</button>
+                <button class=" border border-black-900 py-2 px-6 capitalize">update cart</button>
+
+            </div>
+
+            <div class="flex flex-wrap justify-between w-full mt-10 mb-20 gap-y-4">
+                <div class="w-full sm:w-[70%]">
+                    <form action="">
+
+                        <input type="text" name="" id="" placeholder="    Coupon Code"
+                            class="border border-black-100 mr-5 py-2 w-[35%] ">
+                        <button class="border bg-red-600 text-amber-50 py-2 px-6 capitalize">apply coupon</button>
+                    </form>
                 </div>
-                <hr class="w-[90%] m-auto my-4 ">
-                <div class="w-[90%] m-auto flex justify-between items-center">
-                    <h4>shipping</h4>
-                    <h4>free</h4>
-                </div>
-                <hr class="w-[90%] m-auto my-4">
-                <div class="w-[90%] m-auto flex justify-between items-center">
-                    <h4>total:</h4>
-                    <h4>$1750</h4>
-                </div>
-                <div class="w-[62%] m-auto my-5">
-                    <a href="./checkout.html" class="border bg-red-600 hover:bg-red-700 text-amber-50 py-2 px-6 capitalize block text-center">process to checkout</a>
+                <div class="border border-block-50 w-full sm:w-[30%]">
+                    <h3 class="ml-4 mt-5 capitalize">cart total</h3>
+                    <div class=" w-[90%] m-auto mt-3 flex justify-between items-center">
+                        <h4>subtotal</h4>
+                        <h4>$1750</h4>
+                    </div>
+                    <hr class="w-[90%] m-auto my-4 ">
+                    <div class="w-[90%] m-auto flex justify-between items-center">
+                        <h4>shipping</h4>
+                        <h4>free</h4>
+                    </div>
+                    <hr class="w-[90%] m-auto my-4">
+                    <div class="w-[90%] m-auto flex justify-between items-center">
+                        <h4>total:</h4>
+                        <h4>$1750</h4>
+                    </div>
+                    <div class="w-[62%] m-auto my-5">
+                        <a href="./checkout.html"
+                            class="border bg-red-600 hover:bg-red-700 text-amber-50 py-2 px-6 capitalize block text-center">process
+                            to checkout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- end cart -->
 
     <!-- Footer -->
     <footer class="bg-black text-white pt-8 pb-4">
@@ -281,7 +304,7 @@
                     <li><a href="./privacy.html" class="hover:text-white">Privacy Policy</a></li>
                     <li><a href="./terms.html" class="hover:text-white">Terms Of Use</a></li>
                     <li><a href="./faq.html" class="hover:text-white">FAQ</a></li>
-                    <li><a href="./contactUs.html" class="hover:text-white">Contact</a></li>
+                    <li><a href="./contact-us.html" class="hover:text-white">Contact</a></li>
                 </ul>
             </div>
             <!-- Download App & Social Links -->

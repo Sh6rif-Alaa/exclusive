@@ -4,21 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>exclusive - FAQ</title>
-    <meta name="description" content="Frequently Asked Questions">
+    <title>exclusive - FAQ/title>
+    <meta name="description" content="FAQ exclusive">
+    <meta name="keywords" content="E-Commerce,products,exclusive">
+    <meta name="author" content="react group 2">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <!-- google fonts Inter & Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <!-- fontawesome -->
     <link href="./assets/css/all.min.css" rel="stylesheet">
+    <!-- tailwind -->
     <link href="./assets/css/output.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- start Top Banner -->
-    <div class="bg-black text-white py-2 text-sm relative z-50">
+    <div id="banner" class="bg-black text-white py-2 text-sm relative z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <!-- sales -->
             <div class="sm:ms-24 text-center flex-1 sm:text-sm text-xs">
@@ -59,9 +64,9 @@
                 <!-- links -->
                 <div class="hidden md:flex gap-x-6 [&_a]:hover:text-primary font-medium">
                     <a href="#">Home</a>
-                    <a href="./contactUs.html">Contact</a>
-                    <a href="./aboutUs.html">About</a>
-                    <a href="./signUp.html">Sign Up</a>
+                    <a href="./contact-us.html">Contact</a>
+                    <a href="./about-us.html">About</a>
+                    <a href="./sign-up.html">Sign Up</a>
                 </div>
                 <!-- search & mobile menu & icons -->
                 <div
@@ -86,13 +91,13 @@
                                 <a href="./index.html" class="border-b border-white/10 first:rounded-t-lg">
                                     Home
                                 </a>
-                                <a href="./contactUs.html" class="border-b border-white/10">
+                                <a href="./contact-us.html" class="border-b border-white/10">
                                     Contact
                                 </a>
-                                <a href="./aboutUs.html" class="border-b border-white/10">
+                                <a href="./about-us.html" class="border-b border-white/10">
                                     About
                                 </a>
-                                <a href="./signUp.html" class="last:rounded-b-lg">
+                                <a href="./sign-up.html" class="last:rounded-b-lg">
                                     Sign Up
                                 </a>
                             </ul>
@@ -174,315 +179,348 @@
     <!-- end Breadcrumb -->
 
     <!-- FAQ Content -->
-    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div class="mb-10 text-center">
-            <h1 class="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
-            <p class="text-gray-700 dark:text-gray-300">Find answers to common questions about shopping with Exclusive</p>
-        </div>
-
-        <!-- Search FAQ -->
-        <div class="mb-12">
-            <div class="relative">
-                <input type="search" placeholder="Search for answers..."
-                    class="w-full border border-gray-300 rounded-lg py-3 px-5 pr-12 focus:outline-none focus:ring-2 focus:ring-primary text-sm placeholder:text-secondary">
-                <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </span>
+    <section id="faq" class="pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center">
+                <h1 class="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
+                <p class="text-gray-700 dark:text-gray-300">Find answers to common questions about shopping with
+                    Exclusive</p>
             </div>
-        </div>
 
-        <!-- FAQ Categories -->
-        <div class="space-y-8">
-            <!-- General Questions -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                    <i class="fa-solid fa-circle-question text-primary"></i>
-                    General Questions
-                </h2>
-                <div class="space-y-4">
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>What is Exclusive?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Exclusive is an e-commerce platform offering a wide range of quality products including
-                            electronics, fashion, home goods, and more. We're committed to providing excellent service
-                            and competitive prices.
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>How do I create an account?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Click on "Sign Up" in the top navigation menu, fill in your details (name, email, password),
-                            and click "Create Account". You'll receive a confirmation email to verify your account.
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>Is it safe to shop on Exclusive?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Yes! We use industry-standard SSL encryption to protect your personal and payment
-                            information. All transactions are processed through secure payment gateways, and we never
-                            store your credit card details on our servers.
-                        </div>
-                    </details>
+            <!-- Search FAQ -->
+            <div class="mb-12">
+                <div class="relative">
+                    <input type="search" placeholder="Search for answers..."
+                        class="w-full border border-gray-300 rounded-lg py-3 px-5 pr-12 focus:outline-none focus:ring-2 focus:ring-primary text-sm placeholder:text-secondary">
+                    <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
                 </div>
             </div>
 
-            <!-- Orders & Payment -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                    <i class="fa-solid fa-credit-card text-primary"></i>
-                    Orders & Payment
-                </h2>
-                <div class="space-y-4">
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>What payment methods do you accept?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            We accept Visa, MasterCard, American Express, PayPal, and bank transfers. All major credit
-                            and debit cards are supported.
-                        </div>
-                    </details>
+            <!-- FAQ Categories -->
+            <div class="space-y-8">
+                <!-- General Questions -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-circle-question text-primary"></i>
+                        General Questions
+                    </h2>
+                    <div class="space-y-4">
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>What is Exclusive?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Exclusive is an e-commerce platform offering a wide range of quality products including
+                                electronics, fashion, home goods, and more. We're committed to providing excellent
+                                service
+                                and competitive prices.
+                            </div>
+                        </details>
 
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>Can I modify or cancel my order?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            You can modify or cancel your order within 1 hour of placing it. After this time, the order
-                            enters processing and cannot be changed. Contact our support team immediately if you need
-                            assistance.
-                        </div>
-                    </details>
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>How do I create an account?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Click on "Sign Up" in the top navigation menu, fill in your details (name, email,
+                                password),
+                                and click "Create Account". You'll receive a confirmation email to verify your account.
+                            </div>
+                        </details>
 
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>How do I track my order?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Once your order ships, you'll receive an email with a tracking number. You can also track
-                            your order by logging into your account and visiting the "My Orders" section.
-                        </div>
-                    </details>
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>Is it safe to shop on Exclusive?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Yes! We use industry-standard SSL encryption to protect your personal and payment
+                                information. All transactions are processed through secure payment gateways, and we
+                                never
+                                store your credit card details on our servers.
+                            </div>
+                        </details>
+                    </div>
+                </div>
 
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>Why was my payment declined?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Payment declines can occur for various reasons: insufficient funds, incorrect card details,
-                            expired card, or security restrictions from your bank. Please verify your information and
-                            try again, or contact your bank for assistance.
-                        </div>
-                    </details>
+                <!-- Orders & Payment -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-credit-card text-primary"></i>
+                        Orders & Payment
+                    </h2>
+                    <div class="space-y-4">
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>What payment methods do you accept?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                We accept Visa, MasterCard, American Express, PayPal, and bank transfers. All major
+                                credit
+                                and debit cards are supported.
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>Can I modify or cancel my order?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                You can modify or cancel your order within 1 hour of placing it. After this time, the
+                                order
+                                enters processing and cannot be changed. Contact our support team immediately if you
+                                need
+                                assistance.
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>How do I track my order?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Once your order ships, you'll receive an email with a tracking number. You can also
+                                track
+                                your order by logging into your account and visiting the "My Orders" section.
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>Why was my payment declined?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Payment declines can occur for various reasons: insufficient funds, incorrect card
+                                details,
+                                expired card, or security restrictions from your bank. Please verify your information
+                                and
+                                try again, or contact your bank for assistance.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Shipping & Delivery -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-truck text-primary"></i>
+                        Shipping & Delivery
+                    </h2>
+                    <div class="space-y-4">
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>What are your shipping options?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                We offer Standard (5-7 days), Express (2-3 days), and Overnight (1 day) shipping. Free
+                                standard shipping on orders over $50.
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>Do you ship internationally?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Yes, we ship to most countries worldwide. International shipping costs and delivery
+                                times
+                                vary by destination. Customs fees and import taxes may apply.
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>What if my package is lost or damaged?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                If your package is lost or arrives damaged, contact us within 48 hours. We'll
+                                investigate
+                                and arrange a replacement or refund. Please keep all packaging materials for inspection.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Returns & Refunds -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-rotate-left text-primary"></i>
+                        Returns & Refunds
+                    </h2>
+                    <div class="space-y-4">
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>What is your return policy?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                You can return most items within 30 days of delivery for a full refund. Items must be
+                                unused, in original packaging, and with all tags attached. Some exclusions apply
+                                (perishables, personalized items, etc.).
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>How do I return an item?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Log into your account, go to "My Orders", select the item you want to return, and click
+                                "Request Return". Follow the instructions to print your return label and ship the item
+                                back
+                                to us.
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>When will I receive my refund?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Refunds are processed within 5-10 business days after we receive your return. The credit
+                                will appear on your original payment method within 3-5 business days after processing.
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>Can I exchange an item?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Yes! You can exchange items for a different size, color, or variant. Request an exchange
+                                through your account, and we'll send the new item once we receive your return.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Account & Technical -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-user-gear text-primary"></i>
+                        Account & Technical
+                    </h2>
+                    <div class="space-y-4">
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>I forgot my password. What should I do?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Click "Forgot Password" on the login page, enter your email address, and we'll send you
+                                instructions to reset your password.
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>How do I update my account information?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Log into your account, click on "My Account", and update your personal information,
+                                shipping
+                                addresses, or payment methods.
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
+                                <span>How do I unsubscribe from emails?</span>
+                                <i
+                                    class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
+                            </summary>
+                            <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Click the "Unsubscribe" link at the bottom of any marketing email, or manage your email
+                                preferences in your account settings.
+                            </div>
+                        </details>
+                    </div>
                 </div>
             </div>
 
-            <!-- Shipping & Delivery -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                    <i class="fa-solid fa-truck text-primary"></i>
-                    Shipping & Delivery
-                </h2>
-                <div class="space-y-4">
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>What are your shipping options?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            We offer Standard (5-7 days), Express (2-3 days), and Overnight (1 day) shipping. Free
-                            standard shipping on orders over $50.
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>Do you ship internationally?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Yes, we ship to most countries worldwide. International shipping costs and delivery times
-                            vary by destination. Customs fees and import taxes may apply.
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>What if my package is lost or damaged?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            If your package is lost or arrives damaged, contact us within 48 hours. We'll investigate
-                            and arrange a replacement or refund. Please keep all packaging materials for inspection.
-                        </div>
-                    </details>
+            <!-- Still Need Help -->
+            <div class="mt-16 p-8 bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 text-center">
+                <h3 class="text-2xl font-bold mb-3">Still Have Questions?</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+                    Can't find what you're looking for? Our customer support team is here to help you 24/7.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="./contact-us.html"
+                        class="px-8 py-3 bg-primary text-white rounded-md hover:bg-red-600 transition-colors font-medium inline-flex items-center gap-2">
+                        <i class="fa-regular fa-envelope"></i>
+                        Contact Support
+                    </a>
+                    <a href="tel:+8801588889999"
+                        class="px-8 py-3 bg-white border-2 border-primary text-primary rounded-md hover:bg-primary hover:text-white transition-colors font-medium inline-flex items-center gap-2">
+                        <i class="fa-solid fa-phone"></i>
+                        Call Us
+                    </a>
                 </div>
-            </div>
-
-            <!-- Returns & Refunds -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                    <i class="fa-solid fa-rotate-left text-primary"></i>
-                    Returns & Refunds
-                </h2>
-                <div class="space-y-4">
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>What is your return policy?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            You can return most items within 30 days of delivery for a full refund. Items must be
-                            unused, in original packaging, and with all tags attached. Some exclusions apply
-                            (perishables, personalized items, etc.).
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>How do I return an item?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Log into your account, go to "My Orders", select the item you want to return, and click
-                            "Request Return". Follow the instructions to print your return label and ship the item back
-                            to us.
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>When will I receive my refund?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Refunds are processed within 5-10 business days after we receive your return. The credit
-                            will appear on your original payment method within 3-5 business days after processing.
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>Can I exchange an item?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Yes! You can exchange items for a different size, color, or variant. Request an exchange
-                            through your account, and we'll send the new item once we receive your return.
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- Account & Technical -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                    <i class="fa-solid fa-user-gear text-primary"></i>
-                    Account & Technical
-                </h2>
-                <div class="space-y-4">
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>I forgot my password. What should I do?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Click "Forgot Password" on the login page, enter your email address, and we'll send you
-                            instructions to reset your password.
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>How do I update my account information?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Log into your account, click on "My Account", and update your personal information, shipping
-                            addresses, or payment methods.
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 overflow-hidden">
-                        <summary
-                            class="flex justify-between items-center cursor-pointer p-6 font-semibold hover:bg-gray-100 dark:hover:bg-slate-900 transition-colors">
-                            <span>How do I unsubscribe from emails?</span>
-                            <i
-                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-primary"></i>
-                        </summary>
-                        <div class="p-6 pt-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Click the "Unsubscribe" link at the bottom of any marketing email, or manage your email
-                            preferences in your account settings.
-                        </div>
-                    </details>
-                </div>
-            </div>
-        </div>
-
-        <!-- Still Need Help -->
-        <div class="mt-16 p-8 bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-300 text-center">
-            <h3 class="text-2xl font-bold mb-3">Still Have Questions?</h3>
-            <p class="text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-                Can't find what you're looking for? Our customer support team is here to help you 24/7.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="./contactUs.html"
-                    class="px-8 py-3 bg-primary text-white rounded-md hover:bg-red-600 transition-colors font-medium inline-flex items-center gap-2">
-                    <i class="fa-regular fa-envelope"></i>
-                    Contact Support
-                </a>
-                <a href="tel:+8801588889999"
-                    class="px-8 py-3 bg-white border-2 border-primary text-primary rounded-md hover:bg-primary hover:text-white transition-colors font-medium inline-flex items-center gap-2">
-                    <i class="fa-solid fa-phone"></i>
-                    Call Us
-                </a>
             </div>
         </div>
     </section>
@@ -530,7 +568,7 @@
                     <li><a href="./privacy.html" class="hover:text-white">Privacy Policy</a></li>
                     <li><a href="./terms.html" class="hover:text-white">Terms Of Use</a></li>
                     <li><a href="./faq.html" class="hover:text-white">FAQ</a></li>
-                    <li><a href="./contactUs.html" class="hover:text-white">Contact</a></li>
+                    <li><a href="./contact-us.html" class="hover:text-white">Contact</a></li>
                 </ul>
             </div>
             <!-- Download App & Social Links -->
