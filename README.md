@@ -47,7 +47,7 @@
 | 🔑 Forget Password | `forget-password.html` | Password recovery - email entry |
 | 🔢 OTP Verification | `otp.html` | Enter 6-digit verification code |
 | 🔒 New Password | `new-password.html` | Create new password with confirmation |
-| 👤 My Account | `userAccount.html` | User profile management |
+| 👤 My Account | `user-account.html` | User profile management |
 | 📋 My Orders | `orders.html` | Order history and status |
 | 📊 Order Details | `order-details.html` | Detailed order information |
 | 🚚 Track Order | `track-order.html` | Real-time order tracking |
