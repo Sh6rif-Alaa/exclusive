@@ -1,12 +1,10 @@
 import * as z from 'zod'
-import { GenderEnum } from '../../common/enum/user.enum'
 
 // signIn schema
 export const signInSchema = {
     body: z.object({
         email: z.email(),
-        password: z.string().min(6, 'password must be at least 6 characters long'),
-        fcmToken: z.string(),
+        password: z.string().min(6, 'password must be at least 6 characters long')
     }).strict()
 }
 
@@ -15,11 +13,7 @@ export const signUpSchemaBody = z.object({
     email: z.email(),
     password: z.string().min(6, 'password must be at least 6 characters long'),
     cPassword: z.string().min(6, 'confirmPassword must be at least 6 characters long'),
-    userName: z.string().min(3, 'userName must be at least 3 characters long').max(25, 'userName must be at most 25 characters long'),
-    age: z.number().min(16, 'age must be at least 16 years old').max(80, 'age must be at most 80 years old'),
-    gender: z.enum(GenderEnum).default(GenderEnum.male),
-    phone: z.string().min(10, 'phone must be at least 10 digits long').max(15, 'phone must be at most 15 digits long').optional(),
-    address: z.string().min(10, 'address must be at least 10 characters long').max(100, 'address must be at most 100 characters long').optional(),
+    userName: z.string().min(3, 'userName must be at least 3 characters long').max(25, 'userName must be at most 25 characters long')
 }).strict()
 
 // refined signUp schema -> split for password and cPassword to get error with the rest of the fields

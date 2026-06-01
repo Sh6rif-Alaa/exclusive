@@ -2,7 +2,6 @@ import type { NextFunction, Request, Response } from "express";
 import successResponse from "../../common/utils/response.success";
 import { AppError } from "../../common/utils/globalErrorHandler";
 import { Compare, Hash } from "../../common/utils/security/hash.security";
-import { encrypt } from "../../common/utils/security/encrypt.security";
 import { signUpType, signInType, verifyEmailType, forgetPasswordType, resetPasswordType } from "./auth.dto";
 import { create, findOne, findOneAndUpdate } from "../../DB/db.service";
 import userModel, { IUser } from "../../DB/models/user.model";
@@ -91,15 +90,14 @@ const sendEmailOtp = async ({ email, userName, subject }: { email: string, userN
 
 // route handlers
 export const signUp = async (req: Request, res: Response, _next: NextFunction) => {
-    const { userName, email, password, age, gender, phone, address }: signUpType = req.body
+    const { userName, email, password}: signUpType = req.body
 
     const existingUser = await findOne<IUser>({ filter: { email }, model: userModel })
     if (existingUser) throw new AppError("user already exist", 409)
 
     const user = await create<IUser>({
         data: {
-            userName, email, age, gender, address,
-            phone: phone ? encrypt(phone) : undefined,
+            userName, email,
             password: Hash({ plainText: password })
         },
         model: userModel

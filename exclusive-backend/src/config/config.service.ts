@@ -6,6 +6,7 @@ config({ path: resolve(`.env`) })
 const env = {
     PORT: process.env.PORT!,
     DB_URI: process.env.DB_URI!,
+    DB_URI_ONLINE: process.env.DB_URI_ONLINE!,
     TOKEN_KEY: process.env.TOKEN_KEY!,
     REFRESH_TOKEN_KEY: process.env.REFRESH_TOKEN_KEY!,
     ENCRYPT_KEY: process.env.ENCRYPT_KEY!,
