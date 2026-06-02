@@ -1,0 +1,166 @@
+{
+    "data": [
+        {
+            "id": "1",
+            "title": "HAVIT HV-G92 Gamepad",
+            "newPrice": 120,
+            "oldPrice": 160,
+            "image": "./assets/images/product-1.png",
+            "discount": 40,
+            "rating": 4.5,
+            "review": 88,
+            "numberOfSales": 450
+        },
+        {
+            "id": "2",
+            "title": "AK-900 Wired Keyboard",
+            "newPrice": 960,
+            "oldPrice": 1160,
+            "image": "./assets/images/product-2.png",
+            "discount": 35,
+            "rating": 4,
+            "review": 75,
+            "numberOfSales": 420
+        },
+        {
+            "id": "3",
+            "title": "IPS LCD Gaming Monitor",
+            "newPrice": 370,
+            "oldPrice": 400,
+            "image": "./assets/images/product-3.png",
+            "discount": 30,
+            "rating": 4,
+            "review": 99,
+            "numberOfSales": 400
+        },
+        {
+            "id": "4",
+            "title": "S-Series Comfort Chair",
+            "newPrice": 375,
+            "oldPrice": 400,
+            "image": "./assets/images/product-4.png",
+            "discount": 25,
+            "rating": 4,
+            "review": 99,
+            "numberOfSales": 350
+        },
+        {
+            "id": "5",
+            "title": "The north coat",
+            "newPrice": 260,
+            "oldPrice": 360,
+            "image": "./assets/images/product-5.png",
+            "discount": 10,
+            "rating": 5,
+            "review": 120,
+            "numberOfSales": 330
+        },
+        {
+            "id": "6",
+            "title": "Gucci duffle bag",
+            "newPrice": 260,
+            "oldPrice": 360,
+            "image": "./assets/images/product-6.png",
+            "discount": 10,
+            "rating": 5,
+            "review": 120,
+            "numberOfSales": 200
+        },
+        {
+            "id": "7",
+            "title": "RGB liquid CPU Cooler",
+            "newPrice": 260,
+            "oldPrice": 360,
+            "image": "./assets/images/product-7.png",
+            "discount": 10,
+            "rating": 5,
+            "review": 120,
+            "numberOfSales": 150
+        },
+        {
+            "id": "8",
+            "title": "Small BookSelf",
+            "newPrice": 260,
+            "image": "./assets/images/product-8.png",
+            "rating": 5,
+            "review": 120,
+            "numberOfSales": 130
+        },
+        {
+            "id": "9",
+            "title": "Breed Dry Dog Food",
+            "newPrice": 999,
+            "image": "./assets/images/product-9.png",
+            "rating": 4.5,
+            "review": 80,
+            "numberOfSales": 120
+        },
+        {
+            "id": "10",
+            "title": "CANON EOS DSLR Camera",
+            "newPrice": 360,
+            "image": "./assets/images/product-10.png",
+            "rating": 5,
+            "review": 120,
+            "numberOfSales": 100
+        },
+        {
+            "id": "11",
+            "title": "ASUS FHD Gaming Laptop",
+            "newPrice": 700,
+            "image": "./assets/images/product-11.png",
+            "rating": 4,
+            "review": 325,
+            "numberOfSales": 90
+        },
+        {
+            "id": "12",
+            "title": "Curology Product Set",
+            "newPrice": 500,
+            "image": "./assets/images/product-12.png",
+            "rating": 4,
+            "review": 99,
+            "numberOfSales": 80
+        },
+        {
+            "id": "13",
+            "title": "Kids Electric Ride On Car",
+            "newPrice": 1900,
+            "image": "./assets/images/product-13.png",
+            "rating": 5,
+            "review": 350,
+            "numberOfSales": 60,
+            "color": "bg-prod-1"
+        },
+        {
+            "id": "14",
+            "title": "Jr. Zoom Soccer Cleats",
+            "newPrice": 1160,
+            "image": "./assets/images/product-14.png",
+            "rating": 4.5,
+            "review": 280,
+            "numberOfSales": 50,
+            "color": "bg-prod-2"
+        },
+        {
+            "id": "15",
+            "title": "GP11 Shooter USB Gamepad",
+            "newPrice": 660,
+            "image": "./assets/images/product-15.png",
+            "rating": 4,
+            "review": 55,
+            "numberOfSales": 30,
+            "color": "bg-black"
+        },
+        {
+            "id": "16",
+            "title": "Leather Men's Jacket",
+            "newPrice": 520,
+            "image": "./assets/images/product-16.png",
+            "rating": 5,
+            "review": 80,
+            "numberOfSales": 20,
+            "color": "bg-prod-3"
+        }
+    ]
+}
