@@ -43,7 +43,7 @@
 | Page | File | Description |
 |------|------|-------------|
 | 🔐 Login | `login.html` | User login page |
-| ✍️ Sign Up | `sign-up.html` | New user registration |
+| ✍️ Sign Up | `register.html` | New user registration |
 | 🔑 Forget Password | `forget-password.html` | Password recovery - email entry |
 | 🔢 OTP Verification | `otp.html` | Enter 6-digit verification code |
 | 🔒 New Password | `new-password.html` | Create new password with confirmation |

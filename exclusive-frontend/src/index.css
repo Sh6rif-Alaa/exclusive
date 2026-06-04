@@ -56,11 +56,36 @@ body {
 }
 
 /* navbar active page link */
-.link-active {
+.active {
     @apply border-b-2 border-secondary text-primary font-bold;
 }
 
 /* icon hover */
 .icon-hover {
     @apply cursor-pointer transition-colors duration-300 hover:text-gray-700
+}
+
+/* hero slider */
+.hero-swiper .swiper-pagination {
+    @apply bottom-4!;
+}
+
+.hero-swiper .swiper-pagination-bullet {
+    @apply bg-icon w-3 h-3 opacity-100;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+    @apply bg-primary border-2 border-white;
+}
+
+/* input number */
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    @apply m-0 [-webkit-appearance:none]
+}
+
+/* Firefox */
+input[type="number"] {
+    @apply [-moz-appearance:textfield]
 }
