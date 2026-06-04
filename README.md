@@ -1,14 +1,15 @@
-# 🛍️ Exclusive - Modern E-Commerce Platform
+# 🛍️ Exclusive - Modern E-Commerce Frontend
 
 ---
 
 ## 📋 Table of Contents
 
 - [About The Project](#-about-the-project)
-- [Pages Overview](#-pages-overview)
+- [Architecture & State](#-architecture--state)
 - [Tech Stack](#%EF%B8%8F-tech-stack)
 - [Getting Started](#-getting-started)
 - [Installation](#-installation)
+- [Backend Integration](#-backend-integration)
 - [Contributing](#-contributing)
 - [License](#-license)
 
@@ -16,76 +17,93 @@
 
 ## 🎯 About The Project
 
-**Exclusive** is a complete, production-ready e-commerce platform featuring a modern, clean interface built entirely with vanilla HTML, CSS (Tailwind), and JavaScript. This project demonstrates best practices in frontend development with a focus on:
+**Exclusive** is a complete, production-ready e-commerce platform frontend built with modern web technologies: React, TypeScript, and Vite. 
+
+Currently, this project operates as a **Standalone Frontend**. There is no backend connected yet. It is fully pre-configured and architected so that integrating a real backend API in the future will be seamless.
+
+Key features and focuses of this frontend include:
 
 - 🎨 **Beautiful UI/UX** - Clean, modern design with smooth animations
 - 📱 **Fully Responsive** - Works seamlessly on all devices (Mobile, Tablet, Desktop)
-- 🌙 **Dark Mode** - Complete dark mode support throughout the application
-- ♿ **Accessible** - WCAG compliant with proper ARIA labels and semantic HTML
-- ⚡ **Performance** - Optimized for fast loading and smooth interactions
-- 🔧 **Maintainable** - Clean, well-organized code structure
+- ⚡ **Performance** - Optimized for fast loading and smooth interactions using Vite and React 19
+- 🔧 **Maintainable** - Clean, well-organized code structure using TypeScript
+- 🔒 **Form Validation** - Robust form handling with React Hook Form and Zod
 
 ---
 
-## 📄 Pages Overview
+## 📄 Pages & Routes Overview
 
-### Main Pages (6)
-| Page | File | Description |
-|------|------|-------------|
-| 🏠 Home | `index.html` | Homepage with featured products, categories, and deals |
-| 🛍️ Shop | `shop.html` | Product listing with filters and sorting |
-| 📦 Product Details | `product-details.html` | Individual product page with reviews |
-| 🛒 Shopping Cart | `cart.html` | View and manage cart items |
-| 💳 Checkout | `checkout.html` | Complete purchase and payment |
-| ❤️ Wishlist | `wishlist.html` | Saved favorite products |
+### Main Pages
+| Page | Route | Description |
+|------|-------|-------------|
+| 🏠 Home | `/` | Homepage with featured products, categories, and deals |
+| 🛍️ Shop | `/shop` | Product listing with filters and sorting |
+| 📦 Product Details | `/shop/product-details/:id` | Individual product page with reviews |
+| 🛒 Shopping Cart | `/cart` | View and manage cart items |
+| 💳 Checkout | `/checkout` | Complete purchase and payment (Protected) |
+| ❤️ Wishlist | `/wishlist` | Saved favorite products |
 
-### Account Pages (12)
-| Page | File | Description |
-|------|------|-------------|
-| 🔐 Login | `login.html` | User login page |
-| ✍️ Sign Up | `register.html` | New user registration |
-| 🔑 Forget Password | `forget-password.html` | Password recovery - email entry |
-| 🔢 OTP Verification | `otp.html` | Enter 6-digit verification code |
-| 🔒 New Password | `new-password.html` | Create new password with confirmation |
-| 👤 My Account | `user-account.html` | User profile management |
-| 📋 My Orders | `orders.html` | Order history and status |
-| 📊 Order Details | `order-details.html` | Detailed order information |
-| 🚚 Track Order | `track-order.html` | Real-time order tracking |
-| ⭐ My Reviews | `reviews.html` | Manage product reviews |
-| 💳 Payment Methods | `payment-methods.html` | Saved payment cards |
-| 📍 Address Book | `address-book.html` | Shipping addresses |
+### Account & Auth Pages
+| Page | Route | Description |
+|------|-------|-------------|
+| 🔐 Login | `/login` | User login page (Guest only) |
+| ✍️ Sign Up | `/register` | New user registration (Guest only) |
+| 🔑 Forget Password | `/forget-password` | Password recovery (Guest only) |
+| 🔢 OTP Verification | `/verify` | Enter verification code (Guest only) |
+| 🔒 New Password | `/reset-password` | Create new password (Guest only) |
+| 👤 My Account | `/user-account` | User profile management (Protected) |
+| 📋 My Orders | `/orders` | Order history and status (Protected) |
+| 📊 Order Details | `/order-details/:id` | Detailed order information (Protected) |
+| 🚚 Track Order | `/track-order/:id` | Real-time order tracking (Protected) |
+| ⭐ My Reviews | `/reviews` | Manage product reviews (Protected) |
+| 💳 Payment Methods | `/payment-methods` | Saved payment cards (Protected) |
+| 📍 Address Book | `/address-book` | Shipping addresses (Protected) |
 
-### Information Pages (6)
-| Page | File | Description |
-|------|------|-------------|
-| ℹ️ About Us | `about-us.html` | Company information |
-| 📧 Contact Us | `contact-us.html` | Contact form and information |
-| 🔒 Privacy Policy | `privacy.html` | Privacy and data protection |
-| 📜 Terms of Service | `terms.html` | Terms and conditions |
-| ❓ FAQ | `faq.html` | Frequently asked questions |
-| ⚠️ Error 404 | `error.html` | Custom error page |
+### Information Pages
+| Page | Route | Description |
+|------|-------|-------------|
+| ℹ️ About Us | `/about-us` | Company information |
+| 📧 Contact Us | `/contact-us` | Contact form and information |
+| 🔒 Privacy Policy | `/privacy` | Privacy and data protection |
+| 📜 Terms of Service | `/terms` | Terms and conditions |
+| ❓ FAQ | `/faq` | Frequently asked questions |
+| ⚠️ Error 404 | `*` | Custom error page for not found routes |
 
-**Total: 24 Pages** - Complete e-commerce experience
+---
+
+## 🏗️ Architecture & State
+
+Even though there is no backend yet, the application is structured as a real-world production app:
+
+- **State Management**: Handled via **Redux Toolkit**. 
+- **Routing**: Client-side routing is managed via **React Router DOM**.
+- **API Readiness**: Uses **Axios** for HTTP requests, currently primed to connect to your future API endpoints.
+- **Styling**: Uses **Tailwind CSS v4** for utility-first styling.
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Frontend
-- **HTML5** - Semantic markup
-- **CSS3** - Modern styling features
+### Core
+- **React 19** - UI Library
+- **TypeScript** - Static Typing
+- **Vite** - Build Tool & Dev Server
+
+### State & Routing
+- **Redux Toolkit** - State Management
+- **React Redux** - React bindings for Redux
+- **React Router DOM** - Application Routing
+
+### Styling & UI Components
 - **Tailwind CSS 4.x** - Utility-first CSS framework
-- **JavaScript (ES6+)** - Vanilla JavaScript for interactivity
-- **Font Awesome 7** - Icon library
+- **Lucide React** - Icon library
+- **Swiper** - Modern touch slider
+- **React Simple Star Rating** - Rating component
+- **React Hot Toast** - Notifications
 
-### Build Tools
-- **npm** - Package manager
-- **Tailwind CLI** - CSS compilation
-
-### Fonts
-- **Inter** - Primary font for UI elements
-- **Poppins** - Secondary font for headings
-- Loaded via Google Fonts CDN
+### Forms & Validation
+- **React Hook Form** - Form state management
+- **Zod** - Schema validation
 
 ---
 
@@ -95,7 +113,7 @@
 
 Before you begin, ensure you have the following installed:
 
-- **Node.js** (v24.13.1 LTS or higher) - [Download](https://nodejs.org/)
+- **Node.js** (v18.0.0 or higher recommended)
 - **npm** (comes with Node.js)
 
 Verify installation:
@@ -110,7 +128,6 @@ npm -v
 
 ### 1. Clone the Project
 
-**Clone Repository** (if using Git)
 ```bash
 git clone https://github.com/Sh6rif-Alaa/exclusive.git
 cd exclusive
@@ -124,29 +141,25 @@ Navigate to the project directory and install required packages:
 npm install
 ```
 
-This will install:
-- Tailwind CSS CLI
-- Any other dependencies listed in `package.json`
+### 3. Run Development Server
 
-### 3. Generate CSS (First Time)
-
-Compile Tailwind CSS:
+Start the Vite development server:
 
 ```bash
-npm run start:tail
+npm run dev
 ```
 
-Or use the full command:
+The application will be available at `http://localhost:5173/` (or another port if 5173 is in use).
 
-```bash
-npx tailwindcss -i ./assets/css/style.css -o ./assets/css/output.css --watch
-```
+---
 
-for tailwind css -minify
+## 🔌 Backend Integration
 
-```bash
-npm run build
-```
+This application is strictly a **frontend** at this moment. 
+To connect this to a backend API:
+1. Setup your base URL in the Axios instance (typically in a `src/api` or `src/services` folder).
+2. Create environment variables (e.g., `.env.local`) for `VITE_API_BASE_URL`.
+3. Replace the mock data/Redux initial states with API fetching logic (e.g., using Redux Thunks or RTK Query).
 
 ---
 
@@ -157,14 +170,13 @@ Contributions are welcome! Here's how you can help:
 1. **Fork the Project**
 2. **Create Feature Branch** (`git checkout -b feat/AmazingFeat`)
 3. **Commit Changes** (`git commit -m 'Add some AmazingFeat'`)
-4. **Push to Branch** (`git push origin feat/AmazingFeat)
+4. **Push to Branch** (`git push origin feat/AmazingFeat`)
 5. **Open Pull Request**
 
 ### Contribution Guidelines
 
-- Follow existing code style
+- Follow existing code style (ESLint and TypeScript configurations)
 - Write meaningful commit messages
-- Test on multiple browsers
 - Update documentation if needed
 
 ---
@@ -182,9 +194,3 @@ If you found this project helpful, please consider:
 - 🔄 Sharing with others
 - 🐛 Reporting bugs
 - 💡 Suggesting improvements
-
----
-
-**Made with ❤️ by React Group 2**
-
-[⬆ Back to Top](#%EF%B8%8F-exclusive---modern-e-commerce-platform)
