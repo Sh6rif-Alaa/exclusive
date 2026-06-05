@@ -29,7 +29,7 @@ const Home = () => {
                         <div className="hidden lg:block w-64 shrink-0 border-r border-gray-200 dark:border-gray-700 pt-10 pe-6">
                             <ul
                                 className="space-y-6 [&_a]:hover:text-primary [&_a]:transition-colors [&_a]:duration-300 dark:text-gray-300">
-                                {categories.slice(6, 14).map((category: AdminCategory) => (
+                                {(categories as AdminCategory[]).slice(6, 14).map((category) => (
                                     <SidebarCategories key={category.id} name={category.name} />
                                 ))}
                             </ul>
@@ -79,7 +79,7 @@ const Home = () => {
                                 },
                             }}
                         >
-                            {productsData.slice(-8).reverse().map((product: AdminProduct) => (
+                            {(productsData as AdminProduct[]).slice(-8).reverse().map((product) => (
                                 <SwiperSlide key={product.id}>
                                     <div className="relative group pb-0.5">
                                         <ProductCard
@@ -137,7 +137,7 @@ const Home = () => {
                             },
                         }}
                     >
-                        {categories.map((category: AdminCategory) => (
+                        {(categories as AdminCategory[]).map((category) => (
                             <SwiperSlide key={category.id}>
                                 <CategorieCard
                                     name={category.name}
@@ -163,7 +163,7 @@ const Home = () => {
                     {/* products cards */}
                     <div className="grid grid-cols-12 lg:gap-8 sm:gap-4 gap-0 gap-y-6">
                         {/* first four products that has best sales (products must ordred by numberOfSales descending from backend) */}
-                        {productsData.slice(0, 4).map((product: AdminProduct) => (
+                        {(productsData as AdminProduct[]).slice(0, 4).map((product) => (
                             <div key={product.id} className="lg:col-span-3 sm:col-span-6 col-span-12 relative group">
                                 <ProductCard
                                     id={product.id}
@@ -243,7 +243,7 @@ const Home = () => {
                             },
                         }}
                     >
-                        {productsData.slice(8, 16).map((product: AdminProduct) => (
+                        {(productsData as AdminProduct[]).slice(8, 16).map((product) => (
                             <SwiperSlide key={product.id}>
                                 <div className="relative group pb-0.5">
                                     <ProductCard

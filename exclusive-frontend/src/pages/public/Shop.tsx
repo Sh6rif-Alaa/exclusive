@@ -22,15 +22,15 @@ const Shop = () => {
     };
 
     const filteredProducts = useMemo(() => {
-        return [...productsData]
-            .filter((product: AdminProduct) =>
+        return [...(productsData as AdminProduct[])]
+            .filter((product) =>
                 selectedCategory
                     ? product.category === selectedCategory
                     : true
             )
-            .filter((product: AdminProduct) => product.newPrice <= maxPrice)
-            .filter((product: AdminProduct) => product.rating >= minRating)
-            .sort((a: AdminProduct, b: AdminProduct) => {
+            .filter((product) => product.newPrice <= maxPrice)
+            .filter((product) => product.rating >= minRating)
+            .sort((a, b) => {
                 switch (sortBy) {
                     case "low-price":
                         return a.newPrice - b.newPrice;
@@ -101,7 +101,7 @@ const Shop = () => {
                                     <h3 className="font-semibold mb-3">Categories</h3>
 
                                     <div className="space-y-2">
-                                        {categories.map((category: AdminCategory) => (
+                                        {(categories as AdminCategory[]).map((category) => (
                                             <label key={category.id} className="flex items-center gap-2 cursor-pointer">
                                                 <input type="radio" name="category" checked={selectedCategory === category.name} onChange={() => {
                                                     setSelectedCategory(category.name);
@@ -205,7 +205,7 @@ const Shop = () => {
                                     <h4 className="font-medium mb-3">Categories</h4>
 
                                     <div className="space-y-2">
-                                        {categories.map(
+                                        {(categories as AdminCategory[]).map(
                                             (category) => (
                                                 <label key={category.id} className="flex items-center gap-2">
                                                     <input type="radio" name="mobile-category" checked={selectedCategory === category.name}

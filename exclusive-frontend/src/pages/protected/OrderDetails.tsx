@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, MapPin, CreditCard } from "lucide-react";
 import { ordersData } from "../../mockData/accountData";
 import StatusBadge from "../../components/account/StatusBadge";
-import type { OrderItem } from "../../types/dashboard.type";
+import type { AdminOrder, OrderItem } from "../../types/dashboard.type";
 import Image from "../../components/home/Image";
 
 const infoBlocks = (order: NonNullable<ReturnType<typeof ordersData.find>>) => [
@@ -13,7 +13,7 @@ const infoBlocks = (order: NonNullable<ReturnType<typeof ordersData.find>>) => [
 
 const OrderDetails = () => {
     const { id } = useParams<{ id: string }>();
-    const order = ordersData.find((o) => o.id === id);
+    const order = ordersData.find((o) => o.id === id) as AdminOrder;
 
     if (!order) {
         return (
@@ -54,7 +54,7 @@ const OrderDetails = () => {
             {/* Items */}
             <h3 className="font-semibold mb-3 text-sm">Items Ordered</h3>
             <ul className="space-y-3 mb-6">
-                {(order.items as OrderItem[]).map((item) => (
+                {(order.items as OrderItem[]).map((item: OrderItem) => (
                     <li key={item.id} className="flex items-center gap-4 p-3 border border-gray-100 dark:border-gray-700 rounded-lg">
                         <Image src={item.image} alt={item.title} skeleton={true} className="w-14 h-14 object-contain bg-gray-100 dark:bg-gray-700 rounded shrink-0" />
                         <div className="flex-1 min-w-0">
@@ -69,7 +69,7 @@ const OrderDetails = () => {
             {/* Totals */}
             <div className="border-t border-gray-200 dark:border-gray-700 pt-4 space-y-2 mb-6">
                 {[
-                    { label: "Subtotal", value: `$${order.total.toFixed(2) || 0}` },
+                    { label: "Subtotal", value: `$${order.total.toFixed(2)}` },
                     { label: "Shipping", value: "Free" },
                 ].map(({ label, value }) => (
                     <div key={label} className="flex justify-between text-sm text-gray-600 dark:text-gray-400">

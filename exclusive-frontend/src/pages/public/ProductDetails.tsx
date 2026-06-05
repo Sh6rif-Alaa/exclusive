@@ -13,7 +13,7 @@ import Image from "../../components/home/Image";
 const ProductDetails = () => {
     const dispatch = useAppDispatch();
     const { id } = useParams();
-    const product = productsData.find((item) => item.id === id);
+    const product = productsData.find((item) => item.id === id) as AdminProduct;
     const [quantity, setQuantity] = useState(1);
     const [selectedImage, setSelectedImage] = useState(product?.mainImage);
     const isWishlisted = useAppSelector((state) => state.wishlist.items.some((item) => item.id === id));

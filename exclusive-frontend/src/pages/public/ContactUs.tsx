@@ -90,14 +90,13 @@ const ContactUs = () => {
                                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
                                     {contactFields.map(
-                                        (field) => (
+                                        (field, idx) => (
                                             <FormInput<ContactUsType>
-                                                key={field.name}
+                                                key={idx}
                                                 name={field.name}
                                                 type={field.type}
                                                 style='w-full bg-gray-100 dark:bg-dark-input text-black dark:text-white placeholder-gray-500 border border-transparent focus:border-primary rounded-md p-4 text-sm outline-none transition-all'
                                                 placeholder={field.placeholder}
-                                                {...field}
                                                 register={register}
                                                 errors={errors}
                                             />

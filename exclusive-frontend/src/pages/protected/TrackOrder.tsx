@@ -3,11 +3,11 @@ import { ArrowLeft, Package } from "lucide-react";
 import { ordersData, getTrackingSteps } from "../../mockData/accountData";
 import TrackStep from "../../components/account/TrackStep";
 import StatusBadge from "../../components/account/StatusBadge";
-import type { OrderStatus } from "../../types/dashboard.type";
+import type { AdminOrder, OrderStatus } from "../../types/dashboard.type";
 
 const TrackOrder = () => {
     const { id } = useParams<{ id: string }>();
-    const order = ordersData.find((o) => o.id === id);
+    const order = ordersData.find((o) => o.id === id) as AdminOrder;
 
     if (!order) {
         return (
@@ -20,7 +20,7 @@ const TrackOrder = () => {
         );
     }
 
-    const steps = getTrackingSteps(order.status as OrderStatus);
+    const steps = getTrackingSteps(order.status);
 
     return (
         <div className="shadow-md rounded-md p-6">
