@@ -3,10 +3,10 @@ import product2 from "../assets/images/product-2.png";
 import product3 from "../assets/images/product-3.png";
 import product4 from "../assets/images/product-4.png";
 import product5 from "../assets/images/product-5.png";
-import type { Address, Order, OrderStatus, PaymentMethod, Review, TrackingStep } from "../types/dashboard.type";
+import type { Address, AdminOrder, AdminReview, ITrackingStep, OrderStatus, PaymentMethod } from "../types/dashboard.type";
 
 //  Mock Data
-export const ordersData: Order[] = [
+export const ordersData: Partial<AdminOrder>[] = [
     {
         id: "1",
         orderNumber: "ORD-2026-001",
@@ -42,7 +42,7 @@ export const ordersData: Order[] = [
         billingAddress: "456 Park Avenue, Cairo, Egypt",
         items: [
             { id: "4", title: "S-Series Comfort Chair", image: product4, price: 375, quantity: 1 },
-            { id: "5", title: "The North Coat",         image: product5, price: 260, quantity: 1 },
+            { id: "5", title: "The North Coat", image: product5, price: 260, quantity: 1 },
         ],
     },
     {
@@ -59,7 +59,7 @@ export const ordersData: Order[] = [
     },
 ];
 
-export const reviewsData: Review[] = [
+export const reviewsData: Partial<AdminReview>[] = [
     {
         id: "1",
         productId: "1",
@@ -93,7 +93,7 @@ export const reviewsData: Review[] = [
 ];
 
 export const paymentMethodsData: PaymentMethod[] = [
-    { id: "1", type: "visa",       last4: "4242", holder: "John Doe", expiry: "12/26", isDefault: true  },
+    { id: "1", type: "visa", last4: "4242", holder: "John Doe", expiry: "12/26", isDefault: true },
     { id: "2", type: "mastercard", last4: "8888", holder: "John Doe", expiry: "08/27", isDefault: false },
 ];
 
@@ -119,7 +119,7 @@ export const addressesData: Address[] = [
 ];
 
 //  Tracking Helpers 
-export const getTrackingSteps = (status: OrderStatus): TrackingStep[] => [
+export const getTrackingSteps = (status: OrderStatus): ITrackingStep[] => [
     {
         id: "1",
         title: "Order Placed",

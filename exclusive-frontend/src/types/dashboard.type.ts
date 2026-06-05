@@ -1,3 +1,5 @@
+import type { LucideIcon } from "lucide-react";
+
 //  Types
 export type OrderStatus = "pending" | "processing" | "shipped" | "delivered" | "cancelled";
 export type AddressKind = "home" | "work" | "other";
@@ -54,43 +56,6 @@ export interface KpiCardProps {
   icon: React.ElementType;
   accent: string;
   suffix?: string;
-}
-
-export interface ModalProps {
-  order: AdminOrder;
-  tracking: TrackingEvent[];
-  onClose: () => void;
-  onSave: (id: string, status: OrderStatus, tracking: TrackingEvent[]) => void;
-}
-
-export interface OrderItem {
-  id: string;
-  title: string;
-  image: string;
-  price: number;
-  quantity: number;
-}
-
-export interface Order {
-  id: string;
-  orderNumber: string;
-  date: string;
-  status: OrderStatus;
-  total: number;
-  items: OrderItem[];
-  paymentMethod: string;
-  billingAddress: string;
-}
-
-export interface Review {
-  id: string;
-  productId: string;
-  productTitle: string;
-  productImage: string;
-  rating: number;
-  comment: string;
-  date: string;
-  status: ReviewStatus;
 }
 
 export interface PaymentMethod {
@@ -173,6 +138,7 @@ export interface AdminProduct {
   stock: number;          // units in stock
   status: "active" | "draft" | "out_of_stock";
   createdAt: string;
+  colors?: string[];
 }
 
 export interface IAdminProducts {
@@ -187,6 +153,14 @@ export interface IAdminProducts {
 
 //  Admin Orders  →  GET /api/admin/orders
 
+export interface OrderItem {
+  id: string;
+  title: string;
+  image: string;
+  price: number;
+  quantity: number;
+}
+
 export interface AdminOrder {
   id: string;
   orderNumber: string;
@@ -195,7 +169,8 @@ export interface AdminOrder {
   date: string;
   total: number;
   status: OrderStatus;
-  items: number;          // item count
+  billingAddress?: string;
+  items: OrderItem[] | number;
   paymentMethod: string;
 }
 
@@ -245,15 +220,12 @@ export interface AdminCategory {
   id: string;
   name: string;
   slug: string;
+  icon: LucideIcon | string;
   description: string;
   productCount: number;
   totalSales: number;
   status: "active" | "inactive";
   createdAt: string;
-}
-
-export interface IAdminCategories {
-  categories: AdminCategory[];
 }
 
 //  Admin Analytics  →  GET /api/admin/analytics
@@ -308,6 +280,13 @@ export interface TrackingEvent {
   date: string;
   completed: boolean;
   current: boolean;
+}
+
+export interface ModalProps {
+  order: AdminOrder;
+  tracking: TrackingEvent[];
+  onClose: () => void;
+  onSave: (id: string, status: OrderStatus, tracking: TrackingEvent[]) => void;
 }
 
 //  Admin Settings  →  GET /api/admin/settings

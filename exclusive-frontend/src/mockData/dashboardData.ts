@@ -1,4 +1,4 @@
-import type { IAdminAnalytics, IAdminCategories, IAdminOrders, IAdminProducts, IAdminReviews, IAdminStats, IAdminUsers } from "../types/dashboard.type";
+import type { AdminCategory, IAdminAnalytics, IAdminOrders, IAdminProducts, IAdminReviews, IAdminSettings, IAdminStats, IAdminUsers } from "../types/dashboard.type";
 
 export const AdminAnalyticsData: IAdminAnalytics = {
     kpis: {
@@ -50,19 +50,17 @@ export const AdminAnalyticsData: IAdminAnalytics = {
     ],
 };
 
-export const AdminCategoriesData: IAdminCategories = {
-    categories: [
-        { id: "1", name: "Gaming", slug: "gaming", description: "Gaming peripherals, controllers, and accessories.", productCount: 14, totalSales: 980, status: "active", createdAt: "Jan 1, 2025" },
-        { id: "2", name: "Computers", slug: "computers", description: "Laptops, desktops, monitors, keyboards, and components.", productCount: 22, totalSales: 1240, status: "active", createdAt: "Jan 1, 2025" },
-        { id: "3", name: "Men's Fashion", slug: "mens-fashion", description: "Clothing, shoes, and accessories for men.", productCount: 18, totalSales: 620, status: "active", createdAt: "Feb 15, 2025" },
-        { id: "4", name: "Women's Fashion", slug: "womens-fashion", description: "Clothing, shoes, and accessories for women.", productCount: 16, totalSales: 540, status: "active", createdAt: "Feb 15, 2025" },
-        { id: "5", name: "Home & Life", slug: "home-life", description: "Furniture, decor, and everyday home products.", productCount: 11, totalSales: 430, status: "active", createdAt: "Mar 3, 2025" },
-        { id: "6", name: "Electronics", slug: "electronics", description: "Cameras, audio devices, smart gadgets, and more.", productCount: 19, totalSales: 810, status: "active", createdAt: "Mar 3, 2025" },
-        { id: "7", name: "Groceries", slug: "groceries", description: "Food, beverages, and daily essentials.", productCount: 8, totalSales: 215, status: "active", createdAt: "Apr 10, 2025" },
-        { id: "8", name: "Sports", slug: "sports", description: "Fitness equipment and outdoor sports gear.", productCount: 10, totalSales: 380, status: "active", createdAt: "Apr 10, 2025" },
-        { id: "9", name: "Toys", slug: "toys", description: "Toys and games for children of all ages.", productCount: 6, totalSales: 180, status: "inactive", createdAt: "May 20, 2025" },
-    ],
-};
+export const AdminCategoriesData: Partial<AdminCategory>[] = [
+    { id: "1", name: "Gaming", slug: "gaming", description: "Gaming peripherals, controllers, and accessories.", productCount: 14, totalSales: 980, status: "active", createdAt: "Jan 1, 2025" },
+    { id: "2", name: "Computers", slug: "computers", description: "Laptops, desktops, monitors, keyboards, and components.", productCount: 22, totalSales: 1240, status: "active", createdAt: "Jan 1, 2025" },
+    { id: "3", name: "Men's Fashion", slug: "mens-fashion", description: "Clothing, shoes, and accessories for men.", productCount: 18, totalSales: 620, status: "active", createdAt: "Feb 15, 2025" },
+    { id: "4", name: "Women's Fashion", slug: "womens-fashion", description: "Clothing, shoes, and accessories for women.", productCount: 16, totalSales: 540, status: "active", createdAt: "Feb 15, 2025" },
+    { id: "5", name: "Home & Life", slug: "home-life", description: "Furniture, decor, and everyday home products.", productCount: 11, totalSales: 430, status: "active", createdAt: "Mar 3, 2025" },
+    { id: "6", name: "Electronics", slug: "electronics", description: "Cameras, audio devices, smart gadgets, and more.", productCount: 19, totalSales: 810, status: "active", createdAt: "Mar 3, 2025" },
+    { id: "7", name: "Groceries", slug: "groceries", description: "Food, beverages, and daily essentials.", productCount: 8, totalSales: 215, status: "active", createdAt: "Apr 10, 2025" },
+    { id: "8", name: "Sports", slug: "sports", description: "Fitness equipment and outdoor sports gear.", productCount: 10, totalSales: 380, status: "active", createdAt: "Apr 10, 2025" },
+    { id: "9", name: "Toys", slug: "toys", description: "Toys and games for children of all ages.", productCount: 6, totalSales: 180, status: "inactive", createdAt: "May 20, 2025" },
+];
 
 export const AdminStatsData: IAdminStats = {
     totals: {
@@ -189,7 +187,7 @@ export const AdminReviewsData: IAdminReviews = {
     ],
 };
 
-export const AdminSettingsData = {
+export const AdminSettingsData: IAdminSettings = {
     store: {
         name: "Exclusive",
         email: "support@exclusive.com",

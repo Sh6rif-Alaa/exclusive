@@ -102,11 +102,11 @@ const Shop = () => {
                                     <div className="space-y-2">
                                         {categories.map((category) => (
                                             <label key={category.id} className="flex items-center gap-2 cursor-pointer">
-                                                <input type="radio" name="category" checked={selectedCategory === category.title} onChange={() => {
-                                                    setSelectedCategory(category.title);
+                                                <input type="radio" name="category" checked={selectedCategory === category.name} onChange={() => {
+                                                    setSelectedCategory(category.name);
                                                     setCurrentPage(1);
                                                 }} />
-                                                <span>{category.title}</span>
+                                                <span>{category.name}</span>
                                             </label>
                                         ))}
                                     </div>
@@ -151,7 +151,7 @@ const Shop = () => {
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {paginatedProducts.map((product) => (
                                     <div key={product.id} className="group">
-                                        <ProductCard {...product} />
+                                        <ProductCard key={product.id} id={product.id} title={product.title} image={product.image} rating={product.rating} review={product.review} newPrice={product.newPrice} oldPrice={product.oldPrice} discount={product.discount} category={product.category} colors={product.colors} />
                                     </div>
                                 ))}
                             </div>
@@ -207,10 +207,10 @@ const Shop = () => {
                                         {categories.map(
                                             (category) => (
                                                 <label key={category.id} className="flex items-center gap-2">
-                                                    <input type="radio" name="mobile-category" checked={selectedCategory === category.title}
-                                                        onChange={() => setSelectedCategory(category.title)}
+                                                    <input type="radio" name="mobile-category" checked={selectedCategory === category.name}
+                                                        onChange={() => setSelectedCategory(category.name)}
                                                     />
-                                                    {category.title}
+                                                    {category.name}
                                                 </label>
                                             )
                                         )}

@@ -1,12 +1,7 @@
 import type { LucideIcon } from "lucide-react";
-import type { CSSProperties } from "react";
 import type { FieldErrors, FieldValues, Path, UseFormRegister } from "react-hook-form";
 
 // home components
-export interface sidebarCategoriesProps {
-  title: string;
-}
-
 export interface ViewAllProductButttonProps {
   title: string;
   end?: boolean;
@@ -32,7 +27,7 @@ export interface ProductCardProps {
   discount?: number;
   rating: number;
   review: number;
-  color?: string;
+  colors?: string[];
   category?: string;
 }
 
@@ -52,7 +47,7 @@ export interface CountdownProps {
 }
 
 export interface CategorieCardProps {
-  title: string;
+  name: string;
   icon: LucideIcon;
 }
 

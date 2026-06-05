@@ -10,6 +10,7 @@ import FeaturedCollectionCard from "../../components/home/FeaturedCollectionCard
 import ServiceCard from "../../components/home/ServiceCard";
 import adsImg from "../../assets/images/hero-slide2.webp"
 import HeroSlider from "../../components/home/HeroSlider";
+import type { LucideIcon } from "lucide-react";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -27,7 +28,7 @@ const Home = () => {
                             <ul
                                 className="space-y-6 [&_a]:hover:text-primary [&_a]:transition-colors [&_a]:duration-300 dark:text-gray-300">
                                 {categories.slice(6, 14).map((category) => (
-                                    <SidebarCategories key={category.id} title={category.title} />
+                                    <SidebarCategories key={category.id} name={category.name} />
                                 ))}
                             </ul>
                         </div>
@@ -88,7 +89,7 @@ const Home = () => {
                                             discount={product?.discount}
                                             rating={product.rating}
                                             review={product.review}
-                                            color={product?.color}
+                                            colors={product?.colors}
                                         />
                                     </div>
                                 </SwiperSlide>
@@ -137,8 +138,8 @@ const Home = () => {
                         {categories.map((category) => (
                             <SwiperSlide key={category.id}>
                                 <CategorieCard
-                                    title={category.title}
-                                    icon={category.icon}
+                                    name={category.name}
+                                    icon={category.icon as LucideIcon}
                                 />
                             </SwiperSlide>
                         ))}
@@ -171,7 +172,7 @@ const Home = () => {
                                     discount={product?.discount}
                                     rating={product.rating}
                                     review={product.review}
-                                    color={product?.color}
+                                    colors={product?.colors}
                                 />
                             </div>
                         ))}
@@ -253,7 +254,7 @@ const Home = () => {
                                         discount={product?.discount}
                                         rating={product.rating}
                                         review={product.review}
-                                        color={product?.color}
+                                        colors={product?.colors}
                                     />
                                 </div>
                             </SwiperSlide>

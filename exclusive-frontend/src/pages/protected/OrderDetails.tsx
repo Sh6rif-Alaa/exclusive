@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, MapPin, CreditCard } from "lucide-react";
 import { ordersData } from "../../mockData/accountData";
 import StatusBadge from "../../components/account/StatusBadge";
+import type { OrderItem } from "../../types/dashboard.type";
 
 const infoBlocks = (order: NonNullable<ReturnType<typeof ordersData.find>>) => [
     { label: "Order Number", value: order.orderNumber },
@@ -52,7 +53,7 @@ const OrderDetails = () => {
             {/* Items */}
             <h3 className="font-semibold mb-3 text-sm">Items Ordered</h3>
             <ul className="space-y-3 mb-6">
-                {order.items.map((item) => (
+                {(order.items as OrderItem[]).map((item) => (
                     <li key={item.id} className="flex items-center gap-4 p-3 border border-gray-100 dark:border-gray-700 rounded-lg">
                         <img src={item.image} alt={item.title} className="w-14 h-14 object-contain bg-gray-100 dark:bg-gray-700 rounded shrink-0" />
                         <div className="flex-1 min-w-0">

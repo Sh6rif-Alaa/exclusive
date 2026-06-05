@@ -2,12 +2,13 @@ import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Plus, X } from "lucide-react";
-import { addressesData as initialAddresses, type Address, type AddressKind, } from "../../mockData/accountData";
 import { addressSchema } from "../../schema/user/user.validation";
 import type { AddressFormType } from "../../schema/user/user.dto";
 import AddressCard from "../../components/account/AddressCard";
 import FormInput from "../../components/form/FormInput";
 import { addressFormFields } from "../../schema/auth/authFields";
+import type { Address, AddressKind } from "../../types/dashboard.type";
+import { addressesData } from "../../mockData/accountData";
 
 const inputStyle =
     "w-full border border-gray-200 dark:border-gray-600 rounded-md p-3 bg-white dark:bg-gray-700 dark:text-white placeholder:text-gray-400 outline-none focus:border-primary transition-colors";
@@ -19,7 +20,7 @@ const addressTypes: { value: AddressKind; label: string }[] = [
 ];
 
 const AddressBook = () => {
-    const [addresses, setAddresses] = useState<Address[]>(initialAddresses);
+    const [addresses, setAddresses] = useState<Address[]>(addressesData); // get addresses from API
     const [showForm, setShowForm] = useState(false);
     const [editingAddress, setEditingAddress] = useState<Address | null>(null);
 

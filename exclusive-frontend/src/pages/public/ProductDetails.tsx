@@ -156,7 +156,7 @@ const ProductDetails = () => {
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {relatedProducts.map((product) => (
-                                    <div><ProductCard key={product.id} {...product} /></div>
+                                    <div><ProductCard key={product.id} id={product.id} title={product.title} image={product.image} rating={product.rating} review={product.review} newPrice={product.newPrice} oldPrice={product.oldPrice} discount={product.discount} category={product.category} colors={product.colors}/></div>
                                 ))}
                             </div>
                         </div>

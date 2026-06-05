@@ -1,4 +1,4 @@
-import type { Address, PaymentMethod, Review, TrackingStep } from "../mockData/accountData";
+import type { Address, AdminReview, ITrackingStep, PaymentMethod } from "./dashboard.type";
 
 export interface AddressCardProps {
     address: Address;
@@ -14,12 +14,12 @@ export interface PaymentCardProps {
 }
 
 export interface ReviewCardProps {
-    review: Review;
-    onEdit: (review: Review) => void;
+    review: AdminReview;
+    onEdit: (review: AdminReview) => void;
     onDelete: (id: string) => void;
 }
 
 export interface TrackStepProps {
-    step: TrackingStep;
+    step: ITrackingStep;
     isLast: boolean;
 }

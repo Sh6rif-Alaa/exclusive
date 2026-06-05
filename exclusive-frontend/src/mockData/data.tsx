@@ -23,9 +23,10 @@ import tomCruse from "../assets/images/image46.png";
 import emmaWatson from "../assets/images/image51.png";
 import willSmith from "../assets/images/image47.png";
 import type { FAQSectionProps } from "../types/components";
+import type { AdminCategory, AdminProduct } from "../types/dashboard.type";
 
 // dynamic page data (replace with api data later)
-export const productsData = [
+export const productsData: Partial<AdminProduct>[] = [
     {
         id: "1",
         title: "HAVIT HV-G92 Gamepad",
@@ -168,7 +169,7 @@ export const productsData = [
         rating: 5,
         review: 350,
         numberOfSales: 60,
-        color: "bg-prod-1",
+        colors: ["bg-prod-1", "bg-red-500", "bg-blue-500", "bg-green-500", "bg-yellow-500"],
         category: "Baby’s & Toys",
     },
     {
@@ -179,7 +180,7 @@ export const productsData = [
         rating: 4.5,
         review: 280,
         numberOfSales: 50,
-        color: "bg-prod-2",
+        colors: ["bg-prod-2", "bg-red-500", "bg-blue-500", "bg-green-500", "bg-yellow-500"],
         category: "Sports & Outdoor",
     },
     {
@@ -190,7 +191,7 @@ export const productsData = [
         rating: 4,
         review: 55,
         numberOfSales: 30,
-        color: "bg-black",
+        colors: ["bg-black", "bg-red-500", "bg-blue-500", "bg-green-500", "bg-yellow-500"],
         category: "Gaming",
     },
     {
@@ -201,85 +202,85 @@ export const productsData = [
         rating: 5,
         review: 80,
         numberOfSales: 20,
-        color: "bg-prod-3",
+        colors: ["bg-prod-3", "bg-red-500", "bg-blue-500", "bg-green-500", "bg-yellow-500"],
         category: "Men’s Fashion",
     },
 ];
 
-export const categories = [
+export const categories: Partial<AdminCategory>[] = [
     {
         id: "1",
-        title: "Smartphones",
+        name: "Smartphones",
         icon: Smartphone
     },
     {
         id: "2",
-        title: "Computers",
+        name: "Computers",
         icon: Laptop
     },
     {
         id: "3",
-        title: "SmartWatch",
+        name: "SmartWatch",
         icon: Clock
     },
     {
         id: "4",
-        title: "Camera",
+        name: "Camera",
         icon: Camera
     },
     {
         id: "5",
-        title: "HeadPhones",
+        name: "HeadPhones",
         icon: Headset
     },
     {
         id: "6",
-        title: "Gaming",
+        name: "Gaming",
         icon: GamepadDirectional
     },
     {
         id: "7",
-        title: "Woman’s Fashion",
+        name: "Woman’s Fashion",
         icon: Handbag
     },
     {
         id: "8",
-        title: "Men’s Fashion",
+        name: "Men’s Fashion",
         icon: Shirt
     },
     {
         id: "9",
-        title: "Electronics",
+        name: "Electronics",
         icon: Cable
     },
     {
         id: "10",
-        title: "Home & Lifestyle",
+        name: "Home & Lifestyle",
         icon: Sofa
     },
     {
         id: "11",
-        title: "Medicine",
+        name: "Medicine",
         icon: Pill
     },
     {
         id: "12",
-        title: "Sports & Outdoor",
+        name: "Sports & Outdoor",
         icon: Volleyball
     },
     {
         id: "13",
-        title: "Baby’s & Toys",
+        name: "Baby’s & Toys",
         icon: Baby
     },
     {
         id: "14",
-        title: "Groceries & Pets",
+        name: "Groceries & Pets",
         icon: PawPrint
     },
     {
         id: "15",
-        title: "Health & Beauty",
+        name: "Health & Beauty",
         icon: Droplet
     }
 ]

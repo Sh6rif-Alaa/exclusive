@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Tag, Plus, Edit2, Trash2, ToggleLeft, ToggleRight, } from "lucide-react";
 import { DashBarChart } from "../../components/dashboard/DashboardCharts";
-import type { IAdminCategories } from "../../types/dashboard.type";
+import type { AdminCategory } from "../../types/dashboard.type";
 import { formatMoney } from "../../helpers/dashboard.helper";
 import { AdminCategoriesData } from "../../mockData/dashboardData";
 import CategoryBadge from "../../components/dashboard/CategoryBadge";
 
 const AdminCategories = () => {
-  const [data, setData] = useState<IAdminCategories | null>(null);
+  const [data, setData] = useState<Partial<AdminCategory>[] | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get<IAdminCategories>("/api/admin/categories")
+      .get<Partial<AdminCategory>[]>("/api/admin/categories")
       .then((res) => {
         if (typeof res.data === "string") throw new Error("no json");
         setData(res.data);
@@ -32,7 +32,7 @@ const AdminCategories = () => {
 
   if (!data) return null;
 
-  const { categories } = data;
+  const categories = data;
   const active = categories.filter((c) => c.status === "active").length;
   const inactive = categories.filter((c) => c.status === "inactive").length;
 

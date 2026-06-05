@@ -3,8 +3,12 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { X } from "lucide-react";
 import { Rating } from "react-simple-star-rating";
-import { reviewsData as initialReviews } from "../../mockData/accountData";
-import type { Review, ReviewStatus } from "../../types/dashboard.type";
+import { reviewsData } from "../../mockData/accountData";
+import type { AdminReview, ReviewStatus } from "../../types/dashboard.type";
+import { reviewSchema } from "../../schema/user/user.validation";
+import type { ReviewFormType } from "../../schema/user/user.dto";
+import ReviewCard from "../../components/account/ReviewCard";
+import FormTextarea from "../../components/form/FormTextarea";
 
 const statusFilters: { label: string; value: ReviewStatus | "all" }[] = [
     { label: "All", value: "all" },
@@ -12,14 +16,10 @@ const statusFilters: { label: string; value: ReviewStatus | "all" }[] = [
     { label: "Published", value: "published" },
     { label: "Rejected", value: "rejected" },
 ];
-import { reviewSchema } from "../../schema/user/user.validation";
-import type { ReviewFormType } from "../../schema/user/user.dto";
-import ReviewCard from "../../components/account/ReviewCard";
-import FormTextarea from "../../components/form/FormTextarea";
 
 const Reviews = () => {
-    const [reviews, setReviews] = useState<Review[]>(initialReviews);
-    const [editingReview, setEditingReview] = useState<Review | null>(null);
+    const [reviews, setReviews] = useState<Partial<AdminReview>[]>(reviewsData); // get Reviews from API
+    const [editingReview, setEditingReview] = useState<Partial<AdminReview> | null>(null);
     const [activeFilter, setActiveFilter] = useState<ReviewStatus | "all">("all");
 
     const filteredReviews = activeFilter === "all" ? reviews : reviews.filter((r) => r.status === activeFilter);
@@ -39,7 +39,7 @@ const Reviews = () => {
     const currentRating = watch("rating");
 
     // handlers
-    const handleEdit = (review: Review) => {
+    const handleEdit = (review: AdminReview) => {
         setEditingReview(review);
         setValue("rating", review.rating);
         setValue("comment", review.comment);
@@ -146,7 +146,7 @@ const Reviews = () => {
                     {filteredReviews.map((review) => (
                         <ReviewCard
                             key={review.id}
-                            review={review}
+                            review={review as AdminReview}
                             onEdit={handleEdit}
                             onDelete={handleDelete}
                         />

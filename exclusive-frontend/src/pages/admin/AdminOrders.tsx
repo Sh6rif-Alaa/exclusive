@@ -192,7 +192,7 @@ const AdminOrders = () => {
                       <p className="text-xs text-gray-400">{order.customerEmail}</p>
                     </td>
                     <td className="px-3 py-3.5 text-gray-400 text-xs hidden md:table-cell">{order.date}</td>
-                    <td className="px-3 py-3.5 text-center text-gray-600 dark:text-gray-400 hidden sm:table-cell">{order.items}</td>
+                    <td className="px-3 py-3.5 text-center text-gray-600 dark:text-gray-400 hidden sm:table-cell">{order.items as unknown as number}</td>
                     <td className="px-3 py-3.5 text-xs text-gray-500 dark:text-gray-400 hidden lg:table-cell">{order.paymentMethod}</td>
                     <td className="px-3 py-3.5 text-right font-semibold text-gray-800 dark:text-white">{formatMoney(order.total)}</td>
                     <td className="px-3 py-3.5 text-center"><OrderStatusBadge status={order.status} /></td>

@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { ordersData, type OrderStatus } from "../../mockData/accountData";
+import { ordersData } from "../../mockData/accountData";
 import OrderCard from "../../components/account/OrderCard";
+import type { OrderStatus } from "../../types/dashboard.type";
 
 const statusFilters: { label: string; value: OrderStatus | "all" }[] = [
     { label: "All", value: "all" },

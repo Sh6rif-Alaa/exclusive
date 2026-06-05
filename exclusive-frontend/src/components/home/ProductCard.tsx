@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { addToCart } from "../../redux/slice/cartSlice";
 import { toggleWishlist } from "../../redux/slice/wishlistSlice";
 
-const ProductCard = ({ id, title, newPrice, oldPrice, image, discount, rating, review, color }: ProductCardProps) => {
+const ProductCard = ({ id, title, newPrice, oldPrice, image, discount, rating, review, colors }: ProductCardProps) => {
     const dispatch = useAppDispatch();
     const isWishlisted = useAppSelector((state) => state.wishlist.items.some((item) => item.id === id));
 
@@ -56,15 +56,15 @@ const ProductCard = ({ id, title, newPrice, oldPrice, image, discount, rating, r
                 </div>
             </div>
             {/* product color */}
-            {color && (
+            {colors?.length ? (
                 <div className="flex items-center gap-3 mt-2">
-                    <button
-                        className={`size-3 rounded-full ${color} cursor-pointer ring-2 ring-slate-900 ring-offset-2 focus:outline-none`}></button>
-
-                    <button
-                        className="size-5 rounded-full bg-primary cursor-pointer hover:ring-2 hover:ring-red-500 hover:ring-offset-1 transition-all"></button>
+                    {colors?.map((color, index) => (
+                        <button
+                            key={index}
+                            className={`size-3 rounded-full ${color} cursor-pointer ring-2 ring-slate-900 ring-offset-2 focus:outline-none`}></button>
+                    ))}
                 </div>
-            )}
+            ) : null}
         </>
     )
 }

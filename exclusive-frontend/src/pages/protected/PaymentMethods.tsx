@@ -2,25 +2,20 @@ import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Plus, X } from "lucide-react";
-import { paymentMethodsData as initialMethods, type PaymentMethod, type CardType, } from "../../mockData/accountData";
+import { paymentMethodsData } from "../../mockData/accountData";
 import { paymentMethodSchema } from "../../schema/user/user.validation";
 import type { PaymentMethodType } from "../../schema/user/user.dto";
 import PaymentCard from "../../components/account/PaymentCard";
 import FormInput from "../../components/form/FormInput";
 import { paymentCardFields } from "../../schema/auth/authFields";
-
-// Detect card type from first digit (simplified)
-const detectCardType = (number: string): CardType => {
-    if (number.startsWith("4")) return "visa";
-    if (number.startsWith("5")) return "mastercard";
-    return "visa";
-};
+import type { PaymentMethod } from "../../types/dashboard.type";
+import { detectCardType } from "../../helpers/detectCard.helper";
 
 const inputStyle =
     "w-full border border-gray-200 dark:border-gray-600 rounded-md p-3 bg-white dark:bg-gray-700 dark:text-white placeholder:text-gray-400 outline-none focus:border-primary transition-colors";
 
 const PaymentMethods = () => {
-    const [methods, setMethods] = useState<PaymentMethod[]>(initialMethods);
+    const [methods, setMethods] = useState<PaymentMethod[]>(paymentMethodsData); // TODO: API GET /payment-methods
     const [showForm, setShowForm] = useState(false);
 
     const {
