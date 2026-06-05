@@ -3,68 +3,7 @@ import product2 from "../assets/images/product-2.png";
 import product3 from "../assets/images/product-3.png";
 import product4 from "../assets/images/product-4.png";
 import product5 from "../assets/images/product-5.png";
-
-//  Types
-export type OrderStatus = "pending" | "processing" | "shipped" | "delivered" | "cancelled";
-export type AddressKind  = "home" | "work" | "other";
-export type CardType     = "visa" | "mastercard" | "amex";
-
-export interface OrderItem {
-    id: string;
-    title: string;
-    image: string;
-    price: number;
-    quantity: number;
-}
-
-export interface Order {
-    id: string;
-    orderNumber: string;
-    date: string;
-    status: OrderStatus;
-    total: number;
-    items: OrderItem[];
-    paymentMethod: string;
-    billingAddress: string;
-}
-
-export interface Review {
-    id: string;
-    productId: string;
-    productTitle: string;
-    productImage: string;
-    rating: number;
-    comment: string;
-    date: string;
-}
-
-export interface PaymentMethod {
-    id: string;
-    type: CardType;
-    last4: string;
-    holder: string;
-    expiry: string;
-    isDefault: boolean;
-}
-
-export interface Address {
-    id: string;
-    fullName: string;
-    phone: string;
-    address: string;
-    city: string;
-    type: AddressKind;
-    isDefault: boolean;
-}
-
-export interface TrackingStep {
-    id: string;
-    title: string;
-    description: string;
-    date?: string;
-    completed: boolean;
-    current: boolean;
-}
+import type { Address, Order, OrderStatus, PaymentMethod, Review, TrackingStep } from "../types/dashboard.type";
 
 //  Mock Data
 export const ordersData: Order[] = [
@@ -129,6 +68,7 @@ export const reviewsData: Review[] = [
         rating: 4.5,
         comment: "Excellent gamepad — very comfortable grip and super responsive buttons. Battery life is impressive too. Highly recommend for any gamer.",
         date: "2026-05-20",
+        status: "published",
     },
     {
         id: "2",
@@ -138,6 +78,7 @@ export const reviewsData: Review[] = [
         rating: 4,
         comment: "Solid keyboard with satisfying tactile feedback. The RGB lighting is a nice touch and the build quality feels premium for the price.",
         date: "2026-05-22",
+        status: "pending",
     },
     {
         id: "3",
@@ -147,6 +88,7 @@ export const reviewsData: Review[] = [
         rating: 5,
         comment: "Stunning display with accurate colors and fast response time. Perfect for both gaming and content creation work.",
         date: "2026-06-01",
+        status: "rejected",
     },
 ];
 

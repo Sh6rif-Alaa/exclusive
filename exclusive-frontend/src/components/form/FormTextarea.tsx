@@ -8,7 +8,7 @@ const FormTextarea = <T extends FieldValues>({ name, placeholder, register, erro
                 rows={8}
                 placeholder={placeholder}
                 {...register(name)}
-                className="w-full bg-gray-100 dark:bg-dark-input text-black dark:text-white placeholder-gray-500 border border-transparent focus:border-primary rounded-md p-4 text-sm outline-none resize-none transition-all"
+                className="w-full bg-gray-100 dark:bg-slate-900 text-black dark:text-white placeholder-gray-500 border border-transparent focus:border-primary rounded-md p-4 text-sm outline-none resize-none transition-all"
             />
 
             {errors[name] && (

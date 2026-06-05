@@ -28,6 +28,7 @@ Key features and focuses of this frontend include:
 - ⚡ **Performance** - Optimized for fast loading and smooth interactions using Vite and React 19
 - 🔧 **Maintainable** - Clean, well-organized code structure using TypeScript
 - 🔒 **Form Validation** - Robust form handling with React Hook Form and Zod
+- 👑 **Admin Dashboard** - Complete management interface for products, orders, users, and store settings
 
 ---
 
@@ -58,6 +59,18 @@ Key features and focuses of this frontend include:
 | ⭐ My Reviews | `/reviews` | Manage product reviews (Protected) |
 | 💳 Payment Methods | `/payment-methods` | Saved payment cards (Protected) |
 | 📍 Address Book | `/address-book` | Shipping addresses (Protected) |
+
+### Admin Dashboard (New ✨)
+| Page | Route | Description |
+|------|-------|-------------|
+| 🎛️ Dashboard | `/admin` | Main admin overview with statistics and charts |
+| 📦 Products | `/admin/products` | Manage products (Add, Edit, Delete) |
+| 📋 Orders | `/admin/orders` | Manage customer orders and update statuses |
+| 👥 Users | `/admin/users` | Manage registered users and permissions |
+| ⭐ Reviews | `/admin/reviews` | Monitor and moderate product reviews |
+| 🏷️ Categories | `/admin/categories` | Manage product categories |
+| 📊 Analytics | `/admin/analytics` | Detailed store performance analytics |
+| ⚙️ Settings | `/admin/settings` | General store configuration and settings |
 
 ### Information Pages
 | Page | Route | Description |

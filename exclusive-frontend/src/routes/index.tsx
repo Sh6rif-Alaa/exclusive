@@ -27,6 +27,16 @@ import PaymentMethods from "../pages/protected/PaymentMethods";
 import AddressBook from "../pages/protected/AddressBook";
 import TrackOrder from "../pages/protected/TrackOrder";
 import Checkout from "../pages/protected/Checkout";
+import { AdminRoute } from "../components/guards/AdminRoute";
+import AdminLayout from "../shared/layout/AdminLayout";
+import AdminDashboard from "../pages/admin/AdminDashboard";
+import AdminProducts from "../pages/admin/AdminProducts";
+import AdminOrders from "../pages/admin/AdminOrders";
+import AdminUsers from "../pages/admin/AdminUsers";
+import AdminCategories from "../pages/admin/AdminCategories";
+import AdminAnalytics from "../pages/admin/AdminAnalytics";
+import AdminSettingsPage from "../pages/admin/AdminSettings";
+import AdminReviews from "../pages/admin/AdminReviews";
 
 
 
@@ -45,7 +55,7 @@ export function AppRoutes() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/product-details/:id" element={<ProductDetails />} />
 
-        {/* ── Guest-only routes (redirect to / when logged in) ── */}
+        {/*  Guest-only routes (redirect to / when logged in)  */}
         <Route element={<GuestRoute />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<SignUp />} />
@@ -55,7 +65,7 @@ export function AppRoutes() {
         </Route>
       </Route>
 
-      {/* ── Protected routes (redirect to /login when NOT logged in) ── */}
+      {/*  Protected routes (redirect to /login when NOT logged in)  */}
       <Route element={<ProtectedRoute />}>
         <Route element={<AccountLayout />}>
           <Route path="/user-account" element={<UserAccount />} />
@@ -68,6 +78,20 @@ export function AppRoutes() {
         </Route>
 
         <Route path="/checkout" element={<Checkout />} />
+      </Route>
+
+      {/*  Admin routes  */}
+      <Route element={<AdminRoute />}>
+        <Route element={<AdminLayout />}>
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/products" element={<AdminProducts />} />
+          <Route path="/admin/orders" element={<AdminOrders />} />
+          <Route path="/admin/reviews" element={<AdminReviews />} />
+          <Route path="/admin/users" element={<AdminUsers />} />
+          <Route path="/admin/categories" element={<AdminCategories />} />
+          <Route path="/admin/analytics" element={<AdminAnalytics />} />
+          <Route path="/admin/settings" element={<AdminSettingsPage />} />
+        </Route>
       </Route>
 
       <Route path="*" element={<NotFound />} />
