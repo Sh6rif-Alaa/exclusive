@@ -3,7 +3,7 @@ import { ArrowLeft, Package } from "lucide-react";
 import { ordersData, getTrackingSteps } from "../../mockData/accountData";
 import TrackStep from "../../components/account/TrackStep";
 import StatusBadge from "../../components/account/StatusBadge";
-import type { AdminOrder, OrderStatus } from "../../types/dashboard.type";
+import type { AdminOrder } from "../../types/dashboard.type";
 
 const TrackOrder = () => {
     const { id } = useParams<{ id: string }>();
