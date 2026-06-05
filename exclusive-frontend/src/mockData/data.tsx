@@ -1,4 +1,4 @@
-import { Smartphone, Laptop, Clock, Camera, Headset, GamepadDirectional, ShieldCheck, Truck, Store, DollarSign, Handbag, BanknoteArrowUp, Shirt, CircleQuestionMark, CreditCard, RotateCcw, UserSearch } from "lucide-react";
+import { Smartphone, Laptop, Clock, Camera, Headset, GamepadDirectional, ShieldCheck, Truck, Store, DollarSign, Handbag, BanknoteArrowUp, Shirt, CircleQuestionMark, CreditCard, RotateCcw, UserSearch, Cable, Sofa, Pill, Volleyball, Baby, PawPrint, Droplet } from "lucide-react";
 import featone from "../assets/images/feat-1.png";
 import featwo from "../assets/images/feat-2.png";
 import featthree from "../assets/images/feat-3.png";
@@ -24,6 +24,7 @@ import emmaWatson from "../assets/images/image51.png";
 import willSmith from "../assets/images/image47.png";
 import type { FAQSectionProps } from "../types/components";
 
+// dynamic page data (replace with api data later)
 export const productsData = [
     {
         id: "1",
@@ -238,50 +239,52 @@ export const categories = [
     },
     {
         id: "7",
-        title: "Clothes",
-        icon: Shirt
-    }
-]
-
-export const sidebarCategories = [
-    {
-        id: "1",
         title: "Woman’s Fashion",
-    },
-    {
-        id: "2",
-        title: "Men’s Fashion",
-    },
-    {
-        id: "3",
-        title: "Electronics",
-    },
-    {
-        id: "4",
-        title: "Home & Lifestyle",
-    },
-    {
-        id: "5",
-        title: "Medicine",
-    },
-    {
-        id: "6",
-        title: "Sports & Outdoor",
-    },
-    {
-        id: "7",
-        title: "Baby’s & Toys",
+        icon: Handbag
     },
     {
         id: "8",
-        title: "Groceries & Pets",
+        title: "Men’s Fashion",
+        icon: Shirt
     },
     {
         id: "9",
+        title: "Electronics",
+        icon: Cable
+    },
+    {
+        id: "10",
+        title: "Home & Lifestyle",
+        icon: Sofa
+    },
+    {
+        id: "11",
+        title: "Medicine",
+        icon: Pill
+    },
+    {
+        id: "12",
+        title: "Sports & Outdoor",
+        icon: Volleyball
+    },
+    {
+        id: "13",
+        title: "Baby’s & Toys",
+        icon: Baby
+    },
+    {
+        id: "14",
+        title: "Groceries & Pets",
+        icon: PawPrint
+    },
+    {
+        id: "15",
         title: "Health & Beauty",
+        icon: Droplet
     }
 ]
 
+// static page data
 export const featuredCollections = [
     {
         id: 1,

@@ -1,56 +1,24 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {
-  Tag, Plus, Edit2, Trash2, ToggleLeft, ToggleRight,
-} from "lucide-react";
+import { Tag, Plus, Edit2, Trash2, ToggleLeft, ToggleRight, } from "lucide-react";
 import { DashBarChart } from "../../components/dashboard/DashboardCharts";
-import type { AdminCategory, AdminCategoriesData } from "../../types/dashboard.type";
+import type { IAdminCategories } from "../../types/dashboard.type";
 import { formatMoney } from "../../helpers/dashboard.helper";
+import { AdminCategoriesData } from "../../mockData/dashboardData";
+import CategoryBadge from "../../components/dashboard/CategoryBadge";
 
-// Mock
-
-const MOCK: AdminCategoriesData = {
-  categories: [
-    { id: "1", name: "Gaming", slug: "gaming", description: "Gaming peripherals, controllers, and accessories.", productCount: 14, totalSales: 980, status: "active", createdAt: "Jan 1, 2025" },
-    { id: "2", name: "Computers", slug: "computers", description: "Laptops, desktops, monitors, keyboards, and components.", productCount: 22, totalSales: 1240, status: "active", createdAt: "Jan 1, 2025" },
-    { id: "3", name: "Men's Fashion", slug: "mens-fashion", description: "Clothing, shoes, and accessories for men.", productCount: 18, totalSales: 620, status: "active", createdAt: "Feb 15, 2025" },
-    { id: "4", name: "Women's Fashion", slug: "womens-fashion", description: "Clothing, shoes, and accessories for women.", productCount: 16, totalSales: 540, status: "active", createdAt: "Feb 15, 2025" },
-    { id: "5", name: "Home & Life", slug: "home-life", description: "Furniture, decor, and everyday home products.", productCount: 11, totalSales: 430, status: "active", createdAt: "Mar 3, 2025" },
-    { id: "6", name: "Electronics", slug: "electronics", description: "Cameras, audio devices, smart gadgets, and more.", productCount: 19, totalSales: 810, status: "active", createdAt: "Mar 3, 2025" },
-    { id: "7", name: "Groceries", slug: "groceries", description: "Food, beverages, and daily essentials.", productCount: 8, totalSales: 215, status: "active", createdAt: "Apr 10, 2025" },
-    { id: "8", name: "Sports", slug: "sports", description: "Fitness equipment and outdoor sports gear.", productCount: 10, totalSales: 380, status: "active", createdAt: "Apr 10, 2025" },
-    { id: "9", name: "Toys", slug: "toys", description: "Toys and games for children of all ages.", productCount: 6, totalSales: 180, status: "inactive", createdAt: "May 20, 2025" },
-  ],
-};
-
-// Sub-components 
-
-function CategoryBadge({ status }: { status: AdminCategory["status"] }) {
-  return status === "active" ? (
-    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">
-      Active
-    </span>
-  ) : (
-    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600 dark:bg-slate-700 dark:text-gray-300">
-      Inactive
-    </span>
-  );
-}
-
-// Page 
-
-export default function AdminCategories() {
-  const [data, setData] = useState<AdminCategoriesData | null>(null);
+const AdminCategories = () => {
+  const [data, setData] = useState<IAdminCategories | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get<AdminCategoriesData>("/api/admin/categories")
+      .get<IAdminCategories>("/api/admin/categories")
       .then((res) => {
         if (typeof res.data === "string") throw new Error("no json");
         setData(res.data);
       })
-      .catch(() => setData(MOCK))
+      .catch(() => setData(AdminCategoriesData))
       .finally(() => setLoading(false));
   }, []);
 
@@ -220,3 +188,5 @@ export default function AdminCategories() {
     </div>
   );
 }
+
+export default AdminCategories

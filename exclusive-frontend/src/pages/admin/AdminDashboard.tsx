@@ -3,87 +3,18 @@ import axios from "axios";
 import { ShoppingCart, Users, Package, DollarSign, Clock } from "lucide-react";
 import { StatTiles, DashBarChart, DashLineChart, DashPieChart } from "../../components/dashboard/DashboardCharts";
 import OrderStatusBadge from "../../components/dashboard/OrderStatusBadge";
-import type { AdminStats } from "../../types/dashboard.type";
+import type { IAdminStats } from "../../types/dashboard.type";
+import { AdminStatsData } from "../../mockData/dashboardData";
 import { formatMoney, formatShort } from "../../helpers/dashboard.helper";
 
-// Mock data (used when API isn't connected yet)
-const MOCK_STATS: AdminStats = {
-  totals: {
-    users: 1_240,
-    products: 86,
-    orders: 3_478,
-    revenue: 187_420,
-    pendingOrders: 42,
-  },
-  ordersByStatus: [
-    { name: "Pending", value: 42 },
-    { name: "Processing", value: 98 },
-    { name: "Shipped", value: 136 },
-    { name: "Delivered", value: 3_154 },
-    { name: "Cancelled", value: 48 },
-  ],
-  revenueByMonth: [
-    { name: "Jan", value: 11_200 },
-    { name: "Feb", value: 13_800 },
-    { name: "Mar", value: 15_400 },
-    { name: "Apr", value: 12_900 },
-    { name: "May", value: 18_600 },
-    { name: "Jun", value: 21_300 },
-    { name: "Jul", value: 19_800 },
-    { name: "Aug", value: 23_100 },
-    { name: "Sep", value: 17_600 },
-    { name: "Oct", value: 20_400 },
-    { name: "Nov", value: 24_900 },
-    { name: "Dec", value: 28_420 },
-  ],
-  ordersByMonth: [
-    { name: "Jan", value: 210 },
-    { name: "Feb", value: 265 },
-    { name: "Mar", value: 298 },
-    { name: "Apr", value: 244 },
-    { name: "May", value: 355 },
-    { name: "Jun", value: 410 },
-    { name: "Jul", value: 380 },
-    { name: "Aug", value: 445 },
-    { name: "Sep", value: 338 },
-    { name: "Oct", value: 392 },
-    { name: "Nov", value: 478 },
-    { name: "Dec", value: 545 },
-  ],
-  salesByCategory: [
-    { name: "Gaming", value: 980 },
-    { name: "Computers", value: 1_240 },
-    { name: "Men's Fashion", value: 620 },
-    { name: "Home & Life", value: 430 },
-    { name: "Electronics", value: 810 },
-    { name: "Groceries", value: 215 },
-  ],
-  topProducts: [
-    { id: "1", title: "AK-900 Wired Keyboard", image: "", totalSales: 420, revenue: 403_200, category: "Computers" },
-    { id: "2", title: "HAVIT HV-G92 Gamepad", image: "", totalSales: 450, revenue: 54_000, category: "Gaming" },
-    { id: "3", title: "IPS LCD Gaming Monitor", image: "", totalSales: 400, revenue: 148_000, category: "Computers" },
-    { id: "4", title: "S-Series Comfort Chair", image: "", totalSales: 350, revenue: 131_250, category: "Home & Life" },
-    { id: "5", title: "The North Coat", image: "", totalSales: 330, revenue: 85_800, category: "Men's Fashion" },
-  ],
-  recentOrders: [
-    { id: "1", orderNumber: "ORD-2026-001", customerName: "Ahmed Hassan", date: "Jun 5, 2026", total: 1_200, status: "delivered" },
-    { id: "2", orderNumber: "ORD-2026-002", customerName: "Sara Mohamed", date: "Jun 4, 2026", total: 370, status: "shipped" },
-    { id: "3", orderNumber: "ORD-2026-003", customerName: "Omar Khalil", date: "Jun 3, 2026", total: 635, status: "processing" },
-    { id: "4", orderNumber: "ORD-2026-004", customerName: "Nour El-Din", date: "Jun 2, 2026", total: 260, status: "pending" },
-    { id: "5", orderNumber: "ORD-2026-005", customerName: "Layla Abdallah", date: "Jun 1, 2026", total: 960, status: "delivered" },
-    { id: "6", orderNumber: "ORD-2026-006", customerName: "Youssef Samir", date: "May 31, 2026", total: 375, status: "cancelled" },
-  ],
-};
-
-//  Page component
-export default function AdminDashboard() {
-  const [stats, setStats] = useState<AdminStats | null>(null);
+const AdminDashboard = () => {
+  const [stats, setStats] = useState<IAdminStats | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // TODO: replace base URL when backend is ready
     axios
-      .get<AdminStats>("/api/admin/stats")
+      .get<IAdminStats>("/api/admin/stats")
       .then((res) => {
         if (typeof res.data === "string") {
           throw new Error("API not ready, got HTML instead of JSON");
@@ -92,7 +23,7 @@ export default function AdminDashboard() {
       })
       .catch(() => {
         // API not connected yet → use mock data
-        setStats(MOCK_STATS);
+        setStats(AdminStatsData);
       })
       .finally(() => setLoading(false));
   }, []);
@@ -276,3 +207,5 @@ export default function AdminDashboard() {
     </div>
   );
 }
+
+export default AdminDashboard

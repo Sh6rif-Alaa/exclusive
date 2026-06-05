@@ -35,7 +35,7 @@ import AdminOrders from "../pages/admin/AdminOrders";
 import AdminUsers from "../pages/admin/AdminUsers";
 import AdminCategories from "../pages/admin/AdminCategories";
 import AdminAnalytics from "../pages/admin/AdminAnalytics";
-import AdminSettingsPage from "../pages/admin/AdminSettings";
+import AdminSettings from "../pages/admin/AdminSettings";
 import AdminReviews from "../pages/admin/AdminReviews";
 
 
@@ -90,7 +90,7 @@ export function AppRoutes() {
           <Route path="/admin/users" element={<AdminUsers />} />
           <Route path="/admin/categories" element={<AdminCategories />} />
           <Route path="/admin/analytics" element={<AdminAnalytics />} />
-          <Route path="/admin/settings" element={<AdminSettingsPage />} />
+          <Route path="/admin/settings" element={<AdminSettings />} />
         </Route>
       </Route>
 

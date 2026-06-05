@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { SlidersHorizontal, X } from "lucide-react";
 import ProductCard from "../../components/home/ProductCard";
 import Breadcrumb from "../../shared/header/Breadcrumb";
-import { productsData, sidebarCategories } from "../../data/data";
+import { productsData, categories } from "../../mockData/data";
 const PRODUCTS_PER_PAGE = 8;
 
 const Shop = () => {
@@ -100,7 +100,7 @@ const Shop = () => {
                                     <h3 className="font-semibold mb-3">Categories</h3>
 
                                     <div className="space-y-2">
-                                        {sidebarCategories.map((category) => (
+                                        {categories.map((category) => (
                                             <label key={category.id} className="flex items-center gap-2 cursor-pointer">
                                                 <input type="radio" name="category" checked={selectedCategory === category.title} onChange={() => {
                                                     setSelectedCategory(category.title);
@@ -204,7 +204,7 @@ const Shop = () => {
                                     <h4 className="font-medium mb-3">Categories</h4>
 
                                     <div className="space-y-2">
-                                        {sidebarCategories.map(
+                                        {categories.map(
                                             (category) => (
                                                 <label key={category.id} className="flex items-center gap-2">
                                                     <input type="radio" name="mobile-category" checked={selectedCategory === category.title}

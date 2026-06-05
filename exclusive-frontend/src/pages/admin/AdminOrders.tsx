@@ -4,62 +4,16 @@ import { ShoppingCart, Search, Filter, ChevronLeft, ChevronRight, Clock, CheckCi
 import { StatTiles } from "../../components/dashboard/DashboardCharts";
 import OrderStatusBadge from "../../components/dashboard/OrderStatusBadge";
 import { OrderUpdateModal } from "../../components/dashboard/OrderUpdateModal";
-import type { AdminOrdersData, AdminOrder, OrderStatus, TrackingEvent } from "../../types/dashboard.type";
-import { formatMoney } from "../../helpers/dashboard.helper";
-
-// Mock
-
-const MOCK: AdminOrdersData = {
-  totals: { total: 3478, pending: 42, processing: 98, shipped: 136, delivered: 3154, cancelled: 48 },
-  orders: [
-    { id: "1", orderNumber: "ORD-2026-001", customerName: "Ahmed Hassan", customerEmail: "ahmed@example.com", date: "Jun 5, 2026", total: 1200, status: "delivered", items: 3, paymentMethod: "Visa •••• 4242" },
-    { id: "2", orderNumber: "ORD-2026-002", customerName: "Sara Mohamed", customerEmail: "sara@example.com", date: "Jun 4, 2026", total: 370, status: "shipped", items: 1, paymentMethod: "Mastercard •••• 8888" },
-    { id: "3", orderNumber: "ORD-2026-003", customerName: "Omar Khalil", customerEmail: "omar@example.com", date: "Jun 3, 2026", total: 635, status: "processing", items: 2, paymentMethod: "Cash on Delivery" },
-    { id: "4", orderNumber: "ORD-2026-004", customerName: "Nour El-Din", customerEmail: "nour@example.com", date: "Jun 2, 2026", total: 260, status: "pending", items: 1, paymentMethod: "Visa •••• 1111" },
-    { id: "5", orderNumber: "ORD-2026-005", customerName: "Layla Abdallah", customerEmail: "layla@example.com", date: "Jun 1, 2026", total: 960, status: "delivered", items: 4, paymentMethod: "Mastercard •••• 5555" },
-    { id: "6", orderNumber: "ORD-2026-006", customerName: "Youssef Samir", customerEmail: "youssef@example.com", date: "May 31, 2026", total: 375, status: "cancelled", items: 2, paymentMethod: "Visa •••• 9999" },
-    { id: "7", orderNumber: "ORD-2026-007", customerName: "Rana Fawzy", customerEmail: "rana@example.com", date: "May 30, 2026", total: 720, status: "delivered", items: 2, paymentMethod: "Cash on Delivery" },
-    { id: "8", orderNumber: "ORD-2026-008", customerName: "Kareem Nasser", customerEmail: "kareem@example.com", date: "May 29, 2026", total: 450, status: "shipped", items: 3, paymentMethod: "Visa •••• 3322" },
-    { id: "9", orderNumber: "ORD-2026-009", customerName: "Dina Salah", customerEmail: "dina@example.com", date: "May 28, 2026", total: 185, status: "processing", items: 1, paymentMethod: "Mastercard •••• 7766" },
-    { id: "10", orderNumber: "ORD-2026-010", customerName: "Tamer Ibrahim", customerEmail: "tamer@example.com", date: "May 27, 2026", total: 2100, status: "delivered", items: 5, paymentMethod: "Visa •••• 4455" },
-    { id: "11", orderNumber: "ORD-2026-011", customerName: "Mona Ashraf", customerEmail: "mona@example.com", date: "May 26, 2026", total: 830, status: "pending", items: 2, paymentMethod: "Cash on Delivery" },
-    { id: "12", orderNumber: "ORD-2026-012", customerName: "Sherif Mostafa", customerEmail: "sherif@example.com", date: "May 25, 2026", total: 660, status: "cancelled", items: 3, paymentMethod: "Visa •••• 2233" },
-  ],
-};
-
-//Default tracking events per status
-
-function buildDefaultTracking(status: OrderStatus, date: string): TrackingEvent[] {
-  const steps: { title: string; description: string }[] = [
-    { title: "Order Placed", description: "Your order has been received and confirmed." },
-    { title: "Processing", description: "We are preparing your items for shipment." },
-    { title: "Shipped", description: "Your package is on its way." },
-    { title: "Out for Delivery", description: "Your package is out for delivery today." },
-    { title: "Delivered", description: "Your order has been delivered successfully." },
-  ];
-  const order: Record<OrderStatus, number> = {
-    pending: 0, processing: 1, shipped: 2, delivered: 4, cancelled: -1,
-  };
-  const currentIdx = order[status] ?? 0;
-  return steps.map((s, i) => ({
-    id: String(i + 1),
-    ...s,
-    date: i <= currentIdx ? date : "",
-    completed: i < currentIdx,
-    current: i === currentIdx && status !== "cancelled",
-  }));
-}
-
-
-//Page 
-
+import type { IAdminOrders, AdminOrder, OrderStatus, TrackingEvent } from "../../types/dashboard.type";
+import { buildDefaultTracking, formatMoney } from "../../helpers/dashboard.helper";
+import { AdminOrdersData } from "../../mockData/dashboardData";
 const PAGE_SIZE = 8;
 
 // In-memory tracking store (keyed by order id)
 type TrackingStore = Record<string, TrackingEvent[]>;
 
-export default function AdminOrders() {
-  const [data, setData] = useState<AdminOrdersData | null>(null);
+const AdminOrders = () => {
+  const [data, setData] = useState<IAdminOrders | null>(null);
   const [loading, setLoading] = useState(true);
   const [trackingStore, setTrackingStore] = useState<TrackingStore>({});
 
@@ -71,12 +25,12 @@ export default function AdminOrders() {
 
   useEffect(() => {
     axios
-      .get<AdminOrdersData>("/api/admin/orders")
+      .get<IAdminOrders>("/api/admin/orders")
       .then((res) => {
         if (typeof res.data === "string") throw new Error("no json");
         setData(res.data);
       })
-      .catch(() => setData(MOCK))
+      .catch(() => setData(AdminOrdersData))
       .finally(() => setLoading(false));
   }, []);
 
@@ -294,3 +248,5 @@ export default function AdminOrders() {
     </div>
   );
 }
+
+export default AdminOrders

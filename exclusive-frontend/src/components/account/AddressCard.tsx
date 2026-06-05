@@ -1,5 +1,5 @@
 import { Trash2, Star, Edit2, Home, Briefcase, MapPin } from "lucide-react";
-import type { AddressKind } from "../../data/accountData";
+import type { AddressKind } from "../../mockData/accountData";
 import type { AddressCardProps } from "../../types/account.type";
 
 //  Icons for address types

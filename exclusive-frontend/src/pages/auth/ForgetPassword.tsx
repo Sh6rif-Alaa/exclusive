@@ -5,7 +5,7 @@ import authImage from "../../assets/images/capture_20260202183654141.bmp";
 import FormInput from "../../components/form/FormInput";
 import { forgetPasswordSchema } from "../../schema/auth/auth.validation";
 import type { forgetPasswordType } from "../../schema/auth/auth.dto";
-import { forgotPasswordFields } from "../../data/authFields";
+import { forgotPasswordFields } from "../../schema/auth/authFields";
 import { useAppDispatch } from "../../redux/store";
 import { setResetEmail } from "../../redux/slice/authFlowSlice";
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ordersData, type OrderStatus } from "../../data/accountData";
+import { ordersData, type OrderStatus } from "../../mockData/accountData";
 import OrderCard from "../../components/account/OrderCard";
 
 const statusFilters: { label: string; value: OrderStatus | "all" }[] = [

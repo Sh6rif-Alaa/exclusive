@@ -3,7 +3,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import authImage from "../../assets/images/capture_20260202183654141.bmp";
 import FormInput from "../../components/form/FormInput";
-import { resetPasswordFields } from "../../data/authFields";
+import { resetPasswordFields } from "../../schema/auth/authFields";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { clearResetFlow } from "../../redux/slice/authFlowSlice";
 import type { resetPasswordType } from "../../schema/auth/auth.dto";

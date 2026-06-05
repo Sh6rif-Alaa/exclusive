@@ -1,79 +1,18 @@
 import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
-import { Package, Plus, Search, Filter, Edit2, Trash2, Eye, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Package, Plus, Search, Filter, Edit2, Trash2, ChevronLeft, ChevronRight, Eye } from "lucide-react";
 import { StatTiles } from "../../components/dashboard/DashboardCharts";
-import type { AdminProduct, AdminProductsData } from "../../types/dashboard.type";
+import type { IAdminProducts } from "../../types/dashboard.type";
 import { formatMoney } from "../../helpers/dashboard.helper";
+import { AdminProductsData } from "../../mockData/dashboardData";
+import ProductStatusBadge from "../../components/dashboard/ProductStatusBadge";
+import { Rating } from "react-simple-star-rating";
 
-const STATUS_CFG = {
-  active: {
-    label: "Active",
-    classes:
-      "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
-  },
-  draft: {
-    label: "Draft",
-    classes:
-      "bg-gray-100 text-gray-600 dark:bg-slate-700 dark:text-gray-300",
-  },
-  out_of_stock: {
-    label: "Out of Stock",
-    classes:
-      "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
-  },
-} as const;
-
-// Mock data
-
-const MOCK: AdminProductsData = {
-  totals: { total: 86, active: 71, draft: 8, outOfStock: 7 },
-  products: [
-    { id: "1", title: "HAVIT HV-G92 Gamepad", image: "", category: "Gaming", newPrice: 120, oldPrice: 160, discount: 40, rating: 4.5, review: 88, numberOfSales: 450, stock: 34, status: "active", createdAt: "Jan 12, 2026" },
-    { id: "2", title: "AK-900 Wired Keyboard", image: "", category: "Computers", newPrice: 960, oldPrice: 1160, discount: 35, rating: 4, review: 75, numberOfSales: 420, stock: 12, status: "active", createdAt: "Jan 14, 2026" },
-    { id: "3", title: "IPS LCD Gaming Monitor", image: "", category: "Computers", newPrice: 370, oldPrice: 400, discount: 30, rating: 4, review: 99, numberOfSales: 400, stock: 8, status: "active", createdAt: "Feb 3, 2026" },
-    { id: "4", title: "S-Series Comfort Chair", image: "", category: "Home & Life", newPrice: 375, oldPrice: 400, discount: 25, rating: 4, review: 99, numberOfSales: 350, stock: 0, status: "out_of_stock", createdAt: "Feb 10, 2026" },
-    { id: "5", title: "The North Coat", image: "", category: "Men's Fashion", newPrice: 260, oldPrice: 360, discount: 10, rating: 5, review: 120, numberOfSales: 330, stock: 22, status: "active", createdAt: "Feb 18, 2026" },
-    { id: "6", title: "Gucci Duffle Bag", image: "", category: "Men's Fashion", newPrice: 960, oldPrice: 1160, discount: 17, rating: 4.5, review: 60, numberOfSales: 200, stock: 5, status: "active", createdAt: "Mar 2, 2026" },
-    { id: "7", title: "RGB Liquid CPU Cooler", image: "", category: "Computers", newPrice: 160, oldPrice: 170, discount: 6, rating: 4.5, review: 45, numberOfSales: 150, stock: 0, status: "out_of_stock", createdAt: "Mar 8, 2026" },
-    { id: "8", title: "Small BookSelf", image: "", category: "Home & Life", newPrice: 360, oldPrice: 400, discount: 10, rating: 5, review: 68, numberOfSales: 140, stock: 18, status: "active", createdAt: "Mar 15, 2026" },
-    { id: "9", title: "Breed Dry Dog Food", image: "", category: "Groceries", newPrice: 100, oldPrice: 120, discount: 17, rating: 3, review: 35, numberOfSales: 115, stock: 55, status: "active", createdAt: "Mar 21, 2026" },
-    { id: "10", title: "CANON EOS DSLR Camera", image: "", category: "Electronics", newPrice: 360, oldPrice: 420, discount: 14, rating: 4.5, review: 95, numberOfSales: 110, stock: 7, status: "active", createdAt: "Apr 5, 2026" },
-    { id: "11", title: "Kids Electric Car", image: "", category: "Toys", newPrice: 960, oldPrice: 1100, discount: 13, rating: 4.5, review: 55, numberOfSales: 95, stock: 3, status: "draft", createdAt: "Apr 12, 2026" },
-    { id: "12", title: "Jr. Zoom Soccer Cleats", image: "", category: "Sports", newPrice: 1160, oldPrice: 1200, discount: 3, rating: 5, review: 42, numberOfSales: 88, stock: 28, status: "active", createdAt: "Apr 20, 2026" },
-    { id: "13", title: "GP11 Shooter USB Gamepad", image: "", category: "Gaming", newPrice: 660, oldPrice: 750, discount: 12, rating: 4.5, review: 38, numberOfSales: 80, stock: 14, status: "active", createdAt: "May 1, 2026" },
-    { id: "14", title: "Quilted Satin Jacket", image: "", category: "Women's Fashion", newPrice: 660, oldPrice: 750, discount: 12, rating: 4.5, review: 33, numberOfSales: 72, stock: 0, status: "out_of_stock", createdAt: "May 7, 2026" },
-    { id: "15", title: "Foldable Mini Drone", image: "", category: "Electronics", newPrice: 250, oldPrice: 290, discount: 14, rating: 4, review: 27, numberOfSales: 65, stock: 19, status: "draft", createdAt: "May 14, 2026" },
-  ],
-};
-
-// Sub-components
-
-function ProductStatusBadge({ status }: { status: AdminProduct["status"] }) {
-  const cfg = STATUS_CFG[status];
-  return (
-    <span
-      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${cfg.classes}`}
-    >
-      {cfg.label}
-    </span>
-  );
-}
-
-function StarRating({ value }: { value: number }) {
-  return (
-    <span className="flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400">
-      <Star size={12} className="fill-start text-start" />
-      {value.toFixed(1)}
-    </span>
-  );
-}
 
 const PAGE_SIZE = 8;
 
-// Page
-
-export default function AdminProducts() {
-  const [data, setData] = useState<AdminProductsData | null>(null);
+const AdminProducts = () => {
+  const [data, setData] = useState<IAdminProducts | null>(null);
   const [loading, setLoading] = useState(true);
 
   // filters
@@ -84,12 +23,12 @@ export default function AdminProducts() {
 
   useEffect(() => {
     axios
-      .get<AdminProductsData>("/api/admin/products")
+      .get<IAdminProducts>("/api/admin/products")
       .then((res) => {
         if (typeof res.data === "string") throw new Error("no json");
         setData(res.data);
       })
-      .catch(() => setData(MOCK))
+      .catch(() => setData(AdminProductsData))
       .finally(() => setLoading(false));
   }, []);
 
@@ -252,7 +191,13 @@ export default function AdminProducts() {
                           <p className="font-medium text-gray-800 dark:text-white truncate max-w-[180px]">
                             {product.title}
                           </p>
-                          <StarRating value={product.rating} />
+                          <Rating
+                            readonly
+                            initialValue={product.rating}
+                            size={12}
+                            allowFraction
+                            SVGclassName="inline-block"
+                          />
                         </div>
                       </div>
                     </td>
@@ -368,3 +313,5 @@ export default function AdminProducts() {
     </div>
   );
 }
+
+export default AdminProducts

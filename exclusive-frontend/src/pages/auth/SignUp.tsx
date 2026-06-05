@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "../../schema/auth/auth.validation";
 import type { signUpType } from "../../schema/auth/auth.dto";
 import FormInput from "../../components/form/FormInput";
-import { signUpFields } from "../../data/authFields";
+import { signUpFields } from "../../schema/auth/authFields";
 import authImage from "../../assets/images/capture_20260202183654141.bmp";
 
 
@@ -61,7 +61,7 @@ const SignUp = () => {
                                 <button type="button" className="border-2 w-full py-5 my-5 cursor-pointer hover:bg-primary hover:text-white transition-colors duration-300">Sign up with Google</button>
                             </form>
 
-                            <p className="text-gray-400">Already have account? 
+                            <p className="text-gray-400">Already have account?
                                 <Link className="underline text-slate-800 dark:text-slate-200 hover:text-primary transition-colors duration-300 ms-1" to="/login">Log in</Link>
                             </p>
                         </div>

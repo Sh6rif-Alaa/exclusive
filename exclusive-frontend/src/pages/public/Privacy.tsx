@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Breadcrumb from "../../shared/header/Breadcrumb";
-import { privacyData } from "../../data/data";
+import { privacyData } from "../../mockData/data";
 
 const Privacy = () => {
     return (

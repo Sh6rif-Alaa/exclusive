@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Package } from "lucide-react";
-import { ordersData, getTrackingSteps } from "../../data/accountData";
+import { ordersData, getTrackingSteps } from "../../mockData/accountData";
 import TrackStep from "../../components/account/TrackStep";
 import StatusBadge from "../../components/account/StatusBadge";
 

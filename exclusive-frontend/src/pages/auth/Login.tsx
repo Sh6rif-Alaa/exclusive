@@ -5,7 +5,7 @@ import FormInput from "../../components/form/FormInput";
 import authImage from "../../assets/images/capture_20260202183654141.bmp";
 import { signInSchema } from "../../schema/auth/auth.validation";
 import type { signInType } from "../../schema/auth/auth.dto";
-import { signInFields } from "../../data/authFields";
+import { signInFields } from "../../schema/auth/authFields";
 
 const Login = () => {
     const {
