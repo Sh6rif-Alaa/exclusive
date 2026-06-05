@@ -2,6 +2,7 @@ import { Minus, Plus, Trash2 } from "lucide-react";
 import { decreaseQuantity, increaseQuantity, removeFromCart, updateQuantity, type CartItemType } from "../../redux/slice/cartSlice";
 import { useAppDispatch } from "../../redux/store";
 import { Link } from "react-router-dom";
+import Image from "../home/Image";
 
 const CartItem = ({ image, id, price, quantity, title }: CartItemType) => {
     const dispatch = useAppDispatch();
@@ -11,7 +12,7 @@ const CartItem = ({ image, id, price, quantity, title }: CartItemType) => {
 
             <div className="flex items-center gap-4">
                 <Link to={`/products/${id}`} className="shrink-0">
-                    <img src={image} alt={title} className="size-20 object-contain transition-transform hover:scale-105" />
+                    <Image src={image} alt={title} skeleton={true} className="size-20 object-contain transition-transform hover:scale-105" />
                 </Link>
 
                 <div>

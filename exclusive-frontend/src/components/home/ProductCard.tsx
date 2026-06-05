@@ -5,6 +5,7 @@ import type { ProductCardProps } from "../../types/components";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { addToCart } from "../../redux/slice/cartSlice";
 import { toggleWishlist } from "../../redux/slice/wishlistSlice";
+import Image from "./Image";
 
 const ProductCard = ({ id, title, newPrice, oldPrice, image, discount, rating, review, colors }: ProductCardProps) => {
     const dispatch = useAppDispatch();
@@ -27,7 +28,7 @@ const ProductCard = ({ id, title, newPrice, oldPrice, image, discount, rating, r
                 </div>
                 {/* product img */}
                 <Link to={`/shop/product-details/${id}`}>
-                    <img src={image} alt={title} className="w-full hover:scale-110 transition-transform duration-300" />
+                    <Image src={image} alt={title} skeleton={true} className="w-full hover:scale-110 transition-transform duration-300" />
                 </Link>
                 <button
                     onClick={() => dispatch(addToCart({ id, title, image, price: newPrice, quantity: 1 }))}
@@ -57,7 +58,7 @@ const ProductCard = ({ id, title, newPrice, oldPrice, image, discount, rating, r
             </div>
             {/* product color */}
             {colors?.length ? (
-                <div className="flex items-center gap-3 mt-2">
+                <div className="flex items-center gap-3 mt-2 ms-[3px]">
                     {colors?.map((color, index) => (
                         <button
                             key={index}

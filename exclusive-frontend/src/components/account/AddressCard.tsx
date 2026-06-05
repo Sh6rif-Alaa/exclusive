@@ -1,6 +1,6 @@
 import { Trash2, Star, Edit2, Home, Briefcase, MapPin } from "lucide-react";
-import type { AddressKind } from "../../mockData/accountData";
 import type { AddressCardProps } from "../../types/account.type";
+import type { AddressKind } from "../../types/dashboard.type";
 
 //  Icons for address types
 const typeIcons: Record<AddressKind, typeof Home> = {

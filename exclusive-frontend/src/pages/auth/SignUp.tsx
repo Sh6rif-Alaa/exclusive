@@ -6,6 +6,7 @@ import type { signUpType } from "../../schema/auth/auth.dto";
 import FormInput from "../../components/form/FormInput";
 import { signUpFields } from "../../schema/auth/authFields";
 import authImage from "../../assets/images/capture_20260202183654141.bmp";
+import Image from "../../components/home/Image";
 
 
 
@@ -34,7 +35,7 @@ const SignUp = () => {
         <section id="register" className="my-14">
             <div className="container-signUp">
                 <div className="grid pt-8 grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="left col-span-1"><img className="w-full sm:h-[80vh]" src={authImage} alt="Create Account" /></div>
+                    <div className="left col-span-1"><Image src={authImage} alt="Auth" className="w-full sm:h-[80vh]" /></div>
 
                     <div className="right col-span-1 flex justify-center items-center flex-col">
                         <div className="w-[90%] sm:w-[60%]">

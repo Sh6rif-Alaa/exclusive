@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ordersData } from "../../mockData/accountData";
 import OrderCard from "../../components/account/OrderCard";
-import type { OrderStatus } from "../../types/dashboard.type";
+import type { AdminOrder, OrderStatus } from "../../types/dashboard.type";
 
 const statusFilters: { label: string; value: OrderStatus | "all" }[] = [
     { label: "All", value: "all" },
@@ -40,7 +40,7 @@ const Orders = () => {
             {filteredOrders.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {filteredOrders.map((order) => (
-                        <OrderCard key={order.id} order={order} />
+                        <OrderCard key={order.id} order={order as AdminOrder} />
                     ))}
                 </div>
             ) : (

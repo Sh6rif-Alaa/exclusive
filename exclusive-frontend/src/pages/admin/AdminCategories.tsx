@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Tag, Plus, Edit2, Trash2, ToggleLeft, ToggleRight, } from "lucide-react";
 import { DashBarChart } from "../../components/dashboard/DashboardCharts";
-import type { AdminCategory } from "../../types/dashboard.type";
+import type { AdminCategory, ChartPoint } from "../../types/dashboard.type";
 import { formatMoney } from "../../helpers/dashboard.helper";
 import { AdminCategoriesData } from "../../mockData/dashboardData";
 import CategoryBadge from "../../components/dashboard/CategoryBadge";
@@ -38,8 +38,8 @@ const AdminCategories = () => {
 
   const chartData = categories
     .filter((c) => c.status === "active")
-    .sort((a, b) => b.totalSales - a.totalSales)
-    .map((c) => ({ name: c.name, value: c.totalSales }));
+    .sort((a, b) => (b.totalSales || 0) - (a.totalSales || 0))
+    .map((c) => ({ name: c.name, value: c.totalSales || 0 }));
 
   return (
     <div className="space-y-6">
@@ -73,7 +73,7 @@ const AdminCategories = () => {
 
       {/* Chart */}
       <DashBarChart
-        data={chartData}
+        data={chartData as ChartPoint[]}
         title="Sales by Category (active only)"
         color="#db4444"
         height={240}
@@ -134,12 +134,12 @@ const AdminCategories = () => {
 
                   {/* Sales */}
                   <td className="px-3 py-3.5 text-right text-gray-600 dark:text-gray-400 hidden sm:table-cell">
-                    {cat.totalSales.toLocaleString()}
+                    {(cat.totalSales || 0).toLocaleString()}
                   </td>
 
                   {/* Revenue (estimated) */}
                   <td className="px-3 py-3.5 text-right font-medium text-gray-700 dark:text-gray-300 hidden lg:table-cell">
-                    {formatMoney(cat.totalSales * 120)}
+                    {formatMoney((cat.totalSales || 0) * 120)}
                   </td>
 
                   {/* Created */}
@@ -149,7 +149,7 @@ const AdminCategories = () => {
 
                   {/* Status */}
                   <td className="px-3 py-3.5 text-center">
-                    <CategoryBadge status={cat.status} />
+                    <CategoryBadge status={cat.status as 'inactive' | 'active'} />
                   </td>
 
                   {/* Actions */}

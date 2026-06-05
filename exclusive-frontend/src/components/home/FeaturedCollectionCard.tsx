@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { FeaturedCollectionCardProps } from "../../types/components";
+import Image from "./Image";
 
 const FeaturedCollectionCard = ({ item, index, }: FeaturedCollectionCardProps) => {
     const isHero = index === 0;
@@ -11,8 +12,7 @@ const FeaturedCollectionCard = ({ item, index, }: FeaturedCollectionCardProps) =
             {isSmall && (
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10" />
             )}
-
-            <img src={item.image} alt={item.title} className={`transition-transform duration-300 ${isSmall ? "group-hover:scale-110 drop-shadow-[0_0_60px_rgba(255,255,255,.5)]" : "group-hover:scale-105"} ${isHero ? "-mb-5" : isWide ? "-mb-5 opacity-90 drop-shadow-[0_0_60px_rgba(255,255,255,.1)]" : ""}`} />
+            <Image src={item.image} alt={item.title} className={`transition-transform duration-300 ${isSmall ? "group-hover:scale-110 drop-shadow-[0_0_60px_rgba(255,255,255,.5)]" : "group-hover:scale-105"} ${isHero ? "-mb-5" : isWide ? "-mb-5 opacity-90 drop-shadow-[0_0_60px_rgba(255,255,255,.1)]" : ""}`} />
 
             <div className={`absolute bottom-0 left-0 z-20 ${isHero ? "p-8 w-full space-y-3" : isWide ? "p-6 w-full md:w-1/2 space-y-3" : "p-6 w-full space-y-2"}`}>
                 <h3 className={`text-white font-semibold font-inter ${isSmall ? "text-xl" : "text-2xl"}`}>

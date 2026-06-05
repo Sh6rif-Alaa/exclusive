@@ -5,6 +5,7 @@ import heroSlide1 from "../../assets/images/hero-slide1.webp";
 import heroSlide2 from "../../assets/images/hero-slide2.webp";
 import "swiper/css";
 import "swiper/css/pagination";
+import Image from "./Image";
 
 
 const slides = [
@@ -64,11 +65,7 @@ const HeroSlider = () => {
 
                             {/* image */}
                             <div className="relative w-full max-w-75 md:max-w-100">
-                                <img
-                                    src={slide.image}
-                                    alt={slide.title}
-                                    className="w-full"
-                                />
+                                <Image src={slide.image} alt={slide.title} lazy={false} className="w-full" />
                             </div>
                         </div>
                     </div>

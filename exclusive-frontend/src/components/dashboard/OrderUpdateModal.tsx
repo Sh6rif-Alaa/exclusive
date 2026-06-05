@@ -1,11 +1,10 @@
 import { useForm, useFieldArray, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle, Plus, Trash2, X } from "lucide-react";
-import type { ModalProps, OrderStatus } from "../../types/dashboard.type";
+import type { ModalProps, OrderItem, OrderStatus } from "../../types/dashboard.type";
 import { formatMoney } from "../../helpers/dashboard.helper";
 import { orderUpdateSchema } from "../../schema/dashboard/dashboard.validation";
 import type { OrderUpdateFormType } from "../../schema/dashboard/dashboard.dto";
-import FormInput from "../form/FormInput";
 
 const STATUS_OPTIONS: OrderStatus[] = ["pending", "processing", "shipped", "delivered", "cancelled"];
 
@@ -98,7 +97,7 @@ export function OrderUpdateModal({ order, tracking: initialTracking, onClose, on
                         </div>
                         <div className="ml-auto text-right">
                             <p className="font-bold text-primary text-sm">{formatMoney(order.total)}</p>
-                            <p className="text-xs text-gray-400">{order.items} item{order.items !== 1 ? "s" : ""}</p>
+                            <p className="text-xs text-gray-400">{(order.items as OrderItem[])?.length} item{(order.items as OrderItem[])?.length !== 1 ? "s" : ""}</p>
                         </div>
                     </div>
 

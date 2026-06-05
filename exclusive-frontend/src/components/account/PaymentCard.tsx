@@ -1,5 +1,6 @@
 import { Trash2, Star } from "lucide-react";
 import type { PaymentCardProps } from "../../types/account.type";
+import Image from "../home/Image";
 
 const cardIcons: Record<string, string> = {
     visa: "https://img.icons8.com/color/48/visa.png",
@@ -14,7 +15,7 @@ const PaymentCard = ({ method, onDelete, onSetDefault }: PaymentCardProps) => {
             : "border-gray-200 dark:border-gray-700"
             }`}>
             <div className="flex items-center gap-4">
-                <img src={cardIcons[method.type]} alt={method.type} className="h-8 w-auto" />
+                <Image src={cardIcons[method.type]} alt={method.type} skeleton={true} className="h-8 w-auto" />
                 <div>
                     <p className="font-medium text-sm">•••• •••• •••• {method.last4}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">

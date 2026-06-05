@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { toggleWishlist, type WishlistItemType } from "../../redux/slice/wishlistSlice";
 import { addToCart } from "../../redux/slice/cartSlice";
 import { useAppDispatch } from "../../redux/store";
+import Image from "../home/Image";
 
 const WishlistItem = ({ id, image, price, title }: WishlistItemType) => {
     const dispatch = useAppDispatch();
@@ -17,7 +18,7 @@ const WishlistItem = ({ id, image, price, title }: WishlistItemType) => {
             <div className="relative bg-gray-100 dark:bg-slate-700 h-60 flex items-center justify-center">
 
                 <Link to={`/products/${id}`}>
-                    <img src={image} alt={title} className="h-40 object-contain" />
+                    <Image src={image} alt={title} skeleton={true} className="h-40 object-contain" />
                 </Link>
 
                 <button

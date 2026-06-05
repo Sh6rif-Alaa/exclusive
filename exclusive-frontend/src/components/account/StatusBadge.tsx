@@ -1,4 +1,4 @@
-import type { OrderStatus } from "../../mockData/accountData";
+import type { OrderStatus } from "../../types/dashboard.type";
 
 const statusConfig: Record<OrderStatus, { label: string; className: string }> = {
     pending: { label: "Pending", className: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400" },

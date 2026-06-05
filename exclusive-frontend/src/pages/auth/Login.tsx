@@ -6,6 +6,7 @@ import authImage from "../../assets/images/capture_20260202183654141.bmp";
 import { signInSchema } from "../../schema/auth/auth.validation";
 import type { signInType } from "../../schema/auth/auth.dto";
 import { signInFields } from "../../schema/auth/authFields";
+import Image from "../../components/home/Image";
 
 const Login = () => {
     const {
@@ -31,7 +32,7 @@ const Login = () => {
             <div className="container-login">
                 <div className="grid pt-8 grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="left col-span-1">
-                        <img className="w-full sm:h-[80vh]" src={authImage} alt="Login" />
+                        <Image src={authImage} alt="Auth" className="w-full sm:h-[80vh]" />
                     </div>
 
                     <div className="right col-span-1 flex justify-center items-center flex-col">

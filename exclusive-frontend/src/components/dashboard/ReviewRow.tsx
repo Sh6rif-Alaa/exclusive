@@ -2,18 +2,14 @@ import type { AdminReview, ReviewStatus } from "../../types/dashboard.type";
 import { Rating } from "react-simple-star-rating";
 import ReviewStatusBadge from "./ReviewStatusBadge";
 import { CheckCircle, Clock, XCircle } from "lucide-react";
+import Image from "../home/Image";
 
 const ReviewRow = ({ review, onUpdate }: { review: AdminReview; onUpdate: (id: string, s: ReviewStatus) => void }) => {
     return (
         <div className="flex gap-4 p-4 sm:p-5 hover:bg-gray-50 dark:hover:bg-slate-700/30 transition-colors">
             {/* Product image */}
             <div className="size-12 rounded-lg bg-gray-100 dark:bg-slate-700 overflow-hidden shrink-0 flex items-center justify-center">
-                <img
-                    src={review.productImage}
-                    alt={review.productTitle}
-                    className="w-full h-full object-contain"
-                    onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-                />
+                <Image src={review.productImage} alt={review.productTitle} skeleton={true} className="w-full h-full object-contain"/>
             </div>
 
             {/* Content */}

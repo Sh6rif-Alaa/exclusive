@@ -8,6 +8,7 @@ import type { forgetPasswordType } from "../../schema/auth/auth.dto";
 import { forgotPasswordFields } from "../../schema/auth/authFields";
 import { useAppDispatch } from "../../redux/store";
 import { setResetEmail } from "../../redux/slice/authFlowSlice";
+import Image from "../../components/home/Image";
 
 const ForgotPassword = () => {
     const dispatch = useAppDispatch();
@@ -31,7 +32,7 @@ const ForgotPassword = () => {
             <div className="container-forget-password">
                 <div className="grid pt-8 grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <img src={authImage} className="w-full sm:h-[80vh]" />
+                        <Image src={authImage} alt="Auth" className="w-full sm:h-[80vh]" />
                     </div>
 
                     <div className="flex justify-center items-center">

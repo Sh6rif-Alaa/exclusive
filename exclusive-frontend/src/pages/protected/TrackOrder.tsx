@@ -3,6 +3,7 @@ import { ArrowLeft, Package } from "lucide-react";
 import { ordersData, getTrackingSteps } from "../../mockData/accountData";
 import TrackStep from "../../components/account/TrackStep";
 import StatusBadge from "../../components/account/StatusBadge";
+import type { OrderStatus } from "../../types/dashboard.type";
 
 const TrackOrder = () => {
     const { id } = useParams<{ id: string }>();
@@ -19,7 +20,7 @@ const TrackOrder = () => {
         );
     }
 
-    const steps = getTrackingSteps(order.status);
+    const steps = getTrackingSteps(order.status as OrderStatus);
 
     return (
         <div className="shadow-md rounded-md p-6">
@@ -58,7 +59,7 @@ const TrackOrder = () => {
                 </div>
                 <div>
                     <p className="text-xs text-gray-500 dark:text-gray-400">Total</p>
-                    <p className="font-semibold text-sm text-primary">${order.total.toFixed(2)}</p>
+                    <p className="font-semibold text-sm text-primary">${order.total.toFixed(2) || 0}</p>
                 </div>
             </div>
 

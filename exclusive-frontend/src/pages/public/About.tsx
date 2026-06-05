@@ -4,6 +4,7 @@ import { aboutData, ReportData, servicesData } from "../../mockData/data";
 import ReportCard from "../../components/about/ReportCard";
 import AboutCard from "../../components/about/AboutCard";
 import ServiceCard from "../../components/home/ServiceCard";
+import Image from "../../components/home/Image";
 
 const About = () => {
     return (
@@ -29,7 +30,7 @@ const About = () => {
                             </div>
                         </div>
                         <div className="rounded-sm overflow-hidden shadow-xl">
-                            <img src={sideImage} alt="Our Story" className="w-full h-auto object-cover" />
+                            <Image src={sideImage} alt="Our Story" className="w-full h-auto object-cover" />
                         </div>
                     </section>
                     {/*story-end */}

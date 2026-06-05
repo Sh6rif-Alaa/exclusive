@@ -8,6 +8,7 @@ import FormInput from "../../components/form/FormInput";
 import { checkoutBillingFields } from "../../schema/auth/authFields";
 import { checkoutSchema } from "../../schema/user/user.validation";
 import type { CheckoutType } from "../../schema/user/user.dto";
+import Image from "../../components/home/Image";
 
 const inputStyle =
     "w-full rounded-md bg-gray-100 dark:bg-gray-700 px-4 py-3 text-gray-900 dark:text-white placeholder:text-gray-400 outline-none focus:ring-1 focus:ring-primary transition";
@@ -105,7 +106,7 @@ const Checkout = () => {
                                         <li key={item.id} className="flex items-center justify-between gap-4 py-4 first:pt-0">
                                             <div className="flex items-center gap-4">
                                                 <div className="size-14 rounded bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
-                                                    <img src={item.image} alt={item.title} className="h-10 w-auto object-contain" />
+                                                    <Image src={item.image} alt={item.title} skeleton={true} className="h-10 w-auto object-contain" />
                                                 </div>
                                                 <span className="font-medium text-sm"> {item.title} </span>
                                             </div>
@@ -148,7 +149,7 @@ const Checkout = () => {
                                         {icons.length > 0 && (
                                             <div className="flex gap-2">
                                                 {icons.map((src: string) => (
-                                                    <img key={src} src={src} className="h-8 w-auto" alt="" />
+                                                    <Image src={src} alt="Payment Method" className="h-8 w-auto" skeleton={true} />
                                                 ))}
                                             </div>
                                         )}

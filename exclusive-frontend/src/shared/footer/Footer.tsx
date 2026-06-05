@@ -1,4 +1,8 @@
 import { Link } from "react-router-dom"
+import Image from "../../components/home/Image"
+import playStore from "../../assets/images/GooglePlay.svg"
+import appStore from "../../assets/images/AppStore.svg"
+
 
 const Footer = () => {
     return (
@@ -54,12 +58,11 @@ const Footer = () => {
 
                     <div className="flex flex-col">
                         <Link to="#" className="block ">
-                            <img src="./assets/images/GooglePlay.svg" alt="Download on the Google Play"
-                                className="h-12 w-44 " />
+                            <Image src={playStore} alt="Download on the Google Play" className="h-12 w-44 " />
                         </Link>
 
                         <Link to="#" className="block">
-                            <img src="./assets/images/AppStore.svg" alt="Download on the App Store" className="h-12 w-44" />
+                            <Image src={appStore} alt="Download on the App Store" className="h-12 w-44" />
                         </Link>
                     </div>
 

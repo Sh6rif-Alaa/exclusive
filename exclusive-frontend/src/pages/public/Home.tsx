@@ -15,6 +15,8 @@ import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import type { AdminCategory, AdminProduct } from "../../types/dashboard.type";
+import Image from "../../components/home/Image";
 
 const Home = () => {
     return (
@@ -27,7 +29,7 @@ const Home = () => {
                         <div className="hidden lg:block w-64 shrink-0 border-r border-gray-200 dark:border-gray-700 pt-10 pe-6">
                             <ul
                                 className="space-y-6 [&_a]:hover:text-primary [&_a]:transition-colors [&_a]:duration-300 dark:text-gray-300">
-                                {categories.slice(6, 14).map((category) => (
+                                {categories.slice(6, 14).map((category: AdminCategory) => (
                                     <SidebarCategories key={category.id} name={category.name} />
                                 ))}
                             </ul>
@@ -77,15 +79,15 @@ const Home = () => {
                                 },
                             }}
                         >
-                            {productsData.slice(-8).reverse().map((product) => (
+                            {productsData.slice(-8).reverse().map((product: AdminProduct) => (
                                 <SwiperSlide key={product.id}>
-                                    <div className="relative group">
+                                    <div className="relative group pb-0.5">
                                         <ProductCard
                                             id={product.id}
                                             title={product.title}
                                             newPrice={product.newPrice}
                                             oldPrice={product?.oldPrice}
-                                            image={product.image}
+                                            image={product.mainImage}
                                             discount={product?.discount}
                                             rating={product.rating}
                                             review={product.review}
@@ -135,7 +137,7 @@ const Home = () => {
                             },
                         }}
                     >
-                        {categories.map((category) => (
+                        {categories.map((category: AdminCategory) => (
                             <SwiperSlide key={category.id}>
                                 <CategorieCard
                                     name={category.name}
@@ -161,14 +163,14 @@ const Home = () => {
                     {/* products cards */}
                     <div className="grid grid-cols-12 lg:gap-8 sm:gap-4 gap-0 gap-y-6">
                         {/* first four products that has best sales (products must ordred by numberOfSales descending from backend) */}
-                        {productsData.slice(0, 4).map((product) => (
+                        {productsData.slice(0, 4).map((product: AdminProduct) => (
                             <div key={product.id} className="lg:col-span-3 sm:col-span-6 col-span-12 relative group">
                                 <ProductCard
                                     id={product.id}
                                     title={product.title}
                                     newPrice={product.newPrice}
                                     oldPrice={product?.oldPrice}
-                                    image={product.image}
+                                    image={product.mainImage}
                                     discount={product?.discount}
                                     rating={product.rating}
                                     review={product.review}
@@ -200,8 +202,7 @@ const Home = () => {
                             </div>
                             {/* ads img */}
                             <div className="flex-1 relative">
-                                <img src={adsImg} alt="JBL Speaker"
-                                    className="w-full drop-shadow-[0_0_120px_rgba(255,255,255,.5)]" />
+                                <Image src={adsImg} alt="JBL Speaker" className="w-full drop-shadow-[0_0_120px_rgba(255,255,255,.5)]" />
                             </div>
                         </div>
                     </div>
@@ -242,15 +243,15 @@ const Home = () => {
                             },
                         }}
                     >
-                        {productsData.slice(8, 16).map((product) => (
+                        {productsData.slice(8, 16).map((product: AdminProduct) => (
                             <SwiperSlide key={product.id}>
-                                <div className="relative group">
+                                <div className="relative group pb-0.5">
                                     <ProductCard
                                         id={product.id}
                                         title={product.title}
                                         newPrice={product.newPrice}
                                         oldPrice={product?.oldPrice}
-                                        image={product.image}
+                                        image={product.mainImage}
                                         discount={product?.discount}
                                         rating={product.rating}
                                         review={product.review}

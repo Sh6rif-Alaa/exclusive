@@ -7,21 +7,23 @@ import { productsData } from "../../mockData/data";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { addToCart } from "../../redux/slice/cartSlice";
 import { toggleWishlist } from "../../redux/slice/wishlistSlice";
+import type { AdminProduct } from "../../types/dashboard.type";
+import Image from "../../components/home/Image";
 
 const ProductDetails = () => {
     const dispatch = useAppDispatch();
     const { id } = useParams();
     const product = productsData.find((item) => item.id === id);
     const [quantity, setQuantity] = useState(1);
-    const [selectedImage, setSelectedImage] = useState(product?.image);
+    const [selectedImage, setSelectedImage] = useState(product?.mainImage);
     const isWishlisted = useAppSelector((state) => state.wishlist.items.some((item) => item.id === id));
 
     const handleAddToCart = () => {
-        dispatch(addToCart({ id: product?.id!, image: product?.image!, title: product?.title!, price: product?.newPrice!, quantity }));
+        dispatch(addToCart({ id: product?.id!, image: product?.mainImage!, title: product?.title!, price: product?.newPrice!, quantity }));
     };
 
     const handleToggleToWishlist = () => {
-        dispatch(toggleWishlist({ id: product?.id!, image: product?.image!, title: product?.title!, price: product?.newPrice! }));
+        dispatch(toggleWishlist({ id: product?.id!, image: product?.mainImage!, title: product?.title!, price: product?.newPrice! }));
     };
 
     const relatedProducts = useMemo(() => {
@@ -57,16 +59,16 @@ const ProductDetails = () => {
                                 {[1, 2, 3, 4].map((item) => (
                                     <button
                                         key={item}
-                                        onClick={() => setSelectedImage(product.image)}
+                                        onClick={() => setSelectedImage(product.mainImage)}
                                         className="size-20 border rounded-lg overflow-hidden"
                                     >
-                                        <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
+                                        <Image src={product.mainImage} alt={product.title} skeleton={true} className="w-full h-full object-cover" />
                                     </button>
                                 ))}
                             </div>
 
                             <div className="flex-1 bg-muted rounded-xl p-6 flex items-center justify-center min-h-[500px]">
-                                <img src={selectedImage} alt={product.title} className="max-h-[450px] object-contain" />
+                                <Image src={selectedImage} alt={product.title} skeleton={true} className="max-h-[450px] object-contain" />
                             </div>
                         </div>
 
@@ -155,8 +157,8 @@ const ProductDetails = () => {
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                                {relatedProducts.map((product) => (
-                                    <div><ProductCard key={product.id} id={product.id} title={product.title} image={product.image} rating={product.rating} review={product.review} newPrice={product.newPrice} oldPrice={product.oldPrice} discount={product.discount} category={product.category} colors={product.colors}/></div>
+                                {relatedProducts.map((product: AdminProduct) => (
+                                    <div><ProductCard key={product.id} id={product.id} title={product.title} image={product.mainImage} rating={product.rating} review={product.review} newPrice={product.newPrice} oldPrice={product.oldPrice} discount={product.discount} category={product.category} colors={product.colors} /></div>
                                 ))}
                             </div>
                         </div>

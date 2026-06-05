@@ -127,7 +127,8 @@ export interface IRecentOrder {
 export interface AdminProduct {
   id: string;
   title: string;
-  image: string;
+  mainImage: string;
+  images?: string[];
   category: string;
   newPrice: number;
   oldPrice: number;
@@ -135,9 +136,10 @@ export interface AdminProduct {
   rating: number;
   review: number;
   numberOfSales: number;
-  stock: number;          // units in stock
+  stock: number;
   status: "active" | "draft" | "out_of_stock";
   createdAt: string;
+  sizes?: string[];
   colors?: string[];
 }
 

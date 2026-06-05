@@ -7,6 +7,7 @@ import { setResetOtp } from "../../redux/slice/authFlowSlice";
 import { verifyOtpSchema } from "../../schema/auth/auth.validation";
 import type { verifyOtpType } from "../../schema/auth/auth.dto";
 import OtpInputField from "../../components/form/OtpInput";
+import Image from "../../components/home/Image";
 
 
 const Verify = () => {
@@ -41,7 +42,7 @@ const Verify = () => {
         <section className="my-14">
             <div className="container-otp">
                 <div className="grid pt-8 grid-cols-1 md:grid-cols-2 gap-4">
-                    <div> <img src={authImage} alt="Verify Email" className="w-full sm:h-[80vh]" /> </div>
+                    <div> <Image src={authImage} alt="Auth" className="w-full sm:h-[80vh]" /> </div>
 
                     <div className="flex justify-center items-center">
                         <div className="w-[90%] sm:w-[60%]">

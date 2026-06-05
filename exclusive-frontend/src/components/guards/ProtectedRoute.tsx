@@ -1,5 +1,4 @@
-import { Navigate, Outlet } from "react-router-dom";
-import { useAppSelector } from "../../redux/store";
+import { Outlet } from "react-router-dom";
 import TopBanner from "../../shared/header/TopBanner";
 import Navbar from "../../shared/header/Navbar";
 import Footer from "../../shared/footer/Footer";

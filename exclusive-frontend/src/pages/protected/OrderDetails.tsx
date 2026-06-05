@@ -3,6 +3,7 @@ import { ArrowLeft, MapPin, CreditCard } from "lucide-react";
 import { ordersData } from "../../mockData/accountData";
 import StatusBadge from "../../components/account/StatusBadge";
 import type { OrderItem } from "../../types/dashboard.type";
+import Image from "../../components/home/Image";
 
 const infoBlocks = (order: NonNullable<ReturnType<typeof ordersData.find>>) => [
     { label: "Order Number", value: order.orderNumber },
@@ -55,7 +56,7 @@ const OrderDetails = () => {
             <ul className="space-y-3 mb-6">
                 {(order.items as OrderItem[]).map((item) => (
                     <li key={item.id} className="flex items-center gap-4 p-3 border border-gray-100 dark:border-gray-700 rounded-lg">
-                        <img src={item.image} alt={item.title} className="w-14 h-14 object-contain bg-gray-100 dark:bg-gray-700 rounded shrink-0" />
+                        <Image src={item.image} alt={item.title} skeleton={true} className="w-14 h-14 object-contain bg-gray-100 dark:bg-gray-700 rounded shrink-0" />
                         <div className="flex-1 min-w-0">
                             <p className="font-medium text-sm truncate">{item.title}</p>
                             <p className="text-xs text-gray-500 dark:text-gray-400">Qty: {item.quantity} × ${item.price.toFixed(2)}</p>
@@ -68,7 +69,7 @@ const OrderDetails = () => {
             {/* Totals */}
             <div className="border-t border-gray-200 dark:border-gray-700 pt-4 space-y-2 mb-6">
                 {[
-                    { label: "Subtotal", value: `$${order.total.toFixed(2)}` },
+                    { label: "Subtotal", value: `$${order.total.toFixed(2) || 0}` },
                     { label: "Shipping", value: "Free" },
                 ].map(({ label, value }) => (
                     <div key={label} className="flex justify-between text-sm text-gray-600 dark:text-gray-400">
@@ -78,7 +79,7 @@ const OrderDetails = () => {
                 ))}
                 <div className="flex justify-between font-bold border-t border-gray-200 dark:border-gray-700 pt-3 mt-1">
                     <span>Total</span>
-                    <span className="text-primary">${order.total.toFixed(2)}</span>
+                    <span className="text-primary">${order.total.toFixed(2) || 0}</span>
                 </div>
             </div>
 

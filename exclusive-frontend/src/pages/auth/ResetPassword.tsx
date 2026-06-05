@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { clearResetFlow } from "../../redux/slice/authFlowSlice";
 import type { resetPasswordType } from "../../schema/auth/auth.dto";
 import { resetPasswordSchema } from "../../schema/auth/auth.validation";
+import Image from "../../components/home/Image";
 
 const ResetPassword = () => {
     const navigate = useNavigate();
@@ -41,7 +42,7 @@ const ResetPassword = () => {
         <section className="my-14">
             <div className="container-new-password">
                 <div className="grid pt-8 grid-cols-1 md:grid-cols-2 gap-4">
-                    <div> <img src={authImage} className="w-full sm:h-[80vh]" /> </div>
+                    <div> <Image src={authImage} alt="Auth" className="w-full sm:h-[80vh]" /> </div>
 
                     <div className="flex justify-center items-center">
                         <div className="w-[90%] sm:w-[60%]">

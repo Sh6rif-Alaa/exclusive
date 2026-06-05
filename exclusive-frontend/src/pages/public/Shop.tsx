@@ -3,6 +3,7 @@ import { SlidersHorizontal, X } from "lucide-react";
 import ProductCard from "../../components/home/ProductCard";
 import Breadcrumb from "../../shared/header/Breadcrumb";
 import { productsData, categories } from "../../mockData/data";
+import type { AdminCategory, AdminProduct } from "../../types/dashboard.type";
 const PRODUCTS_PER_PAGE = 8;
 
 const Shop = () => {
@@ -22,14 +23,14 @@ const Shop = () => {
 
     const filteredProducts = useMemo(() => {
         return [...productsData]
-            .filter((product) =>
+            .filter((product: AdminProduct) =>
                 selectedCategory
                     ? product.category === selectedCategory
                     : true
             )
-            .filter((product) => product.newPrice <= maxPrice)
-            .filter((product) => product.rating >= minRating)
-            .sort((a, b) => {
+            .filter((product: AdminProduct) => product.newPrice <= maxPrice)
+            .filter((product: AdminProduct) => product.rating >= minRating)
+            .sort((a: AdminProduct, b: AdminProduct) => {
                 switch (sortBy) {
                     case "low-price":
                         return a.newPrice - b.newPrice;
@@ -100,7 +101,7 @@ const Shop = () => {
                                     <h3 className="font-semibold mb-3">Categories</h3>
 
                                     <div className="space-y-2">
-                                        {categories.map((category) => (
+                                        {categories.map((category: AdminCategory) => (
                                             <label key={category.id} className="flex items-center gap-2 cursor-pointer">
                                                 <input type="radio" name="category" checked={selectedCategory === category.name} onChange={() => {
                                                     setSelectedCategory(category.name);
@@ -151,7 +152,7 @@ const Shop = () => {
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {paginatedProducts.map((product) => (
                                     <div key={product.id} className="group">
-                                        <ProductCard key={product.id} id={product.id} title={product.title} image={product.image} rating={product.rating} review={product.review} newPrice={product.newPrice} oldPrice={product.oldPrice} discount={product.discount} category={product.category} colors={product.colors} />
+                                        <ProductCard key={product.id} id={product.id} title={product.title} image={product.mainImage} rating={product.rating} review={product.review} newPrice={product.newPrice} oldPrice={product.oldPrice} discount={product.discount} category={product.category} colors={product.colors} />
                                     </div>
                                 ))}
                             </div>

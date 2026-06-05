@@ -7,6 +7,7 @@ import { formatMoney } from "../../helpers/dashboard.helper";
 import { AdminProductsData } from "../../mockData/dashboardData";
 import ProductStatusBadge from "../../components/dashboard/ProductStatusBadge";
 import { Rating } from "react-simple-star-rating";
+import Image from "../../components/home/Image";
 
 
 const PAGE_SIZE = 8;
@@ -176,12 +177,8 @@ const AdminProducts = () => {
                     {/* Product */}
                     <td className="px-5 py-3.5">
                       <div className="flex items-center gap-3">
-                        {product.image ? (
-                          <img
-                            src={product.image}
-                            alt={product.title}
-                            className="size-10 rounded-lg object-cover shrink-0"
-                          />
+                        {product.mainImage ? (
+                          <Image src={product.mainImage} alt={product.title} skeleton={true} className="size-10 rounded-lg object-cover shrink-0" />
                         ) : (
                           <div className="size-10 rounded-lg bg-gray-100 dark:bg-slate-700 flex items-center justify-center shrink-0">
                             <Package size={16} className="text-gray-400" />
