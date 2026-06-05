@@ -101,12 +101,12 @@ export interface BreadcrumbItem {
 
 // faq page components
 export interface FAQItemProps {
-    question: string;
-    answer: string;
+  question: string;
+  answer: string;
 }
 
 export interface FAQSectionProps {
-    title: string;
-    icon: LucideIcon;
-    questions: FAQItemProps[];
+  title: string;
+  icon: LucideIcon;
+  questions: FAQItemProps[];
 }

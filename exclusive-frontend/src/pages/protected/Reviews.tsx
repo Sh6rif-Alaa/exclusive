@@ -3,7 +3,15 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { X } from "lucide-react";
 import { Rating } from "react-simple-star-rating";
-import { reviewsData as initialReviews, type Review } from "../../data/accountData";
+import { reviewsData as initialReviews } from "../../data/accountData";
+import type { Review, ReviewStatus } from "../../types/dashboard.type";
+
+const statusFilters: { label: string; value: ReviewStatus | "all" }[] = [
+    { label: "All", value: "all" },
+    { label: "Pending", value: "pending" },
+    { label: "Published", value: "published" },
+    { label: "Rejected", value: "rejected" },
+];
 import { reviewSchema } from "../../schema/user/user.validation";
 import type { ReviewFormType } from "../../schema/user/user.dto";
 import ReviewCard from "../../components/account/ReviewCard";
@@ -12,6 +20,9 @@ import FormTextarea from "../../components/form/FormTextarea";
 const Reviews = () => {
     const [reviews, setReviews] = useState<Review[]>(initialReviews);
     const [editingReview, setEditingReview] = useState<Review | null>(null);
+    const [activeFilter, setActiveFilter] = useState<ReviewStatus | "all">("all");
+
+    const filteredReviews = activeFilter === "all" ? reviews : reviews.filter((r) => r.status === activeFilter);
 
     const {
         register,
@@ -63,6 +74,22 @@ const Reviews = () => {
         <div className="shadow-md rounded-md p-6">
             <h2 className="font-semibold text-lg text-primary mb-6">My Reviews</h2>
 
+            {/* Status filter tabs */}
+            <div className="flex flex-wrap gap-2 mb-6">
+                {statusFilters.map((filter) => (
+                    <button
+                        key={filter.value}
+                        onClick={() => setActiveFilter(filter.value)}
+                        className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors cursor-pointer ${activeFilter === filter.value
+                            ? "bg-primary text-white"
+                            : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
+                            }`}
+                    >
+                        {filter.label}
+                    </button>
+                ))}
+            </div>
+
             {/* Edit form (inline)  */}
             {editingReview && (
                 <div className="mb-6 border border-primary/30 rounded-lg p-5 bg-primary/5">
@@ -113,10 +140,10 @@ const Reviews = () => {
                 </div>
             )}
 
-            {/* ── Review list ── */}
-            {reviews.length > 0 ? (
+            {/*  Review list  */}
+            {filteredReviews.length > 0 ? (
                 <div className="space-y-4">
-                    {reviews.map((review) => (
+                    {filteredReviews.map((review) => (
                         <ReviewCard
                             key={review.id}
                             review={review}
@@ -127,7 +154,7 @@ const Reviews = () => {
                 </div>
             ) : (
                 <div className="text-center py-16 text-gray-500 dark:text-gray-400">
-                    <p className="text-sm">You haven't written any reviews yet.</p>
+                    <p className="text-sm">No reviews found for this status.</p>
                 </div>
             )}
         </div>
