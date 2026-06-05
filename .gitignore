@@ -1,3 +1,6 @@
+# tailwind output.css
+/assets/css/output.css
+
 # Logs
 logs
 *.log
@@ -125,6 +128,7 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+.vscode
 
 # yarn v3
 .pnp.*
@@ -138,3 +142,5 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+package-lock.json
