@@ -60,7 +60,7 @@ Key features and focuses of this frontend include:
 | 💳 Payment Methods | `/payment-methods` | Saved payment cards (Protected) |
 | 📍 Address Book | `/address-book` | Shipping addresses (Protected) |
 
-### Admin Dashboard (New ✨)
+### Admin Dashboard
 | Page | Route | Description |
 |------|-------|-------------|
 | 🎛️ Dashboard | `/admin` | Main admin overview with statistics and charts |

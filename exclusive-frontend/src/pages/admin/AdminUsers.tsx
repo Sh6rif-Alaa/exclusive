@@ -2,8 +2,10 @@ import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import { Users, Search, Filter, Eye, Shield, UserX, UserCheck, ChevronLeft, ChevronRight } from "lucide-react";
 import { StatTiles } from "../../components/dashboard/DashboardCharts";
-import type { AdminUsersData, UserStatus, UserRole } from "../../types/dashboard.type";
+import type { IAdminUsers, UserStatus, UserRole } from "../../types/dashboard.type";
 import { formatMoney } from "../../helpers/dashboard.helper";
+import { AdminUsersData } from "../../mockData/dashboardData";
+import UserAvatar from "../../components/dashboard/UserAvatar";
 
 const STATUS_CFG: Record<UserStatus, { label: string; classes: string }> = {
   active: { label: "Active", classes: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400" },
@@ -16,58 +18,10 @@ const ROLE_CFG: Record<UserRole, { label: string; classes: string }> = {
   customer: { label: "Customer", classes: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400" },
 };
 
-// Mock data
-
-const MOCK: AdminUsersData = {
-  totals: { total: 1240, active: 1080, inactive: 110, banned: 50, admins: 4 },
-  users: [
-    { id: "1", name: "Ahmed Hassan", email: "ahmed@example.com", role: "customer", status: "active", orders: 18, totalSpent: 4200, joinedAt: "Jan 10, 2025", lastActive: "Jun 5, 2026" },
-    { id: "2", name: "Sara Mohamed", email: "sara@example.com", role: "customer", status: "active", orders: 12, totalSpent: 2850, joinedAt: "Feb 3, 2025", lastActive: "Jun 4, 2026" },
-    { id: "3", name: "Omar Khalil", email: "omar@example.com", role: "customer", status: "active", orders: 7, totalSpent: 1630, joinedAt: "Mar 15, 2025", lastActive: "Jun 3, 2026" },
-    { id: "4", name: "Nour El-Din", email: "nour@example.com", role: "customer", status: "inactive", orders: 3, totalSpent: 720, joinedAt: "Apr 22, 2025", lastActive: "Dec 1, 2025" },
-    { id: "5", name: "Layla Abdallah", email: "layla@example.com", role: "customer", status: "active", orders: 25, totalSpent: 9100, joinedAt: "Jan 5, 2025", lastActive: "Jun 5, 2026" },
-    { id: "6", name: "Youssef Samir", email: "youssef@example.com", role: "customer", status: "banned", orders: 2, totalSpent: 375, joinedAt: "May 18, 2025", lastActive: "May 31, 2026" },
-    { id: "7", name: "Rana Fawzy", email: "rana@example.com", role: "customer", status: "active", orders: 9, totalSpent: 2100, joinedAt: "Jun 30, 2025", lastActive: "Jun 2, 2026" },
-    { id: "8", name: "Kareem Nasser", email: "kareem@example.com", role: "customer", status: "active", orders: 14, totalSpent: 5500, joinedAt: "Jul 14, 2025", lastActive: "Jun 1, 2026" },
-    { id: "9", name: "Dina Salah", email: "dina@example.com", role: "customer", status: "inactive", orders: 1, totalSpent: 185, joinedAt: "Aug 2, 2025", lastActive: "Nov 20, 2025" },
-    { id: "10", name: "Tamer Ibrahim", email: "tamer@example.com", role: "customer", status: "active", orders: 31, totalSpent: 14800, joinedAt: "Sep 9, 2025", lastActive: "Jun 5, 2026" },
-    { id: "11", name: "Admin User", email: "admin@exclusive.com", role: "admin", status: "active", orders: 0, totalSpent: 0, joinedAt: "Jan 1, 2024", lastActive: "Jun 5, 2026" },
-    { id: "12", name: "Mona Ashraf", email: "mona@example.com", role: "customer", status: "active", orders: 6, totalSpent: 1920, joinedAt: "Oct 11, 2025", lastActive: "May 28, 2026" },
-  ],
-};
-
-// Sub-components
-
-function UserAvatar({ name }: { name: string }) {
-  const initials = name
-    .split(" ")
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-  const colors = [
-    "bg-primary",
-    "bg-blue-500",
-    "bg-emerald-500",
-    "bg-purple-500",
-    "bg-amber-500",
-  ];
-  const color = colors[name.charCodeAt(0) % colors.length];
-  return (
-    <div
-      className={`size-8 rounded-full ${color} flex items-center justify-center text-white text-xs font-bold shrink-0`}
-    >
-      {initials}
-    </div>
-  );
-}
-
 const PAGE_SIZE = 8;
 
-// Page
-
-export default function AdminUsers() {
-  const [data, setData] = useState<AdminUsersData | null>(null);
+const AdminUsers = () => {
+  const [data, setData] = useState<IAdminUsers | null>(null);
   const [loading, setLoading] = useState(true);
 
   const [search, setSearch] = useState("");
@@ -77,12 +31,12 @@ export default function AdminUsers() {
 
   useEffect(() => {
     axios
-      .get<AdminUsersData>("/api/admin/users")
+      .get<IAdminUsers>("/api/admin/users")
       .then((res) => {
         if (typeof res.data === "string") throw new Error("no json");
         setData(res.data);
       })
-      .catch(() => setData(MOCK))
+      .catch(() => setData(AdminUsersData))
       .finally(() => setLoading(false));
   }, []);
 
@@ -282,3 +236,5 @@ export default function AdminUsers() {
     </div>
   );
 }
+
+export default AdminUsers;

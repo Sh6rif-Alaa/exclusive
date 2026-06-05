@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useAppSelector } from "../../redux/store";
 import Breadcrumb from "../../shared/header/Breadcrumb";
 import FormInput from "../../components/form/FormInput";
-import { checkoutBillingFields } from "../../data/authFields";
+import { checkoutBillingFields } from "../../schema/auth/authFields";
 import { checkoutSchema } from "../../schema/user/user.validation";
 import type { CheckoutType } from "../../schema/user/user.dto";
 

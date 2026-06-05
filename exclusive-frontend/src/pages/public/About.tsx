@@ -1,6 +1,6 @@
 import Breadcrumb from "../../shared/header/Breadcrumb";
 import sideImage from "../../assets/images/Side-Image.png"
-import { aboutData, ReportData, servicesData } from "../../data/data";
+import { aboutData, ReportData, servicesData } from "../../mockData/data";
 import ReportCard from "../../components/about/ReportCard";
 import AboutCard from "../../components/about/AboutCard";
 import ServiceCard from "../../components/home/ServiceCard";

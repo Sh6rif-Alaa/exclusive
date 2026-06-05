@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Breadcrumb from "../../shared/header/Breadcrumb";
 import FAQSection from "../../components/faq/FAQSection";
-import { faqData } from "../../data/data";
+import { faqData } from "../../mockData/data";
 import { Mail, Phone, Search } from "lucide-react";
 
 const FAQ = () => {

@@ -1,3 +1,5 @@
+import type { OrderStatus, TrackingEvent } from "../types/dashboard.type";
+
 export function formatMoney(v: number) {
     return new Intl.NumberFormat("en-US", {
         style: "currency",
@@ -16,4 +18,25 @@ export function formatShort(value: number) {
     if (value >= 1_000_000) return `$${(value / 1_000_000).toFixed(1)}M`;
     if (value >= 1_000) return `$${(value / 1_000).toFixed(1)}K`;
     return `$${value}`;
+}
+
+export function buildDefaultTracking(status: OrderStatus, date: string): TrackingEvent[] {
+    const steps: { title: string; description: string }[] = [
+        { title: "Order Placed", description: "Your order has been received and confirmed." },
+        { title: "Processing", description: "We are preparing your items for shipment." },
+        { title: "Shipped", description: "Your package is on its way." },
+        { title: "Out for Delivery", description: "Your package is out for delivery today." },
+        { title: "Delivered", description: "Your order has been delivered successfully." },
+    ];
+    const order: Record<OrderStatus, number> = {
+        pending: 0, processing: 1, shipped: 2, delivered: 4, cancelled: -1,
+    };
+    const currentIdx = order[status] ?? 0;
+    return steps.map((s, i) => ({
+        id: String(i + 1),
+        ...s,
+        date: i <= currentIdx ? date : "",
+        completed: i < currentIdx,
+        current: i === currentIdx && status !== "cancelled",
+    }));
 }

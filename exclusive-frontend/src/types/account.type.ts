@@ -1,4 +1,4 @@
-import type { Address, PaymentMethod, Review, TrackingStep } from "../data/accountData";
+import type { Address, PaymentMethod, Review, TrackingStep } from "../mockData/accountData";
 
 export interface AddressCardProps {
     address: Address;

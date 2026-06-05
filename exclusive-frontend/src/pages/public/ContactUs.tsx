@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactUsSchema } from "../../schema/auth/auth.validation";
 import type { ContactUsType } from "../../schema/auth/auth.dto";
-import { contactFields } from "../../data/authFields";
+import { contactFields } from "../../schema/auth/authFields";
 import FormInput from "../../components/form/FormInput";
 import FormTextarea from "../../components/form/FormTextarea";
 import { Mail, Phone } from "lucide-react";

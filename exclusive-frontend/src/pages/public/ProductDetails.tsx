@@ -3,7 +3,7 @@ import { Heart, Minus, Plus, RotateCcw, Truck } from "lucide-react";
 import { useParams } from "react-router";
 import Breadcrumb from "../../shared/header/Breadcrumb";
 import ProductCard from "../../components/home/ProductCard";
-import { productsData } from "../../data/data";
+import { productsData } from "../../mockData/data";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { addToCart } from "../../redux/slice/cartSlice";
 import { toggleWishlist } from "../../redux/slice/wishlistSlice";

@@ -112,7 +112,7 @@ export interface Address {
   isDefault: boolean;
 }
 
-export interface TrackingStep {
+export interface ITrackingStep {
   id: string;
   title: string;
   description: string;
@@ -123,7 +123,7 @@ export interface TrackingStep {
 
 //  Admin Dashboard  →  GET /api/admin/stats
 
-export interface AdminStats {
+export interface IAdminStats {
   totals: {
     users: number;
     products: number;
@@ -135,11 +135,11 @@ export interface AdminStats {
   revenueByMonth: ChartPoint[];
   ordersByMonth: ChartPoint[];
   salesByCategory: ChartPoint[];
-  topProducts: TopProduct[];
-  recentOrders: RecentOrder[];
+  topProducts: ITopProduct[];
+  recentOrders: IRecentOrder[];
 }
 
-export interface TopProduct {
+export interface ITopProduct {
   id: string;
   title: string;
   image: string;
@@ -148,7 +148,7 @@ export interface TopProduct {
   category: string;
 }
 
-export interface RecentOrder {
+export interface IRecentOrder {
   id: string;
   orderNumber: string;
   customerName: string;
@@ -175,7 +175,7 @@ export interface AdminProduct {
   createdAt: string;
 }
 
-export interface AdminProductsData {
+export interface IAdminProducts {
   products: AdminProduct[];
   totals: {
     total: number;
@@ -199,7 +199,7 @@ export interface AdminOrder {
   paymentMethod: string;
 }
 
-export interface AdminOrdersData {
+export interface IAdminOrders {
   orders: AdminOrder[];
   totals: {
     total: number;
@@ -216,7 +216,7 @@ export interface AdminOrdersData {
 export type UserRole = "admin" | "customer";
 export type UserStatus = "active" | "inactive" | "banned";
 
-export interface AdminUser {
+export interface IAdminUser {
   id: string;
   name: string;
   email: string;
@@ -228,8 +228,8 @@ export interface AdminUser {
   lastActive: string;
 }
 
-export interface AdminUsersData {
-  users: AdminUser[];
+export interface IAdminUsers {
+  users: IAdminUser[];
   totals: {
     total: number;
     active: number;
@@ -252,13 +252,13 @@ export interface AdminCategory {
   createdAt: string;
 }
 
-export interface AdminCategoriesData {
+export interface IAdminCategories {
   categories: AdminCategory[];
 }
 
 //  Admin Analytics  →  GET /api/admin/analytics
 
-export interface AdminAnalyticsData {
+export interface IAdminAnalytics {
   kpis: {
     conversionRate: number;
     avgOrderValue: number;
@@ -270,7 +270,7 @@ export interface AdminAnalyticsData {
   revenueByMonth: ChartPoint[];
   ordersByMonth: ChartPoint[];
   salesByCategory: ChartPoint[];
-  topProducts: TopProduct[];
+  topProducts: ITopProduct[];
   userGrowthByMonth: ChartPoint[];
 }
 
@@ -289,7 +289,7 @@ export interface AdminReview {
   status: ReviewStatus;
 }
 
-export interface AdminReviewsData {
+export interface IAdminReviews {
   reviews: AdminReview[];
   totals: {
     total: number;
@@ -312,7 +312,7 @@ export interface TrackingEvent {
 
 //  Admin Settings  →  GET /api/admin/settings
 
-export interface AdminSettings {
+export interface IAdminSettings {
   store: {
     name: string;
     email: string;

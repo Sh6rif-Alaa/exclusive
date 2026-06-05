@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Plus, X } from "lucide-react";
-import { paymentMethodsData as initialMethods, type PaymentMethod, type CardType, } from "../../data/accountData";
+import { paymentMethodsData as initialMethods, type PaymentMethod, type CardType, } from "../../mockData/accountData";
 import { paymentMethodSchema } from "../../schema/user/user.validation";
 import type { PaymentMethodType } from "../../schema/user/user.dto";
 import PaymentCard from "../../components/account/PaymentCard";
 import FormInput from "../../components/form/FormInput";
-import { paymentCardFields } from "../../data/authFields";
+import { paymentCardFields } from "../../schema/auth/authFields";
 
 // Detect card type from first digit (simplified)
 const detectCardType = (number: string): CardType => {

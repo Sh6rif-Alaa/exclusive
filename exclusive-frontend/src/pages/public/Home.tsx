@@ -1,5 +1,5 @@
 import ProductCard from "../../components/home/ProductCard";
-import { categories, featuredCollections, servicesData, sidebarCategories, productsData } from "../../data/data"
+import { categories, featuredCollections, servicesData, productsData } from "../../mockData/data"
 import CategorieCard from "../../components/home/CategorieCard";
 import SidebarCategories from "../../components/home/SidebarCategories";
 import CountDown from "../../components/home/CountDown";
@@ -26,7 +26,7 @@ const Home = () => {
                         <div className="hidden lg:block w-64 shrink-0 border-r border-gray-200 dark:border-gray-700 pt-10 pe-6">
                             <ul
                                 className="space-y-6 [&_a]:hover:text-primary [&_a]:transition-colors [&_a]:duration-300 dark:text-gray-300">
-                                {sidebarCategories.map((category) => (
+                                {categories.slice(6, 14).map((category) => (
                                     <SidebarCategories key={category.id} title={category.title} />
                                 ))}
                             </ul>

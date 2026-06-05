@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, MapPin, CreditCard } from "lucide-react";
-import { ordersData } from "../../data/accountData";
+import { ordersData } from "../../mockData/accountData";
 import StatusBadge from "../../components/account/StatusBadge";
 
 const infoBlocks = (order: NonNullable<ReturnType<typeof ordersData.find>>) => [

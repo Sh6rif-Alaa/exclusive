@@ -3,7 +3,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { X } from "lucide-react";
 import { Rating } from "react-simple-star-rating";
-import { reviewsData as initialReviews } from "../../data/accountData";
+import { reviewsData as initialReviews } from "../../mockData/accountData";
 import type { Review, ReviewStatus } from "../../types/dashboard.type";
 
 const statusFilters: { label: string; value: ReviewStatus | "all" }[] = [

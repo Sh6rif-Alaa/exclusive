@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Package, ChevronRight } from "lucide-react";
-import type { Order } from "../../data/accountData";
+import type { Order } from "../../mockData/accountData";
 import StatusBadge from "./StatusBadge";
 
 const OrderCard = ({ order }: { order: Order }) => {

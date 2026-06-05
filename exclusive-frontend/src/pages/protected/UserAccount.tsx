@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { updateProfileSchema } from "../../schema/user/user.validation";
 import type { UpdateProfileType } from "../../schema/user/user.dto";
 import FormInput from "../../components/form/FormInput";
-import { profileInfoFields, passwordChangeFields } from "../../data/authFields";
+import { profileInfoFields, passwordChangeFields } from "../../schema/auth/authFields";
 import { useAppSelector } from "../../redux/store";
 
 const inputStyle =

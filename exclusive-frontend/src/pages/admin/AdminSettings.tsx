@@ -1,133 +1,28 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Store, Bell, Truck, Save, Check } from "lucide-react";
-import type { AdminSettings } from "../../types/dashboard.type";
+import type { IAdminSettings } from "../../types/dashboard.type";
+import { AdminSettingsData } from "../../mockData/dashboardData";
+import SectionCard from "../../components/dashboard/settings/SectionCard";
+import Field from "../../components/dashboard/settings/Field";
+import TextInput from "../../components/dashboard/settings/TextInput";
+import Toggle from "../../components/dashboard/settings/Toggle";
+import NumberInput from "../../components/dashboard/settings/NumberInput";
 
-// Mock
-
-const MOCK: AdminSettings = {
-  store: {
-    name: "Exclusive",
-    email: "support@exclusive.com",
-    phone: "+1 (555) 123-4567",
-    address: "123 Commerce Street, New York, NY 10001",
-    currency: "USD",
-    timezone: "America/New_York",
-  },
-  notifications: {
-    emailOnNewOrder: true,
-    emailOnLowStock: true,
-    emailOnNewUser: false,
-    lowStockThreshold: 5,
-  },
-  shipping: {
-    freeShippingThreshold: 100,
-    standardShippingFee: 9.99,
-    expressShippingFee: 24.99,
-  },
-};
-
-// Sub-components
-
-function SectionCard({ icon: Icon, title, description, children }: { icon: React.ElementType; title: string; description: string; children: React.ReactNode; }) {
-  return (
-    <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700">
-      <div className="flex items-start gap-3 px-5 py-4 border-b border-gray-100 dark:border-slate-700">
-        <div className="size-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-          <Icon size={17} className="text-primary" />
-        </div>
-        <div>
-          <h3 className="text-sm font-semibold text-gray-800 dark:text-white">{title}</h3>
-          <p className="text-xs text-gray-400 mt-0.5">{description}</p>
-        </div>
-      </div>
-      <div className="p-5 space-y-4">{children}</div>
-    </div>
-  );
-}
-
-function Field({ label, children }: { label: string; children: React.ReactNode; }) {
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 sm:items-center">
-      <label className="text-sm font-medium text-gray-600 dark:text-gray-400">{label}</label>
-      <div className="sm:col-span-2">{children}</div>
-    </div>
-  );
-}
-
-function TextInput({ value, onChange, placeholder }: { value: string; onChange: (v: string) => void; placeholder?: string; }) {
-  return (
-    <input
-      type="text"
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      placeholder={placeholder}
-      className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-slate-600 rounded-lg bg-gray-50 dark:bg-slate-700 text-gray-800 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/30"
-    />
-  );
-}
-
-function NumberInput({ value, onChange, min, step, prefix }: {
-  value: number; onChange: (v: number) => void; min?: number; step?: number; prefix?: string;
-}) {
-  return (
-    <div className="relative">
-      {prefix && (
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-400">
-          {prefix}
-        </span>
-      )}
-      <input
-        type="number"
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
-        min={min}
-        step={step}
-        className={`w-full ${prefix ? "pl-7" : "px-3"} pr-3 py-2 text-sm border border-gray-200 dark:border-slate-600 rounded-lg bg-gray-50 dark:bg-slate-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 number-spinner-hide`}
-      />
-    </div>
-  );
-}
-
-function Toggle({ value, onChange, label, description }: { value: boolean; onChange: (v: boolean) => void; label: string; description?: string; }) {
-  return (
-    <div className="flex items-center justify-between gap-4">
-      <div>
-        <p className="text-sm font-medium text-gray-700 dark:text-gray-300">{label}</p>
-        {description && (
-          <p className="text-xs text-gray-400 mt-0.5">{description}</p>
-        )}
-      </div>
-      <button
-        onClick={() => onChange(!value)}
-        className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors cursor-pointer shrink-0 ${value ? "bg-primary" : "bg-gray-200 dark:bg-slate-600"
-          }`}
-      >
-        <span
-          className={`inline-block size-4 rounded-full bg-white shadow-sm transition-transform ${value ? "translate-x-4.5" : "translate-x-0.5"
-            }`}
-        />
-      </button>
-    </div>
-  );
-}
-
-// Pag
-
-export default function AdminSettingsPage() {
-  const [settings, setSettings] = useState<AdminSettings | null>(null);
+const AdminSettings = () => {
+  const [settings, setSettings] = useState<IAdminSettings | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
     axios
-      .get<AdminSettings>("/api/admin/settings")
+      .get<IAdminSettings>("/api/admin/settings")
       .then((res) => {
         if (typeof res.data === "string") throw new Error("no json");
         setSettings(res.data);
       })
-      .catch(() => setSettings(MOCK))
+      .catch(() => setSettings(AdminSettingsData))
       .finally(() => setLoading(false));
   }, []);
 
@@ -145,9 +40,9 @@ export default function AdminSettingsPage() {
     }
   };
 
-  const set = <K extends keyof AdminSettings>(
+  const set = <K extends keyof IAdminSettings>(
     section: K,
-    key: keyof AdminSettings[K],
+    key: keyof IAdminSettings[K],
     value: unknown
   ) => {
     setSettings((prev) =>
@@ -338,3 +233,4 @@ export default function AdminSettingsPage() {
     </div>
   );
 }
+export default AdminSettings;

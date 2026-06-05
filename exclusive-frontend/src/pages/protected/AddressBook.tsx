@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Plus, X } from "lucide-react";
-import { addressesData as initialAddresses, type Address, type AddressKind, } from "../../data/accountData";
+import { addressesData as initialAddresses, type Address, type AddressKind, } from "../../mockData/accountData";
 import { addressSchema } from "../../schema/user/user.validation";
 import type { AddressFormType } from "../../schema/user/user.dto";
 import AddressCard from "../../components/account/AddressCard";
 import FormInput from "../../components/form/FormInput";
-import { addressFormFields } from "../../data/authFields";
+import { addressFormFields } from "../../schema/auth/authFields";
 
 const inputStyle =
     "w-full border border-gray-200 dark:border-gray-600 rounded-md p-3 bg-white dark:bg-gray-700 dark:text-white placeholder:text-gray-400 outline-none focus:border-primary transition-colors";

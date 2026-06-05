@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Breadcrumb from "../../shared/header/Breadcrumb";
-import { termsData } from "../../data/data";
+import { termsData } from "../../mockData/data";
 
 const Terms = () => {
     return (
@@ -24,10 +24,10 @@ const Terms = () => {
                 </div>
 
                 <div className="space-y-10">
-                    {termsData.map((section,index) => (
+                    {termsData.map((section, index) => (
                         <div key={index}>
                             <h2 className="text-2xl font-bold mb-4">
-                                {index+1}. {section.title}
+                                {index + 1}. {section.title}
                             </h2>
 
                             {section.content?.map((paragraph, index) => (
