@@ -7,7 +7,7 @@ import * as dbService from "../../DB/db.service"
 import userModel, { IUser } from "../../DB/models/user.model";
 import { AppError } from "../../common/utils/globalErrorHandler";
 import { Compare, Hash } from "../../common/utils/security/hash.security";
-import * as redisService from "../../common/services/redis.service";
+// import * as redisService from "../../common/services/redis.service";
 
 export const refreshToken = async (req: Request, res: Response, _next: NextFunction) => {
     const accessToken = generateToken({
