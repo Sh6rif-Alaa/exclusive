@@ -11,7 +11,7 @@ import { useAppDispatch } from "../../redux/store";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { signIn } from "../../redux/slice/authSlice";
-import LoadingButton from "../../components/loading/loadingButton";
+import LoadingButton from "../../components/loading/LoadingButton";
 
 const Login = () => {
     const dispatch = useAppDispatch()

@@ -6,13 +6,14 @@ import { logout } from "../../redux/slice/authSlice";
 import Image from "../../components/home/Image";
 import toast from "react-hot-toast";
 import { RotatingLines } from "react-loader-spinner";
+import type { IUser, Token } from "../../types/user.type";
 
 const Navbar = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate()
     const totalCartUnits = useAppSelector((state) => state.cart?.items?.length || 0);
     const totalWishlistUnits = useAppSelector((state) => state.wishlist?.items?.length || 0);
-    const { token, data: user, loading } = useAppSelector((state) => state.auth);
+    const { token, data: user, loading } = useAppSelector((state) => state.auth) as { token: Token, data: IUser, loading: boolean };
 
     const handleLogout = async () => {
         try {

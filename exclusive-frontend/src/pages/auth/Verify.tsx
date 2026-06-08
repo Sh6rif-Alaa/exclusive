@@ -12,8 +12,9 @@ import type { ErrorValidation, ErrorValidationType } from "../../types/errorVali
 import OtpInputField from "../../components/form/OtpInput";
 import Image from "../../components/home/Image";
 import authImage from "../../assets/images/capture_20260202183654141.bmp";
-import LoadingButton from "../../components/loading/loadingButton";
+import LoadingButton from "../../components/loading/LoadingButton";
 import { RotatingLines } from "react-loader-spinner";
+import type { emailType } from "../../types/user.type";
 
 const Verify = () => {
     // for resend button
@@ -21,8 +22,8 @@ const Verify = () => {
 
     // if signUp and want verfiy email
     const [searchParams] = useSearchParams();
-    const email = searchParams.get("email");
-    const type = searchParams.get("type");
+    const email = searchParams.get("email") as string;
+    const type = searchParams.get("type") as emailType;
 
     const navigate = useNavigate();
 

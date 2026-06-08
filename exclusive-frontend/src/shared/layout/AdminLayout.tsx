@@ -20,7 +20,7 @@ const AdminLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const user = useAppSelector((state) => state.auth.user);
+  const user = useAppSelector((state) => state.auth.data);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -95,13 +95,13 @@ const AdminLayout = () => {
           {user && (
             <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-gray-50 dark:bg-slate-700">
               <div className="size-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold uppercase shrink-0">
-                {user.name?.charAt(0) ?? "A"}
+                {user?.firstName?.charAt(0) ?? "A"}
               </div>
               <div className="min-w-0">
                 <p className="text-sm font-medium truncate dark:text-white">
-                  {user.name}
+                  {user?.firstName}
                 </p>
-                <p className="text-xs text-gray-400 truncate">{user.email}</p>
+                <p className="text-xs text-gray-400 truncate">{user?.email}</p>
               </div>
             </div>
           )}
@@ -130,7 +130,7 @@ const AdminLayout = () => {
             <p className="text-sm text-gray-500 dark:text-gray-400 hidden sm:block">
               Welcome back,{" "}
               <span className="font-semibold text-gray-800 dark:text-white">
-                {user?.name ?? "Admin"}
+                {user?.firstName ?? "Admin"}
               </span>
             </p>
           </div>

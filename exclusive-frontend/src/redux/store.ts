@@ -17,7 +17,7 @@ const preloadedState = {
   },
 
   auth: {
-    message: null,
+    message: "",
     data: loadFromStorage("user"),
     token: {
       accessToken: loadFromStorage("accessToken"),

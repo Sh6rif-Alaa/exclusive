@@ -11,7 +11,7 @@ import Image from "../../components/home/Image";
 import { resetPassword } from "../../redux/slice/authSlice";
 import toast from "react-hot-toast";
 import { clearResetFlow } from "../../redux/slice/authFlowSlice";
-import LoadingButton from "../../components/loading/loadingButton";
+import LoadingButton from "../../components/loading/LoadingButton";
 
 const ResetPassword = () => {
     const { email, otp } = useAppSelector((state) => state.authFlow);
@@ -65,7 +65,7 @@ const ResetPassword = () => {
                                 ))}
 
                                 <LoadingButton isSubmitting={isSubmitting} text="Reset Password" />
-                                
+
                                 <Link to="/login" className="block text-center mt-4 hover:text-primary transition-colors duration-300" > Back to Login </Link>
                             </form>
                         </div>

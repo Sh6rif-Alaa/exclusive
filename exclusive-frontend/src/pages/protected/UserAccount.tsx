@@ -8,15 +8,16 @@ import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { useEffect } from "react";
 import { getProfile, updateMyPassword, updateProfile } from "../../redux/slice/userSlice";
 import toast from "react-hot-toast";
-import LoadingButton from "../../components/loading/loadingButton";
+import LoadingButton from "../../components/loading/LoadingButton";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../redux/slice/authSlice";
+import type { IUser } from "../../types/user.type";
 
 const inputStyle =
     "w-full p-3 rounded-md bg-gray-100 dark:bg-gray-700 dark:text-white placeholder:text-gray-400 outline-none focus:ring-1 focus:ring-primary transition";
 
 const UserAccount = () => {
-    const user = useAppSelector((state) => state.user.data);
+    const user = useAppSelector((state) => state.user.data as IUser);
     const dispatch = useAppDispatch();
     const navigate = useNavigate()
 
@@ -52,7 +53,7 @@ const UserAccount = () => {
         getUser()
     }, [])
 
-    const onSubmit: SubmitHandler<UpdateProfileType> = async (data) => {
+    const onSubmit: SubmitHandler<UpdateProfileType> = async (data: UpdateProfileType) => {
         try {
             // if update Password
             if (data.currentPassword && data.newPassword && data.reNewPassword) {
@@ -73,7 +74,7 @@ const UserAccount = () => {
                     email: data.email,
                     userName: `${data.firstName} ${data.lastName}`,
                     address: data.address
-                })).unwrap()
+                })).unwrap() as { data: IUser }
                 reset({ firstName: res.firstName, lastName: res.lastName, email: res.email, address: res.address })
                 toast.success("Profile updated successfully")
             } else {

@@ -11,7 +11,7 @@ import { setResetEmail } from "../../redux/slice/authFlowSlice";
 import Image from "../../components/home/Image";
 import toast from "react-hot-toast";
 import { forgetPassword } from "../../redux/slice/authSlice";
-import LoadingButton from "../../components/loading/loadingButton";
+import LoadingButton from "../../components/loading/LoadingButton";
 
 const ForgotPassword = () => {
     const email = useAppSelector(state => state.authFlow.email)
@@ -33,7 +33,7 @@ const ForgotPassword = () => {
                 navigate("/verify");
                 return
             }
-            await dispatch(forgetPassword({ email: data.email})).unwrap()
+            await dispatch(forgetPassword({ email: data.email })).unwrap()
             dispatch(setResetEmail(data.email));
             toast.success("Code sent successfully");
             navigate("/verify");
