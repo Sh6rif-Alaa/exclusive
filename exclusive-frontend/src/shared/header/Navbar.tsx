@@ -7,8 +7,11 @@ import Image from "../../components/home/Image";
 import toast from "react-hot-toast";
 import { RotatingLines } from "react-loader-spinner";
 import type { IUser, Token } from "../../types/user.type";
+import { useState } from "react";
 
 const Navbar = () => {
+    const [userMenuOpen, setUserMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
     const dispatch = useAppDispatch();
     const navigate = useNavigate()
     const totalCartUnits = useAppSelector((state) => state.cart?.items?.length || 0);
@@ -53,10 +56,11 @@ const Navbar = () => {
 
                         {/* Mobile menu */}
                         <div className="md:hidden relative group">
-                            <button className="cursor-pointer hover:text-primary transition-colors">
+                            <button onClick={() => setMenuOpen(p => !p)}
+                                className="cursor-pointer hover:text-primary transition-colors">
                                 <Menu size={20} className="icon-hover" />
                             </button>
-                            <div className="absolute mt-2 top-full left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 group-hover:translate-y-0 translate-y-2">
+                            <div className={`absolute mt-2 top-full left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 group-hover:translate-y-0 translate-y-2 ${menuOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2"}`}>
                                 <ul className="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl flex flex-col mt-2 [&_a]:px-5 [&_a]:py-3 [&_a]:hover:bg-white/10 [&_a]:transition-colors [&_a]:border-none! [&_a]:hover:text-primary">
                                     <NavLink to="/" className="border-b border-white/10 first:rounded-t-lg">Home</NavLink>
                                     <NavLink to="/contact-us" className="border-b border-white/10">Contact</NavLink>
@@ -87,11 +91,12 @@ const Navbar = () => {
 
                         {/* User menu */}
                         <div className="relative group">
-                            <button className="size-9 bg-primary rounded-full flex justify-center items-center cursor-pointer hover:bg-red-600 transition-colors">
+                            <button onClick={() => setUserMenuOpen(prev => !prev)}
+                                className="size-9 bg-primary rounded-full flex justify-center items-center cursor-pointer hover:bg-red-600 transition-colors">
                                 <User color="#ffffff" size={20} className="icon-hover" />
                             </button>
 
-                            <div className="absolute right-0 top-full mt-2 w-56 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-20 transform group-hover:translate-y-0 translate-y-2">
+                            <div className={`absolute right-0 top-full mt-2 w-56 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-20 transform group-hover:translate-y-0 translate-y-2 ${userMenuOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2"} `}>
                                 <ul className="py-2 text-sm text-white rounded-lg shadow-2xl bg-linear-to-br from-menu via-menu2 to-black border border-white/20 backdrop-blur-xl [&_li]:px-4 [&_li]:py-3 [&_li]:hover:bg-white/10 [&_li]:cursor-pointer [&_li]:flex [&_li]:items-center [&_li]:gap-3 [&_li]:transition-colors [&_li]:hover:text-primary">
                                     {token?.accessToken ? (
                                         <>
