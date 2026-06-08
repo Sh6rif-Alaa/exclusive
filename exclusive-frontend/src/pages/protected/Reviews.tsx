@@ -9,7 +9,7 @@ import { reviewSchema } from "../../schema/user/user.validation";
 import type { ReviewFormType } from "../../schema/user/user.dto";
 import ReviewCard from "../../components/account/ReviewCard";
 import FormTextarea from "../../components/form/FormTextarea";
-import LoadingButton from "../../components/loading/loadingButton";
+import LoadingButton from "../../components/loading/LoadingButton";
 
 const statusFilters: { label: string; value: ReviewStatus | "all" }[] = [
     { label: "All", value: "all" },

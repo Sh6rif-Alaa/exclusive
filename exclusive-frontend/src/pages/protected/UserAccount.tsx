@@ -43,8 +43,8 @@ const UserAccount = () => {
         const getUser = async () => {
             if (!user) {
                 try {
-                    const { data } = await dispatch(getProfile()).unwrap()
-                    reset({ firstName: data.firstName, lastName: data.lastName, email: data.email, address: data.address[0] })
+                    const { data } = await dispatch(getProfile()).unwrap() as { data: IUser }
+                    reset({ firstName: data.firstName, lastName: data.lastName, email: data.email, address: data?.address ?? "" })
                 } catch (error) {
                     toast.error(error as string)
                 }
@@ -73,9 +73,9 @@ const UserAccount = () => {
                 const { data: res } = await dispatch(updateProfile({
                     email: data.email,
                     userName: `${data.firstName} ${data.lastName}`,
-                    address: data.address
+                    address: data.address ?? ""
                 })).unwrap() as { data: IUser }
-                reset({ firstName: res.firstName, lastName: res.lastName, email: res.email, address: res.address })
+                reset({ firstName: res.firstName, lastName: res.lastName, email: res.email, address: res?.address ?? "" })
                 toast.success("Profile updated successfully")
             } else {
                 toast.error("Please provide new data")

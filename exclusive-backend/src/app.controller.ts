@@ -13,7 +13,7 @@ import * as redisService from './common/services/redis.service'
 
 const port = Number(env.PORT)
 
-const app: Application = express()
+// const app: Application = express()
 
 const limiter = rateLimit({
     windowMs: 60 * 5 * 1000,
@@ -24,7 +24,7 @@ const limiter = rateLimit({
     },
 })
 
-const bootstrap = async () => {
+const bootstrap = async (app: Application) => {
     app.use(express.json(), helmet(), cors(), limiter)
 
     await connectDB()

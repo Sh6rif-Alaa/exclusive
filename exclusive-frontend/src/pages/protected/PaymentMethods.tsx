@@ -10,7 +10,7 @@ import FormInput from "../../components/form/FormInput";
 import { paymentCardFields } from "../../schema/auth/authFields";
 import type { PaymentMethod } from "../../types/dashboard.type";
 import { detectCardType } from "../../helpers/detectCard.helper";
-import LoadingButton from "../../components/loading/loadingButton";
+import LoadingButton from "../../components/loading/LoadingButton";
 
 const inputStyle =
     "w-full border border-gray-200 dark:border-gray-600 rounded-md p-3 bg-white dark:bg-gray-700 dark:text-white placeholder:text-gray-400 outline-none focus:border-primary transition-colors";

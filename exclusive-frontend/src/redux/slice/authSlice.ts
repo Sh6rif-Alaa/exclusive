@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { forgetPasswordApi, logoutApi, reSendOtpApi, resetPasswordApi, signInApi, signUpApi, verifyEmailApi } from "../../api/auth.api";
 import { createAsyncThunkWithError } from "../../helpers/errorHandler";
-import type { AuthState } from "../../types/user.type";
+import type { AuthState, IUser, Token } from "../../types/user.type";
 
 export interface LoadingErrorState {
     loading: boolean;
@@ -88,8 +88,8 @@ const authSlice = createSlice({
 
             // logout
             .addCase(logout.fulfilled, (state) => {
-                state.token = null;
-                state.data = null;
+                state.token = {} as Token;
+                state.data = {} as IUser;
                 state.loading = false;
                 state.error = null;
             })

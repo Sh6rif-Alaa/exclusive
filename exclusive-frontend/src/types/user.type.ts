@@ -21,11 +21,11 @@ export interface Token {
 
 export interface AuthState {
   message: string;
-  data: IUser;
-  token: Token;
+  data: IUser | null;
+  token: Token | null;
 }
 
 export interface userState {
   message: string;
-  data: IUser;
+  data: IUser | null;
 }
