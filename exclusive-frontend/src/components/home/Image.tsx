@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { MoonLoader } from "react-spinners";
+import { MagnifyingGlass } from "react-loader-spinner";
 
 interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src" | "alt"> {
     src: string;
@@ -35,10 +35,19 @@ const Image = ({
     const resolvedFetchPriority = fetchPriority ?? (lazy ? "low" : "high");
 
     return (
-        <div className="relative inline-block">
+        <div className="relative block">
             {skeleton && (
                 <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
-                    <MoonLoader color="#db4444" />
+                    <MagnifyingGlass
+                        visible={true}
+                        height="80"
+                        width="80"
+                        ariaLabel="magnifying-glass-loading"
+                        wrapperStyle={{}}
+                        wrapperClass="magnifying-glass-wrapper"
+                        glassColor="#c0efff"
+                        color="#e15b64"
+                    />
                 </div>
             )}
             <img

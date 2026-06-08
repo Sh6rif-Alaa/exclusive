@@ -122,11 +122,11 @@
         {
           "name": "verifyEmail",
           "request": {
-            "method": "PATCH",
+            "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"email\": \"sherefalex34@gmail.com\",\r\n    \"otp\": \"283022\"\r\n}",
+              "raw": "{\r\n    \"email\": \"sherefalex34@gmail.com\",\r\n    \"otp\": \"243650\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -151,7 +151,7 @@
         {
           "name": "forget-password",
           "request": {
-            "method": "PATCH",
+            "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
@@ -172,6 +172,32 @@
                 "v1",
                 "auth",
                 "forget-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{prefix}}{{accessToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{local_url}}/api/v1/auth/logout",
+              "host": [
+                "{{local_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "logout"
               ]
             }
           },

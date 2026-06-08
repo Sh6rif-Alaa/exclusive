@@ -19,10 +19,10 @@
     "react-dom": "^19.2.6",
     "react-hook-form": "^7.77.0",
     "react-hot-toast": "^2.6.0",
+    "react-loader-spinner": "^8.0.2",
     "react-redux": "^9.3.0",
     "react-router-dom": "^7.16.0",
     "react-simple-star-rating": "^5.1.7",
-    "react-spinners": "^0.17.0",
     "recharts": "^3.8.1",
     "swiper": "^12.2.0",
     "zod": "^4.4.3"

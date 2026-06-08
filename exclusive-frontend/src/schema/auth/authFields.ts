@@ -54,7 +54,7 @@ export const profileInfoFields = [
 export const passwordChangeFields = [
     { name: "currentPassword", type: "password", placeholder: "Current Password" },
     { name: "newPassword", type: "password", placeholder: "New Password" },
-    { name: "confirmPassword", type: "password", placeholder: "Confirm New Password" },
+    { name: "reNewPassword", type: "password", placeholder: "Confirm New Password" },
 ] as const;
 
 //  Checkout / Billing 

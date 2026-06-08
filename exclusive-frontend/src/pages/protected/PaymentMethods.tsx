@@ -10,6 +10,7 @@ import FormInput from "../../components/form/FormInput";
 import { paymentCardFields } from "../../schema/auth/authFields";
 import type { PaymentMethod } from "../../types/dashboard.type";
 import { detectCardType } from "../../helpers/detectCard.helper";
+import LoadingButton from "../../components/loading/loadingButton";
 
 const inputStyle =
     "w-full border border-gray-200 dark:border-gray-600 rounded-md p-3 bg-white dark:bg-gray-700 dark:text-white placeholder:text-gray-400 outline-none focus:border-primary transition-colors";
@@ -96,9 +97,7 @@ const PaymentMethods = () => {
                         ))}
                     </div>
 
-                    <button type="submit" disabled={isSubmitting} className="bg-primary text-white px-8 py-2.5 rounded hover:bg-red-600 transition-colors text-sm font-medium disabled:opacity-50 cursor-pointer">
-                        {isSubmitting ? "Saving…" : "Save Card"}
-                    </button>
+                    <LoadingButton isSubmitting={isSubmitting} text="Save Card" />
                 </form>
             )}
 

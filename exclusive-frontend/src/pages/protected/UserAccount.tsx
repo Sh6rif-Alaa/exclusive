@@ -4,13 +4,21 @@ import { updateProfileSchema } from "../../schema/user/user.validation";
 import type { UpdateProfileType } from "../../schema/user/user.dto";
 import FormInput from "../../components/form/FormInput";
 import { profileInfoFields, passwordChangeFields } from "../../schema/auth/authFields";
-import { useAppSelector } from "../../redux/store";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { useEffect } from "react";
+import { getProfile, updateMyPassword, updateProfile } from "../../redux/slice/userSlice";
+import toast from "react-hot-toast";
+import LoadingButton from "../../components/loading/loadingButton";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../../redux/slice/authSlice";
 
 const inputStyle =
     "w-full p-3 rounded-md bg-gray-100 dark:bg-gray-700 dark:text-white placeholder:text-gray-400 outline-none focus:ring-1 focus:ring-primary transition";
 
 const UserAccount = () => {
-    const user = useAppSelector((state) => state.auth.user);
+    const user = useAppSelector((state) => state.user.data);
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate()
 
     const {
         register,
@@ -20,19 +28,60 @@ const UserAccount = () => {
     } = useForm<UpdateProfileType>({
         resolver: zodResolver(updateProfileSchema),
         defaultValues: {
-            firstName: user?.name?.split(" ")[0] ?? "",
-            lastName: user?.name?.split(" ")[1] ?? "",
+            firstName: user?.firstName ?? "",
+            lastName: user?.lastName ?? "",
             email: user?.email ?? "",
-            address: "",
+            address: user?.address ?? "",
             currentPassword: "",
             newPassword: "",
-            confirmPassword: "",
+            reNewPassword: "",
         },
     });
 
+    useEffect(() => {
+        const getUser = async () => {
+            if (!user) {
+                try {
+                    const { data } = await dispatch(getProfile()).unwrap()
+                    reset({ firstName: data.firstName, lastName: data.lastName, email: data.email, address: data.address[0] })
+                } catch (error) {
+                    toast.error(error as string)
+                }
+            }
+        }
+        getUser()
+    }, [])
+
     const onSubmit: SubmitHandler<UpdateProfileType> = async (data) => {
-        console.log("Profile update:", data);
-        // TODO: API  PUT /users/profile  { firstName, lastName, email, address, ...passwordFields }
+        try {
+            // if update Password
+            if (data.currentPassword && data.newPassword && data.reNewPassword) {
+                await dispatch(updateMyPassword({
+                    currentPassword: data.currentPassword,
+                    newPassword: data.newPassword,
+                    reNewPassword: data.reNewPassword
+                })).unwrap()
+                reset({ newPassword: "", currentPassword: "", reNewPassword: "" })
+                toast.success("New password updated successfully, please login again")
+                await dispatch(logout()).unwrap()
+                navigate("/login")
+            }
+
+            // if change data and update profile
+            else if (data.email !== user?.email || data.firstName !== user?.firstName || data.lastName !== user?.lastName || data.address !== user?.address) {
+                const { data: res } = await dispatch(updateProfile({
+                    email: data.email,
+                    userName: `${data.firstName} ${data.lastName}`,
+                    address: data.address
+                })).unwrap()
+                reset({ firstName: res.firstName, lastName: res.lastName, email: res.email, address: res.address })
+                toast.success("Profile updated successfully")
+            } else {
+                toast.error("Please provide new data")
+            }
+        } catch (error) {
+            toast.error(error as string)
+        }
     };
 
     return (
@@ -40,7 +89,7 @@ const UserAccount = () => {
             <h2 className="font-semibold text-lg text-primary mb-6">Edit Your Profile</h2>
 
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
-                {/*  Personal info (2-col grid)  */}
+                {/*  Personal info  */}
                 <div className="grid sm:grid-cols-2 gap-x-8 mb-2">
                     {profileInfoFields.map((field) => (
                         <div key={field.name}>
@@ -88,12 +137,7 @@ const UserAccount = () => {
                         className="shadow-md text-gray-700 dark:text-gray-300 px-8 py-3 rounded-sm hover:bg-primary hover:text-white transition-colors duration-300 font-medium cursor-pointer">
                         Cancel
                     </button>
-                    <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="bg-primary text-white px-10 py-3 rounded-sm hover:bg-red-600 transition-colors duration-300 font-medium disabled:opacity-50 cursor-pointer">
-                        {isSubmitting ? "Saving…" : "Save Changes"}
-                    </button>
+                    <LoadingButton isSubmitting={isSubmitting} text="Save Changes" />
                 </div>
             </form>
         </div>

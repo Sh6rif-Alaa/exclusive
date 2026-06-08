@@ -9,7 +9,7 @@ import Image from "./Image";
 
 const ProductCard = ({ id, title, newPrice, oldPrice, image, discount, rating, review, colors }: ProductCardProps) => {
     const dispatch = useAppDispatch();
-    const isWishlisted = useAppSelector((state) => state.wishlist.items.some((item) => item.id === id));
+    const isWishlisted = useAppSelector((state) => state.wishlist?.items?.some((item) => item.id === id) || 0);
 
     return (
         <>

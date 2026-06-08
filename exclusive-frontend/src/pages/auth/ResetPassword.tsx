@@ -5,15 +5,19 @@ import authImage from "../../assets/images/capture_20260202183654141.bmp";
 import FormInput from "../../components/form/FormInput";
 import { resetPasswordFields } from "../../schema/auth/authFields";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { clearResetFlow } from "../../redux/slice/authFlowSlice";
 import type { resetPasswordType } from "../../schema/auth/auth.dto";
 import { resetPasswordSchema } from "../../schema/auth/auth.validation";
 import Image from "../../components/home/Image";
+import { resetPassword } from "../../redux/slice/authSlice";
+import toast from "react-hot-toast";
+import { clearResetFlow } from "../../redux/slice/authFlowSlice";
+import LoadingButton from "../../components/loading/loadingButton";
 
 const ResetPassword = () => {
+    const { email, otp } = useAppSelector((state) => state.authFlow);
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const { email, otp } = useAppSelector((state) => state.authFlow);
+
     const {
         register,
         handleSubmit,
@@ -27,15 +31,14 @@ const ResetPassword = () => {
     }
 
     const onSubmit: SubmitHandler<any> = async (data) => {
-        const payload = {
-            email,
-            otp,
-            password: data.password,
-            cPassword: data.cPassword,
-        };
-        console.log(payload);
-        dispatch(clearResetFlow());
-        navigate("/login");
+        try {
+            await dispatch(resetPassword({ email, otp, password: data.password, cPassword: data.cPassword })).unwrap()
+            dispatch(clearResetFlow())
+            toast.success("Password reset successfully, please login");
+            navigate("/login");
+        } catch (error) {
+            toast.error(error as string);
+        }
     };
 
     return (
@@ -61,10 +64,8 @@ const ResetPassword = () => {
                                     />
                                 ))}
 
-                                <button type="submit" disabled={isSubmitting} className="bg-primary text-white w-full py-4 cursor-pointer hover:bg-primary/80 transition-colors duration-300" >
-                                    {isSubmitting ? "Resetting..." : "Reset Password"}
-                                </button>
-
+                                <LoadingButton isSubmitting={isSubmitting} text="Reset Password" />
+                                
                                 <Link to="/login" className="block text-center mt-4 hover:text-primary transition-colors duration-300" > Back to Login </Link>
                             </form>
                         </div>

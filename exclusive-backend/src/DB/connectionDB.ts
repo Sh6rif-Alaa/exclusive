@@ -3,7 +3,7 @@ import env from "../config/config.service";
 
 export const connectDB = async (): Promise<void> => {
     try {
-        await mongoose.connect(env.DB_URI_ONLINE, { serverSelectionTimeoutMS: 5000 })
+        await mongoose.connect(env.DB_URI, { serverSelectionTimeoutMS: 5000 })
         console.log("Database connected successfully")
     } catch (error: any) {
         console.log(error.message)

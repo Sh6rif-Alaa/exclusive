@@ -9,6 +9,7 @@ import { reviewSchema } from "../../schema/user/user.validation";
 import type { ReviewFormType } from "../../schema/user/user.dto";
 import ReviewCard from "../../components/account/ReviewCard";
 import FormTextarea from "../../components/form/FormTextarea";
+import LoadingButton from "../../components/loading/loadingButton";
 
 const statusFilters: { label: string; value: ReviewStatus | "all" }[] = [
     { label: "All", value: "all" },
@@ -129,9 +130,7 @@ const Reviews = () => {
                         />
 
                         <div className="flex gap-3 mt-4">
-                            <button type="submit" disabled={isSubmitting} className="bg-primary text-white px-6 py-2 rounded hover:bg-red-600 transition-colors text-sm font-medium disabled:opacity-50 cursor-pointer">
-                                {isSubmitting ? "Saving…" : "Save Review"}
-                            </button>
+                            <LoadingButton isSubmitting={isSubmitting} text="Save Review" />
                             <button type="button" onClick={handleCancel} className="border border-gray-300 dark:border-gray-600 px-6 py-2 rounded hover:border-primary hover:text-primary transition-colors text-sm cursor-pointer">
                                 Cancel
                             </button>

@@ -2,7 +2,7 @@ import type { NextFunction, Request, Response } from "express";
 import successResponse from "../../common/utils/response.success";
 import { AppError } from "../../common/utils/globalErrorHandler";
 import { Compare, Hash } from "../../common/utils/security/hash.security";
-import { signUpType, signInType, verifyEmailType, forgetPasswordType, resetPasswordType } from "./auth.dto";
+import { signUpType, signInType, verifyEmailType, forgetPasswordType, resetPasswordType, reSendOtpType } from "./auth.dto";
 import { create, findOne, findOneAndUpdate } from "../../DB/db.service";
 import userModel, { IUser } from "../../DB/models/user.model";
 import { generateOTP, sendEmail } from "../../common/utils/email/send.email";
@@ -80,6 +80,7 @@ const sendEmailOtp = async ({ email, userName, subject }: { email: string, userN
                     : "Verify Your Email - exclusive",
 
             html: emailTemplate({
+                email,
                 userName,
                 otp: OTP,
                 type: subject
@@ -90,7 +91,7 @@ const sendEmailOtp = async ({ email, userName, subject }: { email: string, userN
 
 // route handlers
 export const signUp = async (req: Request, res: Response, _next: NextFunction) => {
-    const { userName, email, password}: signUpType = req.body
+    const { userName, email, password }: signUpType = req.body
 
     const existingUser = await findOne<IUser>({ filter: { email }, model: userModel })
     if (existingUser) throw new AppError("user already exist", 409)
@@ -114,7 +115,19 @@ export const signIn = async (req: Request, res: Response, _next: NextFunction) =
 
     const { accessToken, refreshToken } = getTokens(user._id)
 
-    successResponse({ res, message: 'user logged in successfully', token: { accessToken, refreshToken } })
+    successResponse({
+        res,
+        data: {
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            role: user.role,
+            address: user.address,
+            profilePicture: user.profilePicture
+        },
+        message: 'user logged in successfully',
+        token: { accessToken, refreshToken }
+    })
 }
 
 export const signUpWithGmail = async (req: Request, res: Response, _next: NextFunction) => {
@@ -147,10 +160,11 @@ export const signUpWithGmail = async (req: Request, res: Response, _next: NextFu
 }
 
 export const verifyEmail = async (req: Request, res: Response, _next: NextFunction) => {
+    const { type } = req.query as { type: emailEnum }
     const { email, otp }: verifyEmailType = req.body
 
     const otpDb = await redisService.getValue(
-        redisService.otpKey({ email, subject: emailEnum.confirmEmail })
+        redisService.otpKey({ email, subject: type })
     )
 
     if (!otpDb) throw new AppError("otp expired or not found", 400)
@@ -166,11 +180,13 @@ export const verifyEmail = async (req: Request, res: Response, _next: NextFuncti
 
     if (!user) throw new AppError("user not exist", 404)
 
-    await redisService.del([
-        redisService.otpKey({ email, subject: emailEnum.confirmEmail }),
-        redisService.maxOtpKey({ email, subject: emailEnum.confirmEmail }),
-        redisService.blockedOtpKey({ email, subject: emailEnum.confirmEmail })
-    ])
+    if (type === emailEnum.confirmEmail) {
+        await redisService.del([
+            redisService.otpKey({ email, subject: type }),
+            redisService.maxOtpKey({ email, subject: type }),
+            redisService.blockedOtpKey({ email, subject: type })
+        ])
+    }
 
     successResponse({ res, message: "email verified successfully" })
 }
@@ -221,16 +237,36 @@ export const resetPassword = async (req: Request, res: Response, _next: NextFunc
 }
 
 export const reSendOtp = async (req: Request, res: Response, _next: NextFunction) => {
-    const { email }: forgetPasswordType = req.body
+    const { type } = req.query as { type: emailEnum }
+    const { email }: reSendOtpType = req.body
 
     const user = await findOne<IUser>({
-        filter: { email, confirmed: { $exists: false }, provider: ProviderEnum.system },
+        filter: { email, confirmed: { $exists: type === emailEnum.forgetPassword ? true : false }, provider: ProviderEnum.system },
         model: userModel
     })
 
     if (!user) throw new AppError("user not exist", 404)
 
-    await sendEmailOtp({ email, userName: user.userName, subject: emailEnum.confirmEmail })
+    await sendEmailOtp({ email, userName: user.userName, subject: type })
 
     successResponse({ res, message: "otp sent successfully" })
+}
+
+export const logout = async (req: Request, res: Response, _next: NextFunction) => {
+    const { flag } = req.query
+
+    if (flag === 'all') {
+        req.user!.changeCredential = new Date()
+        await req.user!.save()
+
+        await redisService.del(await redisService.keys(redisService.revoke_key({ userId: req.user!._id, jti: req.decode!.jti! })))
+    } else {
+        await redisService.setValue({
+            key: redisService.revoke_key({ userId: req.user!._id, jti: req.decode!.jti! }),
+            value: `${req.decode!.jti}`,
+            ttl: req.decode!.exp! - Math.floor(Date.now() / 1000)
+        })
+    }
+
+    successResponse({ res })
 }

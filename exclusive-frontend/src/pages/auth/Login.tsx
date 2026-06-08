@@ -7,8 +7,16 @@ import { signInSchema } from "../../schema/auth/auth.validation";
 import type { signInType } from "../../schema/auth/auth.dto";
 import { signInFields } from "../../schema/auth/authFields";
 import Image from "../../components/home/Image";
+import { useAppDispatch } from "../../redux/store";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { signIn } from "../../redux/slice/authSlice";
+import LoadingButton from "../../components/loading/loadingButton";
 
 const Login = () => {
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
+
     const {
         register,
         handleSubmit,
@@ -22,9 +30,13 @@ const Login = () => {
     });
 
     const onSubmit: SubmitHandler<signInType> = async (data) => {
-        console.log(data);
-
-        // await loginMutation.mutateAsync(data);
+        try {
+            await dispatch(signIn({ email: data.email, password: data.password })).unwrap();
+            toast.success("Login success");
+            navigate("/");
+        } catch (error) {
+            toast.error(error as string);
+        }
     };
 
     return (
@@ -53,13 +65,13 @@ const Login = () => {
                                     />
                                 ))}
 
-                                <div className="my-8 flex justify-between items-center">
-                                    <button type="submit" disabled={isSubmitting} className="bg-primary text-white px-8 py-3 disabled:opacity-50 cursor-pointer hover:bg-primary/80 transition-colors duration-300">
-                                        {isSubmitting ? "Logging In..." : "Log In"}
-                                    </button>
+                                <div className="my-8 flex justify-between items-center gap-2">
+                                    <LoadingButton isSubmitting={isSubmitting} text="Log In" />
 
-                                    <Link to="/forget-password" className="hover:text-primary transition-colors duration-300">Forget Password?</Link>
+                                    <Link to="/forget-password" className="hover:text-primary transition-colors duration-300 text-right">Forget Password?</Link>
                                 </div>
+
+                                <p className="text-center text-md">don't have an account? <Link to="/register" className="hover:text-primary transition-colors duration-300 font-semibold"> register</Link></p>
                             </form>
                         </div>
                     </div>

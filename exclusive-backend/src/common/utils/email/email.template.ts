@@ -1,6 +1,4 @@
-export const emailTemplate = ({ userName = "User", otp, type = "confirmEmail" }: { userName?: string | undefined, otp: string, type?: string | undefined }) => {
-
-  const isForget = type === "forgetPassword"
+export const emailTemplate = ({ email, userName = "User", otp, type = "confirmEmail" }: { email?: string, userName?: string | undefined, otp: string, type?: string | undefined }) => {
 
   return `
   <!DOCTYPE html>
@@ -12,7 +10,7 @@ export const emailTemplate = ({ userName = "User", otp, type = "confirmEmail" }:
       <h2>Hello ${userName}</h2>
 
       <p>
-        ${isForget
+        ${type === "forgetPassword"
       ? "You requested to reset your password. Use the code below:"
       : "Use the following code to verify your email:"
     }
@@ -23,13 +21,22 @@ export const emailTemplate = ({ userName = "User", otp, type = "confirmEmail" }:
       </h1>
 
       <p>
-        ${isForget
+        ${type === "forgetPassword"
       ? "If you didn’t request a password reset, you can ignore this email."
       : "This code is valid for a limited time."
     }
       </p>
 
       <hr/>
+
+      <a href=${`http://localhost:5173/verify${type === "confirmEmail" ? `?email=${email}&type=confirmEmail` : ''}`} target="_blank">
+      <button style="color: #fff; background-color: #db4444; border-color: #db4444; padding: 10px 20px; border-radius: 5px; cursor: pointer; border: none;">
+        ${type === "forgetPassword"
+      ? "Reset Password"
+      : "Verify Email"
+    }
+      </button>
+      </a>
 
       <p style="font-size:12px; color:#999;">
         exclusive Security System

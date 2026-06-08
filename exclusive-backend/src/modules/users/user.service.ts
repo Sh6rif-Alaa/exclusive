@@ -7,13 +7,14 @@ import * as dbService from "../../DB/db.service"
 import userModel, { IUser } from "../../DB/models/user.model";
 import { AppError } from "../../common/utils/globalErrorHandler";
 import { Compare, Hash } from "../../common/utils/security/hash.security";
+import * as redisService from "../../common/services/redis.service";
 
 export const refreshToken = async (req: Request, res: Response, _next: NextFunction) => {
     const accessToken = generateToken({
         payload: { id: req.user?._id! },
         secret_key: env.TOKEN_KEY,
         options: {
-            expiresIn: "3m",
+            expiresIn: "10m",
             jwtid: randomUUID()
         }
     })
@@ -22,11 +23,21 @@ export const refreshToken = async (req: Request, res: Response, _next: NextFunct
 }
 
 export const getMyProfile = async (req: Request, res: Response, _next: NextFunction) => {
-    successResponse({ res, data: req.user })
+    successResponse({
+        res,
+        data: {
+            firstName: req.user!.firstName,
+            lastName: req.user!.lastName,
+            email: req.user!.email,
+            role: req.user!.role,
+            address: req.user!.address,
+            profilePicture: req.user!.profilePicture
+        },
+    })
 }
 
 export const updateMyProfile = async (req: Request, res: Response, _next: NextFunction) => {
-    const { firstName, lastName, email, defaultAddressId, address } = req.body
+    const { firstName, lastName, email, address } = req.body
 
     if (email && email !== req.user!.email) {
         const user = await dbService.findOne({ filter: { email }, model: userModel })
@@ -36,7 +47,8 @@ export const updateMyProfile = async (req: Request, res: Response, _next: NextFu
     const updateFields: Partial<IUser> = {
         firstName: firstName || req.user!.firstName,
         lastName: lastName || req.user!.lastName,
-        email: email || req.user!.email
+        email: email || req.user!.email,
+        address: address || req.user!.address
     }
 
     // // find and update defualt address
@@ -56,7 +68,17 @@ export const updateMyProfile = async (req: Request, res: Response, _next: NextFu
         model: userModel
     })
 
-    successResponse({ res, data: updatedUser })
+    successResponse({
+        res,
+        data: {
+            firstName: updatedUser!.firstName,
+            lastName: updatedUser!.lastName,
+            email: updatedUser!.email,
+            role: updatedUser!.role,
+            address: updatedUser!.address,
+            profilePicture: updatedUser!.profilePicture
+        },
+    })
 }
 
 export const updateMyPassword = async (req: Request, res: Response, _next: NextFunction) => {
@@ -78,6 +100,7 @@ export const updateMyPassword = async (req: Request, res: Response, _next: NextF
 }
 
 export const deleteMyProfile = async (req: Request, res: Response, _next: NextFunction) => {
+    // soft delete
     await dbService.findOneAndUpdate({
         filter: { _id: req.user?._id },
         update: { deletedAt: new Date() },

@@ -27,11 +27,6 @@ export const connect = async () => {
     console.log('redis connected Successfully')
 }
 
-// redis keys
-export const revokeKey = ({ userId, jti }: { userId: Types.ObjectId, jti?: string }) => {
-    return `revoke_token::${userId}::${jti}`;
-}
-
 export const getRevokeKey = (userId: Types.ObjectId) => {
     return `revoke_token::${userId}`;
 }
@@ -50,6 +45,10 @@ export const maxOtpKey = ({ email, subject = emailEnum.confirmEmail }: OTPParams
 
 export const blockedOtpKey = ({ email, subject = emailEnum.confirmEmail }: OTPParams) => {
     return `otp_blocked::${subject}::${email}`;
+}
+
+export const revoke_key = ({ userId, jti }: { userId: Types.ObjectId | string, jti: string }) => {
+    return `revoke_token::${userId}::${jti}`
 }
 
 // redis services

@@ -7,10 +7,16 @@ import FormInput from "../../components/form/FormInput";
 import { signUpFields } from "../../schema/auth/authFields";
 import authImage from "../../assets/images/capture_20260202183654141.bmp";
 import Image from "../../components/home/Image";
-
-
+import { useAppDispatch } from "../../redux/store";
+import { signUp } from "../../redux/slice/authSlice";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import LoadingButton from "../../components/loading/loadingButton";
 
 const SignUp = () => {
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
+
     const {
         register,
         handleSubmit,
@@ -26,9 +32,13 @@ const SignUp = () => {
     });
 
     const onSubmit: SubmitHandler<signUpType> = async (data) => {
-        console.log(data);
-
-        // await signUpMutation.mutateAsync(data);
+        try {
+            await dispatch(signUp(data)).unwrap();
+            toast.success("email sent successfully, please verify your email to login");
+            navigate(`/verify?email=${data.email}&type=confirmEmail`);
+        } catch (error) {
+            toast.error(error as string);
+        }
     };
 
     return (
@@ -55,9 +65,7 @@ const SignUp = () => {
                                     />
                                 ))}
 
-                                <button type="submit" disabled={isSubmitting} className="bg-primary w-full text-white py-5 disabled:opacity-50 cursor-pointer hover:bg-primary/80 transition-colors duration-300">
-                                    {isSubmitting ? "Creating Account..." : "Create Account"}
-                                </button>
+                                <LoadingButton isSubmitting={isSubmitting} text="Sign Up" classess="w-full" />
 
                                 <button type="button" className="border-2 w-full py-5 my-5 cursor-pointer hover:bg-primary hover:text-white transition-colors duration-300">Sign up with Google</button>
                             </form>

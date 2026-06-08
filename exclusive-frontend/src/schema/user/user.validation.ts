@@ -8,9 +8,9 @@ export const updateProfileSchema = z.object({
     address: z.string().optional(),
     currentPassword: z.string().optional(),
     newPassword: z.string().optional(),
-    confirmPassword: z.string().optional(),
+    reNewPassword: z.string().optional(),
 }).superRefine((data, ctx) => {
-    const changing = data.newPassword || data.confirmPassword;
+    const changing = data.newPassword || data.reNewPassword;
     if (!changing) return;
 
     if (!data.currentPassword) {
@@ -27,11 +27,11 @@ export const updateProfileSchema = z.object({
             path: ["newPassword"],
         });
     }
-    if (data.newPassword !== data.confirmPassword) {
+    if (data.newPassword !== data.reNewPassword) {
         ctx.addIssue({
             code: "custom",
             message: "Passwords do not match",
-            path: ["confirmPassword"],
+            path: ["reNewPassword"],
         });
     }
 }).strict();;

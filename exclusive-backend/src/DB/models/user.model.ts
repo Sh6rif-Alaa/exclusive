@@ -8,7 +8,8 @@ export interface IUser {
     email: string
     password: string
     confirmed?: boolean
-    address?: Types.ObjectId[] | undefined
+    // address?: Types.ObjectId[] | undefined
+    address?: string
     defaultAddressId?: Types.ObjectId | undefined
     role: RoleEnum
     provider: ProviderEnum
@@ -66,7 +67,8 @@ const userSchema = new mongoose.Schema<IUser>({
         public_id: String,
         secure_url: String
     },
-    address: [{ type: Types.ObjectId, ref: 'Address' }],
+    // address: [{ type: Types.ObjectId, ref: 'Address' }],
+    address: String,
     defaultAddressId: { type: Types.ObjectId, ref: 'Address' },
     confirmed: Boolean,
     changeCredential: Date,

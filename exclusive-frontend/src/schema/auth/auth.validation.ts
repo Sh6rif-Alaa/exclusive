@@ -1,11 +1,10 @@
 import * as z from 'zod'
 
 // signIn schema
-export const signInSchema =
-    z.object({
-        email: z.email(),
-        password: z.string().min(6, 'password must be at least 6 characters long')
-    }).strict()
+export const signInSchema = z.object({
+    email: z.email(),
+    password: z.string().min(6, 'password must be at least 6 characters long')
+}).strict()
 
 
 // body signUp schema
@@ -29,25 +28,22 @@ const signUpSchemaRefined = signUpSchemaBody.refine((data) => data.password === 
 export const signUpSchema = signUpSchemaRefined;
 
 // verifyOtp Schema
-export const verifyOtpSchema =
-    z.object({
-        otp: z.string().length(6, 'otp must be 6 digits long'),
-    }).strict()
+export const verifyOtpSchema = z.object({
+    otp: z.string().length(6, 'otp must be 6 digits long'),
+}).strict()
 
 
 // forgetPassword Schema
-export const forgetPasswordSchema =
-    z.object({
-        email: z.email(),
-    }).strict()
+export const forgetPasswordSchema = z.object({
+    email: z.email(),
+}).strict()
 
 
 // resetPassword Schema
-export const resetPasswordSchema =
-    z.object({
-        password: z.string().min(6, 'password must be at least 6 characters long'),
-        cPassword: z.string().min(6, 'confirmPassword must be at least 6 characters long'),
-    }).strict()
+export const resetPasswordSchema = z.object({
+    password: z.string().min(6, 'password must be at least 6 characters long'),
+    cPassword: z.string().min(6, 'confirmPassword must be at least 6 characters long'),
+}).strict()
 
 // contactUs schema
 export const contactUsSchema = z.object({

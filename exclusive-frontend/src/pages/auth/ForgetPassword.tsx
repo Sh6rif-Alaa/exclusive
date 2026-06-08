@@ -6,11 +6,15 @@ import FormInput from "../../components/form/FormInput";
 import { forgetPasswordSchema } from "../../schema/auth/auth.validation";
 import type { forgetPasswordType } from "../../schema/auth/auth.dto";
 import { forgotPasswordFields } from "../../schema/auth/authFields";
-import { useAppDispatch } from "../../redux/store";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { setResetEmail } from "../../redux/slice/authFlowSlice";
 import Image from "../../components/home/Image";
+import toast from "react-hot-toast";
+import { forgetPassword } from "../../redux/slice/authSlice";
+import LoadingButton from "../../components/loading/loadingButton";
 
 const ForgotPassword = () => {
+    const email = useAppSelector(state => state.authFlow.email)
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -23,8 +27,19 @@ const ForgotPassword = () => {
     });
 
     const onSubmit: SubmitHandler<forgetPasswordType> = async (data) => {
-        dispatch(setResetEmail(data.email));
-        navigate("/verify");
+        try {
+            if (email === data.email) {
+                toast.success("already code sent to your email");
+                navigate("/verify");
+                return
+            }
+            await dispatch(forgetPassword({ email: data.email})).unwrap()
+            dispatch(setResetEmail(data.email));
+            toast.success("Code sent successfully");
+            navigate("/verify");
+        } catch (error) {
+            toast.error(error as string);
+        }
     };
 
     return (
@@ -54,9 +69,7 @@ const ForgotPassword = () => {
                                     />
                                 ))}
 
-                                <button type="submit" disabled={isSubmitting} className="bg-primary text-white w-full py-4 mt-6 cursor-pointer hover:bg-primary/80 transition-colors duration-300">
-                                    {isSubmitting ? "Sending code..." : "Send Code"}
-                                </button>
+                                <LoadingButton isSubmitting={isSubmitting} text="Send Code" />
 
                                 <Link to="/login" className="block text-center mt-4 hover:text-primary transition-colors duration-300">Back to Login</Link>
                             </form>
