@@ -11,7 +11,7 @@ import userRouter from './modules/users/user.controller'
 import { connectDB } from './DB/connectionDB'
 import * as redisService from './common/services/redis.service'
 
-const port = Number(env.PORT)
+// const port = Number(env.PORT)
 
 // const app: Application = express()
 
@@ -25,6 +25,7 @@ const limiter = rateLimit({
 })
 
 const bootstrap = async (app: Application) => {
+    app.set("trust proxy", 1)
     app.use(express.json(), helmet(), cors(), limiter)
 
     await connectDB()
@@ -39,7 +40,7 @@ const bootstrap = async (app: Application) => {
 
     app.use(globalErrorHandler)
 
-    app.listen(port, () => console.log(`app running on port ${port}!`))
+    // app.listen(port, () => console.log(`app running on port ${port}!`))
 }
 
 export default bootstrap
