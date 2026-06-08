@@ -28,8 +28,15 @@ const bootstrap = async (app: Application) => {
     app.set("trust proxy", 1)
     app.use(express.json(), helmet(), cors(), limiter)
 
+    console.log("Before Mongo")
+
     await connectDB()
+
+    console.log("After Mongo")
+
     await redisService.connect()
+
+    console.log("After Redis")
 
     app.get('/', (_req: Request, res: Response) => { successResponse({ res, message: 'Welcome on exclusiveEcommerce App' }) })
 
