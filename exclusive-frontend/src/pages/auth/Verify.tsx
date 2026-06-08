@@ -28,7 +28,7 @@ const Verify = () => {
     const navigate = useNavigate();
 
     // if forget password and want reset password
-    const { email: resetEmail } = useAppSelector((state) => state.authFlow);
+    const { email: resetEmail } = useAppSelector((state) => state.authFlow) as { email: string };
     const dispatch = useAppDispatch();
 
     const {
