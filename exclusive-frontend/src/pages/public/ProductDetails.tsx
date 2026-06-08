@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Heart, Minus, Plus, RotateCcw, Truck } from "lucide-react";
 import { useParams } from "react-router";
 import Breadcrumb from "../../shared/header/Breadcrumb";
@@ -9,6 +9,7 @@ import { addToCart } from "../../redux/slice/cartSlice";
 import { toggleWishlist } from "../../redux/slice/wishlistSlice";
 import type { AdminProduct } from "../../types/dashboard.type";
 import Image from "../../components/home/Image";
+import toast from "react-hot-toast";
 
 const ProductDetails = () => {
     const dispatch = useAppDispatch();
@@ -20,10 +21,17 @@ const ProductDetails = () => {
 
     const handleAddToCart = () => {
         dispatch(addToCart({ id: product?.id!, image: product?.mainImage!, title: product?.title!, price: product?.newPrice!, quantity }));
+        toast.success(`${product?.title} added to cart`);
     };
 
     const handleToggleToWishlist = () => {
-        dispatch(toggleWishlist({ id: product?.id!, image: product?.mainImage!, title: product?.title!, price: product?.newPrice! }));
+        if (isWishlisted) {
+            toast.success(`${product?.title} removed from wishlist`);
+            dispatch(toggleWishlist({ id: product?.id!, image: product?.mainImage!, title: product?.title!, price: product?.newPrice! }));
+        } else {
+            toast.success(`${product?.title} added to wishlist`);
+            dispatch(toggleWishlist({ id: product?.id!, image: product?.mainImage!, title: product?.title!, price: product?.newPrice! }));
+        }
     };
 
     const relatedProducts = useMemo(() => {
@@ -32,6 +40,10 @@ const ProductDetails = () => {
         return productsData.filter(
             (item) => item.category === product.category && item.id !== product.id
         ).slice(0, 4);
+    }, [product]);
+
+    useEffect(() => {
+        setSelectedImage(product?.mainImage);
     }, [product]);
 
     if (!product) {

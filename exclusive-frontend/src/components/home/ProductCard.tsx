@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { addToCart } from "../../redux/slice/cartSlice";
 import { toggleWishlist } from "../../redux/slice/wishlistSlice";
 import Image from "./Image";
+import toast from "react-hot-toast";
 
 const ProductCard = ({ id, title, newPrice, oldPrice, image, discount, rating, review, colors }: ProductCardProps) => {
     const dispatch = useAppDispatch();
@@ -21,7 +22,10 @@ const ProductCard = ({ id, title, newPrice, oldPrice, image, discount, rating, r
                 <div
                     className={`absolute top-3 right-3 z-20 flex flex-col gap-2 [&_button]:w-8 [&_button]:h-8 [&_button]:rounded-full [&_button]:bg-white [&_button]:dark:bg-gray-900 [&_button]:flex [&_button]:items-center [&_button]:justify-center [&_button]:cursor-pointer ${isWishlisted ? "[&_button]:hover:bg-white" : "[&_button]:hover:bg-primary"}  [&_button]:hover:text-white [&_button]:transition-colors [&_button]:shadow-sm`}>
                     <button
-                        onClick={() => dispatch(toggleWishlist({ id, title, image, price: newPrice }))}>
+                        onClick={() => {
+                            isWishlisted ? toast.success(`${title} removed from wishlist`) : toast.success(`${title} added to wishlist`);
+                            dispatch(toggleWishlist({ id, title, image, price: newPrice }))
+                        }}>
                         <Heart size={18} fill={isWishlisted ? "currentColor" : "none"} className={isWishlisted ? "text-primary" : ""} />
                     </button>
                     <button> <Eye /> </button>
@@ -31,7 +35,10 @@ const ProductCard = ({ id, title, newPrice, oldPrice, image, discount, rating, r
                     <Image src={image} alt={title} skeleton={true} className="w-full hover:scale-110 transition-transform duration-300" />
                 </Link>
                 <button
-                    onClick={() => dispatch(addToCart({ id, title, image, price: newPrice, quantity: 1 }))}
+                    onClick={() => {
+                        dispatch(addToCart({ id, title, image, price: newPrice, quantity: 1 }))
+                        toast.success(`${title} added to cart`);
+                    }}
                     className="absolute bottom-0 w-full bg-black text-white py-2 font-medium text-sm translate-y-full group-hover:translate-y-0 transition-transform duration-300 cursor-pointer hover:text-primary">
                     Add To Cart
                 </button>

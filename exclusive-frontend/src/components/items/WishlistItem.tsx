@@ -4,12 +4,14 @@ import { toggleWishlist, type WishlistItemType } from "../../redux/slice/wishlis
 import { addToCart } from "../../redux/slice/cartSlice";
 import { useAppDispatch } from "../../redux/store";
 import Image from "../home/Image";
+import toast from "react-hot-toast";
 
 const WishlistItem = ({ id, image, price, title }: WishlistItemType) => {
     const dispatch = useAppDispatch();
 
     const handleAddToCart = () => {
         dispatch(addToCart({ id, image, title, price, quantity: 1 }));
+        toast.success(`${title} added to cart`);
     };
 
     return (
@@ -22,7 +24,10 @@ const WishlistItem = ({ id, image, price, title }: WishlistItemType) => {
                 </Link>
 
                 <button
-                    onClick={() => dispatch(toggleWishlist({ id, title, image, price }))}
+                    onClick={() => {
+                        dispatch(toggleWishlist({ id, title, image, price }));
+                        toast.success(`${title} removed from wishlist`);
+                    }}
                     className="absolute top-3 right-3 bg-white rounded-full p-2 shadow cursor-pointer hover:text-primary text-slate-800">
                     <Trash2 size={18} />
                 </button>

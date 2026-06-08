@@ -3,6 +3,7 @@ import { decreaseQuantity, increaseQuantity, removeFromCart, updateQuantity, typ
 import { useAppDispatch } from "../../redux/store";
 import { Link } from "react-router-dom";
 import Image from "../home/Image";
+import toast from "react-hot-toast";
 
 const CartItem = ({ image, id, price, quantity, title }: CartItemType) => {
     const dispatch = useAppDispatch();
@@ -19,7 +20,10 @@ const CartItem = ({ image, id, price, quantity, title }: CartItemType) => {
                     <Link to={`/products/${id}`} className="line-clamp-1 hover:text-primary transition-colors">{title}</Link>
 
                     <button
-                        onClick={() => dispatch(removeFromCart(id))}
+                        onClick={() => {
+                            dispatch(removeFromCart(id));
+                            toast.success(`${title} removed from cart`);
+                        }}
                         className="flex items-center gap-1 text-red-500 text-sm mt-2 cursor-pointer hover:text-primary">
                         <Trash2 size={16} />
                         Remove
@@ -31,7 +35,14 @@ const CartItem = ({ image, id, price, quantity, title }: CartItemType) => {
 
             <div className="flex justify-center items-center gap-3">
                 <button
-                    onClick={() => quantity <= 1 ? dispatch(removeFromCart(id)) : dispatch(decreaseQuantity(id))}
+                    onClick={() => {
+                        if (quantity <= 1) {
+                            dispatch(removeFromCart(id));
+                            toast.success(`${title} removed from cart`);
+                            return;
+                        }
+                        dispatch(decreaseQuantity(id));
+                    }}
                     className='border p-2 rounded hover:text-primary cursor-pointer'>
                     <Minus size={16} />
                 </button>
@@ -39,7 +50,11 @@ const CartItem = ({ image, id, price, quantity, title }: CartItemType) => {
                 <input
                     type="number"
                     value={quantity}
-                    onChange={(e) => dispatch(updateQuantity({ id, quantity: Math.max(1, Number(e.target.value)) }))}
+                    onChange={(e) => {
+                        const newQuantity = Math.max(1, Number(e.target.value));
+                        dispatch(updateQuantity({ id, quantity: newQuantity }));
+                        toast.success(`${title} quantity updated`);
+                    }}
                     min={1}
                     className="border rounded w-10 h-9 text-center focus:border-primary outline-none"
                 />

@@ -3,6 +3,7 @@ import WishlistItem from "../../components/items/WishlistItem";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { clearWishlist } from "../../redux/slice/wishlistSlice";
 import { addToCart } from "../../redux/slice/cartSlice";
+import toast from "react-hot-toast";
 
 const Wishlist = () => {
     const wishlistItems = useAppSelector((state) => state.wishlist.items);
@@ -11,6 +12,7 @@ const Wishlist = () => {
     const AddAllToCart = () => {
         wishlistItems.forEach((item) => {
             dispatch(addToCart({ ...item, quantity: 1 }));
+            toast.success(`${item.title} added to cart`);
         });
     };
 
@@ -43,7 +45,10 @@ const Wishlist = () => {
 
                             {wishlistItems.length && (
                                 <button
-                                    onClick={() => dispatch(clearWishlist())}
+                                    onClick={() => {
+                                        dispatch(clearWishlist());
+                                        toast.success("Wishlist cleared");
+                                    }}
                                     className="border px-6 py-3 rounded-md hover:bg-red-500 hover:text-white transition-colors cursor-pointer">
                                     Clear Wishlist
                                 </button>
