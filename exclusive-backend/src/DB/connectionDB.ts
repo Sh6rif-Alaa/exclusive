@@ -4,6 +4,7 @@ import env from "../config/config.service";
 export const connectDB = async (): Promise<void> => {
     try {
         console.log("DB URI EXISTS:", !!env.DB_URI_ONLINE);
+        console.log(env.DB_URI_ONLINE)
 
         const conn = await mongoose.connect(env.DB_URI_ONLINE, {
             serverSelectionTimeoutMS: 5000,
