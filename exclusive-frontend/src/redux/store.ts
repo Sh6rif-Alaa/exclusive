@@ -9,11 +9,11 @@ import { loadFromStorage, removeFromStorage, saveToStorage } from "../lib/storag
 
 const preloadedState = {
   cart: {
-    items: loadFromStorage("cart"),
+    items: loadFromStorage("cart") || [],
   },
 
   wishlist: {
-    items: loadFromStorage("wishlist"),
+    items: loadFromStorage("wishlist") || [],
   },
 
   auth: {
@@ -62,10 +62,10 @@ store.subscribe(() => {
   if (state.auth.token?.refreshToken) saveToStorage("refreshToken", state.auth.token.refreshToken);
   else removeFromStorage("refreshToken");
 
-  if (state.cart.items) saveToStorage("cart", state.cart.items);
+  if (state.cart.items.length > 0) saveToStorage("cart", state.cart.items);
   else removeFromStorage("cart");
 
-  if (state.wishlist.items) saveToStorage("wishlist", state.wishlist.items);
+  if (state.wishlist.items.length > 0) saveToStorage("wishlist", state.wishlist.items);
   else removeFromStorage("wishlist");
 });
 

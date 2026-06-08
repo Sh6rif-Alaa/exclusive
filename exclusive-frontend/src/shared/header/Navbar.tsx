@@ -12,8 +12,10 @@ import { useState } from "react";
 const Navbar = () => {
     const [userMenuOpen, setUserMenuOpen] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+
     const dispatch = useAppDispatch();
     const navigate = useNavigate()
+    
     const totalCartUnits = useAppSelector((state) => state.cart?.items?.length || 0);
     const totalWishlistUnits = useAppSelector((state) => state.wishlist?.items?.length || 0);
     const { token, data: user, loading } = useAppSelector((state) => state.auth) as { token: Token, data: IUser, loading: boolean };
