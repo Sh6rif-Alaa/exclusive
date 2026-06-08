@@ -8,24 +8,22 @@ export const signInSchema = z.object({
 
 
 // body signUp schema
-export const signUpSchemaBody = z.object({
+export const signUpSchema = z.object({
     email: z.email(),
     password: z.string().min(6, 'password must be at least 6 characters long'),
     cPassword: z.string().min(6, 'confirmPassword must be at least 6 characters long'),
-    userName: z.string().min(3, 'userName must be at least 3 characters long').max(25, 'userName must be at most 25 characters long')
-}).strict()
-
-// refined signUp schema -> split for password and cPassword to get error with the rest of the fields
-const signUpSchemaRefined = signUpSchemaBody.refine((data) => data.password === data.cPassword, {
+    userName: z.string().min(4, 'userName must be at least 4 characters long').max(25, 'userName must be at most 25 characters long')
+}).refine((data) => data.password === data.cPassword, {
     message: "Passwords do not match",
     path: ["cPassword"],
-    when(payload) {
-        return signUpSchemaBody.pick({ password: true, cPassword: true }).safeParse(payload.value).success
-    },
-})
-
-// signUp schema
-export const signUpSchema = signUpSchemaRefined;
+}).refine((data) => {
+    const parts = (data.userName as string).split(' ')
+    if (parts.length <= 2) return false
+    return true
+}, {
+    message: "userName must contain at least first name and last name (example: Sherif Alaa)",
+    path: ["userName"],
+}).strict()
 
 // verifyOtp Schema
 export const verifyOtpSchema = z.object({

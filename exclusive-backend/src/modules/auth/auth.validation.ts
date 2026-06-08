@@ -10,25 +10,16 @@ export const signInSchema = {
 }
 
 // body signUp schema
-export const signUpSchemaBody = z.object({
-    email: z.email(),
-    password: z.string().min(6, 'password must be at least 6 characters long'),
-    cPassword: z.string().min(6, 'confirmPassword must be at least 6 characters long'),
-    userName: z.string().min(3, 'userName must be at least 3 characters long').max(25, 'userName must be at most 25 characters long')
-}).strict()
-
-// refined signUp schema -> split for password and cPassword to get error with the rest of the fields
-const signInSchemaRefined = signUpSchemaBody.refine((data) => data.password === data.cPassword, {
-    message: "Passwords do not match",
-    path: ["cPassword"],
-    when(payload) {
-        return signUpSchemaBody.pick({ password: true, cPassword: true }).safeParse(payload.value).success
-    },
-})
-
-// signUp schema
 export const signUpSchema = {
-    body: signInSchemaRefined
+    body: z.object({
+        email: z.email(),
+        password: z.string().min(6, 'password must be at least 6 characters long'),
+        cPassword: z.string().min(6, 'confirmPassword must be at least 6 characters long'),
+        userName: z.string().min(3, 'userName must be at least 3 characters long').max(25, 'userName must be at most 25 characters long')
+    }).refine((data) => data.password === data.cPassword, {
+        message: "Passwords do not match",
+        path: ["cPassword"],
+    }).strict()
 }
 
 // forgetPassword Schema
