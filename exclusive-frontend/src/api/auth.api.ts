@@ -14,6 +14,11 @@ export const signUpApi = async ({ userName, email, password, cPassword }: Pick<I
     return (await axios.post<AuthState>(`${API_URL}/signup`, { userName, email, password, cPassword })).data
 }
 
+// signUp gmail
+export const signUpWithGoogleApi = async (idToken: string): Promise<AuthState> => {
+    return (await axios.post<AuthState>(`${API_URL}/signUpWithGmail`, { idToken })).data;
+};
+
 //  verify email
 export const verifyEmailApi = async ({ email, otp, type }: Pick<IUser, "email"> & { otp: string, type: emailType }): Promise<AuthState> => {
     return (await axios.post<AuthState>(`${API_URL}/verifyEmail?type=${type}`, { email, otp })).data

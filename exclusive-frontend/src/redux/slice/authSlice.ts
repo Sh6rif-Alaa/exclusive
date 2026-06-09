@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { forgetPasswordApi, logoutApi, reSendOtpApi, resetPasswordApi, signInApi, signUpApi, verifyEmailApi } from "../../api/auth.api";
+import { forgetPasswordApi, logoutApi, reSendOtpApi, resetPasswordApi, signInApi, signUpApi, signUpWithGoogleApi, verifyEmailApi } from "../../api/auth.api";
 import { createAsyncThunkWithError } from "../../helpers/errorHandler";
 import type { AuthState, IUser, Token } from "../../types/user.type";
 
@@ -19,6 +19,8 @@ const initialState: AuthState & LoadingErrorState = {
 export const signIn = createAsyncThunkWithError("auth/signIn", signInApi)
 
 export const signUp = createAsyncThunkWithError("auth/signUp", signUpApi)
+
+export const signUpWithGoogle = createAsyncThunkWithError("auth/signUpWithGoogle", signUpWithGoogleApi);
 
 export const verifyEmail = createAsyncThunkWithError("auth/verifyEmail", verifyEmailApi)
 
@@ -60,6 +62,10 @@ const authSlice = createSlice({
             .addCase(signIn.pending, handlePending)
             .addCase(signIn.fulfilled, handleFulfilled)
             .addCase(signIn.rejected, handleRejected)
+
+            .addCase(signUpWithGoogle.pending, handlePending)
+            .addCase(signUpWithGoogle.fulfilled, handleFulfilled)
+            .addCase(signUpWithGoogle.rejected, handleRejected)
 
             // sign up
             .addCase(signUp.fulfilled, handleFulfilled)

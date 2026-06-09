@@ -8,10 +8,11 @@ import { signUpFields } from "../../schema/auth/authFields";
 import authImage from "../../assets/images/capture_20260202183654141.bmp";
 import Image from "../../components/home/Image";
 import { useAppDispatch } from "../../redux/store";
-import { signUp } from "../../redux/slice/authSlice";
+import { signUp, signUpWithGoogle } from "../../redux/slice/authSlice";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import LoadingButton from "../../components/loading/LoadingButton";
+import { GoogleLogin } from "@react-oauth/google";
 
 const SignUp = () => {
     const dispatch = useAppDispatch()
@@ -67,7 +68,24 @@ const SignUp = () => {
 
                                 <LoadingButton isSubmitting={isSubmitting} text="Sign Up" classess="w-full" />
 
-                                <button type="button" className="border-2 w-full py-5 my-5 cursor-pointer hover:bg-primary hover:text-white transition-colors duration-300">Sign up with Google</button>
+                                <div className="flex justify-center my-3">
+                                    <GoogleLogin
+                                        onSuccess={async (credentialResponse) => {
+                                            try {
+                                                const idToken = credentialResponse.credential;
+                                                if (!idToken) return;
+                                                await dispatch(signUpWithGoogle(idToken)).unwrap();
+                                                toast.success("Logged in successfully");
+                                                navigate("/");
+                                            } catch (error) {
+                                                toast.error(error as string);
+                                            }
+                                        }}
+                                        onError={() => {
+                                            toast.error("Google login failed");
+                                        }}
+                                    />
+                                </div>
                             </form>
 
                             <p className="text-gray-400">Already have account?

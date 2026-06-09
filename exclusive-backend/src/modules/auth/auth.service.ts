@@ -156,7 +156,16 @@ export const signUpWithGmail = async (req: Request, res: Response, _next: NextFu
 
     const { accessToken, refreshToken } = getTokens(user._id)
 
-    successResponse({ res, message: 'user logged in successfully', token: { accessToken, refreshToken } })
+    successResponse({
+        res, message: 'user logged in successfully', data: {
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            role: user.role,
+            address: user.address,
+            profilePicture: user.profilePicture
+        }, token: { accessToken, refreshToken }
+    })
 }
 
 export const verifyEmail = async (req: Request, res: Response, _next: NextFunction) => {
