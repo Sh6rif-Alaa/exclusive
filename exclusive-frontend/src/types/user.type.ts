@@ -12,6 +12,7 @@ export interface IUser {
     public_id?: string
     secure_url: string
   }
+  confirmed: boolean
 }
 
 export interface Token {

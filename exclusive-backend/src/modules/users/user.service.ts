@@ -38,6 +38,7 @@ export const getMyProfile = async (req: Request, res: Response, _next: NextFunct
 
 export const updateMyProfile = async (req: Request, res: Response, _next: NextFunction) => {
     const { firstName, lastName, email, address } = req.body
+    console.log(firstName)
 
     if (email && email !== req.user!.email) {
         const user = await dbService.findOne({ filter: { email }, model: userModel })

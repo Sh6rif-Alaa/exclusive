@@ -70,6 +70,7 @@ const UserAccount = () => {
 
             // if change data and update profile
             else if (data.email !== user?.email || data.firstName !== user?.firstName || data.lastName !== user?.lastName || data.address !== user?.address) {
+                console.log(data)
                 const { data: res } = await dispatch(updateProfile({
                     email: data.email,
                     userName: `${data.firstName} ${data.lastName}`,

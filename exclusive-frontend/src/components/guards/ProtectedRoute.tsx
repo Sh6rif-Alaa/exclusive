@@ -8,12 +8,17 @@ import toast from "react-hot-toast";
 
 
 export function ProtectedRoute() {
-    const token = useAppSelector((state) => state.auth.token?.accessToken);
+    const { token, data: user } = useAppSelector((state) => state.auth);
 
-    if (!token) {
+    if (!token.accessToken) {
         toast.error("please login first to access this page", { id: "access-error" });
         return <Navigate to="/login" replace />;
     }
+
+    // if (token.accessToken && !user?.confirmed) {
+    //     toast.error("please confirm your email first to access this page", { id: "email-error" });
+    //     return <Navigate to={`/verify?email=${user?.email}&type=confirmEmail`} replace />;
+    // }
 
     return (
         <>

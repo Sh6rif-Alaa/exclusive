@@ -6,4 +6,4 @@ export type signInType = z.infer<typeof signInSchema>
 export type verifyOtpType = z.infer<typeof verifyOtpSchema>
 export type forgetPasswordType = z.infer<typeof forgetPasswordSchema>
 export type resetPasswordType = z.infer<typeof resetPasswordSchema>
-export type ContactUsType = z.infer<typeof contactUsSchema>;
+export type ContactUsType = z.infer<typeof contactUsSchema>

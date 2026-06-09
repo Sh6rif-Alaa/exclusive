@@ -16,13 +16,6 @@ export const signUpSchema = z.object({
 }).refine((data) => data.password === data.cPassword, {
     message: "Passwords do not match",
     path: ["cPassword"],
-}).refine((data) => {
-    const parts = (data.userName as string).split(' ')
-    if (parts.length <= 2) return false
-    return true
-}, {
-    message: "userName must contain at least first name and last name (example: Sherif Alaa)",
-    path: ["userName"],
 }).strict()
 
 // verifyOtp Schema
