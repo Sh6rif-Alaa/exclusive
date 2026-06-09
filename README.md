@@ -1,15 +1,16 @@
-# 🛍️ Exclusive - Modern E-Commerce Frontend
+# 🛍️ Exclusive - Full-Stack E-Commerce Platform
 
 ---
 
 ## 📋 Table of Contents
 
 - [About The Project](#-about-the-project)
-- [Architecture & State](#-architecture--state)
+- [Architecture Overview](#-architecture-overview)
 - [Tech Stack](#%EF%B8%8F-tech-stack)
+- [Pages & Routes](#-pages--routes-overview)
+- [Backend API](#-backend-api)
 - [Getting Started](#-getting-started)
-- [Installation](#-installation)
-- [Backend Integration](#-backend-integration)
+- [Environment Variables](#-environment-variables)
 - [Contributing](#-contributing)
 - [License](#-license)
 
@@ -17,18 +18,68 @@
 
 ## 🎯 About The Project
 
-**Exclusive** is a complete, production-ready e-commerce platform frontend built with modern web technologies: React, TypeScript, and Vite. 
+**Exclusive** is a complete, production-ready full-stack e-commerce platform built with modern web technologies.
 
-Currently, this project operates as a **Standalone Frontend**. There is no backend connected yet. It is fully pre-configured and architected so that integrating a real backend API in the future will be seamless.
+The project consists of two parts:
+- **Frontend**: React 19 + TypeScript + Vite — a beautiful, responsive shopping experience
+- **Backend**: Node.js + Express 5 + MongoDB + Redis — a secure, scalable REST API
 
-Key features and focuses of this frontend include:
+Key highlights:
 
-- 🎨 **Beautiful UI/UX** - Clean, modern design with smooth animations
-- 📱 **Fully Responsive** - Works seamlessly on all devices (Mobile, Tablet, Desktop)
-- ⚡ **Performance** - Optimized for fast loading and smooth interactions using Vite and React 19
-- 🔧 **Maintainable** - Clean, well-organized code structure using TypeScript
-- 🔒 **Form Validation** - Robust form handling with React Hook Form and Zod
-- 👑 **Admin Dashboard** - Complete management interface for products, orders, users, and store settings
+- 🎨 **Beautiful UI/UX** — Clean, modern design with smooth animations and dark/light theme support
+- 📱 **Fully Responsive** — Works seamlessly on all devices (Mobile, Tablet, Desktop)
+- ⚡ **Performance** — Optimized using Vite, Redis caching, and AWS S3 for media
+- 🔒 **Security** — JWT auth, bcrypt hashing, OTP verification, rate limiting, and Helmet.js
+- 📧 **Email System** — OTP-based email verification via Nodemailer with event-driven architecture
+- 👑 **Admin Dashboard** — Complete management interface for products, orders, users, categories, and analytics
+- ☁️ **Cloud Ready** — Deployed via Vercel (frontend & backend), with AWS S3 for file storage
+
+---
+
+## 🏗️ Architecture Overview
+
+```
+exclusive/
+├── exclusive-frontend/        # React + Vite SPA
+│   ├── src/
+│   │   ├── api/               # Axios API calls (auth, user)
+│   │   ├── components/        # Reusable UI components & guards
+│   │   ├── context/           # ThemeContext (dark/light mode)
+│   │   ├── hooks/             # Custom hooks (useCountdown, etc.)
+│   │   ├── pages/
+│   │   │   ├── public/        # Home, Shop, Cart, Wishlist, etc.
+│   │   │   ├── auth/          # Login, SignUp, Verify, ResetPassword
+│   │   │   ├── protected/     # Account, Orders, Checkout, etc.
+│   │   │   └── admin/         # Admin Dashboard, Products, Users, etc.
+│   │   ├── redux/             # Redux Toolkit slices & store
+│   │   ├── routes/            # App routing with guards
+│   │   └── schema/            # Zod validation schemas
+│
+└── exclusive-backend/         # Express + MongoDB REST API
+    └── src/
+        ├── DB/
+        │   ├── models/        # Mongoose models (User, Product)
+        │   └── db.service.ts  # Generic CRUD service
+        ├── modules/
+        │   ├── auth/          # SignUp, SignIn, Google OAuth, OTP, etc.
+        │   └── users/         # Profile, password, soft delete
+        └── common/
+            ├── middleware/    # Auth, Authorization, Multer, Validation
+            ├── services/      # Redis, S3, Token
+            └── utils/         # Email, Hashing, Encryption, Error handling
+```
+
+### State Management (Frontend)
+- **Redux Toolkit** slices: `authSlice`, `authFlowSlice`, `cartSlice`, `userSlice`, `wishlistSlice`
+- **React Router DOM v7** for client-side routing with route guards (Guest, Protected, Admin)
+- **Axios** for all HTTP requests
+
+### Auth Flow (Backend)
+1. User registers → OTP sent via email (Redis-backed, 5min TTL)
+2. User verifies OTP → account confirmed
+3. Login → JWT access token (1 day) + refresh token (1 year)
+4. Google OAuth supported via `google-auth-library`
+5. Logout supports single-device or all-devices (via Redis revoke keys)
 
 ---
 
@@ -84,39 +135,65 @@ Key features and focuses of this frontend include:
 
 ---
 
-## 🏗️ Architecture & State
+## 🔌 Backend API
 
-Even though there is no backend yet, the application is structured as a real-world production app:
+Base URL: `/api/v1`
 
-- **State Management**: Handled via **Redux Toolkit**. 
-- **Routing**: Client-side routing is managed via **React Router DOM**.
-- **API Readiness**: Uses **Axios** for HTTP requests, currently primed to connect to your future API endpoints.
-- **Styling**: Uses **Tailwind CSS v4** for utility-first styling.
+### Auth Endpoints (`/api/v1/auth`)
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/sign-up` | Register new user | Public |
+| POST | `/sign-in` | Login with email & password | Public |
+| POST | `/sign-up-gmail` | Login / Register via Google | Public |
+| POST | `/verify-email` | Verify OTP code | Public |
+| POST | `/forget-password` | Request password reset OTP | Public |
+| POST | `/reset-password` | Reset password with OTP | Public |
+| POST | `/resend-otp` | Re-send OTP | Public |
+| POST | `/logout` | Logout (single or all devices) | 🔒 JWT |
+
+### User Endpoints (`/api/v1/users`)
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/refresh-token` | Get new access token | 🔒 Refresh JWT |
+| GET | `/profile` | Get my profile | 🔒 JWT |
+| PATCH | `/profile` | Update profile info | 🔒 JWT |
+| PATCH | `/password` | Change password | 🔒 JWT |
+| DELETE | `/profile` | Soft-delete account | 🔒 JWT |
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Core
-- **React 19** - UI Library
-- **TypeScript** - Static Typing
-- **Vite** - Build Tool & Dev Server
+### Frontend
+| Category | Technology |
+|----------|-----------|
+| UI Library | React 19 |
+| Language | TypeScript |
+| Build Tool | Vite 8 |
+| State Management | Redux Toolkit + React Redux |
+| Routing | React Router DOM v7 |
+| Styling | Tailwind CSS v4 |
+| Forms | React Hook Form + Zod |
+| HTTP | Axios |
+| Icons | Lucide React |
+| Slider | Swiper |
+| Charts | Recharts |
+| Notifications | React Hot Toast |
 
-### State & Routing
-- **Redux Toolkit** - State Management
-- **React Redux** - React bindings for Redux
-- **React Router DOM** - Application Routing
-
-### Styling & UI Components
-- **Tailwind CSS 4.x** - Utility-first CSS framework
-- **Lucide React** - Icon library
-- **Swiper** - Modern touch slider
-- **React Simple Star Rating** - Rating component
-- **React Hot Toast** - Notifications
-
-### Forms & Validation
-- **React Hook Form** - Form state management
-- **Zod** - Schema validation
+### Backend
+| Category | Technology |
+|----------|-----------|
+| Runtime | Node.js |
+| Framework | Express 5 |
+| Language | TypeScript |
+| Database | MongoDB + Mongoose |
+| Cache / Sessions | Redis |
+| Auth | JWT (access + refresh) + Google OAuth |
+| File Storage | AWS S3 |
+| Email | Nodemailer |
+| Security | Helmet, CORS, express-rate-limit, bcrypt |
+| Validation | Zod |
+| Deployment | Vercel + PM2 |
 
 ---
 
@@ -124,16 +201,10 @@ Even though there is no backend yet, the application is structured as a real-wor
 
 ### Prerequisites
 
-Before you begin, ensure you have the following installed:
-
-- **Node.js** (v18.0.0 or higher recommended)
-- **npm** (comes with Node.js)
-
-Verify installation:
-```bash
-node -v
-npm -v
-```
+- **Node.js** v18+
+- **MongoDB** (local or Atlas)
+- **Redis** (local or cloud)
+- **AWS S3** bucket (for file uploads)
 
 ---
 
@@ -146,33 +217,51 @@ git clone https://github.com/Sh6rif-Alaa/exclusive.git
 cd exclusive
 ```
 
-### 2. Install Dependencies
-
-Navigate to the project directory and install required packages:
+### 2. Setup Backend
 
 ```bash
+cd exclusive-backend
 npm install
-```
-
-### 3. Run Development Server
-
-Start the Vite development server:
-
-```bash
+cp .env.example .env
+# Fill in .env values (see Environment Variables section)
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173/` (or another port if 5173 is in use).
+### 3. Setup Frontend
+
+```bash
+cd exclusive-frontend
+npm install
+npm run dev
+```
+
+The frontend will be available at `http://localhost:5173/`  
+The backend will run on the port defined in your `.env`
 
 ---
 
-## 🔌 Backend Integration
+## 🔧 Environment Variables
 
-This application is strictly a **frontend** at this moment. 
-To connect this to a backend API:
-1. Setup your base URL in the Axios instance (typically in a `src/api` or `src/services` folder).
-2. Create environment variables (e.g., `.env.local`) for `VITE_API_BASE_URL`.
-3. Replace the mock data/Redux initial states with API fetching logic (e.g., using Redux Thunks or RTK Query).
+### Backend (`.env`)
+
+```env
+PORT=3000
+MONGO_URI=mongodb://...
+REDIS_URL=redis://...
+
+TOKEN_KEY=your_jwt_secret
+REFRESH_TOKEN_KEY=your_refresh_secret
+
+CLIENT_ID=your_google_oauth_client_id
+
+AWS_REGION=us-east-1
+AWS_ACCESS_KEY=your_aws_access_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret
+AWS_BUCKET_NAME=your_s3_bucket
+
+EMAIL_USER=your@email.com
+EMAIL_PASS=your_email_password
+```
 
 ---
 
